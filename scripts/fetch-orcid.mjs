@@ -227,6 +227,40 @@ async function enrichOpenAlex(list) {
   }
 }
 
+// SISTEDES digital library (JISBD, JCIS, PROLE…): works whose URL is a handle
+// under prefix 11705. The handle resolves to a DSpace item whose public REST API
+// gives authors (with their ORCID iDs) and the abstract.
+const SISTEDES_API = 'https://biblioteca.sistedes.es/dspace.server/api';
+
+// "Crespí, Antonio" -> "Antonio Crespí"
+const givenFirst = (name) => name.split(/,\s*/).reverse().join(' ').trim();
+
+async function enrichSistedes(list) {
+  const targets = list.filter((w) => /hdl\.handle\.net\/11705\//.test(w.url ?? ''));
+  await pool(targets, 2, async (w) => {
+    try {
+      const handle = w.url.split('hdl.handle.net/')[1];
+      // Citation handles (11705/JISBD/2025/101) point to the item handle (11705/3479).
+      const record = await getJson(`https://hdl.handle.net/api/handles/${handle}`);
+      const target = record?.values?.find((x) => x.type === 'URL')?.data?.value ?? '';
+      const itemHandle = target.match(/11705\/[^/?#]+$/)?.[0] ?? handle;
+      const item = await getJson(`${SISTEDES_API}/pid/find?id=${encodeURIComponent(itemHandle)}`);
+      const m = item?.metadata;
+      if (!m) return;
+      const values = (key) => (m[key] ?? []).map((x) => x.value);
+      // "signature" is how each author signs the paper; fall back to the full name.
+      const authors = values('dc.contributor.signature').length ? values('dc.contributor.signature') : values('dc.contributor.author');
+      if (!w.authors?.length && authors.length) w.authors = authors.map(givenFirst);
+      w.abstract = w.abstract ?? values('dc.description.abstract')[0] ?? null;
+      w.venue = w.venue ?? values('bs.proceedings.name')[0] ?? null;
+      w.license = w.license ?? values('dc.rights.license')[0] ?? null;
+    } catch (err) {
+      console.warn(`  SISTEDES failed for ${w.url}: ${err.message}`);
+    }
+  });
+  return targets.length;
+}
+
 // ---------- Main ----------
 
 console.log(`Fetching ORCID record ${orcid}…`);
@@ -255,6 +289,11 @@ const data = {
 if (enrich) {
   console.log(`Enriching ${data.works.filter((w) => w.doi).length} DOIs via Crossref…`);
   await enrichCrossref(data.works);
+  const sistedes = data.works.filter((w) => /hdl\.handle\.net\/11705\//.test(w.url ?? '')).length;
+  if (sistedes) {
+    console.log(`Enriching ${sistedes} works from the SISTEDES digital library…`);
+    await enrichSistedes(data.works);
+  }
   if (config.features?.citations !== false) {
     console.log('Fetching citation counts from OpenAlex…');
     await enrichOpenAlex(data.works);

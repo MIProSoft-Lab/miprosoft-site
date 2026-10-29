@@ -11,8 +11,9 @@ const ENTRY_TYPE = {
 const esc = (s) => String(s).replace(/([{}&%$#_])/g, '\\$1');
 
 function key(w, used) {
-  const author = (w.authors?.[0] ?? 'anon').split(/\s+/).pop().normalize('NFD').replace(/[^A-Za-z]/g, '').toLowerCase();
-  const word = (w.title.match(/[A-Za-z]{4,}/)?.[0] ?? 'work').toLowerCase();
+  const ascii = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const author = ascii((w.authors?.[0] ?? 'anon').split(/\s+/).pop()).replace(/[^A-Za-z]/g, '').toLowerCase();
+  const word = (ascii(w.title).match(/[A-Za-z]{4,}/)?.[0] ?? 'work').toLowerCase();
   let k = `${author}${w.date?.year ?? ''}${word}`;
   for (let i = 2; used.has(k); i++) k = `${author}${w.date?.year ?? ''}${word}${i}`;
   used.add(k);

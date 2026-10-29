@@ -165,7 +165,15 @@
       "doi": null,
       "arxiv": null,
       "url": "https://hdl.handle.net/11705/JISBD/2026/139",
-      "authors": null
+      "authors": [
+        "Antoni Bennasar Garau",
+        "Jose David Pérez Cañellas",
+        "Antonio Crespí Tobeña",
+        "Maria Monserrat Barceló",
+        "Antoni Lluís Mesquida Calafat"
+      ],
+      "abstract": "El despliegue de sistemas de aprendizaje automático (ML) en entornos de producción ha transformado el papel de los modelos de ML, que pasan de ser artefactos experimentales a componentes críticos de sistemas software que deben satisfacer múltiples atributos de calidad, como el rendimiento, la disponibilidad o la equidad. Sin embargo, la gestión de estos atributos suele abordarse de forma fragmentada y centrada en fases específicas del ciclo de vida. Este trabajo en curso examina cómo se gestionan y priorizan los atributos de calidad en sistemas de ML en producción, considerando el papel de las prácticas asociadas a MLOps en su despliegue y operación. A partir de este contexto, se plantean preguntas de investigación y se identifican retos relacionados con la gestión de la calidad en sistemas de ML operativos.",
+      "license": "CC BY-NC-ND 4.0"
     },
     {
       "putCode": 228765090,
@@ -179,7 +187,15 @@
       "doi": null,
       "arxiv": null,
       "url": "https://hdl.handle.net/11705/JISBD/2026/146",
-      "authors": null
+      "authors": [
+        "Jose David Pérez Cañellas",
+        "Antoni Bennasar Garau",
+        "Maria Monserrat Barceló",
+        "Antonio Crespí Tobeña",
+        "Antoni-Lluís Mesquida"
+      ],
+      "abstract": "Este artículo presenta una revisión sistemática de la literatura sobre el uso de la inteligencia artificial generativa en la captura de requisitos de software. El trabajo se sitúa en un campo todavía incipiente dentro de la fase de planificación, donde la aplicación de la inteligencia artificial generativa ha sido menos explorada que en otras fases del ciclo de vida. A partir de un corpus de 33 estudios primarios, los hallazgos muestran un claro predominio de enfoques basados en grandes modelos del lenguaje, un uso recurrente de prompting con plantillas estructuradas para estandarizar las salidas y una presencia limitada de enfoques con recuperación de contexto. Asimismo, la evidencia se concentra en contextos académicos o prototípicos, con una validación industrial todavía escasa. Se sintetizan tendencias sobre modelos, técnicas de prompting y entornos de estudio, y se identifican vacíos en la evaluación empírica y en la transferencia a proyectos reales. Se discuten desafíos de reproducibilidad, calidad de datos y gobernanza, y se proponen líneas de investigación para fortalecer la aplicabilidad práctica.",
+      "license": "CC BY-NC-ND 4.0"
     },
     {
       "putCode": 228766231,
@@ -263,7 +279,14 @@
       "doi": null,
       "arxiv": null,
       "url": "https://hdl.handle.net/11705/JISBD/2025/101",
-      "authors": null
+      "authors": [
+        "Maria Monserrat",
+        "Antonio Crespí",
+        "Antonia Mas",
+        "Antoni-Lluís Mesquida"
+      ],
+      "abstract": "Este artículo presenta el proceso y los métodos usados en el desarrollo de una tesis doctoral en curso, cuyo objetivo principal es la elaboración de un marco de factores críticos que influyen en el éxito de los proyectos de software. El marco resultante está formado por 17 factores y un conjunto de indicadores y métricas para evaluar estos factores. Esta herramienta facilita la identificación de áreas de mejora y contribuye a incrementar la tasa de éxito de los proyectos de software. Para su elaboración, se ha considerado tanto la opinión de los investigadores que han publicado estudios relevantes en la materia como la experiencia de los jefes de proyecto del sector tecnológico en activo. En este sentido, los métodos utilizados en la realización de este trabajo podrían representar una guía para futuras investigaciones que busquen abordar una problemática real basada en evidencia empírica.",
+      "license": "CC BY-NC-ND 4.0"
     },
     {
       "putCode": 228763359,
@@ -277,7 +300,15 @@
       "doi": null,
       "arxiv": null,
       "url": "https://hdl.handle.net/11705/JISBD/2025/102",
-      "authors": null
+      "authors": [
+        "Maria Monserrat",
+        "Jose-David Pérez",
+        "Antonio Crespí",
+        "Antoni-Lluís Mesquida",
+        "Antonia Mas"
+      ],
+      "abstract": "El éxito de los proyectos de software está influenciado por múltiples factores humanos que afectan al desarrollo del proyecto. En este artículo, que forma parte de una investigación en curso, se presenta el proceso de elaboración de un marco de factores humanos que afectan al éxito de los proyectos de software. Los resultados destacan aspectos clave como la comunicación, la experiencia y la cohesión del equipo. Además, en esta investigación se establecerán indicadores y métricas para medir estos factores, permitiendo, en un futuro, definir pautas para mejorar la gestión y la tasa de éxito de los proyectos.",
+      "license": "CC BY-NC-ND 4.0"
     },
     {
       "putCode": 228766228,
@@ -305,7 +336,15 @@
       "doi": null,
       "arxiv": null,
       "url": "https://hdl.handle.net/11705/JISBD/2025/110",
-      "authors": null
+      "authors": [
+        "Jose-David Pérez",
+        "Maria Monserrat",
+        "Antonio Crespí",
+        "Antoni-Lluís Mesquida",
+        "Antonia Mas"
+      ],
+      "abstract": "El uso de aplicaciones y técnicas de Inteligencia Artificial (IA) en las distintas fases del ciclo de vida del desarrollo de software (SDLC) busca mejorar la eficiencia, la precisión y la innovación en cada etapa del proceso. Este artículo presenta una investigación en curso que nace con el propósito de resumir las técnicas y aplicaciones de IA aplicadas en las diferentes fases del SDLC: planificación, análisis, diseño, implementación, pruebas, despliegue y mantenimiento. El objetivo de esta investigación es identificar las tareas del SDLC que pueden ser automatizadas total o parcialmente mediante IA, detectar posibles lagunas en la automatización dentro de la ingeniería del software y proporcionar una base de conocimiento para investigadores y profesionales interesados en aprovechar la IA para transformar los flujos de trabajo en esta disciplina.",
+      "license": "CC BY-NC-ND 4.0"
     },
     {
       "putCode": 228762480,
