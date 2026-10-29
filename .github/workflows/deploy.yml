@@ -1,0 +1,85 @@
+name: Update from ORCID and deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 5 * * 1'   # every Monday, 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commit refreshed data/orcid.json
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # If ORCID or Crossref is unreachable, keep going with the committed data.
+      - name: Fetch ORCID record
+        id: fetch
+        continue-on-error: true
+        run: npm run fetch
+
+      - name: Commit updated data
+        if: steps.fetch.outcome == 'success'
+        run: |
+          if ! git diff --quiet -- data/orcid.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/orcid.json
+            git commit -m "Update ORCID data"
+            git push
+          fi
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build site
+        run: npm run build
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+
+      - name: Render PDFs
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          if [ "$(node -e "import('yaml').then(y=>console.log(y.parse(require('fs').readFileSync('cv.config.yaml','utf8')).features?.pdf!==false))")" != "true" ]; then
+            echo "PDF disabled in cv.config.yaml"; exit 0
+          fi
+          npx astro preview --port 4321 &
+          npx --yes wait-on@8 http://localhost:4321${BASE_PATH}/
+          for lang in $(node -e "import('yaml').then(y=>console.log(y.parse(require('fs').readFileSync('cv.config.yaml','utf8')).languages.join(' ')))"); do
+            google-chrome --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
+              --print-to-pdf="dist/cv-${lang}.pdf" "http://localhost:4321${BASE_PATH}/${lang}/"
+          done
+          ls -la dist/*.pdf
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
