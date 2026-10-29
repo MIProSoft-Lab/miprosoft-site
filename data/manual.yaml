@@ -17,9 +17,12 @@ profile:
   location: ""
   photo: ""        # path inside public/, e.g. /photo.jpg
   # Extra links in addition to the ORCID "websites & social links".
-  links: []
-  #  - { label: GitHub, url: https://github.com/you }
+  links:
+    - { label: GitHub, url: https://github.com/toni-crespi-uib }
+    - { label: UIB, url: https://www.uib.es/personal/ABjI5Nzc2NA/ }
   #  - { label: Google Scholar, url: https://scholar.google.com/citations?user=XXXX }
+
+  hideLinks: [Lens, Scopus]
 
 # Replaces the ORCID biography (which is only in one language).
 about: {}

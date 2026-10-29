@@ -151,7 +151,9 @@ function load() {
         ...(person.links ?? []),
         ...(person.identifiers ?? []).filter((i) => i.url).map((i) => ({ label: i.type, url: i.url })),
         ...(profile.links ?? []),
-      ].map((l) => ({ ...l, label: shortLabel(l.label) })),
+      ]
+        .map((l) => ({ ...l, label: shortLabel(l.label) }))
+        .filter((l) => !(profile.hideLinks ?? []).some((h) => l.label.toLowerCase() === String(h).toLowerCase())),
       keywords: person.keywords ?? [],
     },
     about: manual.about && Object.values(manual.about).some(Boolean) ? manual.about : person.biography,
