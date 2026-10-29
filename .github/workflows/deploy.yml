@@ -17,7 +17,37 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Skip everything until GitHub Pages is set up for this repo with
+  # Settings → Pages → Source: "GitHub Actions" (e.g. while the repo is private
+  # on a plan without Pages, or before you're ready to publish).
+  check-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: read
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if build_type=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type 2>/dev/null); then
+            if [ "$build_type" = "workflow" ]; then
+              echo "enabled=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            msg="GitHub Pages is set to deploy from a branch. Change Settings → Pages → Source to \"GitHub Actions\" to publish the CV."
+          else
+            msg="GitHub Pages is not set up for this repository, so the CV is not built or published. Enable it in Settings → Pages → Source: \"GitHub Actions\"."
+          fi
+          echo "enabled=false" >> "$GITHUB_OUTPUT"
+          echo "::notice title=CV not published::$msg"
+          echo "### CV not published" >> "$GITHUB_STEP_SUMMARY"
+          echo "$msg" >> "$GITHUB_STEP_SUMMARY"
+
   build:
+    needs: check-pages
+    if: needs.check-pages.outputs.enabled == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
