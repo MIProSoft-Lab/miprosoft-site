@@ -3,6 +3,7 @@ import '../../styles/cv.css';
 import Section from '../../components/Section.astro';
 import Entry from '../../components/Entry.astro';
 import Publications from '../../components/Publications.astro';
+import Metrics from '../../components/Metrics.astro';
 import { cv, config, languages, defaultLang, hasContent } from '../../lib/data.js';
 import { strings, loc, ui } from '../../lib/i18n.js';
 import { formatRange, formatDate, formatPlace } from '../../lib/format.js';
@@ -104,7 +105,10 @@ const affiliationEntry = (it) => ({
             cv[s].map((it) => <Entry {...affiliationEntry(it)} />)}
 
           {s === 'publications' && (
-            <Publications works={cv.works} lang={lang} nameVariants={cv.nameVariants} familyName={cv.familyName} givenNames={cv.givenNames} showCitations={features.citations !== false} />
+            <>
+              {features.metrics !== false && features.citations !== false && <Metrics metrics={cv.metrics} lang={lang} />}
+              <Publications works={cv.works} lang={lang} nameVariants={cv.nameVariants} familyName={cv.familyName} givenNames={cv.givenNames} showCitations={features.citations !== false} />
+            </>
           )}
 
           {s === 'funding' && cv.funding.map((f) => (

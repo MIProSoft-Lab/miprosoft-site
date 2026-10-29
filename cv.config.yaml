@@ -37,5 +37,6 @@ sections:
 
 features:
   citations: true   # citation counts from OpenAlex
+  metrics: true     # citations / h-index / i10-index summary (needs citations)
   bibtex: true      # /publications.bib download
   pdf: true         # PDF per language rendered in CI (cv-<lang>.pdf)

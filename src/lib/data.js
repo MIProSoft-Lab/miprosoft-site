@@ -63,6 +63,29 @@ function dedupeWorks(works) {
 
 const shortLabel = (s) => s.replace(/\s+(author id|profile)$/i, '');
 
+// Citation metrics computed from the works shown on the CV
+function computeMetrics(works) {
+  const counts = works.map((w) => w.citations ?? 0).sort((a, b) => b - a);
+  const byYear = {};
+  for (const w of works) {
+    for (const [year, n] of Object.entries(w.citationsByYear ?? {})) byYear[year] = (byYear[year] ?? 0) + n;
+  }
+  const years = Object.keys(byYear).map(Number);
+  const perYear = years.length
+    ? Array.from({ length: Math.max(...years) - Math.min(...years) + 1 }, (_, i) => {
+        const year = Math.min(...years) + i;
+        return { year, citations: byYear[year] ?? 0 };
+      })
+    : [];
+  return {
+    publications: works.length,
+    citations: counts.reduce((a, b) => a + b, 0),
+    hIndex: counts.filter((c, i) => c >= i + 1).length,
+    i10Index: counts.filter((c) => c >= 10).length,
+    perYear,
+  };
+}
+
 function load() {
   const orcid = existsSync(file('data/orcid.json'))
     ? JSON.parse(read('data/orcid.json'))
@@ -132,6 +155,7 @@ function load() {
     funding: applyItems(orcid.funding),
     peerReview: orcid.peerReview ?? [],
     works,
+    metrics: computeMetrics(works),
     talks,
     teaching: manual.teaching ?? [],
     supervision: manual.supervision ?? [],

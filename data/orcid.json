@@ -70,6 +70,7 @@
       "issue": null,
       "pages": "108873",
       "citations": 0,
+      "citationsByYear": {},
       "openAccessUrl": "https://doi.org/10.1016/j.future.2026.108873"
     },
     {
@@ -95,6 +96,9 @@
       "issue": "5",
       "pages": null,
       "citations": 1,
+      "citationsByYear": {
+        "2026": 1
+      },
       "openAccessUrl": "https://link.springer.com/content/pdf/10.1007/s10664-026-10824-4.pdf"
     },
     {
@@ -120,6 +124,7 @@
       "issue": null,
       "pages": null,
       "citations": 0,
+      "citationsByYear": {},
       "openAccessUrl": "https://www.sciencedirect.com/science/article/pii/S2307187726003561/pdf"
     },
     {
@@ -145,6 +150,7 @@
       "issue": "6",
       "pages": "112-115",
       "citations": 0,
+      "citationsByYear": {},
       "openAccessUrl": "https://doi.org/10.1109/mc.2026.3658240"
     },
     {
@@ -212,6 +218,9 @@
       "issue": "3",
       "pages": "75-81",
       "citations": 3,
+      "citationsByYear": {
+        "2026": 3
+      },
       "openAccessUrl": "https://doi.org/10.1109/ms.2025.3533017"
     },
     {
@@ -237,6 +246,9 @@
       "issue": "4",
       "pages": null,
       "citations": 2,
+      "citationsByYear": {
+        "2026": 2
+      },
       "openAccessUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/exsy.70029"
     },
     {
@@ -317,6 +329,7 @@
       "issue": null,
       "pages": "3-18",
       "citations": 0,
+      "citationsByYear": {},
       "openAccessUrl": null
     }
   ],

@@ -110,6 +110,49 @@ h3 { font: 600 0.95rem var(--sans); margin: 1.3rem 0 0.5rem; color: var(--muted)
 .subtitle { font-style: italic; }
 .meta, .description { color: var(--muted); font-size: 0.92rem; }
 
+/* Metrics */
+.metrics { margin-bottom: 1.4rem; }
+.tiles {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin: 0;
+}
+.tile { padding: 0.6rem 0.8rem; border: 1px solid var(--rule); border-radius: 8px; }
+.tile dt { color: var(--muted); font: 0.78rem var(--sans); }
+.tile dd { margin: 0.1rem 0 0; font: 600 1.6rem/1.2 var(--sans); }
+
+.cites-chart { margin: 1rem 0 0; }
+.cites-chart figcaption { color: var(--muted); font: 0.78rem var(--sans); margin-bottom: 0.4rem; }
+.bars {
+  display: flex; align-items: flex-end; gap: 2px;
+  height: 5.5rem; padding-top: 1.1rem; border-bottom: 1px solid var(--rule);
+}
+.bar-slot {
+  position: relative; flex: 1; height: 100%;
+  display: flex; align-items: flex-end; justify-content: center; outline: none;
+}
+.bar { width: 100%; max-width: 24px; min-height: 0; border-radius: 4px 4px 0 0; background: var(--accent); }
+.bar-slot:hover .bar, .bar-slot:focus-visible .bar { filter: brightness(1.15); }
+.bar-value {
+  position: absolute; left: 0; right: 0; margin-bottom: 0.15rem; text-align: center;
+  color: var(--muted); font: 600 0.72rem var(--sans);
+}
+/* Hover/focus tooltip; the whole column is the hit target. */
+.bar-slot::after {
+  content: attr(data-tip); position: absolute; bottom: calc(100% + 0.2rem); left: 50%; transform: translateX(-50%);
+  padding: 0.15rem 0.45rem; border-radius: 4px; white-space: nowrap; pointer-events: none;
+  background: var(--fg); color: var(--bg); font: 0.75rem var(--sans);
+  opacity: 0; transition: opacity 0.1s;
+}
+.bar-slot:hover::after, .bar-slot:focus-visible::after { opacity: 1; }
+.bar-slot:hover .bar-value, .bar-slot:focus-visible .bar-value { opacity: 0; }
+.bar-years { display: flex; gap: 2px; margin-top: 0.25rem; }
+.bar-years span { flex: 1; text-align: center; color: var(--muted); font: 0.7rem var(--sans); }
+.metrics-source { margin: 0.5rem 0 0 !important; color: var(--muted); font: 0.72rem var(--sans); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
 /* Publications */
 h3 .count {
   display: inline-block; min-width: 1.5em; padding: 0 0.4em; margin-left: 0.3em;
@@ -170,6 +213,7 @@ footer {
 
 @media (max-width: 600px) {
   body { font-size: 16px; }
+  .tiles { grid-template-columns: repeat(2, 1fr); }
   .lang-full { display: none; }
   .lang-code { display: inline; }
   .header { flex-direction: column; align-items: flex-start; }

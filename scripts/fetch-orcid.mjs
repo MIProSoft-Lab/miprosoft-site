@@ -197,6 +197,9 @@ async function enrichCrossref(list) {
   });
 }
 
+// Optional: OpenAlex gives keyless requests only a small shared daily budget.
+const openAlexKey = process.env.OPENALEX_API_KEY ?? '';
+
 async function enrichOpenAlex(list) {
   const withDoi = list.filter((w) => w.doi);
   for (let i = 0; i < withDoi.length; i += 50) {
@@ -204,13 +207,18 @@ async function enrichOpenAlex(list) {
     const filter = chunk.map((w) => w.doi).join('|');
     try {
       const res = await getJson(
-        `https://api.openalex.org/works?filter=doi:${encodeURIComponent(filter)}&per-page=50&select=doi,cited_by_count,open_access`,
+        `https://api.openalex.org/works?filter=doi:${encodeURIComponent(filter)}&per-page=50` +
+          `&select=doi,cited_by_count,counts_by_year,open_access${openAlexKey ? `&api_key=${openAlexKey}` : ''}`,
       );
       for (const r of res?.results ?? []) {
         const doi = r.doi?.replace('https://doi.org/', '').toLowerCase();
         const w = chunk.find((x) => x.doi === doi);
         if (!w) continue;
         w.citations = r.cited_by_count ?? null;
+        // { "2025": 3, "2026": 5 }: used for the citations-per-year chart.
+        w.citationsByYear = Object.fromEntries(
+          (r.counts_by_year ?? []).filter((c) => c.cited_by_count > 0).map((c) => [c.year, c.cited_by_count]).sort(),
+        );
         w.openAccessUrl = r.open_access?.is_oa ? r.open_access.oa_url : null;
       }
     } catch (err) {

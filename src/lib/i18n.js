@@ -45,6 +45,15 @@ export const ui = {
     themeDark: 'Switch to dark theme',
     themeLight: 'Switch to light theme',
     keywords: 'Research interests',
+    metrics: {
+      publications: 'Publications',
+      citations: 'Citations',
+      hIndex: 'h-index',
+      i10Index: 'i10-index',
+      perYear: 'Citations per year',
+      year: 'Year',
+      source: 'Citation data from',
+    },
   },
   ca: {
     langName: 'Català',
@@ -90,6 +99,15 @@ export const ui = {
     themeDark: 'Canvia al tema fosc',
     themeLight: 'Canvia al tema clar',
     keywords: 'Àmbits de recerca',
+    metrics: {
+      publications: 'Publicacions',
+      citations: 'Citacions',
+      hIndex: 'Índex h',
+      i10Index: 'Índex i10',
+      perYear: 'Citacions per any',
+      year: 'Any',
+      source: 'Dades de citacions de',
+    },
   },
   es: {
     langName: 'Español',
@@ -135,6 +153,15 @@ export const ui = {
     themeDark: 'Cambiar al tema oscuro',
     themeLight: 'Cambiar al tema claro',
     keywords: 'Áreas de investigación',
+    metrics: {
+      publications: 'Publicaciones',
+      citations: 'Citas',
+      hIndex: 'Índice h',
+      i10Index: 'Índice i10',
+      perYear: 'Citas por año',
+      year: 'Año',
+      source: 'Datos de citas de',
+    },
   },
 };
 
