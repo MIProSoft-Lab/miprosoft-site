@@ -1,0 +1,23 @@
+---
+// Root URL: send visitors to their browser's language if available.
+import { languages, defaultLang, cv } from '../lib/data.js';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<!doctype html>
+<html lang={defaultLang}>
+  <head>
+    <meta charset="utf-8" />
+    <title>{cv.profile.name}</title>
+    <script is:inline define:vars={{ languages, defaultLang, base }}>
+      const pref = (navigator.languages || [navigator.language])
+        .map((l) => l.toLowerCase().split('-')[0])
+        .find((l) => languages.includes(l));
+      location.replace(base + (pref || defaultLang) + '/');
+    </script>
+    <meta http-equiv="refresh" content={`1; url=${base}${defaultLang}/`} />
+    {languages.map((l) => <link rel="alternate" hreflang={l} href={`${base}${l}/`} />)}
+  </head>
+  <body>
+    <ul>{languages.map((l) => <li><a href={`${base}${l}/`}>{l}</a></li>)}</ul>
+  </body>
+</html>

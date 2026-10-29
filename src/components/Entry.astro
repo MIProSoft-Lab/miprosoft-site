@@ -1,0 +1,14 @@
+---
+// One row of the CV: date on the left, content on the right.
+const { when, title, url, subtitle, meta, description } = Astro.props;
+---
+<div class="entry">
+  <div class="when">{when}</div>
+  <div class="what">
+    <div class="title">{url ? <a href={url}>{title}</a> : title}</div>
+    {subtitle && <div class="subtitle">{subtitle}</div>}
+    {meta && <div class="meta">{meta}</div>}
+    {description && <div class="description">{description}</div>}
+    <slot />
+  </div>
+</div>

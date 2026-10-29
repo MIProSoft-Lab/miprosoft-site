@@ -1,0 +1,324 @@
+{
+  "orcid": "0009-0000-0046-8330",
+  "lastModified": "2026-10-29",
+  "person": {
+    "name": "Antonio Crespi Tobeña",
+    "givenNames": "Antonio",
+    "familyName": "Crespi Tobeña",
+    "otherNames": [],
+    "biography": null,
+    "keywords": [],
+    "links": [
+      {
+        "label": "Lens Profile",
+        "url": "https://www.lens.org/lens/orcid/0009-0000-0046-8330"
+      }
+    ],
+    "identifiers": [
+      {
+        "type": "Scopus Author ID",
+        "value": "59532397800",
+        "url": "http://www.scopus.com/inward/authorDetails.url?authorID=59532397800&partnerID=MN8TOARS"
+      }
+    ],
+    "emails": []
+  },
+  "employment": [
+    {
+      "putCode": 27327972,
+      "role": null,
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": null,
+        "country": "ES"
+      },
+      "start": null,
+      "end": null,
+      "url": null
+    }
+  ],
+  "education": [],
+  "qualifications": [],
+  "distinctions": [],
+  "invitedPositions": [],
+  "memberships": [],
+  "service": [],
+  "funding": [],
+  "works": [
+    {
+      "putCode": 230160623,
+      "type": "journal-article",
+      "title": "Process standardization for machine learning systems: A reference model based on international standards",
+      "subtitle": null,
+      "venue": "Future Generation Computer Systems",
+      "date": {
+        "year": 2027,
+        "month": 3
+      },
+      "doi": "10.1016/j.future.2026.108873",
+      "arxiv": null,
+      "url": "https://doi.org/10.1016/j.future.2026.108873",
+      "authors": [
+        "Antonio Crespí",
+        "Maria Monserrat",
+        "Antonia Mas",
+        "Antoni-Lluís Mesquida"
+      ],
+      "volume": "188",
+      "issue": null,
+      "pages": "108873",
+      "citations": 0,
+      "openAccessUrl": "https://doi.org/10.1016/j.future.2026.108873"
+    },
+    {
+      "putCode": 211651465,
+      "type": "journal-article",
+      "title": "Decoding success: an empirical study of critical success factors in software projects",
+      "subtitle": null,
+      "venue": "Empirical Software Engineering",
+      "date": {
+        "year": 2026,
+        "month": 9
+      },
+      "doi": "10.1007/s10664-026-10824-4",
+      "arxiv": null,
+      "url": "https://doi.org/10.1007/s10664-026-10824-4",
+      "authors": [
+        "Maria Monserrat",
+        "Antonio Crespí",
+        "Antonia Mas",
+        "Antoni-Lluís Mesquida"
+      ],
+      "volume": "31",
+      "issue": "5",
+      "pages": null,
+      "citations": 1,
+      "openAccessUrl": "https://link.springer.com/content/pdf/10.1007/s10664-026-10824-4.pdf"
+    },
+    {
+      "putCode": 228764463,
+      "type": "journal-article",
+      "title": "A critical success factor measurement framework for enhancing decision making in software projects",
+      "subtitle": null,
+      "venue": "Journal of Engineering Research",
+      "date": {
+        "year": 2026,
+        "month": 7
+      },
+      "doi": "10.1016/j.jer.2026.07.021",
+      "arxiv": null,
+      "url": "https://doi.org/10.1016/j.jer.2026.07.021",
+      "authors": [
+        "Maria Monserrat",
+        "Antonia Mas",
+        "Antonio Crespí",
+        "Antoni-Lluís Mesquida"
+      ],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "citations": 0,
+      "openAccessUrl": "https://www.sciencedirect.com/science/article/pii/S2307187726003561/pdf"
+    },
+    {
+      "putCode": 216164694,
+      "type": "journal-article",
+      "title": "The Missing Foundation of Machine Learning Engineering",
+      "subtitle": null,
+      "venue": "Computer",
+      "date": {
+        "year": 2026,
+        "month": 6
+      },
+      "doi": "10.1109/mc.2026.3658240",
+      "arxiv": null,
+      "url": "https://doi.org/10.1109/MC.2026.3658240",
+      "authors": [
+        "Antonio Crespí",
+        "Maria Monserrat",
+        "Antonia Mas",
+        "Antoni-Lluís Mesquida"
+      ],
+      "volume": "59",
+      "issue": "6",
+      "pages": "112-115",
+      "citations": 0,
+      "openAccessUrl": "https://doi.org/10.1109/mc.2026.3658240"
+    },
+    {
+      "putCode": 228765229,
+      "type": "conference-paper",
+      "title": "Desafíos y limitaciones en la gestión de calidad en sistemas de aprendizaje automático en producción",
+      "subtitle": null,
+      "venue": "Actas de las XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026)",
+      "date": {
+        "year": 2026
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2026/139",
+      "authors": null
+    },
+    {
+      "putCode": 228765090,
+      "type": "conference-paper",
+      "title": "Inteligencia Artificial Generativa para la Captura de Requisitos: Una Revisión Sistemática",
+      "subtitle": null,
+      "venue": "Actas de las XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026)",
+      "date": {
+        "year": 2026
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2026/146",
+      "authors": null
+    },
+    {
+      "putCode": 228766231,
+      "type": "journal-article",
+      "title": "Teaching Human Critical Success Factors in a First-Year Software Engineering Module",
+      "subtitle": null,
+      "venue": "International Journal of Engineering Education",
+      "date": {
+        "year": 2026
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://publons.com/wos-op/publon/86304003/",
+      "authors": null
+    },
+    {
+      "putCode": 181773511,
+      "type": "journal-article",
+      "title": "Creativity Clogs: Identifying and Addressing Barriers to Innovation",
+      "subtitle": null,
+      "venue": "IEEE Software",
+      "date": {
+        "year": 2025,
+        "month": 5
+      },
+      "doi": "10.1109/ms.2025.3533017",
+      "arxiv": null,
+      "url": "https://doi.org/10.1109/MS.2025.3533017",
+      "authors": [
+        "Antonio Crespí Tobeña",
+        "Maria Monserrat Barceló",
+        "Antonia Mas",
+        "Antoni-Lluís Mesquida Calafat"
+      ],
+      "volume": "42",
+      "issue": "3",
+      "pages": "75-81",
+      "citations": 3,
+      "openAccessUrl": "https://doi.org/10.1109/ms.2025.3533017"
+    },
+    {
+      "putCode": 179898072,
+      "type": "journal-article",
+      "title": "Lifecycle Models in Machine Learning Development",
+      "subtitle": null,
+      "venue": "Expert Systems",
+      "date": {
+        "year": 2025,
+        "month": 4
+      },
+      "doi": "10.1111/exsy.70029",
+      "arxiv": null,
+      "url": "https://doi.org/10.1111/exsy.70029",
+      "authors": [
+        "Antonio Crespí",
+        "Antoni‐Lluís Mesquida",
+        "Maria Monserrat",
+        "Antonia Mas"
+      ],
+      "volume": "42",
+      "issue": "4",
+      "pages": null,
+      "citations": 2,
+      "openAccessUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/exsy.70029"
+    },
+    {
+      "putCode": 228764173,
+      "type": "conference-paper",
+      "title": "Desarrollo de un Marco de Factores Críticos de Éxito en Proyectos de Software",
+      "subtitle": null,
+      "venue": "Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)",
+      "date": {
+        "year": 2025
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2025/101",
+      "authors": null
+    },
+    {
+      "putCode": 228763359,
+      "type": "conference-paper",
+      "title": "Evaluando los Factores Humanos en Proyectos de Software",
+      "subtitle": null,
+      "venue": "Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)",
+      "date": {
+        "year": 2025
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2025/102",
+      "authors": null
+    },
+    {
+      "putCode": 228766228,
+      "type": "journal-article",
+      "title": "Towards a Process Reference Model for Machine Learning Applications: Challenges and Opportunities",
+      "subtitle": null,
+      "venue": "CEUR Workshop Proceedings",
+      "date": {
+        "year": 2025
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://publons.com/wos-op/publon/82294826/",
+      "authors": null
+    },
+    {
+      "putCode": 228762877,
+      "type": "conference-paper",
+      "title": "Técnicas y Aplicaciones de Inteligencia Artificial en el Ciclo de Vida de Desarrollo de Software",
+      "subtitle": null,
+      "venue": "Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)",
+      "date": {
+        "year": 2025
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2025/110",
+      "authors": null
+    },
+    {
+      "putCode": 228762480,
+      "type": "conference-paper",
+      "title": "Empowering Software Project Success: Guidelines to Enhance the Impact of Human Critical Success Factors",
+      "subtitle": null,
+      "venue": "Systems, Software and Services Process Improvement (EuroSPI 2024)",
+      "date": {
+        "year": 2024
+      },
+      "doi": "10.1007/978-3-031-71139-8_1",
+      "arxiv": null,
+      "url": "https://doi.org/10.1007/978-3-031-71139-8_1",
+      "authors": [
+        "Maria Monserrat",
+        "Antonia Mas",
+        "Antoni-Lluís Mesquida",
+        "Antonio Crespí"
+      ],
+      "volume": null,
+      "issue": null,
+      "pages": "3-18",
+      "citations": 0,
+      "openAccessUrl": null
+    }
+  ],
+  "peerReview": []
+}

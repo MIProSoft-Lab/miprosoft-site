@@ -1,0 +1,41 @@
+# Main configuration of the CV site.
+
+# ORCID iD. Default ORCID for testing: 0000-0002-1825-0097
+orcid: 0009-0000-0046-8330
+
+# Languages the site is generated in.
+languages: [en, ca, es]
+
+# Optional e-mail sent to Crossref/OpenAlex in the User-Agent so requests go to
+# their "polite pool".
+contactEmail: "antonio.crespi@uib.eu"
+
+# Variants of your name as they appear in author lists; they are highlighted.
+nameVariants: 
+  - Antonio Crespi
+  - Crespi, Antonio
+
+# Order of sections on the page. Remove an entry to never show it.
+# Sections with no data are hidden automatically.
+sections:
+  - about
+  - employment
+  - education
+  - publications
+  - funding
+  - distinctions
+  - talks
+  - teaching
+  - supervision
+  - software
+  - invitedPositions
+  - memberships
+  - service
+  - peerReview
+  - skills
+  - languages
+
+features:
+  citations: true   # citation counts from OpenAlex
+  bibtex: true      # /publications.bib download
+  pdf: true         # PDF per language rendered in CI (cv-<lang>.pdf)

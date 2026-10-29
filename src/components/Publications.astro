@@ -1,0 +1,76 @@
+---
+import { strings } from '../lib/i18n.js';
+import { workGroupOrder } from '../lib/data.js';
+
+const { works, lang, nameVariants, familyName = '', givenNames = '', showCitations } = Astro.props;
+const t = strings(lang);
+
+const norm = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[.\s]+/g, ' ').trim().toLowerCase();
+const variants = new Set(nameVariants.map(norm));
+const family = norm(familyName).split(' ').filter(Boolean);
+const initial = norm(givenNames).charAt(0);
+// Exact variant, or a matching first initial plus the first family name, so that
+// "J. S. Carberry" matches Carberry and "Antonio Crespí" matches Crespí Tobeña.
+const isMe = (author) => {
+  const a = norm(author);
+  if (variants.has(a)) return true;
+  const tokens = a.split(' ');
+  return family.length > 0 && a.charAt(0) === initial && tokens.slice(1).includes(family[0]);
+};
+
+const hasSelected = works.some((w) => w.selected);
+const groups = workGroupOrder
+  .map((g) => ({ id: g, items: works.filter((w) => w.group === g) }))
+  .filter((g) => g.items.length);
+---
+{hasSelected && (
+  <div class="pub-toggle" role="group">
+    <button type="button" data-filter="selected" aria-pressed="true">{t.selected}</button>
+    <button type="button" data-filter="all" aria-pressed="false">{t.all} ({works.length})</button>
+  </div>
+)}
+<div class="publications" data-mode={hasSelected ? 'selected' : 'all'}>
+  {groups.map((g) => (
+    <div class:list={['pub-group', { 'has-selected': g.items.some((w) => w.selected) }]}>
+      {groups.length > 1 && <h3>{t.workGroups[g.id]} <span class="count">{g.items.length}</span></h3>}
+      <ol class="pubs">
+        {g.items.map((w, i) => (
+          <li class:list={['pub', { selected: w.selected }]}>
+            {/* Timeline: the year is shown once per run of works from the same year. */}
+            <span class:list={['pub-year', { repeat: i > 0 && g.items[i - 1].date?.year === w.date?.year }]}><span class="year-label">{w.date?.year ?? ''}</span></span>
+            <div class="pub-body">
+              <div class="pub-title">{w.url ? <a href={w.url}>{w.title}</a> : w.title}</div>
+              {w.authors?.length > 0 && (
+                <div class="authors">
+                  {w.authors.map((a, j) => (
+                    <>{isMe(a) ? <strong>{a}</strong> : a}{j < w.authors.length - 1 ? ', ' : ''}</>
+                  ))}
+                </div>
+              )}
+              <div class="pub-meta">
+                {w.venue && <em class="venue">{w.venue}</em>}
+                {w.volume && <span>{w.venue && ', '}{w.volume}{w.issue && `(${w.issue})`}</span>}
+                {w.pages && <span>, {w.pages}</span>}
+                <span class="pub-links">
+                  {w.doi && <a href={`https://doi.org/${w.doi}`}>DOI</a>}
+                  {w.arxiv && <a href={`https://arxiv.org/abs/${w.arxiv}`}>arXiv</a>}
+                  {w.openAccessUrl && <a href={w.openAccessUrl}>PDF</a>}
+                  {showCitations && w.citations > 0 && <span class="citations">{t.citations(w.citations)}</span>}
+                </span>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  ))}
+</div>
+
+<script>
+  for (const btn of document.querySelectorAll('.pub-toggle button')) {
+    btn.addEventListener('click', () => {
+      document.querySelector('.publications').dataset.mode = btn.dataset.filter;
+      for (const b of document.querySelectorAll('.pub-toggle button')) b.setAttribute('aria-pressed', String(b === btn));
+    });
+  }
+</script>

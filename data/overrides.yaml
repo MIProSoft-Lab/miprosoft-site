@@ -1,0 +1,23 @@
+# Corrections applied on top of the data fetched from ORCID.
+# The fetched file (data/orcid.json) is overwritten on every update,
+# so make fixes here instead of editing it.
+
+# Works are matched by DOI (preferred) or by ORCID put-code.
+works: []
+#  - doi: 10.1234/abcd
+#    selected: true        # show in "Selected publications"
+#  - doi: 10.1234/efgh
+#    hide: true
+#  - putCode: 123456
+#    title: "Corrected title"
+#    type: conference-paper   # any ORCID work type
+#    venue: "Proceedings of ..."
+
+# Affiliations (employment, education, distinctions, funding, ...) are
+# matched by ORCID put-code (shown in data/orcid.json as "putCode").
+items: []
+#  - putCode: 4288
+#    hide: true
+#  - putCode: 4289
+#    role: { en: Postdoctoral researcher, ca: Investigador postdoctoral, es: Investigador postdoctoral }
+#    description: { en: "...", ca: "...", es: "..." }
