@@ -107,7 +107,7 @@ const affiliationEntry = (it) => ({
           {s === 'publications' && (
             <>
               {features.metrics !== false && features.citations !== false && <Metrics metrics={cv.metrics} lang={lang} />}
-              <Publications works={cv.works} lang={lang} nameVariants={cv.nameVariants} familyName={cv.familyName} givenNames={cv.givenNames} showCitations={features.citations !== false} />
+              <Publications works={cv.works} lang={lang} nameVariants={cv.nameVariants} familyName={cv.familyName} givenNames={cv.givenNames} showCitations={features.citations !== false} showAbstracts={features.abstracts !== false} />
             </>
           )}
 

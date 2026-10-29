@@ -38,6 +38,7 @@ export function toBibtex(works) {
         ['doi', w.doi],
         ['eprint', w.arxiv],
         ['url', w.doi ? null : w.url],
+        ['abstract', w.abstract ? esc(w.abstract) : null],
       ].filter(([, val]) => val != null && val !== '');
       return `@${type}{${key(w, used)},\n${fields.map(([k, val]) => `  ${k} = {${val}}`).join(',\n')}\n}`;
     })

@@ -66,6 +66,7 @@ jobs:
         run: npm run fetch
         env:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
 
       - name: Commit updated data
         if: steps.fetch.outcome == 'success'

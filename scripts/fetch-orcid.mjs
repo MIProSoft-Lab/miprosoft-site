@@ -14,10 +14,13 @@ const orcid = String(config.orcid).trim();
 const enrich = !process.argv.includes('--no-enrich');
 const userAgent = `cv-online (https://github.com/; ${config.contactEmail ? 'mailto:' + config.contactEmail : 'no contact'})`;
 
-async function getJson(url, headers = {}, tries = 3) {
+async function getJson(url, headers = {}, tries = 3, body = undefined) {
   for (let i = 1; ; i++) {
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': userAgent, ...headers } });
+      const res = await fetch(url, {
+        headers: { 'User-Agent': userAgent, ...headers, ...(body ? { 'Content-Type': 'application/json' } : {}) },
+        ...(body ? { method: 'POST', body: JSON.stringify(body) } : {}),
+      });
       if (res.status === 404) return null;
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return await res.json();
@@ -170,6 +173,34 @@ function person(p) {
 
 // ---------- Enrichment ----------
 
+// Abstracts come as plain text (Semantic Scholar, SISTEDES), JATS XML (Crossref)
+// or an inverted index (OpenAlex). Normalize to plain text.
+function cleanAbstract(text) {
+  if (!text) return null;
+  const plain = text
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/^(abstract|resumen|resum)\s*[:.—-]?\s*/i, '');
+  return plain.length >= 40 ? plain : null;
+}
+
+function setAbstract(w, text, source) {
+  if (w.abstract) return;
+  const clean = cleanAbstract(text);
+  if (clean) Object.assign(w, { abstract: clean, abstractSource: source });
+}
+
+// OpenAlex stores abstracts as { word: [positions] }.
+function fromInvertedIndex(index) {
+  if (!index) return null;
+  const words = [];
+  for (const [word, positions] of Object.entries(index)) for (const p of positions) words[p] = word;
+  return words.filter(Boolean).join(' ');
+}
+
+
 async function pool(items, size, fn) {
   const queue = [...items];
   await Promise.all(Array.from({ length: size }, async () => {
@@ -187,6 +218,7 @@ async function enrichCrossref(list) {
       w.volume = msg.volume ?? null;
       w.issue = msg.issue ?? null;
       w.pages = msg.page ?? null;
+      setAbstract(w, msg.abstract, 'Crossref');
       if (!w.date) {
         const parts = msg.issued?.['date-parts']?.[0];
         if (parts?.[0]) w.date = { year: parts[0], ...(parts[1] ? { month: parts[1] } : {}) };
@@ -208,18 +240,20 @@ async function enrichOpenAlex(list) {
     try {
       const res = await getJson(
         `https://api.openalex.org/works?filter=doi:${encodeURIComponent(filter)}&per-page=50` +
-          `&select=doi,cited_by_count,counts_by_year,open_access${openAlexKey ? `&api_key=${openAlexKey}` : ''}`,
+          `&select=doi,cited_by_count,counts_by_year,open_access,abstract_inverted_index${openAlexKey ? `&api_key=${openAlexKey}` : ''}`,
       );
       for (const r of res?.results ?? []) {
         const doi = r.doi?.replace('https://doi.org/', '').toLowerCase();
         const w = chunk.find((x) => x.doi === doi);
         if (!w) continue;
+        w.openAccessUrl = r.open_access?.is_oa ? r.open_access.oa_url : null;
+        setAbstract(w, fromInvertedIndex(r.abstract_inverted_index), 'OpenAlex');
+        if (config.features?.citations === false) continue;
         w.citations = r.cited_by_count ?? null;
         // { "2025": 3, "2026": 5 }: used for the citations-per-year chart.
         w.citationsByYear = Object.fromEntries(
           (r.counts_by_year ?? []).filter((c) => c.cited_by_count > 0).map((c) => [c.year, c.cited_by_count]).sort(),
         );
-        w.openAccessUrl = r.open_access?.is_oa ? r.open_access.oa_url : null;
       }
     } catch (err) {
       console.warn(`  OpenAlex failed: ${err.message}`);
@@ -251,7 +285,7 @@ async function enrichSistedes(list) {
       // "signature" is how each author signs the paper; fall back to the full name.
       const authors = values('dc.contributor.signature').length ? values('dc.contributor.signature') : values('dc.contributor.author');
       if (!w.authors?.length && authors.length) w.authors = authors.map(givenFirst);
-      w.abstract = w.abstract ?? values('dc.description.abstract')[0] ?? null;
+      setAbstract(w, values('dc.description.abstract')[0], 'SISTEDES');
       w.venue = w.venue ?? values('bs.proceedings.name')[0] ?? null;
       w.license = w.license ?? values('dc.rights.license')[0] ?? null;
     } catch (err) {
@@ -259,6 +293,33 @@ async function enrichSistedes(list) {
     }
   });
   return targets.length;
+}
+
+// Semantic Scholar: abstracts and one-sentence "TLDR" summaries.
+// Optional key (higher rate limits): SEMANTIC_SCHOLAR_API_KEY.
+async function enrichSemanticScholar(list) {
+  const withDoi = list.filter((w) => w.doi);
+  const key = process.env.SEMANTIC_SCHOLAR_API_KEY;
+  for (let i = 0; i < withDoi.length; i += 500) {
+    const chunk = withDoi.slice(i, i + 500);
+    try {
+      const res = await getJson(
+        'https://api.semanticscholar.org/graph/v1/paper/batch?fields=abstract,tldr',
+        key ? { 'x-api-key': key } : {},
+        3,
+        { ids: chunk.map((w) => `DOI:${w.doi}`) },
+      );
+      // The response is in request order, with null for unknown DOIs.
+      (res ?? []).forEach((paper, j) => {
+        if (!paper) return;
+        const w = chunk[j];
+        setAbstract(w, paper.abstract, 'Semantic Scholar');
+        if (paper.tldr?.text) w.tldr = paper.tldr.text;
+      });
+    } catch (err) {
+      console.warn(`  Semantic Scholar failed: ${err.message}`);
+    }
+  }
 }
 
 // ---------- Main ----------
@@ -294,9 +355,32 @@ if (enrich) {
     console.log(`Enriching ${sistedes} works from the SISTEDES digital library…`);
     await enrichSistedes(data.works);
   }
-  if (config.features?.citations !== false) {
-    console.log('Fetching citation counts from OpenAlex…');
-    await enrichOpenAlex(data.works);
+  // Abstract sources run in order of preference; each only fills what is missing.
+  if (config.features?.abstracts !== false) {
+    console.log('Fetching abstracts and summaries from Semantic Scholar…');
+    await enrichSemanticScholar(data.works);
+  }
+  console.log('Fetching citations, open-access links and abstracts from OpenAlex…');
+  await enrichOpenAlex(data.works);
+  if (config.features?.abstracts === false) {
+    for (const w of data.works) {
+      delete w.abstract;
+      delete w.abstractSource;
+      delete w.tldr;
+    }
+  }
+}
+
+// Abstract sources are flaky (Semantic Scholar sometimes answers without the
+// requested fields), so keep what an earlier run found rather than losing it.
+if (enrich && config.features?.abstracts !== false) {
+  const previous = await readFile(new URL('data/orcid.json', root), 'utf8').then(JSON.parse).catch(() => null);
+  const byPutCode = new Map((previous?.works ?? []).map((w) => [w.putCode, w]));
+  for (const w of data.works) {
+    const old = byPutCode.get(w.putCode);
+    if (!old) continue;
+    if (!w.abstract && old.abstract) Object.assign(w, { abstract: old.abstract, abstractSource: old.abstractSource });
+    if (!w.tldr && old.tldr) w.tldr = old.tldr;
   }
 }
 

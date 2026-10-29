@@ -2,7 +2,7 @@
 import { strings } from '../lib/i18n.js';
 import { workGroupOrder } from '../lib/data.js';
 
-const { works, lang, nameVariants, familyName = '', givenNames = '', showCitations } = Astro.props;
+const { works, lang, nameVariants, familyName = '', givenNames = '', showCitations, showAbstracts = true } = Astro.props;
 const t = strings(lang);
 
 const norm = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[.\s]+/g, ' ').trim().toLowerCase();
@@ -58,6 +58,16 @@ const groups = workGroupOrder
                   {showCitations && w.citations > 0 && <span class="citations">{t.citations(w.citations)}</span>}
                 </span>
               </div>
+              {showAbstracts && (w.abstract || w.tldr) && (
+                <details class="pub-abstract">
+                  <summary>{t.abstract}</summary>
+                  <div class="abstract-body">
+                    {w.tldr && <p class="tldr"><span>{t.tldr}:</span> {w.tldr} <span class="source">({t.via} Semantic Scholar)</span></p>}
+                    {w.abstract && <p>{w.abstract}</p>}
+                    {w.abstractSource && <p class="source">{t.abstract} {t.via} {w.abstractSource}</p>}
+                  </div>
+                </details>
+              )}
             </div>
           </li>
         ))}
@@ -71,6 +81,36 @@ const groups = workGroupOrder
     btn.addEventListener('click', () => {
       document.querySelector('.publications').dataset.mode = btn.dataset.filter;
       for (const b of document.querySelectorAll('.pub-toggle button')) b.setAttribute('aria-pressed', String(b === btn));
+    });
+  }
+
+  // Slide abstracts open and closed. <details> can't animate its height with CSS
+  // in every browser yet, so animate the body with the Web Animations API.
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  for (const details of document.querySelectorAll('.pub-abstract')) {
+    const body = details.querySelector('.abstract-body');
+    let animation = null;
+
+    details.querySelector('summary').addEventListener('click', (event) => {
+      if (reduceMotion.matches) return;
+      event.preventDefault();
+      const opening = !details.open || details.classList.contains('closing');
+      // Start from the current height so a click mid-animation reverses smoothly.
+      // A closed body still reports its full height in some browsers, so use 0 there.
+      const from = details.open ? `${body.getBoundingClientRect().height}px` : '0px';
+      animation?.cancel();
+      details.classList.toggle('closing', !opening);
+      details.open = true;
+      const to = opening ? `${body.scrollHeight}px` : '0px';
+      animation = body.animate(
+        { height: [from, to], opacity: opening ? [0, 1] : [1, 0] },
+        { duration: 220, easing: 'cubic-bezier(0.2, 0, 0, 1)' },
+      );
+      animation.onfinish = () => {
+        animation = null;
+        details.classList.remove('closing');
+        details.open = opening;
+      };
     });
   }
 </script>

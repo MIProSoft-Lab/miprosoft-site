@@ -45,6 +45,9 @@ export const ui = {
     themeDark: 'Switch to dark theme',
     themeLight: 'Switch to light theme',
     keywords: 'Research interests',
+    abstract: 'Abstract',
+    tldr: 'In short',
+    via: 'via',
     metrics: {
       publications: 'Publications',
       citations: 'Citations',
@@ -99,6 +102,9 @@ export const ui = {
     themeDark: 'Canvia al tema fosc',
     themeLight: 'Canvia al tema clar',
     keywords: 'Àmbits de recerca',
+    abstract: 'Resum',
+    tldr: 'En breu',
+    via: 'via',
     metrics: {
       publications: 'Publicacions',
       citations: 'Citacions',
@@ -153,6 +159,9 @@ export const ui = {
     themeDark: 'Cambiar al tema oscuro',
     themeLight: 'Cambiar al tema claro',
     keywords: 'Áreas de investigación',
+    abstract: 'Resumen',
+    tldr: 'En breve',
+    via: 'vía',
     metrics: {
       publications: 'Publicaciones',
       citations: 'Citas',

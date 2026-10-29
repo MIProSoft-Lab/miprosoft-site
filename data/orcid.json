@@ -69,9 +69,11 @@
       "volume": "188",
       "issue": null,
       "pages": "108873",
+      "openAccessUrl": "https://doi.org/10.1016/j.future.2026.108873",
+      "abstract": "Process standards have long provided a foundation for software engineering, but equivalent guidance for machine learning projects remains limited. Existing frameworks, such as ISO/IEC 5338, outline artificial intelligence lifecycle processes at a high level but lack the detail needed to guide engineering teams in practice. This paper proposes a Process Reference Model for machine learning and artificial intelligence systems that extends existing standards by providing detailed descriptions of the technical processes that define their lifecycle. The process model was developed through a structured methodology aligned with ISO/IEC 33004 and ISO/IEC 24774 and designed following the principles of Design Science Research. It focuses exclusively on technical processes, specifying their purposes, outcomes, inputs, outputs, and base practices in a consistent format. The resulting process reference model provides a standard-aligned foundation for defining, comparing, and assessing machine learning development processes, and supports future efforts in lifecycle standardization and process capability assessment.",
+      "abstractSource": "OpenAlex",
       "citations": 0,
-      "citationsByYear": {},
-      "openAccessUrl": "https://doi.org/10.1016/j.future.2026.108873"
+      "citationsByYear": {}
     },
     {
       "putCode": 211651465,
@@ -95,11 +97,14 @@
       "volume": "31",
       "issue": "5",
       "pages": null,
+      "openAccessUrl": "https://link.springer.com/content/pdf/10.1007/s10664-026-10824-4.pdf",
+      "abstract": "Achieving project success is a primary objective for organizations dedicated to software development. Despite the concerted efforts of these organizations, statistics indicate that a significant portion of projects ultimately fail. Numerous authors in the literature have focused on defining success and failure in software projects, as well as the factors contributing to these outcomes. However, it appears that there is no consensus on these terms, and they do not accurately represent the experts’ perspective. This study presents results obtained from semi-structured interviews with 30 professionals in the technology sector, enabling the identification of Critical Success Factors that professionals believe can influence the success of software projects, along with their perception of the concepts of project success and project failure. The article outlines the conducted research, details the application of the thematic analysis methodology for analysing the interview data, and reports the findings of the empirical study. Specifically, the identification of 49 Critical Success Factors that experts deem influential in the success of software projects, providing a more nuanced and precise definition of project success and project failure. Among these 49 Critical Success Factors, grouped into six categories, it is important to highlight Skills, Involvement, Technology maturity, Detailed requirements analysis, and Good communication with all the people involved in the project, as the most frequently mentioned by the interviewees. The findings of this study not only provide a clearer definition of project success and project failure but also suggest that the resulting set of Critical Success Factors can support technology professionals in considering and adequately managing the factors that may increase the likelihood of success in their projects.",
+      "abstractSource": "OpenAlex",
       "citations": 1,
       "citationsByYear": {
         "2026": 1
       },
-      "openAccessUrl": "https://link.springer.com/content/pdf/10.1007/s10664-026-10824-4.pdf"
+      "tldr": "The findings of this study suggest that the resulting set of Critical Success Factors can support technology professionals in considering and adequately managing the factors that may increase the likelihood of success in their projects."
     },
     {
       "putCode": 228764463,
@@ -123,9 +128,11 @@
       "volume": null,
       "issue": null,
       "pages": null,
+      "openAccessUrl": "https://www.sciencedirect.com/science/article/pii/S2307187726003561/pdf",
+      "abstract": "The success of software projects is significantly influenced by various Critical Success Factors (CSFs). Although previous research has extensively identified these factors, there is still a lack of consolidated frameworks that provide measurable indicators to systematically assess their impact on project outcomes. This study addresses this gap by proposing a measurement framework for CSFs in software projects, aligned with the ISO/IEC/IEEE 15939:2017 standard. The framework was developed by integrating evidence from a Systematic Literature Review with empirical insights obtained from interviews with 30 professionals from the technology sector, resulting in a consolidated set of 17 CSFs. For each factor, specific quantitative and qualitative metrics were defined following the processes established by the ISO standard. The proposed framework encompasses technical, organizational, and team-related aspects, including communication effectiveness, team motivation and training, project characteristics, and compliance with technical standards, among others. By defining measurable indicators for these CSFs, the framework provides a structured basis for their assessment and is intended to support organizations in identifying priority areas for improvement and increasing the likelihood of project success.",
+      "abstractSource": "OpenAlex",
       "citations": 0,
-      "citationsByYear": {},
-      "openAccessUrl": "https://www.sciencedirect.com/science/article/pii/S2307187726003561/pdf"
+      "citationsByYear": {}
     },
     {
       "putCode": 216164694,
@@ -149,9 +156,11 @@
       "volume": "59",
       "issue": "6",
       "pages": "112-115",
+      "openAccessUrl": "https://doi.org/10.1109/mc.2026.3658240",
+      "abstract": "This column argues that we must prioritize formally defining processes to transform machine learning development from ad-hoc experimentation into a mature, assessable engineering discipline. Without a rigorous process foundation aligned with international engineering standards, advanced qualities remain fragile.",
+      "abstractSource": "OpenAlex",
       "citations": 0,
-      "citationsByYear": {},
-      "openAccessUrl": "https://doi.org/10.1109/mc.2026.3658240"
+      "citationsByYear": {}
     },
     {
       "putCode": 228765229,
@@ -173,6 +182,7 @@
         "Antoni Lluís Mesquida Calafat"
       ],
       "abstract": "El despliegue de sistemas de aprendizaje automático (ML) en entornos de producción ha transformado el papel de los modelos de ML, que pasan de ser artefactos experimentales a componentes críticos de sistemas software que deben satisfacer múltiples atributos de calidad, como el rendimiento, la disponibilidad o la equidad. Sin embargo, la gestión de estos atributos suele abordarse de forma fragmentada y centrada en fases específicas del ciclo de vida. Este trabajo en curso examina cómo se gestionan y priorizan los atributos de calidad en sistemas de ML en producción, considerando el papel de las prácticas asociadas a MLOps en su despliegue y operación. A partir de este contexto, se plantean preguntas de investigación y se identifican retos relacionados con la gestión de la calidad en sistemas de ML operativos.",
+      "abstractSource": "SISTEDES",
       "license": "CC BY-NC-ND 4.0"
     },
     {
@@ -195,6 +205,7 @@
         "Antoni-Lluís Mesquida"
       ],
       "abstract": "Este artículo presenta una revisión sistemática de la literatura sobre el uso de la inteligencia artificial generativa en la captura de requisitos de software. El trabajo se sitúa en un campo todavía incipiente dentro de la fase de planificación, donde la aplicación de la inteligencia artificial generativa ha sido menos explorada que en otras fases del ciclo de vida. A partir de un corpus de 33 estudios primarios, los hallazgos muestran un claro predominio de enfoques basados en grandes modelos del lenguaje, un uso recurrente de prompting con plantillas estructuradas para estandarizar las salidas y una presencia limitada de enfoques con recuperación de contexto. Asimismo, la evidencia se concentra en contextos académicos o prototípicos, con una validación industrial todavía escasa. Se sintetizan tendencias sobre modelos, técnicas de prompting y entornos de estudio, y se identifican vacíos en la evaluación empírica y en la transferencia a proyectos reales. Se discuten desafíos de reproducibilidad, calidad de datos y gobernanza, y se proponen líneas de investigación para fortalecer la aplicabilidad práctica.",
+      "abstractSource": "SISTEDES",
       "license": "CC BY-NC-ND 4.0"
     },
     {
@@ -233,11 +244,14 @@
       "volume": "42",
       "issue": "3",
       "pages": "75-81",
+      "openAccessUrl": "https://doi.org/10.1109/ms.2025.3533017",
+      "abstract": "Creativity drives innovation in software engineering, but various obstacles—“creativity clogs”—can block idea generation and implementation. This article identifies common challenges that limit creative thinking, examines their impact on teams, and explores ways to foster a work environment that supports innovation.",
+      "abstractSource": "OpenAlex",
       "citations": 3,
       "citationsByYear": {
         "2026": 3
       },
-      "openAccessUrl": "https://doi.org/10.1109/ms.2025.3533017"
+      "tldr": "Common challenges that limit creative thinking are identified, their impact on teams is examined, and ways to foster a work environment that supports innovation are explored."
     },
     {
       "putCode": 179898072,
@@ -261,11 +275,14 @@
       "volume": "42",
       "issue": "4",
       "pages": null,
+      "abstract": "Machine Learning (ML) development introduces challenges that traditional software processes often struggle to address. As ML applications grow in complexity and adoption, various lifecycle models have been proposed to address the unique stages of ML development. This study systematically synthesises these models, mapping their stages and activities to provide an understanding of the ML development landscape. The findings highlight research gaps and opportunities, offering insights for advancing academic research and practical implementation.",
+      "abstractSource": "Crossref",
+      "openAccessUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/exsy.70029",
       "citations": 2,
       "citationsByYear": {
         "2026": 2
       },
-      "openAccessUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/exsy.70029"
+      "tldr": "This study systematically synthesises various lifecycle models, mapping their stages and activities to provide an understanding of the ML development landscape and highlights research gaps and opportunities."
     },
     {
       "putCode": 228764173,
@@ -286,6 +303,7 @@
         "Antoni-Lluís Mesquida"
       ],
       "abstract": "Este artículo presenta el proceso y los métodos usados en el desarrollo de una tesis doctoral en curso, cuyo objetivo principal es la elaboración de un marco de factores críticos que influyen en el éxito de los proyectos de software. El marco resultante está formado por 17 factores y un conjunto de indicadores y métricas para evaluar estos factores. Esta herramienta facilita la identificación de áreas de mejora y contribuye a incrementar la tasa de éxito de los proyectos de software. Para su elaboración, se ha considerado tanto la opinión de los investigadores que han publicado estudios relevantes en la materia como la experiencia de los jefes de proyecto del sector tecnológico en activo. En este sentido, los métodos utilizados en la realización de este trabajo podrían representar una guía para futuras investigaciones que busquen abordar una problemática real basada en evidencia empírica.",
+      "abstractSource": "SISTEDES",
       "license": "CC BY-NC-ND 4.0"
     },
     {
@@ -308,6 +326,7 @@
         "Antonia Mas"
       ],
       "abstract": "El éxito de los proyectos de software está influenciado por múltiples factores humanos que afectan al desarrollo del proyecto. En este artículo, que forma parte de una investigación en curso, se presenta el proceso de elaboración de un marco de factores humanos que afectan al éxito de los proyectos de software. Los resultados destacan aspectos clave como la comunicación, la experiencia y la cohesión del equipo. Además, en esta investigación se establecerán indicadores y métricas para medir estos factores, permitiendo, en un futuro, definir pautas para mejorar la gestión y la tasa de éxito de los proyectos.",
+      "abstractSource": "SISTEDES",
       "license": "CC BY-NC-ND 4.0"
     },
     {
@@ -344,6 +363,7 @@
         "Antonia Mas"
       ],
       "abstract": "El uso de aplicaciones y técnicas de Inteligencia Artificial (IA) en las distintas fases del ciclo de vida del desarrollo de software (SDLC) busca mejorar la eficiencia, la precisión y la innovación en cada etapa del proceso. Este artículo presenta una investigación en curso que nace con el propósito de resumir las técnicas y aplicaciones de IA aplicadas en las diferentes fases del SDLC: planificación, análisis, diseño, implementación, pruebas, despliegue y mantenimiento. El objetivo de esta investigación es identificar las tareas del SDLC que pueden ser automatizadas total o parcialmente mediante IA, detectar posibles lagunas en la automatización dentro de la ingeniería del software y proporcionar una base de conocimiento para investigadores y profesionales interesados en aprovechar la IA para transformar los flujos de trabajo en esta disciplina.",
+      "abstractSource": "SISTEDES",
       "license": "CC BY-NC-ND 4.0"
     },
     {
@@ -367,9 +387,9 @@
       "volume": null,
       "issue": null,
       "pages": "3-18",
+      "openAccessUrl": null,
       "citations": 0,
-      "citationsByYear": {},
-      "openAccessUrl": null
+      "citationsByYear": {}
     }
   ],
   "peerReview": []
