@@ -18,6 +18,11 @@ const isMe = (author) => {
   return family.length > 0 && a.charAt(0) === initial && tokens.slice(1).includes(family[0]);
 };
 
+// "cc-by-nc-nd" -> "CC BY-NC-ND"; values like "CC BY-NC-ND 4.0" are kept.
+const licenseName = (l) => (/^cc-/i.test(l) ? l.toUpperCase().replace(/^CC-/, 'CC ') : l);
+const oaTooltip = (oa) =>
+  [t.oaStatus[oa.status] ?? t.openAccess, oa.license && `${t.license}: ${licenseName(oa.license)}`].filter(Boolean).join(' · ');
+
 const hasSelected = works.some((w) => w.selected);
 const groups = workGroupOrder
   .map((g) => ({ id: g, items: works.filter((w) => w.group === g) }))
@@ -39,7 +44,16 @@ const groups = workGroupOrder
             {/* Timeline: the year is shown once per run of works from the same year. */}
             <span class:list={['pub-year', { repeat: i > 0 && g.items[i - 1].date?.year === w.date?.year }]}><span class="year-label">{w.date?.year ?? ''}</span></span>
             <div class="pub-body">
-              <div class="pub-title">{w.url ? <a href={w.url}>{w.title}</a> : w.title}</div>
+              <div class="pub-title">
+                {w.url ? <a href={w.url}>{w.title}</a> : w.title}
+                {w.openAccess && (
+                  <span class:list={['oa-badge', `oa-${w.openAccess.status}`]} title={oaTooltip(w.openAccess)}>
+                    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 7V5a3 3 0 0 1 5.8-1.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /><rect x="3" y="7" width="10" height="7.5" rx="1.5" fill="currentColor" /></svg>
+                    {t.openAccess}
+                    <span class="visually-hidden">: {oaTooltip(w.openAccess)}</span>
+                  </span>
+                )}
+              </div>
               {w.authors?.length > 0 && (
                 <div class="authors">
                   {w.authors.map((a, j) => (

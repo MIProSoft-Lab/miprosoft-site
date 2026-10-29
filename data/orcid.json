@@ -70,6 +70,10 @@
       "issue": null,
       "pages": "108873",
       "openAccessUrl": "https://doi.org/10.1016/j.future.2026.108873",
+      "openAccess": {
+        "status": "hybrid",
+        "license": "cc-by-nc-nd"
+      },
       "abstract": "Process standards have long provided a foundation for software engineering, but equivalent guidance for machine learning projects remains limited. Existing frameworks, such as ISO/IEC 5338, outline artificial intelligence lifecycle processes at a high level but lack the detail needed to guide engineering teams in practice. This paper proposes a Process Reference Model for machine learning and artificial intelligence systems that extends existing standards by providing detailed descriptions of the technical processes that define their lifecycle. The process model was developed through a structured methodology aligned with ISO/IEC 33004 and ISO/IEC 24774 and designed following the principles of Design Science Research. It focuses exclusively on technical processes, specifying their purposes, outcomes, inputs, outputs, and base practices in a consistent format. The resulting process reference model provides a standard-aligned foundation for defining, comparing, and assessing machine learning development processes, and supports future efforts in lifecycle standardization and process capability assessment.",
       "abstractSource": "OpenAlex",
       "citations": 0,
@@ -97,14 +101,18 @@
       "volume": "31",
       "issue": "5",
       "pages": null,
-      "openAccessUrl": "https://link.springer.com/content/pdf/10.1007/s10664-026-10824-4.pdf",
       "abstract": "Achieving project success is a primary objective for organizations dedicated to software development. Despite the concerted efforts of these organizations, statistics indicate that a significant portion of projects ultimately fail. Numerous authors in the literature have focused on defining success and failure in software projects, as well as the factors contributing to these outcomes. However, it appears that there is no consensus on these terms, and they do not accurately represent the experts’ perspective. This study presents results obtained from semi-structured interviews with 30 professionals in the technology sector, enabling the identification of Critical Success Factors that professionals believe can influence the success of software projects, along with their perception of the concepts of project success and project failure. The article outlines the conducted research, details the application of the thematic analysis methodology for analysing the interview data, and reports the findings of the empirical study. Specifically, the identification of 49 Critical Success Factors that experts deem influential in the success of software projects, providing a more nuanced and precise definition of project success and project failure. Among these 49 Critical Success Factors, grouped into six categories, it is important to highlight Skills, Involvement, Technology maturity, Detailed requirements analysis, and Good communication with all the people involved in the project, as the most frequently mentioned by the interviewees. The findings of this study not only provide a clearer definition of project success and project failure but also suggest that the resulting set of Critical Success Factors can support technology professionals in considering and adequately managing the factors that may increase the likelihood of success in their projects.",
-      "abstractSource": "OpenAlex",
+      "abstractSource": "Semantic Scholar",
+      "tldr": "The findings of this study suggest that the resulting set of Critical Success Factors can support technology professionals in considering and adequately managing the factors that may increase the likelihood of success in their projects.",
+      "openAccessUrl": "https://link.springer.com/content/pdf/10.1007/s10664-026-10824-4.pdf",
+      "openAccess": {
+        "status": "hybrid",
+        "license": "cc-by"
+      },
       "citations": 1,
       "citationsByYear": {
         "2026": 1
-      },
-      "tldr": "The findings of this study suggest that the resulting set of Critical Success Factors can support technology professionals in considering and adequately managing the factors that may increase the likelihood of success in their projects."
+      }
     },
     {
       "putCode": 228764463,
@@ -129,6 +137,10 @@
       "issue": null,
       "pages": null,
       "openAccessUrl": "https://www.sciencedirect.com/science/article/pii/S2307187726003561/pdf",
+      "openAccess": {
+        "status": "gold",
+        "license": "cc-by"
+      },
       "abstract": "The success of software projects is significantly influenced by various Critical Success Factors (CSFs). Although previous research has extensively identified these factors, there is still a lack of consolidated frameworks that provide measurable indicators to systematically assess their impact on project outcomes. This study addresses this gap by proposing a measurement framework for CSFs in software projects, aligned with the ISO/IEC/IEEE 15939:2017 standard. The framework was developed by integrating evidence from a Systematic Literature Review with empirical insights obtained from interviews with 30 professionals from the technology sector, resulting in a consolidated set of 17 CSFs. For each factor, specific quantitative and qualitative metrics were defined following the processes established by the ISO standard. The proposed framework encompasses technical, organizational, and team-related aspects, including communication effectiveness, team motivation and training, project characteristics, and compliance with technical standards, among others. By defining measurable indicators for these CSFs, the framework provides a structured basis for their assessment and is intended to support organizations in identifying priority areas for improvement and increasing the likelihood of project success.",
       "abstractSource": "OpenAlex",
       "citations": 0,
@@ -156,9 +168,13 @@
       "volume": "59",
       "issue": "6",
       "pages": "112-115",
-      "openAccessUrl": "https://doi.org/10.1109/mc.2026.3658240",
       "abstract": "This column argues that we must prioritize formally defining processes to transform machine learning development from ad-hoc experimentation into a mature, assessable engineering discipline. Without a rigorous process foundation aligned with international engineering standards, advanced qualities remain fragile.",
-      "abstractSource": "OpenAlex",
+      "abstractSource": "Semantic Scholar",
+      "openAccessUrl": "https://doi.org/10.1109/mc.2026.3658240",
+      "openAccess": {
+        "status": "hybrid",
+        "license": "cc-by"
+      },
       "citations": 0,
       "citationsByYear": {}
     },
@@ -244,14 +260,18 @@
       "volume": "42",
       "issue": "3",
       "pages": "75-81",
-      "openAccessUrl": "https://doi.org/10.1109/ms.2025.3533017",
       "abstract": "Creativity drives innovation in software engineering, but various obstacles—“creativity clogs”—can block idea generation and implementation. This article identifies common challenges that limit creative thinking, examines their impact on teams, and explores ways to foster a work environment that supports innovation.",
-      "abstractSource": "OpenAlex",
+      "abstractSource": "Semantic Scholar",
+      "tldr": "Common challenges that limit creative thinking are identified, their impact on teams is examined, and ways to foster a work environment that supports innovation are explored.",
+      "openAccessUrl": "https://doi.org/10.1109/ms.2025.3533017",
+      "openAccess": {
+        "status": "hybrid",
+        "license": "cc-by"
+      },
       "citations": 3,
       "citationsByYear": {
         "2026": 3
-      },
-      "tldr": "Common challenges that limit creative thinking are identified, their impact on teams is examined, and ways to foster a work environment that supports innovation are explored."
+      }
     },
     {
       "putCode": 179898072,
@@ -277,12 +297,16 @@
       "pages": null,
       "abstract": "Machine Learning (ML) development introduces challenges that traditional software processes often struggle to address. As ML applications grow in complexity and adoption, various lifecycle models have been proposed to address the unique stages of ML development. This study systematically synthesises these models, mapping their stages and activities to provide an understanding of the ML development landscape. The findings highlight research gaps and opportunities, offering insights for advancing academic research and practical implementation.",
       "abstractSource": "Crossref",
+      "tldr": "This study systematically synthesises various lifecycle models, mapping their stages and activities to provide an understanding of the ML development landscape and highlights research gaps and opportunities.",
       "openAccessUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/exsy.70029",
+      "openAccess": {
+        "status": "hybrid",
+        "license": "cc-by-nc-nd"
+      },
       "citations": 2,
       "citationsByYear": {
         "2026": 2
-      },
-      "tldr": "This study systematically synthesises various lifecycle models, mapping their stages and activities to provide an understanding of the ML development landscape and highlights research gaps and opportunities."
+      }
     },
     {
       "putCode": 228764173,
@@ -388,6 +412,7 @@
       "issue": null,
       "pages": "3-18",
       "openAccessUrl": null,
+      "openAccess": null,
       "citations": 0,
       "citationsByYear": {}
     }

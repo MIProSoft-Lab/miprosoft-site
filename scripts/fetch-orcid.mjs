@@ -240,13 +240,16 @@ async function enrichOpenAlex(list) {
     try {
       const res = await getJson(
         `https://api.openalex.org/works?filter=doi:${encodeURIComponent(filter)}&per-page=50` +
-          `&select=doi,cited_by_count,counts_by_year,open_access,abstract_inverted_index${openAlexKey ? `&api_key=${openAlexKey}` : ''}`,
+          `&select=doi,cited_by_count,counts_by_year,open_access,best_oa_location,primary_location,abstract_inverted_index${openAlexKey ? `&api_key=${openAlexKey}` : ''}`,
       );
       for (const r of res?.results ?? []) {
         const doi = r.doi?.replace('https://doi.org/', '').toLowerCase();
         const w = chunk.find((x) => x.doi === doi);
         if (!w) continue;
         w.openAccessUrl = r.open_access?.is_oa ? r.open_access.oa_url : null;
+        w.openAccess = r.open_access?.is_oa
+          ? { status: r.open_access.oa_status, license: r.best_oa_location?.license ?? r.primary_location?.license ?? null }
+          : null;
         setAbstract(w, fromInvertedIndex(r.abstract_inverted_index), 'OpenAlex');
         if (config.features?.citations === false) continue;
         w.citations = r.cited_by_count ?? null;

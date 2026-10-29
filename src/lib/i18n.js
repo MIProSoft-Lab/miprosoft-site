@@ -46,6 +46,15 @@ export const ui = {
     themeLight: 'Switch to light theme',
     keywords: 'Research interests',
     abstract: 'Abstract',
+    openAccess: 'Open access',
+    oaStatus: {
+      diamond: 'Diamond open access: free to read and to publish',
+      gold: 'Gold open access: published in an open-access journal',
+      hybrid: 'Hybrid open access: openly licensed in a subscription journal',
+      green: 'Green open access: free copy in a repository',
+      bronze: 'Free to read on the publisher site, without an open licence',
+    },
+    license: 'Licence',
     tldr: 'In short',
     via: 'via',
     metrics: {
@@ -103,6 +112,15 @@ export const ui = {
     themeLight: 'Canvia al tema clar',
     keywords: 'Àmbits de recerca',
     abstract: 'Resum',
+    openAccess: 'Accés obert',
+    oaStatus: {
+      diamond: 'Accés obert diamant: gratuït per llegir i per publicar',
+      gold: 'Accés obert daurat: publicat en una revista d’accés obert',
+      hybrid: 'Accés obert híbrid: amb llicència oberta en una revista de subscripció',
+      green: 'Accés obert verd: còpia gratuïta en un repositori',
+      bronze: 'De lectura gratuïta a l’editorial, sense llicència oberta',
+    },
+    license: 'Llicència',
     tldr: 'En breu',
     via: 'via',
     metrics: {
@@ -160,6 +178,15 @@ export const ui = {
     themeLight: 'Cambiar al tema claro',
     keywords: 'Áreas de investigación',
     abstract: 'Resumen',
+    openAccess: 'Acceso abierto',
+    oaStatus: {
+      diamond: 'Acceso abierto diamante: gratuito para leer y para publicar',
+      gold: 'Acceso abierto dorado: publicado en una revista de acceso abierto',
+      hybrid: 'Acceso abierto híbrido: con licencia abierta en una revista de suscripción',
+      green: 'Acceso abierto verde: copia gratuita en un repositorio',
+      bronze: 'De lectura gratuita en la editorial, sin licencia abierta',
+    },
+    license: 'Licencia',
     tldr: 'En breve',
     via: 'vía',
     metrics: {

@@ -5,6 +5,7 @@
   --rule: #e3e0da;
   --accent: #1f5f8b;
   --orcid: #a6ce39;
+  --oa: #c45f0a;     /* the open-access lock's traditional orange */
   --serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
   --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   color-scheme: light dark;
@@ -19,6 +20,7 @@
     --muted: #9aa0a6;
     --rule: #2e3236;
     --accent: #7db7e0;
+    --oa: #f0883a;
   }
 }
 :root[data-theme='dark'] {
@@ -28,6 +30,7 @@
   --muted: #9aa0a6;
   --rule: #2e3236;
   --accent: #7db7e0;
+  --oa: #f0883a;
 }
 :root[data-theme='light'] { color-scheme: light; }
 
@@ -185,6 +188,13 @@ h3 .count {
 .pub-title { font-weight: 600; line-height: 1.4; }
 .pub-title a { color: inherit; }
 .pub-title a:hover { color: var(--accent); }
+/* Open-access label: the icon carries the colour, the text stays in text ink. */
+.oa-badge {
+  display: inline-flex; align-items: center; gap: 0.25em; margin-left: 0.45em; padding: 0.05em 0.5em;
+  border: 1px solid var(--rule); border-radius: 999px; vertical-align: 0.12em; white-space: nowrap; cursor: help;
+  color: var(--muted); font: 500 0.7rem/1.5 var(--sans);
+}
+.oa-badge svg { width: 0.85em; height: 0.85em; color: var(--oa); }
 .authors { color: var(--muted); font-size: 0.92rem; margin-top: 0.15rem; }
 .authors strong { color: var(--fg); font-weight: 600; }
 .pub-meta { font-size: 0.92rem; margin-top: 0.1rem; }

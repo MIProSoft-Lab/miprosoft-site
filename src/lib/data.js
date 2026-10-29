@@ -28,6 +28,17 @@ const groupOf = (w) => {
 
 const squash = (s) => (typeof s === 'string' ? s.replace(/\s+/g, ' ').trim() : s);
 
+function openAccessOf(w) {
+  if (w.openAccess !== undefined && w.openAccess !== null) return w.openAccess || null;
+  // SISTEDES (JISBD, JCIS…) publishes everything under CC licences, free for authors.
+  if (/hdl\.handle\.net\/11705\//.test(w.url ?? '') && /^CC/i.test(w.license ?? '')) {
+    return { status: 'diamond', license: w.license };
+  }
+  // CEUR-WS is an open-access publisher with no fees (CC BY 4.0).
+  if (/ceur/i.test(`${w.venue} ${w.url}`)) return { status: 'diamond', license: 'cc-by' };
+  return null;
+}
+
 function cleanWork(w) {
   const doiUrl = w.doi ? `https://doi.org/${w.doi}` : null;
   const sameAsDoi = (u) => u && doiUrl && u.toLowerCase() === doiUrl.toLowerCase();
@@ -39,6 +50,7 @@ function cleanWork(w) {
     authors: w.authors?.map((a) => a.replace(/‐/g, '-')),
     url: doiUrl ?? w.url,
     openAccessUrl: sameAsDoi(w.openAccessUrl) ? null : w.openAccessUrl,
+    openAccess: openAccessOf(w),
   };
 }
 
