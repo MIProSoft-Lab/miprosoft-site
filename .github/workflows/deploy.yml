@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # commit refreshed data/orcid.json
+  contents: write   # commit refreshed data/orcid.json and data/jcr.json
   pages: write
   id-token: write
 
@@ -68,13 +68,20 @@ jobs:
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
 
+      # Impact factors from the Clarivate Journals API; skipped without the secret.
+      - name: Fetch JCR impact factors
+        continue-on-error: true
+        run: npm run fetch:jcr
+        env:
+          CLARIVATE_API_KEY: ${{ secrets.CLARIVATE_API_KEY }}
+
       - name: Commit updated data
         if: steps.fetch.outcome == 'success'
         run: |
-          if ! git diff --quiet -- data/orcid.json; then
+          if [ -n "$(git status --porcelain -- data/orcid.json data/jcr.json)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/orcid.json
+            git add data/orcid.json $(ls data/jcr.json 2>/dev/null)
             git commit -m "Update ORCID data"
             git push
           fi

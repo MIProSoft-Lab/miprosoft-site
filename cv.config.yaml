@@ -41,3 +41,4 @@ features:
   abstracts: true   # collapsible abstracts
   bibtex: true      # /publications.bib download
   pdf: true         # PDF per language rendered in CI (cv-<lang>.pdf)
+  impactFactor: true # Journal Impact Factor (data/jcr.yaml, or data/jcr.json from the Clarivate API)

@@ -1,0 +1,62 @@
+# Journal Impact Factors (Clarivate Journal Citation Reports), entered by hand.
+#
+# Each work shows the JIF of its publication year, or the latest year listed
+# here when that year has none (JCR for a year is only released in June of the
+# next one). Works are matched to journals by ISSN, or by title when the work
+# has no ISSN.
+#
+# scripts/fetch-jcr.mjs writes data/jcr.json in this same format from the
+# Clarivate Journals API. Values here take precedence over that file, year by
+# year, so this file can also fill in or correct what the API returns.
+#
+# Look the values up at https://jcr.clarivate.com (free for Spanish
+# universities through the FECYT licence) and fill in the years below:
+#
+#   jif:
+#     2024: { value: 3.3, quartile: Q1, rank: 12/131, category: "Computer Science, Software Engineering" }
+#
+# Every field is optional, but give at least `value` (the JIF) or `rank`
+# (position / number of journals in the category); journals without a JIF can
+# still be ranked:
+#
+#     2024: { rank: 40/90, category: "Engineering, Multidisciplinary" }
+#
+# `quartile` and `percentile` are computed from `rank` unless given. When a
+# journal is in several categories, use the one with the best quartile (or the
+# one you report).
+
+journals:
+  - title: Future Generation Computer Systems
+    issn: [0167-739X]
+    jif:
+      2025: { rank: 19/146, category: "Computer Science, Theory & Methods" }
+
+  - title: Empirical Software Engineering
+    issn: [1382-3256, 1573-7616]
+    jif:
+      2025: { value: 3.4, quartile: Q2, rank: 44/130, category: "Computer Science, Software Engineering" }
+
+  - title: Journal of Engineering Research
+    issn: [2307-1877]
+    jif: 
+      2025: { value: 4.0, quartile: Q1, rank: 38/179, category: "Engineering, Multidisciplinary" }
+
+  - title: Computer
+    issn: [0018-9162, 1558-0814]
+    jif: 
+      2025: { value: 3.2, quartile: Q2, rank: 51/130, category: "Computer Science, Software Engineering" }
+
+  - title: International Journal of Engineering Education
+    issn: [0949-149X]
+    jif: 
+      2025: { value: 0.8, quartile: Q3, rank: 131/179, category: "Engineering, Multidisciplinary" }
+
+  - title: IEEE Software
+    issn: [0740-7459, 1937-4194]
+    jif: 
+      2025: { value: 4.4, quartile: Q2, rank: 33/130, category: "Computer Science, Software Engineering" }
+
+  - title: Expert Systems
+    issn: [0266-4720, 1468-0394]
+    jif: 
+      2025: { value: 3.3, quartile: Q2, rank: 44/146, category: "Computer Science, Theory & Methods" }

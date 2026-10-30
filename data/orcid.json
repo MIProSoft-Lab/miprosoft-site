@@ -69,6 +69,9 @@
       "volume": "188",
       "issue": null,
       "pages": "108873",
+      "issn": [
+        "0167-739X"
+      ],
       "openAccessUrl": "https://doi.org/10.1016/j.future.2026.108873",
       "openAccess": {
         "status": "hybrid",
@@ -101,6 +104,10 @@
       "volume": "31",
       "issue": "5",
       "pages": null,
+      "issn": [
+        "1382-3256",
+        "1573-7616"
+      ],
       "abstract": "Achieving project success is a primary objective for organizations dedicated to software development. Despite the concerted efforts of these organizations, statistics indicate that a significant portion of projects ultimately fail. Numerous authors in the literature have focused on defining success and failure in software projects, as well as the factors contributing to these outcomes. However, it appears that there is no consensus on these terms, and they do not accurately represent the experts’ perspective. This study presents results obtained from semi-structured interviews with 30 professionals in the technology sector, enabling the identification of Critical Success Factors that professionals believe can influence the success of software projects, along with their perception of the concepts of project success and project failure. The article outlines the conducted research, details the application of the thematic analysis methodology for analysing the interview data, and reports the findings of the empirical study. Specifically, the identification of 49 Critical Success Factors that experts deem influential in the success of software projects, providing a more nuanced and precise definition of project success and project failure. Among these 49 Critical Success Factors, grouped into six categories, it is important to highlight Skills, Involvement, Technology maturity, Detailed requirements analysis, and Good communication with all the people involved in the project, as the most frequently mentioned by the interviewees. The findings of this study not only provide a clearer definition of project success and project failure but also suggest that the resulting set of Critical Success Factors can support technology professionals in considering and adequately managing the factors that may increase the likelihood of success in their projects.",
       "abstractSource": "Semantic Scholar",
       "tldr": "The findings of this study suggest that the resulting set of Critical Success Factors can support technology professionals in considering and adequately managing the factors that may increase the likelihood of success in their projects.",
@@ -136,6 +143,9 @@
       "volume": null,
       "issue": null,
       "pages": null,
+      "issn": [
+        "2307-1877"
+      ],
       "openAccessUrl": "https://www.sciencedirect.com/science/article/pii/S2307187726003561/pdf",
       "openAccess": {
         "status": "gold",
@@ -168,6 +178,10 @@
       "volume": "59",
       "issue": "6",
       "pages": "112-115",
+      "issn": [
+        "0018-9162",
+        "1558-0814"
+      ],
       "abstract": "This column argues that we must prioritize formally defining processes to transform machine learning development from ad-hoc experimentation into a mature, assessable engineering discipline. Without a rigorous process foundation aligned with international engineering standards, advanced qualities remain fragile.",
       "abstractSource": "Semantic Scholar",
       "openAccessUrl": "https://doi.org/10.1109/mc.2026.3658240",
@@ -260,6 +274,10 @@
       "volume": "42",
       "issue": "3",
       "pages": "75-81",
+      "issn": [
+        "0740-7459",
+        "1937-4194"
+      ],
       "abstract": "Creativity drives innovation in software engineering, but various obstacles—“creativity clogs”—can block idea generation and implementation. This article identifies common challenges that limit creative thinking, examines their impact on teams, and explores ways to foster a work environment that supports innovation.",
       "abstractSource": "Semantic Scholar",
       "tldr": "Common challenges that limit creative thinking are identified, their impact on teams is examined, and ways to foster a work environment that supports innovation are explored.",
@@ -295,6 +313,10 @@
       "volume": "42",
       "issue": "4",
       "pages": null,
+      "issn": [
+        "0266-4720",
+        "1468-0394"
+      ],
       "abstract": "Machine Learning (ML) development introduces challenges that traditional software processes often struggle to address. As ML applications grow in complexity and adoption, various lifecycle models have been proposed to address the unique stages of ML development. This study systematically synthesises these models, mapping their stages and activities to provide an understanding of the ML development landscape. The findings highlight research gaps and opportunities, offering insights for advancing academic research and practical implementation.",
       "abstractSource": "Crossref",
       "tldr": "This study systematically synthesises various lifecycle models, mapping their stages and activities to provide an understanding of the ML development landscape and highlights research gaps and opportunities.",
@@ -411,6 +433,10 @@
       "volume": null,
       "issue": null,
       "pages": "3-18",
+      "issn": [
+        "1865-0929",
+        "1865-0937"
+      ],
       "openAccessUrl": null,
       "openAccess": null,
       "citations": 0,

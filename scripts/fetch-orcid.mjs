@@ -218,6 +218,8 @@ async function enrichCrossref(list) {
       w.volume = msg.volume ?? null;
       w.issue = msg.issue ?? null;
       w.pages = msg.page ?? null;
+      // Used to look up the journal's impact factor (data/jcr.*).
+      w.issn = msg.ISSN?.length ? msg.ISSN : null;
       setAbstract(w, msg.abstract, 'Crossref');
       if (!w.date) {
         const parts = msg.issued?.['date-parts']?.[0];

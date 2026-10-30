@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "fetch": "node scripts/fetch-orcid.mjs",
+    "fetch:jcr": "node scripts/fetch-jcr.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"

@@ -2,7 +2,7 @@
 import { strings } from '../lib/i18n.js';
 import { workGroupOrder } from '../lib/data.js';
 
-const { works, lang, nameVariants, familyName = '', givenNames = '', showCitations, showAbstracts = true } = Astro.props;
+const { works, lang, nameVariants, familyName = '', givenNames = '', showCitations, showAbstracts = true, showImpactFactor = true } = Astro.props;
 const t = strings(lang);
 
 const norm = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[.\s]+/g, ' ').trim().toLowerCase();
@@ -22,6 +22,16 @@ const isMe = (author) => {
 const licenseName = (l) => (/^cc-/i.test(l) ? l.toUpperCase().replace(/^CC-/, 'CC ') : l);
 const oaTooltip = (oa) =>
   [t.oaStatus[oa.status] ?? t.openAccess, oa.license && `${t.license}: ${licenseName(oa.license)}`].filter(Boolean).join(' · ');
+
+// "JIF 2025: 3.3 · Q1, 12/131 in Software Engineering", or "JCR 2025: Q1, 12/131 in …" without a JIF.
+const jcrText = (j) => {
+  const position = [[j.quartile, j.rank].filter(Boolean).join(', '), j.category].filter(Boolean).join(` ${t.inCategory} `);
+  return j.value != null
+    ? [`JIF ${j.year}: ${Number.isInteger(j.value) ? j.value.toFixed(1) : j.value}`, position].filter(Boolean).join(' · ')
+    : `JCR ${j.year}: ${position}`;
+};
+
+const hasAbstract = (w) => showAbstracts && Boolean(w.abstract || w.tldr);
 
 const hasSelected = works.some((w) => w.selected);
 const groups = workGroupOrder
@@ -61,26 +71,40 @@ const groups = workGroupOrder
                   ))}
                 </div>
               )}
-              <div class="pub-meta">
-                {w.venue && <em class="venue">{w.venue}</em>}
-                {w.volume && <span>{w.venue && ', '}{w.volume}{w.issue && `(${w.issue})`}</span>}
-                {w.pages && <span>, {w.pages}</span>}
-                <span class="pub-links">
+              {/* Where it was published, then how the journal and the work rank, then links. */}
+              {w.venue || w.volume || w.pages ? (
+                <div class="pub-meta">
+                  {w.venue && <em class="venue">{w.venue}</em>}
+                  {w.volume && <span>{w.venue && ', '}{w.volume}{w.issue && `(${w.issue})`}</span>}
+                  {w.pages && <span>{(w.venue || w.volume) && ', '}{w.pages}</span>}
+                </div>
+              ) : null}
+              {((showImpactFactor && w.jif) || (showCitations && w.citations > 0)) && (
+                <div class="pub-metrics">
+                  {showImpactFactor && w.jif && (
+                    <span class="jif" title={[(w.jif.value != null ? t.jifTooltip : t.jcrTooltip)(w.jif.year), w.jif.percentile != null && `${t.percentile} ${w.jif.percentile}`].filter(Boolean).join(' · ')}>
+                      {jcrText(w.jif)}
+                    </span>
+                  )}
+                  {showCitations && w.citations > 0 && <span class="citations">{t.citations(w.citations)}</span>}
+                </div>
+              )}
+              {(w.doi || w.arxiv || w.openAccessUrl || hasAbstract(w)) && (
+                <div class="pub-links">
                   {w.doi && <a href={`https://doi.org/${w.doi}`}>DOI</a>}
                   {w.arxiv && <a href={`https://arxiv.org/abs/${w.arxiv}`}>arXiv</a>}
                   {w.openAccessUrl && <a href={w.openAccessUrl}>PDF</a>}
-                  {showCitations && w.citations > 0 && <span class="citations">{t.citations(w.citations)}</span>}
-                </span>
-              </div>
-              {showAbstracts && (w.abstract || w.tldr) && (
-                <details class="pub-abstract">
-                  <summary>{t.abstract}</summary>
-                  <div class="abstract-body">
-                    {w.tldr && <p class="tldr"><span>{t.tldr}:</span> {w.tldr} <span class="source">({t.via} Semantic Scholar)</span></p>}
-                    {w.abstract && <p>{w.abstract}</p>}
-                    {w.abstractSource && <p class="source">{t.abstract} {t.via} {w.abstractSource}</p>}
-                  </div>
-                </details>
+                  {hasAbstract(w) && (
+                    <button type="button" class="abstract-toggle" aria-expanded="false" aria-controls={`abstract-${g.id}-${i}`}>{t.abstract}</button>
+                  )}
+                </div>
+              )}
+              {hasAbstract(w) && (
+                <div class="abstract-body" id={`abstract-${g.id}-${i}`} hidden>
+                  {w.tldr && <p class="tldr"><span>{t.tldr}:</span> {w.tldr} <span class="source">({t.via} Semantic Scholar)</span></p>}
+                  {w.abstract && <p>{w.abstract}</p>}
+                  {w.abstractSource && <p class="source">{t.abstract} {t.via} {w.abstractSource}</p>}
+                </div>
               )}
             </div>
           </li>
@@ -98,23 +122,24 @@ const groups = workGroupOrder
     });
   }
 
-  // Slide abstracts open and closed. <details> can't animate its height with CSS
-  // in every browser yet, so animate the body with the Web Animations API.
+  // Slide abstracts open and closed with the Web Animations API. The toggle sits
+  // in the links row and the abstract below it, so this is a button, not <details>.
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  for (const details of document.querySelectorAll('.pub-abstract')) {
-    const body = details.querySelector('.abstract-body');
+  for (const toggle of document.querySelectorAll('.abstract-toggle')) {
+    const body = document.getElementById(toggle.getAttribute('aria-controls'));
     let animation = null;
 
-    details.querySelector('summary').addEventListener('click', (event) => {
-      if (reduceMotion.matches) return;
-      event.preventDefault();
-      const opening = !details.open || details.classList.contains('closing');
+    toggle.addEventListener('click', () => {
+      const opening = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(opening));
+      if (reduceMotion.matches) {
+        body.hidden = !opening;
+        return;
+      }
       // Start from the current height so a click mid-animation reverses smoothly.
-      // A closed body still reports its full height in some browsers, so use 0 there.
-      const from = details.open ? `${body.getBoundingClientRect().height}px` : '0px';
+      const from = body.hidden ? '0px' : `${body.getBoundingClientRect().height}px`;
       animation?.cancel();
-      details.classList.toggle('closing', !opening);
-      details.open = true;
+      body.hidden = false;
       const to = opening ? `${body.scrollHeight}px` : '0px';
       animation = body.animate(
         { height: [from, to], opacity: opening ? [0, 1] : [1, 0] },
@@ -122,8 +147,7 @@ const groups = workGroupOrder
       );
       animation.onfinish = () => {
         animation = null;
-        details.classList.remove('closing');
-        details.open = opening;
+        body.hidden = !opening;
       };
     });
   }

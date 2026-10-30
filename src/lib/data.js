@@ -73,7 +73,53 @@ function dedupeWorks(works) {
   });
 }
 
-const shortLabel = (s) => s.replace(/\s+(author id|profile)$/i, '');
+// Journal Impact Factors: data/jcr.json (from the Clarivate API, scripts/fetch-jcr.mjs)
+// with data/jcr.yaml (entered by hand) taking precedence year by year.
+function loadJournals() {
+  const fetched = existsSync(file('data/jcr.json')) ? JSON.parse(read('data/jcr.json')).journals ?? [] : [];
+  const manual = readYaml('data/jcr.yaml').journals ?? [];
+  const journals = [];
+  for (const j of [...fetched, ...manual]) {
+    const issn = (j.issn ?? []).map((s) => String(s).toUpperCase());
+    const same = journals.find((o) => o.issn.some((s) => issn.includes(s)) || normTitle(o.title) === normTitle(j.title));
+    if (same) {
+      same.issn = [...new Set([...same.issn, ...issn])];
+      same.jif = { ...same.jif, ...j.jif };
+    } else {
+      journals.push({ title: j.title, issn, jif: { ...j.jif } });
+    }
+  }
+  return journals;
+}
+
+const normTitle = (s) => (s ?? '').normalize('NFD').replace(/[^a-z0-9]/gi, '').toLowerCase();
+
+// Quartile and percentile follow from the rank ("12/131") the way JCR computes them.
+function withRankStats(m) {
+  const [pos, total] = String(m.rank ?? '').split('/').map(Number);
+  if (!(pos > 0 && total >= pos)) return m;
+  return {
+    quartile: `Q${Math.ceil((pos / total) * 4)}`,
+    percentile: Math.round(((total - pos + 0.5) / total) * 1000) / 10,
+    ...m,
+  };
+}
+
+// The JCR data of the publication year, or the latest available year otherwise.
+// Some journals have a category rank but no JIF.
+function impactFactorOf(w, journals) {
+  if (w.jif !== undefined) return w.jif;
+  const issn = (w.issn ?? []).map((s) => s.toUpperCase());
+  const journal =
+    journals.find((j) => j.issn.some((s) => issn.includes(s))) ??
+    journals.find((j) => w.venue && normTitle(j.title) === normTitle(w.venue));
+  const years = Object.keys(journal?.jif ?? {}).filter((y) => journal.jif[y]?.value != null || journal.jif[y]?.rank).map(Number);
+  if (!years.length) return null;
+  const year = years.includes(w.date?.year) ? w.date.year : Math.max(...years);
+  return { year, ...withRankStats(journal.jif[year]) };
+}
+
+const shortLabel =(s) => s.replace(/\s+(author id|profile)$/i, '');
 
 // Citation metrics computed from the works shown on the CV
 function computeMetrics(works) {
@@ -121,6 +167,8 @@ function load() {
       .map((w) => cleanWork({ ...w, ...workOverride(w) }))
       .filter((w) => !w.hide),
   ).map((w) => ({ ...w, group: groupOf(w) }));
+  const journals = loadJournals();
+  for (const w of allWorks) if (w.group === 'journal') w.jif = impactFactorOf(w, journals);
 
   // ORCID works of type "lecture-speech" are listed as talks, not publications.
   const talks = [

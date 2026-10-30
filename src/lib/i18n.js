@@ -55,6 +55,10 @@ export const ui = {
       bronze: 'Free to read on the publisher site, without an open licence',
     },
     license: 'Licence',
+    jifTooltip: (year) => `Journal Impact Factor ${year} (Clarivate Journal Citation Reports)`,
+    jcrTooltip: (year) => `Category rank in the Clarivate Journal Citation Reports ${year}`,
+    percentile: 'Percentile',
+    inCategory: 'in',
     tldr: 'In short',
     via: 'via',
     metrics: {
@@ -121,6 +125,10 @@ export const ui = {
       bronze: 'De lectura gratuïta a l’editorial, sense llicència oberta',
     },
     license: 'Llicència',
+    jifTooltip: (year) => `Factor d'impacte ${year} (Clarivate Journal Citation Reports)`,
+    jcrTooltip: (year) => `Posició a la categoria als Clarivate Journal Citation Reports ${year}`,
+    percentile: 'Percentil',
+    inCategory: 'a',
     tldr: 'En breu',
     via: 'via',
     metrics: {
@@ -187,6 +195,10 @@ export const ui = {
       bronze: 'De lectura gratuita en la editorial, sin licencia abierta',
     },
     license: 'Licencia',
+    jifTooltip: (year) => `Factor de impacto ${year} (Clarivate Journal Citation Reports)`,
+    jcrTooltip: (year) => `Posición en la categoría en los Clarivate Journal Citation Reports ${year}`,
+    percentile: 'Percentil',
+    inCategory: 'en',
     tldr: 'En breve',
     via: 'vía',
     metrics: {
