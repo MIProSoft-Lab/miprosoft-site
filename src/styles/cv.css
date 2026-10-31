@@ -1,35 +1,69 @@
+/* UIB sans © 2014 Damià Rotger Miró (www.ductilct.com), the UIB's institutional
+   typeface. The font files are published unmodified, with their names and credits intact.
+   A copy installed on the visitor's computer is used first, so nothing is downloaded. */
+@font-face {
+  font-family: UIBsans; font-weight: 300; font-style: normal; font-display: swap;
+  src: local('UIBsans Light'), local('UIBsans-Light'), url('../assets/fonts/UIBsans-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: UIBsans; font-weight: 300; font-style: italic; font-display: swap;
+  src: local('UIBsans Light Italic'), local('UIBsans-LightItalic'), url('../assets/fonts/UIBsans-LightItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: UIBsans; font-weight: 400; font-style: normal; font-display: swap;
+  src: local('UIBsans'), local('UIBsans-Regular'), url('../assets/fonts/UIBsans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: UIBsans; font-weight: 400; font-style: italic; font-display: swap;
+  src: local('UIBsans Italic'), local('UIBsans-Italic'), url('../assets/fonts/UIBsans-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: UIBsans; font-weight: 700; font-style: normal; font-display: swap;
+  src: local('UIBsans Bold'), local('UIBsans-Bold'), url('../assets/fonts/UIBsans-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: UIBsans; font-weight: 700; font-style: italic; font-display: swap;
+  src: local('UIBsans Bold Italic'), local('UIBsans-BoldItalic'), url('../assets/fonts/UIBsans-BoldItalic.ttf') format('truetype');
+}
+
 :root {
-  --bg: #fdfcfa;
-  --fg: #1d1d1f;
-  --muted: #5f6368;
-  --rule: #e3e0da;
-  --accent: #1f5f8b;
+  /* UIB visual identity (logo.uib.cat/Manual-dIdentitat-Visual-Corporativa):
+     institutional blue Pantone 300 C (#0065BD) and black; light blue tint
+     #E7EDF7 from the style guide's table headers. */
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c6370;
+  --rule: #dde3ec;
+  --tint: #e7edf7;
+  --accent: #0065bd;
   --orcid: #a6ce39;
   --oa: #c45f0a;     /* the open-access lock's traditional orange */
-  --serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
-  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* UIB sans (self-hosted above); the manual names Arial as the fallback. */
+  --sans: UIBsans, Arial, 'Liberation Sans', Helvetica, sans-serif;
   color-scheme: light dark;
 }
 
 /* Dark theme: follows the system unless the visitor picked one with the toggle
-   (stored as data-theme on <html>). */
+   (stored as data-theme on <html>). The UIB blue is lightened to stay legible. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #16181b;
-    --fg: #e6e6e6;
-    --muted: #9aa0a6;
-    --rule: #2e3236;
-    --accent: #7db7e0;
+    --bg: #14161a;
+    --fg: #e8e8e8;
+    --muted: #9ba3ae;
+    --rule: #2b313a;
+    --tint: #1b2a3d;
+    --accent: #6aaef2;
     --oa: #f0883a;
   }
 }
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #16181b;
-  --fg: #e6e6e6;
-  --muted: #9aa0a6;
-  --rule: #2e3236;
-  --accent: #7db7e0;
+  --bg: #14161a;
+  --fg: #e8e8e8;
+  --muted: #9ba3ae;
+  --rule: #2b313a;
+  --tint: #1b2a3d;
+  --accent: #6aaef2;
   --oa: #f0883a;
 }
 :root[data-theme='light'] { color-scheme: light; }
@@ -40,7 +74,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font: 17px/1.55 var(--serif);
+  font: 16px/1.6 var(--sans);
 }
 
 a { color: var(--accent); text-decoration: none; }
@@ -61,7 +95,7 @@ main, .toolbar, footer {
   font: 0.85rem var(--sans);
 }
 .toolbar ul { display: flex; gap: 0.9rem; margin: 0; padding: 0; list-style: none; flex-wrap: wrap; }
-.toolbar a[aria-current] { color: var(--fg); font-weight: 600; }
+.toolbar a[aria-current] { color: var(--fg); font-weight: 700; }
 .lang-code { display: none; }
 .toolbar button {
   font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer;
@@ -79,8 +113,8 @@ main, .toolbar, footer {
 /* Header */
 .header { display: flex; gap: 1.5rem; align-items: center; margin: 2.5rem 0 1.5rem; }
 .photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
-h1 { font-size: 2.2rem; line-height: 1.15; margin: 0; font-weight: 600; letter-spacing: -0.01em; }
-.headline { margin: 0.3rem 0 0; color: var(--muted); font-size: 1.1rem; }
+h1 { font-size: 2.2rem; line-height: 1.15; margin: 0; font-weight: 700; }
+.headline { margin: 0.3rem 0 0; color: var(--muted); font-size: 1.15rem; font-weight: 300; }
 .contact {
   display: flex; flex-wrap: wrap; gap: 0.25rem 1rem;
   list-style: none; padding: 0; margin: 0.7rem 0 0;
@@ -96,20 +130,20 @@ h1 { font-size: 2.2rem; line-height: 1.15; margin: 0; font-weight: 600; letter-s
 /* Sections */
 .section { margin-top: 2.2rem; }
 h2 {
-  font: 600 0.8rem var(--sans);
+  font: 700 0.8rem var(--sans);
   text-transform: uppercase; letter-spacing: 0.12em;
   color: var(--accent);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 2px solid var(--accent);
   padding-bottom: 0.35rem;
   margin: 0 0 1rem;
 }
-h3 { font: 600 0.95rem var(--sans); margin: 1.3rem 0 0.5rem; color: var(--muted); }
+h3 { font: 400 1rem var(--sans); margin: 1.3rem 0 0.5rem; color: var(--accent); }
 .section p { margin: 0 0 0.8rem; }
 .keywords span { color: var(--muted); }
 
 .entry { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; margin-bottom: 0.9rem; }
 .when { color: var(--muted); font: 0.85rem/1.9 var(--sans); }
-.title { font-weight: 600; }
+.title { font-weight: 700; }
 .subtitle { font-style: italic; }
 .meta, .description { color: var(--muted); font-size: 0.92rem; }
 
@@ -120,7 +154,7 @@ h3 { font: 600 0.95rem var(--sans); margin: 1.3rem 0 0.5rem; color: var(--muted)
 }
 .tile { padding: 0.6rem 0.8rem; border: 1px solid var(--rule); border-radius: 8px; }
 .tile dt { color: var(--muted); font: 0.78rem var(--sans); }
-.tile dd { margin: 0.1rem 0 0; font: 600 1.6rem/1.2 var(--sans); }
+.tile dd { margin: 0.1rem 0 0; font: 700 1.6rem/1.2 var(--sans); }
 
 .cites-chart { margin: 1rem 0 0; }
 .cites-chart figcaption { color: var(--muted); font: 0.78rem var(--sans); margin-bottom: 0.4rem; }
@@ -136,7 +170,7 @@ h3 { font: 600 0.95rem var(--sans); margin: 1.3rem 0 0.5rem; color: var(--muted)
 .bar-slot:hover .bar, .bar-slot:focus-visible .bar { filter: brightness(1.15); }
 .bar-value {
   position: absolute; left: 0; right: 0; margin-bottom: 0.15rem; text-align: center;
-  color: var(--muted); font: 600 0.72rem var(--sans);
+  color: var(--muted); font: 700 0.72rem var(--sans);
 }
 /* Hover/focus tooltip; the whole column is the hit target. */
 .bar-slot::after {
@@ -159,7 +193,7 @@ h3 { font: 600 0.95rem var(--sans); margin: 1.3rem 0 0.5rem; color: var(--muted)
 /* Publications */
 h3 .count {
   display: inline-block; min-width: 1.5em; padding: 0 0.4em; margin-left: 0.3em;
-  border-radius: 999px; background: var(--rule); color: var(--muted);
+  border-radius: 999px; background: var(--tint); color: var(--accent);
   font-size: 0.75rem; text-align: center;
 }
 .pubs { list-style: none; padding: 0; margin: 0; }
@@ -170,7 +204,7 @@ h3 .count {
 
 /* Timeline: a vertical line through the group, a dot + year where a new year
    starts, and a small tick for the other works of that year. */
-.pub-year { position: relative; padding-top: 0.55rem; color: var(--muted); font: 600 0.85rem/1.8 var(--sans); }
+.pub-year { position: relative; padding-top: 0.55rem; color: var(--muted); font: 700 0.85rem/1.8 var(--sans); }
 .pub-year::before {
   content: ''; position: absolute; right: var(--line-x); top: 0; bottom: 0;
   width: 2px; margin-right: -1px; background: var(--rule);
@@ -185,7 +219,7 @@ h3 .count {
 }
 .pub-year.repeat::after { width: 5px; height: 5px; margin: -2.5px -2.5px 0 0; background: var(--muted); box-shadow: none; }
 .pub-year.repeat .year-label { visibility: hidden; }
-.pub-title { font-weight: 600; line-height: 1.4; }
+.pub-title { font-weight: 700; line-height: 1.4; }
 .pub-title a { color: inherit; }
 .pub-title a:hover { color: var(--accent); }
 /* Open-access label: the icon carries the colour, the text stays in text ink. */
@@ -196,7 +230,7 @@ h3 .count {
 }
 .oa-badge svg { width: 0.85em; height: 0.85em; color: var(--oa); }
 .authors { color: var(--muted); font-size: 0.92rem; margin-top: 0.15rem; }
-.authors strong { color: var(--fg); font-weight: 600; }
+.authors strong { color: var(--fg); font-weight: 700; }
 .pub-meta { font-size: 0.92rem; margin-top: 0.1rem; }
 .pub-metrics, .pub-links { display: flex; flex-wrap: wrap; align-items: baseline; margin-top: 0.15rem; font: 0.78rem/1.5 var(--sans); }
 .pub-metrics { color: var(--muted); }
@@ -215,7 +249,7 @@ h3 .count {
 .abstract-toggle[aria-expanded='true']::before { transform: rotate(90deg); }
 .abstract-body { overflow: hidden; font-size: 0.9rem; }
 .abstract-body p { margin: 0.4rem 0 0 !important; max-width: 42rem; line-height: 1.5; }
-.abstract-body .tldr span:first-child { font-weight: 600; }
+.abstract-body .tldr span:first-child { font-weight: 700; }
 .abstract-body .source { color: var(--muted); font: 0.72rem var(--sans); }
 
 .pub-toggle { display: inline-flex; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; margin-bottom: 0.8rem; }
@@ -228,6 +262,7 @@ h3 .count {
 .publications[data-mode='selected'] .pub-group:not(.has-selected) { display: none; }
 
 .inline-list { padding-left: 1.2rem; margin: 0; }
+.inline-list li::marker { color: var(--accent); }
 .pairs { display: grid; grid-template-columns: 9.5rem 1fr; gap: 0.3rem 1rem; margin: 0; }
 .pairs dt { color: var(--muted); font: 0.9rem/1.7 var(--sans); }
 .pairs dd { margin: 0; }
@@ -249,9 +284,9 @@ footer {
 }
 
 @media print {
-  :root, :root[data-theme] { --bg: #fff; --fg: #000; --muted: #444; --accent: #1f4f75; color-scheme: light; }
+  :root, :root[data-theme] { --bg: #fff; --fg: #000; --muted: #444; --accent: #0065bd; color-scheme: light; }
   @page { margin: 16mm 15mm; }
-  body { font-size: 10.5pt; }
+  body { font-size: 10pt; }
   .toolbar, .pub-toggle { display: none; }
   .header { margin-top: 0; }
   .publications .pub, .publications .pub-group { display: grid !important; }

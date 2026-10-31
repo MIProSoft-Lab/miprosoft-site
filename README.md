@@ -36,3 +36,8 @@ To fetch them automatically from the Clarivate Journals API instead, add an API
 key with JCR access as the `CLARIVATE_API_KEY` repository secret (or run
 `CLARIVATE_API_KEY=… npm run fetch:jcr` locally). It writes `data/jcr.json`;
 values in `data/jcr.yaml` still take precedence.
+
+## Typeface
+
+The CV uses UIB sans, the University of the Balearic Islands' institutional
+typeface, © 2014 Damià Rotger Miró ([ductilct.com](https://www.ductilct.com)).
