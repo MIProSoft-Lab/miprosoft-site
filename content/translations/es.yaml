@@ -4,10 +4,16 @@
 langName: Español
 nav:
   home: Inicio
-  people: Personas
+  team: Equipo
   publications: Publicaciones
   news: Noticias
   courses: Cursos
+team:
+  pi: IP
+  piTitle: Investigador principal
+  members: Miembros
+  collaborators: Colaboradores
+  collaboratorsLead: Investigadores de otros grupos e instituciones que colaboran con nosotros.
 courses:
   title: Cursos
   lead: Cursos que impartimos actualmente.
@@ -113,5 +119,4 @@ inCategory: en
 tldr: En breve
 via: vía
 metrics:
-  publications: Publicaciones
   source: Datos de citas de

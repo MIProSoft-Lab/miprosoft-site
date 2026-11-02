@@ -175,6 +175,8 @@ a:hover { text-decoration: underline; }
 
 /* Profile header */
 .profile { display: flex; align-items: center; gap: 1.75rem; }
+.profile-pi { display: flex; align-items: center; gap: 0.5rem; margin: 0.45rem 0 0; font-weight: 700; }
+.profile-pi .pi-badge { margin: 0; }
 .profile-role { margin: 0.35rem 0 0; font-size: 1.15rem; }
 .profile-org { margin: 0.1rem 0 0; color: var(--muted); }
 .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0; padding: 0; list-style: none; font-size: 0.85rem; }
@@ -225,7 +227,17 @@ a:hover { text-decoration: underline; }
 .member-card:hover .member-card-name { color: var(--accent); }
 .member-card-role { font-size: 0.9rem; }
 .member-card-org { color: var(--muted); font-size: 0.85rem; }
-.member-card-stat { margin-top: 0.35rem; color: var(--accent); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+/* Collaborators have no profile page: the card is not a link, its links are. */
+.collaborator-card:hover, .collaborator-card:focus-within { border-color: var(--rule); box-shadow: var(--shadow); transform: none; }
+.collaborator-card:hover .member-card-name { color: var(--fg); }
+.collaborator-card .member-card-name::after { content: none; }
+.member-card-links { display: flex; flex-wrap: wrap; gap: 0 0.9rem; margin: 0.35rem 0 0; padding: 0; list-style: none; font: 700 0.8rem/1.5 var(--sans); }
+.pi-badge {
+  align-self: flex-start; margin-top: 0.2rem; padding: 0.05rem 0.5rem; border-radius: 999px;
+  background: var(--accent); color: var(--bg);
+  font: 700 0.7rem/1.5 var(--sans); letter-spacing: 0.06em;
+}
+.block-lead { margin: -0.4rem 0 1.25rem; color: var(--muted); }
 
 /* ---------- Sections ---------- */
 

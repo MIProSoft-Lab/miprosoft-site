@@ -2,9 +2,9 @@
 
 A multilingual research group website for GitHub Pages that keeps itself up to
 date from [ORCID](https://orcid.org), styled after the UIB's visual identity:
-a home page with the group's figures, latest news, people and latest
-publications; a page per member; the group's publications, with a filter by
-author; multilingual news and blog posts; and the courses the group teaches.
+a home page with latest news, the team and latest publications; a team page
+with members and collaborators; a page per member; the group's publications;
+multilingual news and blog posts; and the courses the group teaches.
 
 Every Monday (and on every push) a GitHub Action:
 
@@ -26,6 +26,7 @@ Every Monday (and on every push) a GitHub Action:
 | `data/overrides.yaml` | Corrections to works (by DOI) applied for every member |
 | `content/news/<slug>/index.yaml` | News and blog posts, every language in one file, with their images beside it (*CMS*) |
 | `content/courses/<slug>.yaml` | Courses the group currently teaches (*CMS*) |
+| `content/collaborators/<slug>.yaml` | Collaborators shown on the team page (*CMS*) |
 | `content/translations/<lang>.yaml` | Interface texts: menus, labels, buttons (*CMS*) |
 | `data/jcr.yaml` | Journal Impact Factors entered by hand |
 | `data/orcid/<orcid>.json` | *Fetched.* One ORCID record per member, with references to their works |
@@ -33,10 +34,10 @@ Every Monday (and on every push) a GitHub Action:
 
 Pages:
 
-- `/<lang>/`: home page: the group's figures, latest news, people and latest publications
-- `/<lang>/people/`: all members
-- `/<lang>/people/<id>/`: a member's profile
-- `/<lang>/publications/`: the group's publications, each paper once, with a filter by author
+- `/<lang>/`: home page: latest news, the team and latest publications
+- `/<lang>/team/`: members (principal investigators first) and collaborators
+- `/<lang>/team/<id>/`: a member's profile
+- `/<lang>/publications/`: the group's publications, each paper once
 - `/<lang>/news/` and `/<lang>/news/<slug>/`: news and blog posts
 - `/<lang>/courses/`: courses the group currently teaches (hidden when there are none)
 
@@ -44,7 +45,7 @@ Members' names in author lists link to their profiles.
 
 ## Editing content
 
-News, courses and the interface texts can be edited without touching code, in
+News, courses, collaborators and the interface texts can be edited without touching code, in
 the content editor ([Sveltia CMS](https://sveltiacms.app)) at **`/admin/`** of
 the site, e.g. `https://<site>/admin/`. It shows every language side by side
 and commits each change to the repository, which rebuilds and publishes the
@@ -112,13 +113,15 @@ Interface texts (`content/translations/<lang>.yaml`) keep `{n}`, `{total}`,
 texts that depend on a number. A text left empty in Catalan or Spanish is shown
 in English.
 
-The home page shows the three latest posts. The files under `content/news/` and
-`content/courses/` include a sample post and a sample course with placeholder
-text: replace or delete them.
+The home page shows the three latest posts. The files under `content/news/`,
+`content/courses/` and `content/collaborators/` include a sample post, a sample
+course and a sample collaborator with placeholder text: replace or delete them.
 
 ## Adding a member
 
 1. Add `{ id: jane-doe, orcid: 0000-0000-0000-0000 }` under `members` in `site.config.yaml`
+   (add `pi: true` to mark a principal investigator: they get an "IP" badge and
+   are listed first)
 2. Optionally create `data/people/jane-doe.yaml` (copy an existing one as a template)
 3. Run `npm run fetch`: only the articles that are not already in `data/works.json` are fetched
 

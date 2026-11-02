@@ -1,0 +1,16 @@
+en:
+  name: Sample Collaborator
+  order: 1
+  role: Associate professor
+  institution: Placeholder University
+  links:
+    - label: ORCID
+      url: https://orcid.org/0000-0002-1825-0097
+    - label: Web
+      url: https://example.org
+ca:
+  role: Professor titular
+  institution: Universitat d'exemple
+es:
+  role: Profesor titular
+  institution: Universidad de ejemplo

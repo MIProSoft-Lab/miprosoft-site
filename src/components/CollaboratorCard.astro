@@ -1,0 +1,25 @@
+---
+// A collaborator on the team page: photo, name, role, institution and their own
+// links. They have no profile page, so the card itself is not a link.
+import Avatar from './Avatar.astro';
+import { defaultLang } from '../lib/data.js';
+import { loc } from '../lib/i18n.js';
+
+const { person, lang } = Astro.props;
+const L = (x) => loc(x, lang, defaultLang);
+const role = L(person.role);
+const institution = L(person.institution);
+---
+<li class="member-card collaborator-card">
+  <Avatar member={person} size={64} />
+  <div class="member-card-body">
+    <span class="member-card-name">{person.name}</span>
+    {role && <span class="member-card-role">{role}</span>}
+    {institution && <span class="member-card-org">{institution}</span>}
+    {person.links.length > 0 && (
+      <ul class="member-card-links">
+        {person.links.map((l) => <li><a href={l.url} rel="noopener">{l.label}</a></li>)}
+      </ul>
+    )}
+  </div>
+</li>

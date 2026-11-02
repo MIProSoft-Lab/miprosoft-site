@@ -151,6 +151,38 @@ const courses = {
   ],
 };
 
+const collaborators = {
+  name: 'collaborators',
+  label: 'Collaborators',
+  label_singular: 'Collaborator',
+  description: 'People outside the group who work with it, shown on the team page after the members. Group members are set in site.config.yaml.',
+  folder: 'content/collaborators',
+  extension: 'yaml',
+  format: 'yaml',
+  create: true,
+  i18n: true,
+  slug: '{{name}}',
+  identifier_field: 'name',
+  summary: '{{name}}',
+  sortable_fields: ['order', 'name'],
+  fields: [
+    { name: 'name', label: 'Name', widget: 'string' },
+    { name: 'order', label: 'Order', widget: 'number', value_type: 'int', required: false, hint: 'Collaborators are listed by this number, lowest first, then by name.' },
+    { name: 'role', label: 'Position', widget: 'string', i18n: true, required: false, hint: 'E.g. "Associate professor".' },
+    { name: 'institution', label: 'Institution', widget: 'string', i18n: true, required: false },
+    { name: 'photo', label: 'Photo', widget: 'image', required: false, hint: 'Square works best. Without a photo, their initials are shown.' },
+    {
+      name: 'links', label: 'Links', widget: 'list', required: false, label_singular: 'Link',
+      hint: 'Shown on their card, e.g. ORCID, Google Scholar, their own web page.',
+      summary: '{{label}} · {{url}}',
+      fields: [
+        { name: 'label', label: 'Text', widget: 'string', required: false, hint: 'E.g. "ORCID". If empty, the site name is shown.' },
+        { name: 'url', label: 'URL', widget: 'string', pattern: ['^(https?://|mailto:)', 'A full address starting with https:// (or mailto:)'] },
+      ],
+    },
+  ],
+};
+
 const translations = {
   name: 'translations',
   label: 'Translations',
@@ -191,7 +223,7 @@ const cms = {
   media_folder: '/public/media',
   public_folder: '/media',
   i18n: { structure: 'single_file', locales: languages, default_locale: defaultLang, initial_locales: 'all' },
-  collections: [news, courses, translations],
+  collections: [news, courses, collaborators, translations],
 };
 
 await mkdir(new URL('public/admin/fonts/', root), { recursive: true });

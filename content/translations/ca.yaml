@@ -4,10 +4,16 @@
 langName: Català
 nav:
   home: Inici
-  people: Persones
+  team: Equip
   publications: Publicacions
   news: Notícies
   courses: Cursos
+team:
+  pi: IP
+  piTitle: Investigador principal
+  members: Membres
+  collaborators: Col·laboradors
+  collaboratorsLead: Investigadors d'altres grups i institucions que col·laboren amb nosaltres.
 courses:
   title: Cursos
   lead: Cursos que impartim actualment.
@@ -113,5 +119,4 @@ inCategory: a
 tldr: En breu
 via: via
 metrics:
-  publications: Publicacions
   source: Dades de citacions de

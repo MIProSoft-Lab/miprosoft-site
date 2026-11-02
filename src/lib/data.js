@@ -153,7 +153,7 @@ const shortLabel = (s) => s.replace(/\s+(author id|profile)$/i, '');
 const globalOverrides = readYaml('data/overrides.yaml');
 const sameDoi = (o, w) => o.doi && w.doi && String(o.doi).toLowerCase() === w.doi;
 
-function loadMember({ id, orcid: orcidId }) {
+function loadMember({ id, orcid: orcidId, pi = false }) {
   orcidId = String(orcidId).trim();
   const orcid = readJson(orcidFile(orcidId), { person: {}, works: [] });
   const manual = readYaml(personFile(id));
@@ -202,6 +202,8 @@ function loadMember({ id, orcid: orcidId }) {
   return {
     id,
     name,
+    // Principal investigator (`pi: true` in site.config.yaml).
+    pi: Boolean(pi),
     // "Antonio Crespi Tobeña" -> "AC": shown when there is no photo.
     initials: (person.givenNames && person.familyName
       ? [person.givenNames, person.familyName]
@@ -252,6 +254,40 @@ function loadMember({ id, orcid: orcidId }) {
 
 export const members = (config.members ?? []).map(loadMember);
 export const memberById = new Map(members.map((m) => [m.id, m]));
+// Members as listed on the home and team pages: principal investigators first,
+// otherwise in the order of site.config.yaml.
+export const team = [...members].sort((a, b) => b.pi - a.pi);
+
+// content/collaborators/<slug>.yaml (all languages, edited in the CMS at /admin/):
+// people outside the group who work with it, by `order` and then name. They
+// have no profile page; their card lists their own `links` (label + URL).
+const perLanguage = (entry, key) => Object.fromEntries(languages.map((l) => [l, entry.data[l]?.[key] ?? '']));
+const hostOf = (url) => {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; }
+};
+const initialsOf = (name) => name.split(/\s+/).filter(Boolean).map((n) => n.charAt(0).toUpperCase()).slice(0, 2).join('');
+export const collaborators = readEntries('content/collaborators')
+  .map((entry) => {
+    const b = entry.base;
+    const name = String(b.name ?? '').trim();
+    return {
+      entry,
+      id: entry.slug,
+      order: Number(b.order ?? 999),
+      name,
+      initials: initialsOf(name),
+      // Per language, for loc(): { en: 'Associate professor', ca: … }.
+      role: perLanguage(entry, 'role'),
+      institution: perLanguage(entry, 'institution'),
+      // A link without a label shows the site's name: "https://www.uib.es/…" -> "uib.es".
+      links: (b.links ?? [])
+        .filter((l) => l?.url)
+        .map((l) => ({ url: l.url, label: l.label || hostOf(l.url) })),
+      profile: { photo: b.photo },
+    };
+  })
+  .filter((c) => c.name)
+  .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
 
 // ---------- Group ----------
 

@@ -67,7 +67,7 @@ const facts = (course) => [
                 {course.instructors.map((p) => (
                   <li>
                     {p.member
-                      ? <a href={`${base}${lang}/people/${p.id}/`}><Avatar member={p.member} size={32} /><span>{p.name}</span></a>
+                      ? <a href={`${base}${lang}/team/${p.id}/`}><Avatar member={p.member} size={32} /><span>{p.name}</span></a>
                       : <span>{p.name}</span>}
                   </li>
                 ))}

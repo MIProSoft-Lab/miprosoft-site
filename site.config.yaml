@@ -17,8 +17,12 @@ group:
     url: https://www.uib.eu
 
 # Members of the group, in the order they are listed. Each one gets a profile
-# page at /<lang>/people/<id>/, built from their public ORCID record plus the content in
+# page at /<lang>/team/<id>/, built from their public ORCID record plus the content in
 # data/people/<id>.yaml (optional: name variants, title, teaching, overrides…).
+# Add `pi: true` to a member to mark them as a principal investigator (IP):
+# they get a badge and are listed first.
+# Collaborators (people outside the group) are edited in the CMS, in
+# content/collaborators/.
 # Default ORCID for testing: 0000-0002-1825-0097
 members:
   - id: antonio-crespi
@@ -27,6 +31,7 @@ members:
     orcid: 0000-0002-7485-4709
   - id: antoni-mesquida
     orcid: 0000-0002-1191-6220
+    pi: true
   - id: jose-cañellas
     orcid: 0009-0000-2218-2800
   - id: toni-bennasar

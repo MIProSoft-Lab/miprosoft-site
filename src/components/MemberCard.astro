@@ -1,6 +1,6 @@
 ---
-// A member on the home and people pages: photo, name, title or current
-// affiliation, and number of publications. The whole card links to the profile.
+// A member on the home and team pages: photo, name (with a badge for principal
+// investigators), and title or current affiliation. The whole card links to the profile.
 import Avatar from './Avatar.astro';
 import { defaultLang } from '../lib/data.js';
 import { strings, loc } from '../lib/i18n.js';
@@ -11,14 +11,13 @@ const L = (x) => loc(x, lang, defaultLang);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const role = L(member.profile.title) || L(member.affiliation?.role);
 const org = member.affiliation?.organization?.name;
-const pubs = member.works.length;
 ---
 <li class="member-card">
   <Avatar member={member} size={64} />
   <div class="member-card-body">
-    <a class="member-card-name" href={`${base}${lang}/people/${member.id}/`}>{member.name}</a>
+    <a class="member-card-name" href={`${base}${lang}/team/${member.id}/`}>{member.name}</a>
+    {member.pi && <span class="pi-badge" title={t.team.piTitle}>{t.team.pi}<span class="visually-hidden"> ({t.team.piTitle})</span></span>}
     {role && <span class="member-card-role">{role}</span>}
     {org && <span class="member-card-org">{org}</span>}
-    {pubs > 0 && <span class="member-card-stat">{pubs} {t.metrics.publications.toLowerCase()}</span>}
   </div>
 </li>

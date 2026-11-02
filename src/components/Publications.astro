@@ -10,7 +10,7 @@ const { works, lang, members = [], self, flat = false, showCitations, showAbstra
 const t = strings(lang);
 const memberOf = authorMatcher(members);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const profileUrl = (m) => `${base}${lang}/people/${m.id}/`;
+const profileUrl = (m) => `${base}${lang}/team/${m.id}/`;
 
 // "cc-by-nc-nd" -> "CC BY-NC-ND"; values like "CC BY-NC-ND 4.0" are kept.
 const licenseName = (l) => (/^cc-/i.test(l) ? l.toUpperCase().replace(/^CC-/, 'CC ') : l);

@@ -4,10 +4,16 @@
 langName: English
 nav:
   home: Home
-  people: People
+  team: Team
   publications: Publications
   news: News
   courses: Courses
+team:
+  pi: PI
+  piTitle: Principal investigator
+  members: Members
+  collaborators: Collaborators
+  collaboratorsLead: Researchers from other groups and institutions who work with us.
 courses:
   title: Courses
   lead: Courses we currently teach.
@@ -113,5 +119,4 @@ inCategory: in
 tldr: In short
 via: via
 metrics:
-  publications: Publications
   source: Citation data from

@@ -62,7 +62,7 @@ const more = all.filter((p) => p.slug !== slug).slice(0, 3).map((p) => inLanguag
           {post.authors.map((a) => (
             <li>
               {a.member
-                ? <a href={`${base}${lang}/people/${a.id}/`}><Avatar member={a.member} size={32} /><span>{a.name}</span></a>
+                ? <a href={`${base}${lang}/team/${a.id}/`}><Avatar member={a.member} size={32} /><span>{a.name}</span></a>
                 : <span>{a.name}</span>}
             </li>
           ))}

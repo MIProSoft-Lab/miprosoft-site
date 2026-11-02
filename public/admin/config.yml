@@ -230,6 +230,66 @@ collections:
         widget: string
         required: false
         hint: Information or enrolment page.
+  - name: collaborators
+    label: Collaborators
+    label_singular: Collaborator
+    description: People outside the group who work with it, shown on the team page after the members. Group members are set in site.config.yaml.
+    folder: content/collaborators
+    extension: yaml
+    format: yaml
+    create: true
+    i18n: true
+    slug: "{{name}}"
+    identifier_field: name
+    summary: "{{name}}"
+    sortable_fields:
+      - order
+      - name
+    fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: order
+        label: Order
+        widget: number
+        value_type: int
+        required: false
+        hint: Collaborators are listed by this number, lowest first, then by name.
+      - name: role
+        label: Position
+        widget: string
+        i18n: true
+        required: false
+        hint: E.g. "Associate professor".
+      - name: institution
+        label: Institution
+        widget: string
+        i18n: true
+        required: false
+      - name: photo
+        label: Photo
+        widget: image
+        required: false
+        hint: Square works best. Without a photo, their initials are shown.
+      - name: links
+        label: Links
+        widget: list
+        required: false
+        label_singular: Link
+        hint: Shown on their card, e.g. ORCID, Google Scholar, their own web page.
+        summary: "{{label}} · {{url}}"
+        fields:
+          - name: label
+            label: Text
+            widget: string
+            required: false
+            hint: E.g. "ORCID". If empty, the site name is shown.
+          - name: url
+            label: URL
+            widget: string
+            pattern:
+              - ^(https?://|mailto:)
+              - A full address starting with https:// (or mailto:)
   - name: translations
     label: Translations
     description: Texts of the website interface (menus, labels, buttons) in every language.
@@ -258,8 +318,8 @@ collections:
                 i18n: true
                 required: false
                 widget: string
-              - name: people
-                label: People
+              - name: team
+                label: Team
                 i18n: true
                 required: false
                 widget: string
@@ -275,6 +335,38 @@ collections:
                 widget: string
               - name: courses
                 label: Courses
+                i18n: true
+                required: false
+                widget: string
+          - name: team
+            label: Team
+            i18n: true
+            required: false
+            widget: object
+            collapsed: true
+            fields:
+              - name: pi
+                label: Pi
+                i18n: true
+                required: false
+                widget: string
+              - name: piTitle
+                label: Pi title
+                i18n: true
+                required: false
+                widget: string
+              - name: members
+                label: Members
+                i18n: true
+                required: false
+                widget: string
+              - name: collaborators
+                label: Collaborators
+                i18n: true
+                required: false
+                widget: string
+              - name: collaboratorsLead
+                label: Collaborators lead
                 i18n: true
                 required: false
                 widget: string
@@ -786,11 +878,6 @@ collections:
             widget: object
             collapsed: true
             fields:
-              - name: publications
-                label: Publications
-                i18n: true
-                required: false
-                widget: string
               - name: source
                 label: Source
                 i18n: true

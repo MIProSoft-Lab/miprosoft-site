@@ -1,11 +1,11 @@
 ---
-// Group home page: introduction, latest news, people, latest publications.
+// Group home page: introduction, latest news, team, latest publications.
 import Base from '../../layouts/Base.astro';
 import MemberCard from '../../components/MemberCard.astro';
 import Publications from '../../components/Publications.astro';
 import NewsCard from '../../components/NewsCard.astro';
 import { getPosts, inLanguage } from '../../lib/news.js';
-import { members, group, config, languages, defaultLang } from '../../lib/data.js';
+import { members, team, group, config, languages, defaultLang } from '../../lib/data.js';
 import { strings, loc } from '../../lib/i18n.js';
 
 export function getStaticPaths() {
@@ -37,7 +37,7 @@ const news = (await getPosts()).slice(0, LATEST_NEWS).map((p) => inLanguage(p, l
     name: name || undefined,
     description: description || undefined,
     parentOrganization: institution?.name ? { '@type': 'CollegeOrUniversity', name: L(institution.name), url: institution.url } : undefined,
-    member: members.map((m) => ({ '@type': 'Person', name: m.name, url: new URL(`${base}${lang}/people/${m.id}/`, Astro.site).href })),
+    member: members.map((m) => ({ '@type': 'Person', name: m.name, url: new URL(`${base}${lang}/team/${m.id}/`, Astro.site).href })),
   }}
 >
   <section slot="hero" class="hero">
@@ -60,12 +60,12 @@ const news = (await getPosts()).slice(0, LATEST_NEWS).map((p) => inLanguage(p, l
     </section>
   )}
 
-  <section class="block" aria-labelledby="people-heading">
+  <section class="block" aria-labelledby="team-heading">
     <div class="block-head">
-      <h2 id="people-heading">{t.nav.people}</h2>
+      <h2 id="team-heading">{t.nav.team}</h2>
     </div>
     <ul class="member-grid">
-      {members.map((m) => <MemberCard member={m} lang={lang} />)}
+      {team.map((m) => <MemberCard member={m} lang={lang} />)}
     </ul>
   </section>
 
