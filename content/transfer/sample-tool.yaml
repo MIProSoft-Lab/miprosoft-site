@@ -1,0 +1,43 @@
+en:
+  title: "Sample tool: placeholder name"
+  order: 1
+  audiences:
+    - companies
+    - education
+  summary: This is a sample tool with placeholder text, to show how knowledge transfer tools look on the website.
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. It helps:
+
+    - Small software companies assess their processes
+    - Lorem ipsum dolor sit amet
+  links:
+    - label: Try it
+      url: https://example.org
+    - label: Source code
+      url: https://example.org/code
+ca:
+  title: "Eina d'exemple: nom provisional"
+  links:
+    - label: Prova-la
+      url: https://example.org
+    - label: Codi font
+      url: https://example.org/code
+  summary: Aquesta és una eina d'exemple amb text provisional, per mostrar com es veuen les eines de transferència al web.
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ajuda a:
+
+    - Petites empreses de programari a avaluar els seus processos
+    - Lorem ipsum dolor sit amet
+es:
+  title: "Herramienta de ejemplo: nombre provisional"
+  links:
+    - label: Pruébala
+      url: https://example.org
+    - label: Código fuente
+      url: https://example.org/code
+  summary: Esta es una herramienta de ejemplo con texto provisional, para mostrar cómo se ven las herramientas de transferencia en la web.
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ayuda a:
+
+    - Pequeñas empresas de software a evaluar sus procesos
+    - Lorem ipsum dolor sit amet

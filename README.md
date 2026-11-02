@@ -27,6 +27,7 @@ Every Monday (and on every push) a GitHub Action:
 | `data/overrides.yaml` | Corrections to works (by DOI) applied for every member |
 | `content/news/<slug>/index.yaml` | News and blog posts, every language in one file, with their images beside it (*CMS*) |
 | `content/courses/<slug>.yaml` | Courses the group currently teaches (*CMS*) |
+| `content/transfer/<slug>.yaml` | Knowledge transfer tools (*CMS*) |
 | `content/research-lines/<slug>.yaml` | Research lines (*CMS*) |
 | `content/theses/<slug>.yaml` | PhD, master's and bachelor's theses supervised by members (*CMS*) |
 | `content/collaborators/<slug>.yaml` | Collaborators shown on the team page (*CMS*) |
@@ -46,13 +47,16 @@ Pages:
   - `/<lang>/research/theses/`: supervised theses, by type (also listed on each
     supervisor's profile, under "Supervised theses")
 - `/<lang>/news/` and `/<lang>/news/<slug>/`: news and blog posts
-- `/<lang>/courses/`: courses the group currently teaches (hidden when there are none)
+- Teaching & Transfer (a menu in the navigation; each page is hidden when it has no content):
+  - `/<lang>/teaching/courses/`: courses the group currently teaches
+  - `/<lang>/teaching/transfer/`: knowledge transfer: tools the group has developed
+    for companies and society
 
 Members' names in author lists link to their profiles.
 
 ## Editing content
 
-News, research lines, theses, courses, collaborators and the interface texts can be edited without touching code, in
+News, research lines, theses, courses, knowledge transfer tools, collaborators and the interface texts can be edited without touching code, in
 the content editor ([Sveltia CMS](https://sveltiacms.app)) at **`/admin/`** of
 the site, e.g. `https://<site>/admin/`. It shows every language side by side
 and commits each change to the repository, which rebuilds and publishes the
@@ -120,7 +124,7 @@ Interface texts (`content/translations/<lang>.yaml`) keep `{n}`, `{total}`,
 texts that depend on a number. A text left empty in Catalan or Spanish is shown
 in English.
 
-The home page shows the three latest posts. The files under `content/` include a sample post, course, collaborator,
+The home page shows the three latest posts. The files under `content/` include a sample post, course, tool, collaborator,
 research line and two theses with placeholder text: replace or delete them.
 
 ## Adding a member

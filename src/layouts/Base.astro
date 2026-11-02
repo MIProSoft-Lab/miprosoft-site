@@ -2,13 +2,14 @@
 // Page shell shared by every page: top bar (institution, languages, theme),
 // masthead with the group name and navigation, and footer.
 //   path:         the page's path after the language, e.g. "team/jane-doe/" ("" for the home page)
-//   nav:          the navigation entry to mark as current: home | news | team | research | courses
-//   subnav:       the entry of its menu to mark as current (research: lines | publications | theses)
+//   nav:          the navigation entry to mark as current: home | news | team | research | teaching
+//   subnav:       the entry of its menu to mark as current (research: lines | publications | theses;
+//                 teaching: courses | transfer)
 //   jsonLd:       optional schema.org object
 //   lastModified: shown in the footer
 // Slots: "hero" (full-width band above the content) and the default slot.
 import '../styles/site.css';
-import { languages, group, defaultLang, courses } from '../lib/data.js';
+import { languages, group, defaultLang, courses, transferTools } from '../lib/data.js';
 import { strings, ui, loc } from '../lib/i18n.js';
 
 const { lang, title, description, path = '', nav, subnav, jsonLd, lastModified } = Astro.props;
@@ -35,8 +36,16 @@ const links = [
       { id: 'theses', label: t.research.theses, href: `${home}research/theses/` },
     ],
   },
-  courses.length > 0 && { id: 'courses', label: t.nav.courses, href: `${home}courses/` },
-].filter(Boolean);
+  {
+    id: 'teaching',
+    label: t.nav.teaching,
+    // Each page only when it has content; the menu only when one of them has.
+    items: [
+      courses.length > 0 && { id: 'courses', label: t.courses.title, href: `${home}teaching/courses/` },
+      transferTools.length > 0 && { id: 'transfer', label: t.transfer.title, href: `${home}teaching/transfer/` },
+    ].filter(Boolean),
+  },
+].filter((l) => !l.items || l.items.length);
 ---
 <!doctype html>
 <html lang={lang}>

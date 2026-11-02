@@ -7,7 +7,7 @@ nav:
   team: Equipo
   research: Investigación
   news: Noticias
-  courses: Cursos
+  teaching: Docencia y transferencia
 team:
   pi: IP
   piTitle: Investigador principal
@@ -34,7 +34,7 @@ research:
   supervisors: Dirección
   document: Documento
 courses:
-  title: Cursos
+  title: Formación
   lead: Cursos que impartimos actualmente.
   types:
     master: Máster
@@ -59,6 +59,15 @@ courses:
     other: "{n} horas"
   institution: Institución
   moreInfo: Más información
+transfer:
+  title: Transferencia de conocimiento
+  lead: Herramientas que hemos desarrollado para acercar nuestra investigación a las empresas y a la sociedad.
+  audience: Para
+  audiences:
+    companies: Empresas
+    society: Sociedad
+    education: Educación
+    administration: Administración pública
 news:
   title: Noticias y blog
   latest: Últimas noticias

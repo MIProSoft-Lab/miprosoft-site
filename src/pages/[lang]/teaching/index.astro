@@ -1,0 +1,15 @@
+---
+// /<lang>/teaching/ has no page of its own (the menu lists its pages): send
+// visitors to the first one that exists.
+import Redirect from '../../../components/Redirect.astro';
+import { courses, transferTools, languages } from '../../../lib/data.js';
+
+export function getStaticPaths() {
+  const first = courses.length ? 'courses' : transferTools.length ? 'transfer' : null;
+  return first ? languages.map((lang) => ({ params: { lang }, props: { first } })) : [];
+}
+
+const { lang } = Astro.params;
+const { first } = Astro.props;
+---
+<Redirect to={`${lang}/teaching/${first}/`} />

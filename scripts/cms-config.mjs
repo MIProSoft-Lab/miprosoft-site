@@ -204,6 +204,40 @@ const theses = {
   ],
 };
 
+const transfer = {
+  name: 'transfer',
+  label: 'Knowledge transfer',
+  label_singular: 'Tool',
+  description: 'Tools the group has developed to bring its research to companies and society, shown under Teaching & Transfer.',
+  folder: 'content/transfer',
+  extension: 'yaml',
+  format: 'yaml',
+  create: true,
+  i18n: true,
+  summary: '{{title}}',
+  sortable_fields: ['order', 'title'],
+  fields: [
+    { name: 'title', label: 'Name', widget: 'string', i18n: true },
+    { name: 'order', label: 'Order', widget: 'number', value_type: 'int', required: false, hint: 'Tools are listed by this number, lowest first.' },
+    {
+      name: 'audiences', label: 'For', widget: 'select', multiple: true, required: false, hint: 'Who the tool is for.',
+      options: Object.entries(texts.transfer?.audiences ?? {}).map(([value, label]) => ({ label, value })),
+    },
+    { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences, shown under the name.' },
+    { name: 'description', label: 'Description', widget: 'markdown', i18n: true, required: false, hint: 'What it does, who uses it, results… Optional.' },
+    { name: 'image', label: 'Logo or image', widget: 'image', required: false, hint: 'Shown small, next to the name. Square works best.' },
+    {
+      name: 'links', label: 'Links', widget: 'list', i18n: true, required: false, label_singular: 'Link',
+      hint: 'The first one is shown as a button, e.g. the tool itself; then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown.',
+      summary: '{{label}} · {{url}}',
+      fields: [
+        { name: 'label', label: 'Text', widget: 'string', required: false, hint: 'E.g. "Try it". If empty, the site name is shown.' },
+        { name: 'url', label: 'URL', widget: 'string', pattern: ['^(https?://|mailto:)', 'A full address starting with https:// (or mailto:)'] },
+      ],
+    },
+  ],
+};
+
 const collaborators = {
   name: 'collaborators',
   label: 'Collaborators',
@@ -276,7 +310,7 @@ const cms = {
   media_folder: '/public/media',
   public_folder: '/media',
   i18n: { structure: 'single_file', locales: languages, default_locale: defaultLang, initial_locales: 'all' },
-  collections: [news, researchLines, theses, courses, collaborators, translations],
+  collections: [news, researchLines, theses, courses, transfer, collaborators, translations],
 };
 
 await mkdir(new URL('public/admin/fonts/', root), { recursive: true });

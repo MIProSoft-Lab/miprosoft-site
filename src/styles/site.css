@@ -182,6 +182,8 @@ a:hover { text-decoration: underline; }
 /* An invisible bridge over the gap, so the pointer can reach the menu. */
 .main-nav .menu::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: 0.5rem; }
 .has-menu.open .menu { display: flex; }
+/* The last menu opens towards the left, so it stays inside the page. */
+.has-menu:last-child .menu { left: auto; right: 0; }
 .has-menu.open .menu-toggle::after { transform: rotate(-135deg); margin-top: 0.2em; }
 @media (hover: hover) {
   .has-menu:hover .menu { display: flex; }
@@ -544,6 +546,14 @@ h2 .count, h3 .count {
 .theses .pub-metrics a.member { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.15em; }
 .theses .pub-metrics a.member:hover { color: var(--accent); text-decoration-color: currentColor; }
 
+/* ---------- Knowledge transfer ---------- */
+
+.tool-head { display: flex; align-items: center; gap: 1rem; }
+.tool-logo { flex: none; width: 3.5rem; height: 3.5rem; object-fit: contain; border-radius: 8px; background: var(--bg); }
+.tool .news-meta { gap: 0.4rem; }
+.tool-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.25rem; margin-top: 0.6rem; font-weight: 700; font-size: 0.92rem; }
+.tool-links .button { align-self: auto; }
+
 /* ---------- Footer ---------- */
 
 .site-footer { background: var(--footer-bg); color: var(--footer-fg); font-size: 0.85rem; }
@@ -568,7 +578,7 @@ h2 .count, h3 .count {
   /* On phones the menu opens under the whole navigation, so it fits the screen. */
   .main-nav { position: relative; }
   .has-menu { position: static; }
-  .main-nav .menu { left: 0.6rem; right: auto; }
+  .main-nav .has-menu .menu { left: 0.6rem; right: auto; }
   .profile { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .footer-meta { text-align: left; }
 }

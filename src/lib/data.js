@@ -384,6 +384,29 @@ export const theses = readEntries('content/theses')
 // Each member's supervised theses, for the "Theses" section of their profile.
 for (const m of members) m.theses = theses.filter((x) => x.supervisors.some((p) => p.id === m.id));
 
+// ---------- Knowledge transfer ----------
+
+// content/transfer/<slug>.yaml (all languages, edited in the CMS at /admin/):
+// tools the group has developed to bring its research to companies and
+// society, by `order` and then name.
+// [{ label, url }] from the CMS: entries without a URL are dropped, and a link
+// without a label shows the site's name.
+export const linksOf = (links) => (links ?? []).filter((l) => l?.url).map((l) => ({ url: l.url, label: l.label || hostOf(l.url) }));
+
+export const transferAudiences = ['companies', 'society', 'education', 'administration'];
+export const transferTools = readEntries('content/transfer')
+  .map((entry) => {
+    const b = entry.base;
+    return {
+      entry,
+      id: entry.slug,
+      order: Number(b.order ?? 999),
+      image: b.image || '',
+      audiences: (b.audiences ?? []).filter((a) => transferAudiences.includes(a)),
+    };
+  })
+  .sort((a, b) => a.order - b.order || String(a.entry.base.title).localeCompare(String(b.entry.base.title)));
+
 export function hasContent(cv, section) {
   if (section === 'theses') return cv.theses.length > 0;
   if (section === 'about') return Boolean(cv.about) || cv.profile.keywords.length > 0;
