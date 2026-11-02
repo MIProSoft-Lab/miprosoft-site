@@ -1,0 +1,33 @@
+---
+// The group's publications: every member's works, each paper once.
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import Publications from '../../../components/Publications.astro';
+import Metrics from '../../../components/Metrics.astro';
+import { members, group, config, languages, defaultLang } from '../../../lib/data.js';
+import { strings, loc } from '../../../lib/i18n.js';
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = strings(lang);
+const L = (x) => loc(x, lang, defaultLang);
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const features = config.features ?? {};
+const name = L(group.name);
+---
+<Base lang={lang} nav="publications" path="publications/" title={`${t.nav.publications} — ${name}`} lastModified={group.lastModified}>
+  <PageHead slot="hero" title={t.nav.publications} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }]} />
+  {features.metrics !== false && features.citations !== false && <Metrics metrics={group.metrics} lang={lang} />}
+  <Publications
+    works={group.works}
+    lang={lang}
+    members={members}
+    filter
+    showCitations={features.citations !== false}
+    showAbstracts={features.abstracts !== false}
+    showImpactFactor={features.impactFactor !== false}
+  />
+</Base>

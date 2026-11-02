@@ -3,12 +3,12 @@
 # so make fixes here instead of editing them.
 #
 # Works are matched by DOI. Per-member changes (selected publications, hiding
-# a work from one CV, affiliations) go in data/people/<id>.yaml.
+# a work from one profile, affiliations) go in data/people/<id>.yaml.
 works: []
 #  - doi: 10.1234/abcd
 #    title: "Corrected title"
 #    type: conference-paper   # any ORCID work type
 #    venue: "Proceedings of ..."
 #  - doi: 10.1234/efgh
-#    hide: true               # hide from every CV
+#    hide: true               # hide from every profile
 #    authors: [Jane Doe, John Smith]

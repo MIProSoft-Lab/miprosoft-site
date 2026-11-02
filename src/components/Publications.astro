@@ -3,13 +3,15 @@ import { strings } from '../lib/i18n.js';
 import { workGroupOrder } from '../lib/data.js';
 import { authorMatcher } from '../lib/authors.js';
 
-// In author lists, `self` (the id of the member whose CV this is) is shown in
-// bold, and the other `members` link to their CVs.
-const { works, lang, members = [], self, showCitations, showAbstracts = true, showImpactFactor = true } = Astro.props;
+// In author lists, `self` (the id of the member whose profile this is) is shown in
+// bold, and the other `members` link to their profiles.
+//   flat:   one list, without the per-type groups (e.g. latest publications)
+//   filter: a menu to show only one member's works (group publications page)
+const { works, lang, members = [], self, flat = false, filter = false, showCitations, showAbstracts = true, showImpactFactor = true } = Astro.props;
 const t = strings(lang);
 const memberOf = authorMatcher(members);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const cvUrl = (m) => `${base}${lang}/people/${m.id}/`;
+const profileUrl = (m) => `${base}${lang}/people/${m.id}/`;
 
 // "cc-by-nc-nd" -> "CC BY-NC-ND"; values like "CC BY-NC-ND 4.0" are kept.
 const licenseName = (l) => (/^cc-/i.test(l) ? l.toUpperCase().replace(/^CC-/, 'CC ') : l);
@@ -27,10 +29,26 @@ const jcrText = (j) => {
 const hasAbstract = (w) => showAbstracts && Boolean(w.abstract || w.tldr);
 
 const hasSelected = works.some((w) => w.selected);
-const groups = workGroupOrder
-  .map((g) => ({ id: g, items: works.filter((w) => w.group === g) }))
-  .filter((g) => g.items.length);
+const groups = flat
+  ? [{ id: 'all', items: works }]
+  : workGroupOrder
+      .map((g) => ({ id: g, items: works.filter((w) => w.group === g) }))
+      .filter((g) => g.items.length);
+// Members with works in this list, for the filter.
+const authors = filter ? members.filter((m) => works.some((w) => w.members?.includes(m.id))) : [];
 ---
+{authors.length > 1 && (
+  <div class="member-filter">
+    <label>
+      <span>{t.filterByMember}</span>
+      <select>
+        <option value="">{t.allMembers} ({works.length})</option>
+        {authors.map((m) => <option value={m.id}>{m.name} ({works.filter((w) => w.members?.includes(m.id)).length})</option>)}
+      </select>
+    </label>
+    <p class="member-filter-status" aria-live="polite" data-template={t.showing('{n}', '{total}')}></p>
+  </div>
+)}
 {hasSelected && (
   <div class="pub-toggle" role="group">
     <button type="button" data-filter="selected" aria-pressed="true">{t.selected}</button>
@@ -49,7 +67,7 @@ const groups = workGroupOrder
       )}
       <ol class="pubs" id={`pubs-${g.id}`}>
         {g.items.map((w, i) => (
-          <li class:list={['pub', { selected: w.selected }]}>
+          <li class:list={['pub', { selected: w.selected }]} data-members={(w.members ?? []).join(' ')} data-year={w.date?.year ?? ''}>
             {/* Timeline: the year is shown once per run of works from the same year. */}
             <span class:list={['pub-year', { repeat: i > 0 && g.items[i - 1].date?.year === w.date?.year }]}><span class="year-label">{w.date?.year ?? ''}</span></span>
             <div class="pub-body">
@@ -70,7 +88,7 @@ const groups = workGroupOrder
                       const m = memberOf(a);
                       if (!m) return a;
                       if (m.id === self) return <strong>{a}</strong>;
-                      return <a class="member" href={cvUrl(m)} title={m.profile?.name}>{a}</a>;
+                      return <a class="member" href={profileUrl(m)} title={m.profile?.name}>{a}</a>;
                     })()}{j < w.authors.length - 1 ? ', ' : ''}</>
                   ))}
                 </div>
@@ -131,4 +149,35 @@ const groups = workGroupOrder
   // The abstract toggle sits in the links row and the abstract below it, so
   // this is a button, not <details>.
   setupToggles('.group-toggle, .abstract-toggle');
+
+  // Member filter: hide other works, then fix the group counts and the timeline
+  // (the year is shown on the first visible work of each year).
+  const select = document.querySelector('.member-filter select');
+  if (select) {
+    const status = document.querySelector('.member-filter-status');
+    const total = document.querySelectorAll('.publications .pub').length;
+    const apply = () => {
+      const id = select.value;
+      let shown = 0;
+      for (const group of document.querySelectorAll('.publications .pub-group')) {
+        let n = 0;
+        let previousYear = null;
+        for (const li of group.querySelectorAll('.pub')) {
+          li.hidden = Boolean(id) && !li.dataset.members.split(' ').includes(id);
+          if (li.hidden) continue;
+          li.querySelector('.pub-year').classList.toggle('repeat', n > 0 && li.dataset.year === previousYear);
+          previousYear = li.dataset.year;
+          n++;
+        }
+        group.hidden = n === 0;
+        const count = group.querySelector('.count');
+        if (count) count.textContent = String(n);
+        shown += n;
+      }
+      status.textContent = id ? status.dataset.template.replace('{n}', shown).replace('{total}', total) : '';
+    };
+    select.addEventListener('change', apply);
+    // Keep the choice when coming back to the page.
+    if (select.value) apply();
+  }
 </script>

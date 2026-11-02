@@ -1,0 +1,17 @@
+---
+// Title band at the top of inner pages, with an optional breadcrumb
+// (`crumbs`: [{ label, href }]) and lead text.
+const { title, lead, crumbs = [] } = Astro.props;
+---
+<div class="page-head">
+  <div class="container">
+    {crumbs.length > 0 && (
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>{crumbs.map((c) => <li><a href={c.href}>{c.label}</a></li>)}</ol>
+      </nav>
+    )}
+    <h1>{title}</h1>
+    {lead && <p class="lead">{lead}</p>}
+    <slot />
+  </div>
+</div>

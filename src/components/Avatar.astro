@@ -1,0 +1,9 @@
+---
+// A member's photo, or their initials in a UIB-blue circle.
+const { member, size = 64 } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const photo = member.profile.photo;
+---
+{photo
+  ? <img class="avatar" src={`${base}${photo.replace(/^\//, '')}`} alt="" width={size} height={size} style={`--size: ${size}px`} />
+  : <span class="avatar avatar-initials" aria-hidden="true" style={`--size: ${size}px`}>{member.initials}</span>}

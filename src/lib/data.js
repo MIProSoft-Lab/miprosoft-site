@@ -220,14 +220,25 @@ function loadMember({ id, orcid: orcidId }) {
     ? manual.nameVariants
     : [person.name, ...(person.otherNames ?? []), profile.name].filter(Boolean);
 
+  const name = profile.name || person.name || id;
+  const employment = applyItems(orcid.employment);
+
   return {
     id,
+    name,
+    // "Antonio Crespi Tobeña" -> "AC": shown when there is no photo.
+    initials: (person.givenNames && person.familyName
+      ? [person.givenNames, person.familyName]
+      : name.split(/\s+/)
+    ).map((n) => n.trim().charAt(0).toUpperCase()).slice(0, 2).join(''),
+    // Shown under the name when there is no title: the current (or latest) job.
+    affiliation: employment[0] ?? null,
     orcidId: orcid.orcid ?? orcidId,
     lastModified: orcid.lastModified,
     sections: manual.sections ?? config.sections ?? [],
     collapsed: manual.collapsed ?? config.collapsed ?? [],
     profile: {
-      name: profile.name || person.name || id,
+      name,
       title: profile.title,
       email: profile.email || person.emails?.[0] || '',
       location: profile.location,
@@ -245,7 +256,7 @@ function loadMember({ id, orcid: orcidId }) {
     nameVariants,
     familyName: person.familyName ?? '',
     givenNames: person.givenNames ?? '',
-    employment: applyItems(orcid.employment),
+    employment,
     education: applyItems([...(orcid.education ?? []), ...(orcid.qualifications ?? [])]),
     distinctions: applyItems(orcid.distinctions),
     invitedPositions: applyItems(orcid.invitedPositions),
@@ -276,6 +287,7 @@ const groupWorks = dedupeWorks(members.flatMap((m) => m.works.map(({ selected, .
 export const group = {
   name: config.group?.name ?? '',
   description: config.group?.description ?? '',
+  institution: config.group?.institution ?? null,
   works: groupWorks,
   metrics: computeMetrics(groupWorks),
   lastModified: members.map((m) => m.lastModified).filter(Boolean).sort().at(-1) ?? null,

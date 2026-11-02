@@ -1,6 +1,6 @@
-// Recognizes members in author lists, to highlight them and link to their CVs.
+// Recognizes members in author lists, to highlight them and link to their profiles.
 
-const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[.\s]+/g, ' ').trim().toLowerCase();
+const norm = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[.\s]+/g, ' ').trim().toLowerCase();
 
 // `people`: [{ id, nameVariants, familyName, givenNames }]. Returns a function
 // author => the matching person, or undefined.

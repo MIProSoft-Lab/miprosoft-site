@@ -4,11 +4,12 @@ import Section from '../../../../components/Section.astro';
 import Entry from '../../../../components/Entry.astro';
 import Publications from '../../../../components/Publications.astro';
 import Metrics from '../../../../components/Metrics.astro';
+import Avatar from '../../../../components/Avatar.astro';
 import { members, memberById, group, config, languages, defaultLang, hasContent } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
 import { formatRange, formatDate, formatPlace } from '../../../../lib/format.js';
 
-// One CV per member and language: /<lang>/people/<id>/
+// One profile page per member and language: /<lang>/people/<id>/
 export function getStaticPaths() {
   return languages.flatMap((lang) => members.map((m) => ({ params: { lang, id: m.id } })));
 }
@@ -23,10 +24,9 @@ const sections = cv.sections.filter((s) => hasContent(cv, s));
 const title = L(cv.profile.title);
 const aboutText = L(cv.about);
 
-const actions = [
-  features.pdf !== false && { label: t.downloadPdf, href: `${base}people/${id}/cv-${lang}.pdf` },
-  features.bibtex !== false && cv.works.length > 0 && { label: t.downloadBib, href: `${base}people/${id}/publications.bib`, download: true },
-].filter(Boolean);
+const groupName = L(group.name);
+const role = title || L(cv.affiliation?.role);
+const org = [cv.affiliation?.department, cv.affiliation?.organization?.name].filter(Boolean).join(', ');
 
 const orgLine = (it) => [it.department, it.organization?.name].filter(Boolean).join(', ');
 const affiliationEntry = (it) => ({
@@ -40,34 +40,44 @@ const affiliationEntry = (it) => ({
 ---
 <Base
   lang={lang}
+  nav="people"
   path={`people/${id}/`}
-  title={`${cv.profile.name}${title ? ` — ${title}` : ''}`}
-  description={`${cv.profile.name}${title ? ', ' + title : ''}. ${t.sections.publications}, ${t.sections.employment.toLowerCase()}.`}
-  homeLabel={L(group.name)}
-  actions={actions}
+  title={`${cv.profile.name} — ${groupName}`}
+  description={[cv.profile.name, role, groupName].filter(Boolean).join(' · ')}
   lastModified={cv.lastModified}
   jsonLd={{
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: cv.profile.name,
-    jobTitle: title || undefined,
-    memberOf: L(group.name) ? { '@type': 'Organization', name: L(group.name) } : undefined,
+    jobTitle: role || undefined,
+    memberOf: groupName ? { '@type': 'ResearchOrganization', name: groupName } : undefined,
     sameAs: [`https://orcid.org/${cv.orcidId}`, ...cv.profile.links.map((l) => l.url)],
   }}
 >
-  <header class="header">
-    {cv.profile.photo && <img class="photo" src={`${base}${cv.profile.photo.replace(/^\//, '')}`} alt="" width="120" height="120" />}
-    <div>
-      <h1>{cv.profile.name}</h1>
-      {title && <p class="headline">{title}</p>}
-      <ul class="contact">
-        {cv.profile.location && <li>{cv.profile.location}</li>}
-        {cv.profile.email && <li><a href={`mailto:${cv.profile.email}`}>{cv.profile.email}</a></li>}
-        <li><a class="orcid" href={`https://orcid.org/${cv.orcidId}`}>ORCID {cv.orcidId}</a></li>
-        {cv.profile.links.map((l) => <li><a href={l.url}>{l.label}</a></li>)}
-      </ul>
+  <div slot="hero" class="page-head profile-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href={`${base}${lang}/`}>{t.nav.home}</a></li>
+          <li><a href={`${base}${lang}/people/`}>{t.nav.people}</a></li>
+        </ol>
+      </nav>
+      <div class="profile">
+        <Avatar member={cv} size={112} />
+        <div class="profile-text">
+          <h1>{cv.profile.name}</h1>
+          {role && <p class="profile-role">{role}</p>}
+          {org && <p class="profile-org">{org}</p>}
+          <ul class="chips">
+            {cv.profile.email && <li><a href={`mailto:${cv.profile.email}`}>{cv.profile.email}</a></li>}
+            {cv.profile.location && <li><span>{cv.profile.location}</span></li>}
+            <li><a class="orcid" href={`https://orcid.org/${cv.orcidId}`}>ORCID</a></li>
+            {cv.profile.links.map((l) => <li><a href={l.url}>{l.label}</a></li>)}
+          </ul>
+        </div>
+      </div>
     </div>
-  </header>
+  </div>
 
   {sections.map((s) => (
     <Section id={s} title={t.sections[s]} collapsed={cv.collapsed.includes(s)}>

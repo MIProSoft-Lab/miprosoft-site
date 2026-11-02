@@ -1,13 +1,16 @@
 ---
-// Group home page: for now, the list of members linking to their CVs.
+// Group home page: introduction and figures, people, latest publications.
 import Base from '../../layouts/Base.astro';
-import Section from '../../components/Section.astro';
+import MemberCard from '../../components/MemberCard.astro';
+import Publications from '../../components/Publications.astro';
 import { members, group, config, languages, defaultLang } from '../../lib/data.js';
 import { strings, loc } from '../../lib/i18n.js';
 
 export function getStaticPaths() {
   return languages.map((lang) => ({ params: { lang } }));
 }
+
+const LATEST = 5;
 
 const { lang } = Astro.params;
 const t = strings(lang);
@@ -16,39 +19,71 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const features = config.features ?? {};
 const name = L(group.name);
 const description = L(group.description);
+const institution = group.institution;
+const fmt = new Intl.NumberFormat(lang, { notation: 'compact', maximumFractionDigits: 1 });
 
-const actions = [
-  features.bibtex !== false && group.works.length > 0 && { label: t.downloadBib, href: `${base}publications.bib`, download: true },
+const showCitations = features.citations !== false && group.metrics.citations > 0;
+const figures = [
+  [t.metrics.members, members.length],
+  [t.metrics.publications, group.metrics.publications],
+  showCitations && [t.metrics.citations, group.metrics.citations],
+  showCitations && [t.metrics.hIndex, group.metrics.hIndex],
 ].filter(Boolean);
 ---
 <Base
   lang={lang}
-  title={name || t.sections.members}
-  description={description || undefined}
-  actions={actions}
+  nav="home"
+  title={name ? `${name} — ${t.researchGroup}` : t.researchGroup}
+  description={description || [name, t.researchGroup, institution?.name && L(institution.name)].filter(Boolean).join(' · ')}
   lastModified={group.lastModified}
   jsonLd={{
     '@context': 'https://schema.org',
     '@type': 'ResearchOrganization',
     name: name || undefined,
-    member: members.map((m) => ({ '@type': 'Person', name: m.profile.name, url: new URL(`${base}${lang}/people/${m.id}/`, Astro.site).href })),
+    description: description || undefined,
+    parentOrganization: institution?.name ? { '@type': 'CollegeOrUniversity', name: L(institution.name), url: institution.url } : undefined,
+    member: members.map((m) => ({ '@type': 'Person', name: m.name, url: new URL(`${base}${lang}/people/${m.id}/`, Astro.site).href })),
   }}
 >
-  <header class="header">
-    <div>
-      {name && <h1>{name}</h1>}
-      {description && <p class="headline">{description}</p>}
+  <section slot="hero" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">{t.researchGroup}{institution?.name && <> · {L(institution.name)}</>}</p>
+        <h1>{name}</h1>
+        {description && <p class="hero-lead">{description}</p>}
+      </div>
+      <dl class="hero-figures" aria-label={t.groupFigures}>
+        {figures.map(([label, value]) => (
+          <div><dt>{label}</dt><dd>{fmt.format(value)}</dd></div>
+        ))}
+      </dl>
     </div>
-  </header>
+  </section>
 
-  <Section id="members" title={t.sections.members}>
-    <ul class="members">
-      {members.map((m) => (
-        <li>
-          <a class="member-name" href={`${base}${lang}/people/${m.id}/`}>{m.profile.name}</a>
-          {L(m.profile.title) && <span class="meta">{L(m.profile.title)}</span>}
-        </li>
-      ))}
+  <section class="block" aria-labelledby="people-heading">
+    <div class="block-head">
+      <h2 id="people-heading">{t.nav.people}</h2>
+    </div>
+    <ul class="member-grid">
+      {members.map((m) => <MemberCard member={m} lang={lang} />)}
     </ul>
-  </Section>
+  </section>
+
+  {group.works.length > 0 && (
+    <section class="block" aria-labelledby="latest-heading">
+      <div class="block-head">
+        <h2 id="latest-heading">{t.latestPublications}</h2>
+        <a class="more" href={`${base}${lang}/publications/`}>{t.allPublications} ({group.works.length}) <span aria-hidden="true">→</span></a>
+      </div>
+      <Publications
+        works={group.works.slice(0, LATEST)}
+        lang={lang}
+        members={members}
+        flat
+        showCitations={features.citations !== false}
+        showAbstracts={features.abstracts !== false}
+        showImpactFactor={features.impactFactor !== false}
+      />
+    </section>
+  )}
 </Base>

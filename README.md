@@ -1,8 +1,9 @@
-# cv-online
+# miprosoft-site
 
-A multilingual research group site for GitHub Pages that keeps itself up to
-date from [ORCID](https://orcid.org). Each member gets a CV page, a PDF and a
-BibTeX file. A group page lists the members.
+A multilingual research group website for GitHub Pages that keeps itself up to
+date from [ORCID](https://orcid.org), styled after the UIB's visual identity:
+a home page with the group's figures, people and latest publications; a page
+per member; and the group's publications, with a filter by author.
 
 Every Monday (and on every push) a GitHub Action:
 
@@ -12,14 +13,14 @@ Every Monday (and on every push) a GitHub Action:
    from Crossref, SISTEDES and Semantic Scholar, and citations and open access
    from OpenAlex
 3. Commits the data if anything changed
-4. Builds the site in every configured language, plus one PDF per member and language
+4. Builds the site in every configured language
 5. Deploys to GitHub Pages
 
 ## Layout
 
 | Path | What |
 | --- | --- |
-| `site.config.yaml` | Group name, **members** (`id` + ORCID iD), languages, CV sections, features |
+| `site.config.yaml` | Group name, description and institution, **members** (`id` + ORCID iD), languages, profile sections, features |
 | `data/people/<id>.yaml` | Per-member content ORCID lacks: name variants, title, teaching, talks…, plus per-member overrides (selected works, hidden items) |
 | `data/overrides.yaml` | Corrections to works (by DOI) applied for every member |
 | `data/jcr.yaml` | Journal Impact Factors entered by hand |
@@ -28,10 +29,12 @@ Every Monday (and on every push) a GitHub Action:
 
 Pages:
 
-- `/<lang>/`: group home page with the list of members
-- `/<lang>/people/<id>/`: a member's CV
-- `/people/<id>/cv-<lang>.pdf` and `/people/<id>/publications.bib`: a member's PDF and BibTeX
-- `/publications.bib`: the whole group's publications, each paper once
+- `/<lang>/`: home page: the group's figures, people and latest publications
+- `/<lang>/people/`: all members
+- `/<lang>/people/<id>/`: a member's profile
+- `/<lang>/publications/`: the group's publications, each paper once, with a filter by author
+
+Members' names in author lists link to their profiles.
 
 ## Adding a member
 
@@ -68,10 +71,6 @@ npm run fetch
 npm run dev
 ```
 
-To render the PDFs locally, build, start `npx astro preview` and run
-`CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" npm run pdf`
-(set `PREVIEW_URL` if the preview is not on `http://localhost:4321`).
-
 ## Journal Impact Factors
 
 Journal articles show the JIF (Clarivate JCR) of their publication year, or the
@@ -82,7 +81,12 @@ key with JCR access as the `CLARIVATE_API_KEY` repository secret (or run
 `CLARIVATE_API_KEY=… npm run fetch:jcr` locally). It writes `data/jcr.json` for
 the journals of all members; values in `data/jcr.yaml` still take precedence.
 
-## Typeface
+## Style
+
+Colours follow the UIB's visual identity: institutional blue (Pantone 300 C,
+`#0065BD`), black, and the light blue tint `#E7EDF7`, with a dark theme that
+follows the system (or the toggle in the top bar). Everything is in
+`src/styles/site.css`, with the colours as variables at the top.
 
 The site uses UIB sans, the University of the Balearic Islands' institutional
 typeface, © 2014 Damià Rotger Miró ([ductilct.com](https://www.ductilct.com)).

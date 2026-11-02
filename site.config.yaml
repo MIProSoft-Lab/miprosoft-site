@@ -3,13 +3,17 @@
 group:
   # Any text can be a plain string or a map per language.
   name: MiProSoft
+  # A sentence or two shown on the home page under the name.
   description: ""
   #  en: …
   #  ca: …
   #  es: …
+  institution:
+    name: Universitat de les Illes Balears
+    url: https://www.uib.eu
 
-# Members of the group, in the order they are listed. Each one gets a CV page at
-# /<lang>/people/<id>/, built from their public ORCID record plus the content in
+# Members of the group, in the order they are listed. Each one gets a profile
+# page at /<lang>/people/<id>/, built from their public ORCID record plus the content in
 # data/people/<id>.yaml (optional: name variants, title, teaching, overrides…).
 # Default ORCID for testing: 0000-0002-1825-0097
 members:
@@ -40,7 +44,7 @@ fetch:
   # everything now.
   refreshDays: 30
 
-# Order of sections on each CV. Remove an entry to never show it. A member can
+# Order of sections on each profile page. Remove an entry to never show it. A member can
 # use a different order with `sections:` in their data/people/<id>.yaml.
 # Sections with no data are hidden automatically.
 sections:
@@ -61,7 +65,7 @@ sections:
 
 # Every section can be opened and closed by clicking its heading. Sections
 # listed here start closed (useful for long lists); a member can choose their
-# own with `collapsed:` in data/people/<id>.yaml. Print and PDF show everything.
+# own with `collapsed:` in data/people/<id>.yaml.
 collapsed: []
 #  - publications
 
@@ -69,6 +73,4 @@ features:
   citations: true   # citation counts from OpenAlex
   metrics: true     # citations / h-index / i10-index summary (needs citations)
   abstracts: true   # collapsible abstracts
-  bibtex: true      # BibTeX downloads (per member, and the whole group)
-  pdf: true         # PDF of each CV per language rendered in CI
   impactFactor: true # Journal Impact Factor (data/jcr.yaml, or data/jcr.json from the Clarivate API)

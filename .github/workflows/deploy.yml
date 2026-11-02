@@ -95,14 +95,6 @@ jobs:
           SITE_URL: ${{ steps.pages.outputs.origin }}
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
-      - name: Render PDFs
-        env:
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}
-        run: |
-          npx astro preview --port 4321 &
-          npx --yes wait-on@8 http://localhost:4321${BASE_PATH}/
-          npm run pdf
-
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist

@@ -1,4 +1,4 @@
-# Content of one member's CV that ORCID does not hold. Everything here is
+# Content of one member's profile page that ORCID does not hold. Everything here is
 # optional: an empty list or a missing key simply hides that section.
 # The file name is the member's `id` in site.config.yaml.
 #
@@ -13,9 +13,9 @@ nameVariants:
   - Antonio Crespi
   - Crespi, Antonio
 
-# Optional: a different section order for this CV (see site.config.yaml).
+# Optional: a different section order for this profile (see site.config.yaml).
 # sections: [about, publications, employment]
-# Optional: sections that start closed on this CV (see site.config.yaml).
+# Optional: sections that start closed on this profile (see site.config.yaml).
 # collapsed: [publications]
 
 profile:
@@ -88,7 +88,7 @@ works: []
 #  - doi: 10.1234/abcd
 #    selected: true        # show in "Selected publications"
 #  - doi: 10.1234/efgh
-#    hide: true            # hide from this CV only
+#    hide: true            # hide from this profile only
 #  - putCode: 123456
 #    title: "Corrected title"
 
