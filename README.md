@@ -2,8 +2,9 @@
 
 A multilingual research group website for GitHub Pages that keeps itself up to
 date from [ORCID](https://orcid.org), styled after the UIB's visual identity:
-a home page with the group's figures, people and latest publications; a page
-per member; and the group's publications, with a filter by author.
+a home page with the group's figures, latest news, people and latest
+publications; a page per member; the group's publications, with a filter by
+author; and multilingual news and blog posts.
 
 Every Monday (and on every push) a GitHub Action:
 
@@ -29,12 +30,47 @@ Every Monday (and on every push) a GitHub Action:
 
 Pages:
 
-- `/<lang>/`: home page: the group's figures, people and latest publications
+- `/<lang>/`: home page: the group's figures, latest news, people and latest publications
 - `/<lang>/people/`: all members
 - `/<lang>/people/<id>/`: a member's profile
 - `/<lang>/publications/`: the group's publications, each paper once, with a filter by author
+- `/<lang>/news/` and `/<lang>/news/<slug>/`: news and blog posts
 
 Members' names in author lists link to their profiles.
+
+## News and blog posts
+
+Each post is a folder in `src/content/news/` with one Markdown file per language:
+
+```
+src/content/news/new-website/
+  en.md        date, kind, authors, image… + title and text in English
+  ca.md        title and text in Catalan
+  es.md        title and text in Spanish
+  cover.jpg    optional picture
+```
+
+The folder name is the post's URL (`/en/news/new-website/`). The shared fields
+go only in the default language's file (the first in `site.config.yaml`):
+
+```yaml
+---
+date: 2026-11-02
+kind: news            # news | blog
+authors: [antonio-crespi, Guest Name]   # member ids link to their profiles
+image: ./cover.jpg    # optional
+imageAlt: What the picture shows
+title: Our new website
+summary: One or two sentences for the cards (optional: taken from the text otherwise).
+---
+
+The text, in Markdown.
+```
+
+The other languages only need `title` (and optionally `summary` and
+`imageAlt`) plus the text. A post without a version in some language is shown
+in that language's pages in the default language, with a notice. The home page
+shows the three latest posts. Every post in the folder is published.
 
 ## Adding a member
 

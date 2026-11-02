@@ -1,0 +1,94 @@
+---
+// One news or blog post: /<lang>/news/<slug>/. Every post is built in every
+// language; a missing translation shows another language with a notice.
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import Avatar from '../../../../components/Avatar.astro';
+import NewsCard from '../../../../components/NewsCard.astro';
+import { group, languages, defaultLang } from '../../../../lib/data.js';
+import { getPosts, inLanguage } from '../../../../lib/news.js';
+import { strings, loc } from '../../../../lib/i18n.js';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return languages.flatMap((lang) => posts.map((p) => ({ params: { lang, slug: p.slug } })));
+}
+
+const { lang, slug } = Astro.params;
+const t = strings(lang);
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const all = await getPosts();
+const post = inLanguage(all.find((p) => p.slug === slug), lang);
+const { Content } = await render(post.entry);
+const date = new Intl.DateTimeFormat(lang, { dateStyle: 'long' });
+const languageName = (l) => {
+  try { return new Intl.DisplayNames([lang], { type: 'language' }).of(l); } catch { return l; }
+};
+// The next posts after this one, to keep reading.
+const more = all.filter((p) => p.slug !== slug).slice(0, 3).map((p) => inLanguage(p, lang));
+---
+<Base
+  lang={lang}
+  nav="news"
+  path={`news/${slug}/`}
+  title={`${post.title} — ${loc(group.name, lang, defaultLang)}`}
+  description={post.summary}
+  lastModified={null}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': post.kind === 'blog' ? 'BlogPosting' : 'NewsArticle',
+    headline: post.title,
+    datePublished: post.date.toISOString().slice(0, 10),
+    inLanguage: post.lang,
+    author: post.authors.map((a) => ({ '@type': 'Person', name: a.name })),
+    publisher: { '@type': 'ResearchOrganization', name: loc(group.name, lang, defaultLang) },
+  }}
+>
+  <div slot="hero" class="page-head post-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href={`${base}${lang}/`}>{t.nav.home}</a></li>
+          <li><a href={`${base}${lang}/news/`}>{t.nav.news}</a></li>
+        </ol>
+      </nav>
+      <p class="news-meta">
+        <span class:list={['kind', `kind-${post.kind}`]}>{t.news.kinds[post.kind]}</span>
+        <time datetime={post.date.toISOString().slice(0, 10)}>{date.format(post.date)}</time>
+      </p>
+      <h1 lang={post.translated ? undefined : post.lang}>{post.title}</h1>
+      {post.authors.length > 0 && (
+        <ul class="post-authors" aria-label={t.news.by}>
+          {post.authors.map((a) => (
+            <li>
+              {a.member
+                ? <a href={`${base}${lang}/people/${a.id}/`}><Avatar member={a.member} size={32} /><span>{a.name}</span></a>
+                : <span>{a.name}</span>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </div>
+
+  <article class="post">
+    {!post.translated && <p class="notice" role="note">{t.news.notTranslated(languageName(post.lang))}</p>}
+    {post.image && (
+      <Image class="post-image" src={post.image} alt={post.imageAlt} widths={[800, 1400]} sizes="(max-width: 760px) 100vw, 46rem" />
+    )}
+    <div class="prose" lang={post.translated ? undefined : post.lang}>
+      <Content />
+    </div>
+  </article>
+
+  {more.length > 0 && (
+    <section class="block post-more" aria-labelledby="more-heading">
+      <div class="block-head">
+        <h2 id="more-heading">{t.news.latest}</h2>
+        <a class="more" href={`${base}${lang}/news/`}>{t.news.all} <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="news-grid">{more.map((p) => <NewsCard post={p} lang={lang} />)}</div>
+    </section>
+  )}
+</Base>

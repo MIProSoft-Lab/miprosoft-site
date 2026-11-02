@@ -2,7 +2,7 @@
 
 group:
   # Any text can be a plain string or a map per language.
-  name: MiProSoft
+  name: MIProSoft
   # A sentence or two shown on the home page under the name.
   description: ""
   #  en: …

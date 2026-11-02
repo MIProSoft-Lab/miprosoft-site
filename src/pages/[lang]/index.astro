@@ -1,8 +1,10 @@
 ---
-// Group home page: introduction and figures, people, latest publications.
+// Group home page: introduction and figures, latest news, people, latest publications.
 import Base from '../../layouts/Base.astro';
 import MemberCard from '../../components/MemberCard.astro';
 import Publications from '../../components/Publications.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import { getPosts, inLanguage } from '../../lib/news.js';
 import { members, group, config, languages, defaultLang } from '../../lib/data.js';
 import { strings, loc } from '../../lib/i18n.js';
 
@@ -11,6 +13,7 @@ export function getStaticPaths() {
 }
 
 const LATEST = 5;
+const LATEST_NEWS = 3;
 
 const { lang } = Astro.params;
 const t = strings(lang);
@@ -20,6 +23,7 @@ const features = config.features ?? {};
 const name = L(group.name);
 const description = L(group.description);
 const institution = group.institution;
+const news = (await getPosts()).slice(0, LATEST_NEWS).map((p) => inLanguage(p, lang));
 const fmt = new Intl.NumberFormat(lang, { notation: 'compact', maximumFractionDigits: 1 });
 
 const showCitations = features.citations !== false && group.metrics.citations > 0;
@@ -59,6 +63,16 @@ const figures = [
       </dl>
     </div>
   </section>
+
+  {news.length > 0 && (
+    <section class="block" aria-labelledby="news-heading">
+      <div class="block-head">
+        <h2 id="news-heading">{t.news.latest}</h2>
+        <a class="more" href={`${base}${lang}/news/`}>{t.news.all} <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="news-rows">{news.map((p) => <NewsCard post={p} lang={lang} row />)}</div>
+    </section>
+  )}
 
   <section class="block" aria-labelledby="people-heading">
     <div class="block-head">

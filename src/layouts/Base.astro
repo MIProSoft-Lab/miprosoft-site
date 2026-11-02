@@ -2,7 +2,7 @@
 // Page shell shared by every page: top bar (institution, languages, theme),
 // masthead with the group name and navigation, and footer.
 //   path:         the page's path after the language, e.g. "people/jane-doe/" ("" for the home page)
-//   nav:          the navigation entry to mark as current: home | people | publications
+//   nav:          the navigation entry to mark as current: home | news | people | publications
 //   jsonLd:       optional schema.org object
 //   lastModified: shown in the footer
 // Slots: "hero" (full-width band above the content) and the default slot.
@@ -21,6 +21,7 @@ const institution = group.institution;
 
 const links = [
   { id: 'home', label: t.nav.home, href: home },
+  { id: 'news', label: t.nav.news, href: `${home}news/` },
   { id: 'people', label: t.nav.people, href: `${home}people/` },
   { id: 'publications', label: t.nav.publications, href: `${home}publications/` },
 ];
