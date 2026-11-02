@@ -36,6 +36,7 @@ members:
     orcid: 0000-0002-7485-4709
   - id: antoni-mesquida
     orcid: 0000-0002-1191-6220
+    github: tonimesquida
     pi: true
   - id: jose-cañellas
     orcid: 0009-0000-2218-2800
