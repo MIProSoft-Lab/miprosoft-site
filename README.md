@@ -138,6 +138,27 @@ research line and two theses with placeholder text: replace or delete them.
 When a member is removed, the next fetch deletes their ORCID record and any
 articles no remaining member lists.
 
+## Checking ORCID records
+
+Co-authors sometimes forget to add a shared paper to their ORCID. The
+**Check ORCID records** action (`.github/workflows/orcid-check.yml`) runs after
+every weekly update, and whenever the data or the members change, and warns
+about every member who appears in an article's author list but does not list
+the article in ORCID. Warnings show up as annotations on the run and in its
+summary.
+
+Authors are matched by each member's `nameVariants`, their ORCID name and
+"other names", or by family name plus a known first name or initial
+("A. L. Mesquida", "Jose-David Pérez"), ignoring accents, hyphens and
+"Family, Given" order. Add spellings a member signs with to `nameVariants` in
+`data/people/<id>.yaml`; if someone else with a similar name is matched, add
+the article under `works:` there with `notMine: true`.
+
+```sh
+node scripts/check-orcid.mjs           # check the committed data
+node scripts/check-orcid.mjs --strict  # exit with an error if anything is missing
+```
+
 ## Fetching
 
 Article metadata that rarely changes (authors, venue, pages, abstracts) is kept

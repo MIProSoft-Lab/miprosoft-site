@@ -84,6 +84,8 @@ works: []
 #    selected: true        # show in "Selected publications"
 #  - doi: 10.1234/efgh
 #    hide: true            # hide from this profile only
+#  - doi: 10.1234/ijkl
+#    notMine: true         # not this member (a namesake): silences the ORCID check
 #  - putCode: 123456
 #    title: "Corrected title"
 

@@ -1,0 +1,41 @@
+name: Check ORCID records
+
+# Warns when a member co-authors an article that is missing from their ORCID
+# record (see scripts/check-orcid.mjs). Runs on the committed data, after each
+# weekly ORCID update, and whenever the data or the members change.
+
+on:
+  workflow_run:
+    workflows: [Update from ORCID and deploy]
+    types: [completed]
+  push:
+    branches: [main]
+    paths:
+      - data/orcid/**
+      - data/works.json
+      - data/people/**
+      - site.config.yaml
+      - scripts/check-orcid.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # After the weekly update, check out the data it just committed.
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Check every co-authored article is in each member's ORCID
+        run: node scripts/check-orcid.mjs
