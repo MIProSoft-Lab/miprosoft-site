@@ -2,7 +2,7 @@
 
 A multilingual research group website for GitHub Pages that keeps itself up to
 date from [ORCID](https://orcid.org), styled after the UIB's visual identity:
-a home page with latest news, the team and latest publications; a team page
+a home page with latest news and latest publications; a team page
 with members and collaborators; a page per member; a research section with the
 research lines, the group's publications and supervised theses; multilingual
 news and blog posts; and the courses the group teaches.
@@ -38,7 +38,7 @@ Every Monday (and on every push) a GitHub Action:
 
 Pages:
 
-- `/<lang>/`: home page: latest news, the team and latest publications
+- `/<lang>/`: home page: latest news and latest publications
 - `/<lang>/team/`: members (principal investigators first) and collaborators
 - `/<lang>/team/<id>/`: a member's profile
 - Research (a menu in the navigation; `/<lang>/research/` goes to the first page):

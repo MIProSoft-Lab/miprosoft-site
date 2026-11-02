@@ -254,7 +254,7 @@ function loadMember({ id, orcid: orcidId, pi = false }) {
 
 export const members = (config.members ?? []).map(loadMember);
 export const memberById = new Map(members.map((m) => [m.id, m]));
-// Members as listed on the home and team pages: principal investigators first,
+// Members as listed on the team page: principal investigators first,
 // otherwise in the order of site.config.yaml.
 export const team = [...members].sort((a, b) => b.pi - a.pi);
 

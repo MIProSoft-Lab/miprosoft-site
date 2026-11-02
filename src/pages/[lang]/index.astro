@@ -1,11 +1,10 @@
 ---
-// Group home page: introduction, latest news, team, latest publications.
+// Group home page: introduction, latest news, latest publications.
 import Base from '../../layouts/Base.astro';
-import MemberCard from '../../components/MemberCard.astro';
 import Publications from '../../components/Publications.astro';
 import NewsCard from '../../components/NewsCard.astro';
 import { getPosts, inLanguage } from '../../lib/news.js';
-import { members, team, group, config, languages, defaultLang } from '../../lib/data.js';
+import { members, group, config, languages, defaultLang } from '../../lib/data.js';
 import { strings, loc } from '../../lib/i18n.js';
 
 export function getStaticPaths() {
@@ -59,15 +58,6 @@ const news = (await getPosts()).slice(0, LATEST_NEWS).map((p) => inLanguage(p, l
       <div class="news-rows">{news.map((p) => <NewsCard post={p} lang={lang} row />)}</div>
     </section>
   )}
-
-  <section class="block" aria-labelledby="team-heading">
-    <div class="block-head">
-      <h2 id="team-heading">{t.nav.team}</h2>
-    </div>
-    <ul class="member-grid">
-      {team.map((m) => <MemberCard member={m} lang={lang} />)}
-    </ul>
-  </section>
 
   {group.works.length > 0 && (
     <section class="block" aria-labelledby="latest-heading">
