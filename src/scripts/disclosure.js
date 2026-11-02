@@ -75,8 +75,12 @@ function followScroll(body, animation, start, endY) {
   requestAnimationFrame(step);
 }
 
+// Safe to call more than once for the same toggles (e.g. from two components
+// on one page): each toggle is set up only once.
 export function setupToggles(selector) {
   for (const toggle of document.querySelectorAll(selector)) {
+    if (toggle.dataset.toggle) continue;
+    toggle.dataset.toggle = 'ready';
     toggle.addEventListener('click', () => setExpanded(toggle, toggle.getAttribute('aria-expanded') !== 'true'));
   }
 }

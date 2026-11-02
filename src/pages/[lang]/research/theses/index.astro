@@ -1,10 +1,10 @@
 ---
 // Theses supervised by members (content/theses/*.yaml): PhD, master's and
-// bachelor's, each kind in its own group, ongoing first, then newest first.
+// bachelor's, each kind in its own group, newest first.
 import Base from '../../../../layouts/Base.astro';
 import PageHead from '../../../../components/PageHead.astro';
-import Thesis from '../../../../components/Thesis.astro';
-import { theses, thesisTypes, group, languages, defaultLang } from '../../../../lib/data.js';
+import ThesisList from '../../../../components/ThesisList.astro';
+import { theses, group, languages, defaultLang } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
 
 export function getStaticPaths() {
@@ -16,19 +16,11 @@ const t = strings(lang);
 const r = t.research;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const name = loc(group.name, lang, defaultLang);
-const groups = thesisTypes
-  .map((type) => ({ type, items: theses.filter((x) => x.type === type) }))
-  .filter((g) => g.items.length);
 ---
 <Base lang={lang} nav="research" subnav="theses" path="research/theses/" title={`${r.theses} — ${name}`} lastModified={null}>
   <PageHead slot="hero" title={t.research.theses} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }, { label: t.nav.research }]} />
 
-  {groups.length
-    ? groups.map((g) => (
-      <section class="section" aria-labelledby={`theses-${g.type}`}>
-        <h2 id={`theses-${g.type}`}>{r.thesisGroups[g.type]} <span class="count">{g.items.length}</span></h2>
-        {g.items.map((thesis) => <Thesis thesis={thesis} lang={lang} />)}
-      </section>
-    ))
+  {theses.length
+    ? <ThesisList theses={theses} lang={lang} />
     : <p class="empty">{r.thesesEmpty}</p>}
 </Base>

@@ -856,6 +856,11 @@ collections:
                 i18n: true
                 required: false
                 widget: string
+              - name: theses
+                label: Theses
+                i18n: true
+                required: false
+                widget: string
               - name: funding
                 label: Funding
                 i18n: true

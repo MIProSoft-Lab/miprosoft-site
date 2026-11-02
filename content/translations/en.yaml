@@ -86,6 +86,7 @@ sections:
   employment: Employment
   education: Education
   publications: Publications
+  theses: Supervised theses
   funding: Funding
   distinctions: Awards & distinctions
   talks: Talks

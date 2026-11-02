@@ -44,7 +44,7 @@ Pages:
   - `/<lang>/research/lines/`: research lines
   - `/<lang>/research/publications/`: the group's publications, each paper once
   - `/<lang>/research/theses/`: supervised theses, by type (also listed on each
-    supervisor's profile, under "Supervision")
+    supervisor's profile, under "Supervised theses")
 - `/<lang>/news/` and `/<lang>/news/<slug>/`: news and blog posts
 - `/<lang>/courses/`: courses the group currently teaches (hidden when there are none)
 

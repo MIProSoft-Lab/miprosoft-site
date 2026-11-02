@@ -357,7 +357,8 @@ export const researchLines = readEntries('content/research-lines')
   .sort((a, b) => a.order - b.order || String(a.entry.base.title).localeCompare(String(b.entry.base.title)));
 
 // content/theses/<slug>.yaml (edited in the CMS at /admin/): PhD, master's and
-// bachelor's theses supervised by members, ongoing first, then newest first.
+// bachelor's theses supervised by members, newest first (by year: of the
+// defence, or of the start if ongoing; ongoing first within a year).
 export const thesisTypes = ['phd', 'master', 'bachelor'];
 export const theses = readEntries('content/theses')
   .map((entry) => {
@@ -378,13 +379,13 @@ export const theses = readEntries('content/theses')
     };
   })
   .filter((x) => x.title)
-  .sort((a, b) => b.ongoing - a.ongoing || (b.year ?? 0) - (a.year ?? 0) || a.title.localeCompare(b.title));
+  .sort((a, b) => (b.year ?? 0) - (a.year ?? 0) || b.ongoing - a.ongoing || a.title.localeCompare(b.title));
 
-// Each member's supervised theses, for the "Supervision" section of their profile.
+// Each member's supervised theses, for the "Theses" section of their profile.
 for (const m of members) m.theses = theses.filter((x) => x.supervisors.some((p) => p.id === m.id));
 
 export function hasContent(cv, section) {
-  if (section === 'supervision') return cv.supervision.length > 0 || cv.theses.length > 0;
+  if (section === 'theses') return cv.theses.length > 0;
   if (section === 'about') return Boolean(cv.about) || cv.profile.keywords.length > 0;
   if (section === 'publications') return cv.works.length > 0;
   return Array.isArray(cv[section]) && cv[section].length > 0;
