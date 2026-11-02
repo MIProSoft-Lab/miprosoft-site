@@ -31,7 +31,7 @@ const kinds = ['news', 'blog'].filter((k) => posts.some((p) => p.kind === k));
   )}
 
   {posts.length
-    ? <div class="news-grid news-list">{posts.map((p) => <NewsCard post={p} lang={lang} headingLevel={2} />)}</div>
+    ? <div class="news-rows news-list">{posts.map((p) => <NewsCard post={p} lang={lang} headingLevel={2} row />)}</div>
     : <p class="empty">{t.news.empty}</p>}
 </Base>
 
