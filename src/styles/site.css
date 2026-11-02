@@ -461,6 +461,7 @@ h2 .count, h3 .count {
 .post-authors a { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--fg); }
 .post-authors a:hover { text-decoration: none; }
 .post-authors a:hover span:not(.avatar) { color: var(--accent); }
+.post-authors.stacked { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 .post { max-width: 46rem; }
 .post-image { display: block; width: 100%; height: auto; margin: 0 0 2rem; border-radius: var(--radius); }
 .post-more { margin-top: 4rem; }
@@ -492,22 +493,29 @@ h2 .count, h3 .count {
 .prose th { background: var(--tint); }
 .prose hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--rule); }
 
-/* ---------- Courses ---------- */
+/* ---------- Cards: courses, research lines, knowledge transfer tools ---------- */
 
-.course-list { display: flex; flex-direction: column; gap: 1.5rem; margin: 0; padding: 0; list-style: none; }
-.course {
+/* A wide card: the main text, and an optional tinted side panel. */
+.card-list { display: flex; flex-direction: column; gap: 1.5rem; margin: 0; padding: 0; list-style: none; }
+.card {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem); overflow: hidden;
   border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: var(--radius);
   background: var(--surface); box-shadow: var(--shadow);
 }
-.course-main { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.6rem 2rem; }
-.course-title { margin: 0; padding: 0; border: 0; font-size: 1.45rem; line-height: 1.25; }
-.course-title::after { display: none; }
-.course-summary { margin: 0; max-width: 46rem; line-height: 1.6; }
-.course-instructors { margin-top: 0.6rem; }
-.course-instructors h3 { margin: 0 0 0.4rem; color: var(--muted); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
-.course-instructors .post-authors { margin: 0; }
-.course-side { display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; padding: 1.6rem 1.75rem; background: var(--tint); }
+.card-main { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.6rem 2rem; }
+.card-title { margin: 0; padding: 0; border: 0; font-size: 1.45rem; line-height: 1.25; }
+.card-title::after { display: none; }
+.card-summary { margin: 0; max-width: 46rem; line-height: 1.6; }
+.card-people { margin-top: 0.6rem; }
+.card-people h3 { margin: 0 0 0.4rem; color: var(--muted); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.card-people .post-authors { margin: 0; }
+.card-side { display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; padding: 1.6rem 1.75rem; background: var(--tint); }
+/* Without a side panel, the text takes the full width. */
+.card:not(:has(.card-side)) { grid-template-columns: 1fr; }
+/* Markdown text (a research line's or a tool's description). */
+.card-text { font-size: 1rem; max-width: 46rem; }
+.card-text > :last-child { margin-bottom: 0; }
+/* Courses: dates, format, workload… in the side panel. */
 .course-facts { display: grid; gap: 0.75rem; margin: 0; }
 .course-facts dt { color: var(--muted); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
 .course-facts dd { margin: 0.1rem 0 0; font-size: 0.95rem; }
@@ -523,19 +531,15 @@ h2 .count, h3 .count {
   :root:not([data-theme='light']) .button:hover { background: #0b5aa6; }
 }
 @media (max-width: 760px) {
-  .course { grid-template-columns: 1fr; }
-  .course-main { padding: 1.25rem 1.25rem 1rem; }
-  .course-side { padding: 1.1rem 1.25rem 1.25rem; }
+  .card { grid-template-columns: 1fr; }
+  .card-main { padding: 1.25rem 1.25rem 1rem; }
+  .card-side { padding: 1.1rem 1.25rem 1.25rem; }
   .course-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------- Research ---------- */
 
-/* A research line without researchers takes the full width. */
-.course:not(:has(.course-side)) { grid-template-columns: 1fr; }
-.research-line-text { font-size: 1rem; max-width: 46rem; }
-.research-line-text > :last-child { margin-bottom: 0; }
-.post-authors.stacked { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+/* Theses */
 .status-badge {
   display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px;
   background: var(--tint); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent);

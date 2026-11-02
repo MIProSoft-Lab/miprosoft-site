@@ -3,7 +3,7 @@
 // language; a missing translation shows another language with a notice.
 import { Image } from 'astro:assets';
 import Base from '../../../../layouts/Base.astro';
-import Avatar from '../../../../components/Avatar.astro';
+import PeopleList from '../../../../components/PeopleList.astro';
 import NewsCard from '../../../../components/NewsCard.astro';
 import { group, languages, defaultLang } from '../../../../lib/data.js';
 import { getPosts, inLanguage, renderBody } from '../../../../lib/news.js';
@@ -58,15 +58,7 @@ const more = all.filter((p) => p.slug !== slug).slice(0, 3).map((p) => inLanguag
       </p>
       <h1 lang={post.translated ? undefined : post.lang}>{post.title}</h1>
       {post.authors.length > 0 && (
-        <ul class="post-authors" aria-label={t.news.by}>
-          {post.authors.map((a) => (
-            <li>
-              {a.member
-                ? <a href={`${base}${lang}/team/${a.id}/`}><Avatar member={a.member} size={32} /><span>{a.name}</span></a>
-                : <span>{a.name}</span>}
-            </li>
-          ))}
-        </ul>
+        <PeopleList people={post.authors} lang={lang} label={t.news.by} />
       )}
     </div>
   </div>

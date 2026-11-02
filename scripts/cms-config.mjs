@@ -81,6 +81,30 @@ const guestList = (name, label) => ({
   name, label, widget: 'list', required: false, hint: 'People who are not members of the group.',
   field: { name: 'name', label: 'Name', widget: 'string' },
 });
+// "Courses are listed by this number, lowest first."
+const orderField = (hint) => ({ name: 'order', label: 'Order', widget: 'number', value_type: 'int', required: false, hint });
+// A list of { label, url }; `i18n`: a list per language, so the texts can be translated.
+const linksField = ({ hint, example, i18n = false }) => ({
+  name: 'links', label: 'Links', widget: 'list', ...(i18n ? { i18n: true } : {}), required: false, label_singular: 'Link',
+  hint,
+  summary: '{{label}} · {{url}}',
+  fields: [
+    { name: 'label', label: 'Text', widget: 'string', required: false, hint: `E.g. "${example}". If empty, the site name is shown.` },
+    { name: 'url', label: 'URL', widget: 'string', pattern: ['^(https?://|mailto:)', 'A full address starting with https:// (or mailto:)'] },
+  ],
+});
+// Options of a select from interface texts, e.g. texts.courses.types: { master: "Master's", … }.
+const optionsFrom = (labels) => Object.entries(labels ?? {}).map(([value, label]) => ({ label, value }));
+// A collection of entries in content/<name>/<slug>.yaml, every language in one file.
+const folderCollection = ({ name, label, label_singular, description, ...rest }) => ({
+  name, label, label_singular, description,
+  folder: `content/${name}`,
+  extension: 'yaml',
+  format: 'yaml',
+  create: true,
+  i18n: true,
+  ...rest,
+});
 
 const news = {
   name: 'news',
@@ -114,24 +138,19 @@ const news = {
   ],
 };
 
-const courses = {
+const courses = folderCollection({
   name: 'courses',
   label: 'Courses',
   label_singular: 'Course',
   description: 'Courses the group currently teaches. Delete a course when it is no longer offered.',
-  folder: 'content/courses',
-  extension: 'yaml',
-  format: 'yaml',
-  create: true,
-  i18n: true,
   summary: '{{title}}',
   sortable_fields: ['order', 'title'],
   fields: [
     { name: 'title', label: 'Title', widget: 'string', i18n: true },
-    { name: 'order', label: 'Order', widget: 'number', value_type: 'int', required: false, hint: 'Courses are listed by this number, lowest first.' },
+    orderField('Courses are listed by this number, lowest first.'),
     {
       name: 'type', label: 'Type', widget: 'select', required: false,
-      options: Object.entries(texts.courses?.types ?? {}).map(([value, label]) => ({ label, value })),
+      options: optionsFrom(texts.courses?.types),
     },
     { name: 'summary', label: 'Description', widget: 'text', i18n: true, required: false },
     memberSelect('instructors', 'Instructors', 'Group members; they link to their profiles.'),
@@ -141,7 +160,7 @@ const courses = {
     { name: 'schedule', label: 'Schedule', widget: 'string', i18n: true, required: false, hint: 'Free text, e.g. "Tuesdays and Thursdays, 16:00–18:00".' },
     {
       name: 'format', label: 'Format', widget: 'select', required: false,
-      options: Object.entries(texts.courses?.formats ?? {}).map(([value, label]) => ({ label, value })),
+      options: optionsFrom(texts.courses?.formats),
     },
     { name: 'languages', label: 'Taught in', widget: 'select', multiple: true, required: false, options: languageOptions },
     { name: 'ects', label: 'ECTS credits', widget: 'number', value_type: 'float', required: false },
@@ -149,39 +168,29 @@ const courses = {
     { name: 'institution', label: 'Institution', widget: 'string', i18n: true, required: false },
     { name: 'url', label: 'Link', widget: 'string', required: false, hint: 'Information or enrolment page.' },
   ],
-};
+});
 
-const researchLines = {
+const researchLines = folderCollection({
   name: 'research-lines',
   label: 'Research lines',
   label_singular: 'Research line',
   description: 'The research lines shown on the Research page.',
-  folder: 'content/research-lines',
-  extension: 'yaml',
-  format: 'yaml',
-  create: true,
-  i18n: true,
   summary: '{{title}}',
   sortable_fields: ['order', 'title'],
   fields: [
     { name: 'title', label: 'Title', widget: 'string', i18n: true },
-    { name: 'order', label: 'Order', widget: 'number', value_type: 'int', required: false, hint: 'Research lines are listed by this number, lowest first.' },
+    orderField('Research lines are listed by this number, lowest first.'),
     { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences, shown under the title.' },
     { name: 'description', label: 'Description', widget: 'markdown', i18n: true, required: false, hint: 'Topics, projects, results… Optional.' },
     memberSelect('members', 'Researchers', 'Group members working on this line; they link to their profiles.'),
   ],
-};
+});
 
-const theses = {
+const theses = folderCollection({
   name: 'theses',
   label: 'Theses',
   label_singular: 'Thesis',
   description: 'PhD theses, master’s theses (TFM) and bachelor’s theses (TFG) supervised by members. They are listed on the Research page and on the supervisors’ profiles.',
-  folder: 'content/theses',
-  extension: 'yaml',
-  format: 'yaml',
-  create: true,
-  i18n: true,
   summary: '{{year}} · {{student}} · {{title}}',
   sortable_fields: ['year', 'title', 'student'],
   fields: [
@@ -189,7 +198,7 @@ const theses = {
     { name: 'student', label: 'Student', widget: 'string' },
     {
       name: 'type', label: 'Type', widget: 'select', default: 'phd',
-      options: Object.entries(texts.research?.thesisTypes ?? {}).map(([value, label]) => ({ label, value })),
+      options: optionsFrom(texts.research?.thesisTypes),
     },
     {
       name: 'status', label: 'Status', widget: 'select', default: 'defended',
@@ -202,73 +211,51 @@ const theses = {
     { name: 'institution', label: 'University', widget: 'string', i18n: true, required: false },
     { name: 'url', label: 'Link', widget: 'string', required: false, hint: 'The thesis in a repository, e.g. UIB’s or TDX.' },
   ],
-};
+});
 
-const transfer = {
+const transfer = folderCollection({
   name: 'transfer',
   label: 'Knowledge transfer',
   label_singular: 'Tool',
   description: 'Tools the group has developed to bring its research to companies and society, shown under Teaching & Transfer.',
-  folder: 'content/transfer',
-  extension: 'yaml',
-  format: 'yaml',
-  create: true,
-  i18n: true,
   summary: '{{title}}',
   sortable_fields: ['order', 'title'],
   fields: [
     { name: 'title', label: 'Name', widget: 'string', i18n: true },
-    { name: 'order', label: 'Order', widget: 'number', value_type: 'int', required: false, hint: 'Tools are listed by this number, lowest first.' },
+    orderField('Tools are listed by this number, lowest first.'),
     {
       name: 'audiences', label: 'For', widget: 'select', multiple: true, required: false, hint: 'Who the tool is for.',
-      options: Object.entries(texts.transfer?.audiences ?? {}).map(([value, label]) => ({ label, value })),
+      options: optionsFrom(texts.transfer?.audiences),
     },
     { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences, shown under the name.' },
     { name: 'description', label: 'Description', widget: 'markdown', i18n: true, required: false, hint: 'What it does, who uses it, results… Optional.' },
     { name: 'image', label: 'Logo or image', widget: 'image', required: false, hint: 'Shown small, next to the name. Square works best.' },
-    {
-      name: 'links', label: 'Links', widget: 'list', i18n: true, required: false, label_singular: 'Link',
+    linksField({
+      i18n: true,
+      example: 'Try it',
       hint: 'The first one is shown as a button, e.g. the tool itself; then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown.',
-      summary: '{{label}} · {{url}}',
-      fields: [
-        { name: 'label', label: 'Text', widget: 'string', required: false, hint: 'E.g. "Try it". If empty, the site name is shown.' },
-        { name: 'url', label: 'URL', widget: 'string', pattern: ['^(https?://|mailto:)', 'A full address starting with https:// (or mailto:)'] },
-      ],
-    },
+    }),
   ],
-};
+});
 
-const collaborators = {
+const collaborators = folderCollection({
   name: 'collaborators',
   label: 'Collaborators',
   label_singular: 'Collaborator',
   description: 'People outside the group who work with it, shown on the team page after the members. Group members are set in site.config.yaml.',
-  folder: 'content/collaborators',
-  extension: 'yaml',
-  format: 'yaml',
-  create: true,
-  i18n: true,
   slug: '{{name}}',
   identifier_field: 'name',
   summary: '{{name}}',
   sortable_fields: ['order', 'name'],
   fields: [
     { name: 'name', label: 'Name', widget: 'string' },
-    { name: 'order', label: 'Order', widget: 'number', value_type: 'int', required: false, hint: 'Collaborators are listed by this number, lowest first, then by name.' },
+    orderField('Collaborators are listed by this number, lowest first, then by name.'),
     { name: 'role', label: 'Position', widget: 'string', i18n: true, required: false, hint: 'E.g. "Associate professor".' },
     { name: 'institution', label: 'Institution', widget: 'string', i18n: true, required: false },
     { name: 'photo', label: 'Photo', widget: 'image', required: false, hint: 'Square works best. Without a photo, their initials are shown.' },
-    {
-      name: 'links', label: 'Links', widget: 'list', required: false, label_singular: 'Link',
-      hint: 'Shown on their card, e.g. ORCID, Google Scholar, their own web page.',
-      summary: '{{label}} · {{url}}',
-      fields: [
-        { name: 'label', label: 'Text', widget: 'string', required: false, hint: 'E.g. "ORCID". If empty, the site name is shown.' },
-        { name: 'url', label: 'URL', widget: 'string', pattern: ['^(https?://|mailto:)', 'A full address starting with https:// (or mailto:)'] },
-      ],
-    },
+    linksField({ example: 'ORCID', hint: 'Shown on their card, e.g. ORCID, Google Scholar, their own web page.' }),
   ],
-};
+});
 
 const translations = {
   name: 'translations',

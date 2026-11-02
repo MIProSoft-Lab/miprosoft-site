@@ -1,12 +1,12 @@
 ---
 // Knowledge transfer: tools the group has developed to bring its research to
 // companies and society (content/transfer/*.yaml).
-import { marked } from 'marked';
 import Base from '../../../../layouts/Base.astro';
 import PageHead from '../../../../components/PageHead.astro';
 import { transferTools, linksOf, group, languages, defaultLang } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
 import { localize } from '../../../../lib/content.js';
+import { markdown } from '../../../../lib/markdown.js';
 
 // Only built when there are tools (the menu entry is hidden otherwise).
 export function getStaticPaths() {
@@ -21,17 +21,17 @@ const name = loc(group.name, lang, defaultLang);
 const tools = transferTools.map((tool) => {
   const text = localize(tool.entry, lang);
   // Links per language (their texts are translated), or the default language's.
-  return { ...tool, text, links: linksOf(text.links), html: text.description ? marked.parse(text.description, { async: false }) : '' };
+  return { ...tool, text, links: linksOf(text.links), html: markdown(text.description) };
 });
 const src = (path) => (/^https?:\/\//.test(path) ? path : `${base}${path.replace(/^\//, '')}`);
 ---
 <Base lang={lang} nav="teaching" subnav="transfer" path="teaching/transfer/" title={`${x.title} — ${name}`} description={x.lead} lastModified={null}>
   <PageHead slot="hero" title={x.title} lead={x.lead} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }, { label: t.nav.teaching }]} />
 
-  <ul class="course-list">
+  <ul class="card-list">
     {tools.map((tool) => (
-      <li class="course tool" id={tool.id}>
-        <div class="course-main" lang={tool.text.translated ? undefined : tool.text.lang}>
+      <li class="card tool" id={tool.id}>
+        <div class="card-main" lang={tool.text.translated ? undefined : tool.text.lang}>
           {tool.audiences.length > 0 && (
             <p class="news-meta">
               <span class="visually-hidden">{x.audience}:</span>
@@ -40,10 +40,10 @@ const src = (path) => (/^https?:\/\//.test(path) ? path : `${base}${path.replace
           )}
           <div class="tool-head">
             {tool.image && <img class="tool-logo" src={src(tool.image)} alt="" loading="lazy" />}
-            <h2 class="course-title">{tool.text.title}</h2>
+            <h2 class="card-title">{tool.text.title}</h2>
           </div>
-          {tool.text.summary && <p class="course-summary">{tool.text.summary}</p>}
-          {tool.html && <div class="prose research-line-text" set:html={tool.html} />}
+          {tool.text.summary && <p class="card-summary">{tool.text.summary}</p>}
+          {tool.html && <div class="prose card-text" set:html={tool.html} />}
           {tool.links.length > 0 && (
             <div class="tool-links">
               {tool.links.map((l, i) => (

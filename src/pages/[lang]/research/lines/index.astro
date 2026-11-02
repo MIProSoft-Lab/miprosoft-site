@@ -1,12 +1,12 @@
 ---
 // The group's research lines (content/research-lines/*.yaml).
-import { marked } from 'marked';
 import Base from '../../../../layouts/Base.astro';
 import PageHead from '../../../../components/PageHead.astro';
-import Avatar from '../../../../components/Avatar.astro';
+import PeopleList from '../../../../components/PeopleList.astro';
 import { researchLines, group, languages, defaultLang } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
 import { localize } from '../../../../lib/content.js';
+import { markdown } from '../../../../lib/markdown.js';
 
 export function getStaticPaths() {
   return languages.map((lang) => ({ params: { lang } }));
@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const name = loc(group.name, lang, defaultLang);
 const lines = researchLines.map((line) => {
   const text = localize(line.entry, lang);
-  return { ...line, text, html: text.description ? marked.parse(text.description, { async: false }) : '' };
+  return { ...line, text, html: markdown(text.description) };
 });
 ---
 <Base lang={lang} nav="research" subnav="lines" path="research/lines/" title={`${r.lines} — ${name}`} lastModified={null}>
@@ -27,27 +27,19 @@ const lines = researchLines.map((line) => {
 
   {lines.length
     ? (
-      <ul class="course-list">
+      <ul class="card-list">
         {lines.map((line) => (
-          <li class="course research-line" id={line.id}>
-            <div class="course-main" lang={line.text.translated ? undefined : line.text.lang}>
-              <h2 class="course-title">{line.text.title}</h2>
-              {line.text.summary && <p class="course-summary">{line.text.summary}</p>}
-              {line.html && <div class="prose research-line-text" set:html={line.html} />}
+          <li class="card" id={line.id}>
+            <div class="card-main" lang={line.text.translated ? undefined : line.text.lang}>
+              <h2 class="card-title">{line.text.title}</h2>
+              {line.text.summary && <p class="card-summary">{line.text.summary}</p>}
+              {line.html && <div class="prose card-text" set:html={line.html} />}
             </div>
             {line.members.length > 0 && (
-              <div class="course-side">
-                <div class="course-instructors">
+              <div class="card-side">
+                <div class="card-people">
                   <h3>{r.people}</h3>
-                  <ul class="post-authors stacked">
-                    {line.members.map((p) => (
-                      <li>
-                        {p.member
-                          ? <a href={`${base}${lang}/team/${p.id}/`}><Avatar member={p.member} size={32} /><span>{p.name}</span></a>
-                          : <span>{p.name}</span>}
-                      </li>
-                    ))}
-                  </ul>
+                  <PeopleList people={line.members} lang={lang} stacked />
                 </div>
               </div>
             )}

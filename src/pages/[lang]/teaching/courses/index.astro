@@ -2,7 +2,7 @@
 // Courses the group currently teaches (content/courses/*.yaml).
 import Base from '../../../../layouts/Base.astro';
 import PageHead from '../../../../components/PageHead.astro';
-import Avatar from '../../../../components/Avatar.astro';
+import PeopleList from '../../../../components/PeopleList.astro';
 import { courses, group, languages, defaultLang } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
 import { formatRange } from '../../../../lib/format.js';
@@ -53,29 +53,21 @@ const facts = (course) => [
 >
   <PageHead slot="hero" title={c.title} lead={c.lead} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }, { label: t.nav.teaching }]} />
 
-  <ul class="course-list">
+  <ul class="card-list">
     {list.map((course) => (
-      <li class="course" id={course.id}>
-        <div class="course-main">
+      <li class="card course" id={course.id}>
+        <div class="card-main">
           {course.type && <p class="news-meta"><span class="kind kind-news">{c.types[course.type] ?? course.type}</span></p>}
-          <h2 class="course-title" lang={course.text.translated ? undefined : course.text.lang}>{course.text.title}</h2>
-          {course.text.summary && <p class="course-summary" lang={course.text.translated ? undefined : course.text.lang}>{course.text.summary}</p>}
+          <h2 class="card-title" lang={course.text.translated ? undefined : course.text.lang}>{course.text.title}</h2>
+          {course.text.summary && <p class="card-summary" lang={course.text.translated ? undefined : course.text.lang}>{course.text.summary}</p>}
           {course.instructors.length > 0 && (
-            <div class="course-instructors">
+            <div class="card-people">
               <h3>{c.instructors}</h3>
-              <ul class="post-authors">
-                {course.instructors.map((p) => (
-                  <li>
-                    {p.member
-                      ? <a href={`${base}${lang}/team/${p.id}/`}><Avatar member={p.member} size={32} /><span>{p.name}</span></a>
-                      : <span>{p.name}</span>}
-                  </li>
-                ))}
-              </ul>
+              <PeopleList people={course.instructors} lang={lang} />
             </div>
           )}
         </div>
-        <div class="course-side">
+        <div class="card-side">
           {facts(course).length > 0 && (
             <dl class="course-facts">
               {facts(course).map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}

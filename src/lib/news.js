@@ -1,8 +1,8 @@
 // News and blog posts: content/news/<slug>/index.yaml (all languages, edited in
 // the CMS at /admin/), with their images in the same folder.
 import { getImage } from 'astro:assets';
-import { marked } from 'marked';
-import { memberById } from './data.js';
+import { peopleOf } from './data.js';
+import { markdown } from './markdown.js';
 import { readEntries, localize, toDate } from './content.js';
 
 // The posts' images, by path, so they can be resized and converted at build time.
@@ -32,15 +32,6 @@ function excerpt(md, max = 220) {
   return text.slice(0, text.lastIndexOf(' ', max)).replace(/[,;:.]$/, '') + '…';
 }
 
-// Member ids (linked to their profiles) plus other names.
-export const people = (ids = [], guests = []) => [
-  ...(ids ?? []).map((a) => {
-    const member = memberById.get(a);
-    return member ? { id: a, name: member.name, member } : { name: a };
-  }),
-  ...(guests ?? []).filter(Boolean).map((name) => ({ name })),
-];
-
 let cache;
 
 // All posts, newest first. Cached for the build; in dev, read every time so
@@ -59,7 +50,7 @@ export async function getPosts() {
         date,
         kind: base.kind ?? 'news',
         image: imageOf(slug, base.image),
-        authors: people(base.authors, base.guestAuthors),
+        authors: peopleOf(base.authors, base.guestAuthors),
       };
     })
     .sort((a, b) => b.date - a.date || a.slug.localeCompare(b.slug));
@@ -81,15 +72,6 @@ export function inLanguage(post, lang) {
   };
 }
 
-// Typographic apostrophes after a letter (l'equip -> l’equip, group's -> group’s,
-// d'[ORCID](…) -> d’ORCID),
-// as Astro's own Markdown does; code is left alone.
-marked.use({
-  walkTokens(token) {
-    if (token.type === 'text' && !token.tokens) token.text = token.text.replace(/(\p{L})'(?=\p{L}|$)/gu, '$1\u2019');
-  },
-});
-
 // The post's Markdown as HTML. Images next to the post are resized and
 // converted like the cover image.
 export async function renderBody(post) {
@@ -100,5 +82,5 @@ export async function renderBody(post) {
     const img = await getImage({ src: meta, width: Math.min(meta.width, 1400), format: 'webp' });
     md = md.replace(match, `![${alt}](${img.src})`);
   }
-  return marked.parse(md, { async: false });
+  return markdown(md);
 }

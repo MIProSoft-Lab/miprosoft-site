@@ -258,37 +258,6 @@ export const memberById = new Map(members.map((m) => [m.id, m]));
 // otherwise in the order of site.config.yaml.
 export const team = [...members].sort((a, b) => b.pi - a.pi);
 
-// content/collaborators/<slug>.yaml (all languages, edited in the CMS at /admin/):
-// people outside the group who work with it, by `order` and then name. They
-// have no profile page; their card lists their own `links` (label + URL).
-const perLanguage = (entry, key) => Object.fromEntries(languages.map((l) => [l, entry.data[l]?.[key] ?? '']));
-const hostOf = (url) => {
-  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; }
-};
-const initialsOf = (name) => name.split(/\s+/).filter(Boolean).map((n) => n.charAt(0).toUpperCase()).slice(0, 2).join('');
-export const collaborators = readEntries('content/collaborators')
-  .map((entry) => {
-    const b = entry.base;
-    const name = String(b.name ?? '').trim();
-    return {
-      entry,
-      id: entry.slug,
-      order: Number(b.order ?? 999),
-      name,
-      initials: initialsOf(name),
-      // Per language, for loc(): { en: 'Associate professor', ca: … }.
-      role: perLanguage(entry, 'role'),
-      institution: perLanguage(entry, 'institution'),
-      // A link without a label shows the site's name: "https://www.uib.es/…" -> "uib.es".
-      links: (b.links ?? [])
-        .filter((l) => l?.url)
-        .map((l) => ({ url: l.url, label: l.label || hostOf(l.url) })),
-      profile: { photo: b.photo },
-    };
-  })
-  .filter((c) => c.name)
-  .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
-
 // ---------- Group ----------
 
 // The group's publications: every member's works, once each, with the ids of
@@ -304,40 +273,11 @@ export const group = {
   lastModified: members.map((m) => m.lastModified).filter(Boolean).sort().at(-1) ?? null,
 };
 
-// ---------- Courses ----------
+// ---------- Content edited in the CMS ----------
 
-// content/courses/<slug>.yaml (all languages, edited in the CMS at /admin/):
-// courses the group currently teaches, by `order` and then title.
-export const courses = readEntries('content/courses')
-  .map((entry) => {
-    const b = entry.base;
-    return {
-      entry,
-      id: entry.slug,
-      order: Number(b.order ?? 999),
-      type: b.type,
-      start: parseLooseDate(b.start),
-      end: parseLooseDate(b.end),
-      format: b.format,
-      languages: b.languages ?? [],
-      ects: b.ects,
-      hours: b.hours,
-      url: b.url,
-      instructors: [
-        ...(b.instructors ?? []).map((name) => {
-          const member = memberById.get(name);
-          return member ? { id: name, name: member.name, member } : { name };
-        }),
-        ...(b.guestInstructors ?? []).filter(Boolean).map((name) => ({ name })),
-      ],
-    };
-  })
-  .sort((a, b) => a.order - b.order || String(a.entry.base.title).localeCompare(String(b.entry.base.title)));
-
-// ---------- Research ----------
-
-// Members (by id, linked to their profiles) and other people (by name).
-const peopleOf = (ids, guests) => [
+// Members (by id, linked to their profiles) and other people (by name), e.g.
+// a course's instructors or a thesis's supervisors.
+export const peopleOf = (ids, guests) => [
   ...(ids ?? []).map((id) => {
     const member = memberById.get(id);
     return member ? { id, name: member.name, member } : { name: id };
@@ -345,67 +285,107 @@ const peopleOf = (ids, guests) => [
   ...(guests ?? []).filter(Boolean).map((name) => ({ name })),
 ];
 
-// content/research-lines/<slug>.yaml (all languages, edited in the CMS at /admin/):
-// the group's research lines, by `order` and then title.
-export const researchLines = readEntries('content/research-lines')
-  .map((entry) => ({
-    entry,
-    id: entry.slug,
-    order: Number(entry.base.order ?? 999),
-    members: peopleOf(entry.base.members),
-  }))
-  .sort((a, b) => a.order - b.order || String(a.entry.base.title).localeCompare(String(b.entry.base.title)));
+// A field per language, for loc(): { en: 'Associate professor', ca: … }. For
+// entries whose name or title is not translated, so localize() does not apply.
+const perLanguage = (entry, key) => Object.fromEntries(languages.map((l) => [l, entry.data[l]?.[key] ?? '']));
 
-// content/theses/<slug>.yaml (edited in the CMS at /admin/): PhD, master's and
-// bachelor's theses supervised by members, newest first (by year: of the
-// defence, or of the start if ongoing; ongoing first within a year).
+const hostOf = (url) => {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; }
+};
+// [{ label, url }] from the CMS: entries without a URL are dropped, and a link
+// without a label shows the site's name ("https://www.uib.es/…" -> "uib.es").
+export const linksOf = (links) => (links ?? []).filter((l) => l?.url).map((l) => ({ url: l.url, label: l.label || hostOf(l.url) }));
+
+const initialsOf = (name) => name.split(/\s+/).filter(Boolean).map((n) => n.charAt(0).toUpperCase()).slice(0, 2).join('');
+
+// The entries of content/<dir>/ (all languages, edited in the CMS at /admin/),
+// as `map` makes them from { entry, id, order, base }, listed by `order` (if
+// they have one) and then by `name`, or by `sort` if given. Entries `map`
+// returns nothing for are left out.
+function loadCollection(dir, map, { sort, name = (x) => x.entry.base.title } = {}) {
+  return readEntries(`content/${dir}`)
+    .map((entry) => map({ entry, id: entry.slug, order: Number(entry.base.order ?? 999), base: entry.base }))
+    .filter(Boolean)
+    .sort(sort ?? ((a, b) => (a.order ?? 999) - (b.order ?? 999) || String(name(a) ?? '').localeCompare(String(name(b) ?? ''))));
+}
+
+// People outside the group who work with it. They have no profile page; their
+// card lists their own `links`.
+export const collaborators = loadCollection('collaborators', ({ entry, id, order, base: b }) => {
+  const name = String(b.name ?? '').trim();
+  if (!name) return null;
+  return {
+    entry,
+    id,
+    order,
+    name,
+    initials: initialsOf(name),
+    role: perLanguage(entry, 'role'),
+    institution: perLanguage(entry, 'institution'),
+    links: linksOf(b.links),
+    profile: { photo: b.photo },
+  };
+}, { name: (c) => c.name });
+
+// Courses the group currently teaches.
+export const courses = loadCollection('courses', ({ entry, id, order, base: b }) => ({
+  entry,
+  id,
+  order,
+  type: b.type,
+  start: parseLooseDate(b.start),
+  end: parseLooseDate(b.end),
+  format: b.format,
+  languages: b.languages ?? [],
+  ects: b.ects,
+  hours: b.hours,
+  url: b.url,
+  instructors: peopleOf(b.instructors, b.guestInstructors),
+}));
+
+// The group's research lines.
+export const researchLines = loadCollection('research-lines', ({ entry, id, order, base: b }) => ({
+  entry,
+  id,
+  order,
+  members: peopleOf(b.members),
+}));
+
+// PhD, master's and bachelor's theses supervised by members, newest first (by
+// year: of the defence, or of the start if ongoing; ongoing first within a year).
 export const thesisTypes = ['phd', 'master', 'bachelor'];
-export const theses = readEntries('content/theses')
-  .map((entry) => {
-    const b = entry.base;
-    return {
-      entry,
-      id: entry.slug,
-      type: thesisTypes.includes(b.type) ? b.type : 'phd',
-      title: String(b.title ?? '').trim(),
-      student: String(b.student ?? '').trim(),
-      year: b.year ? Number(b.year) : null,
-      ongoing: b.status === 'ongoing',
-      // Per language, for loc() (the title is in the thesis's own language).
-      degree: perLanguage(entry, 'degree'),
-      institution: perLanguage(entry, 'institution'),
-      supervisors: peopleOf(b.supervisors, b.guestSupervisors),
-      url: b.url || '',
-    };
-  })
-  .filter((x) => x.title)
-  .sort((a, b) => (b.year ?? 0) - (a.year ?? 0) || b.ongoing - a.ongoing || a.title.localeCompare(b.title));
+export const theses = loadCollection('theses', ({ entry, id, base: b }) => {
+  const title = String(b.title ?? '').trim();
+  if (!title) return null;
+  return {
+    entry,
+    id,
+    type: thesisTypes.includes(b.type) ? b.type : 'phd',
+    title,
+    student: String(b.student ?? '').trim(),
+    year: b.year ? Number(b.year) : null,
+    ongoing: b.status === 'ongoing',
+    // The title is in the thesis's own language; these are translated.
+    degree: perLanguage(entry, 'degree'),
+    institution: perLanguage(entry, 'institution'),
+    supervisors: peopleOf(b.supervisors, b.guestSupervisors),
+    url: b.url || '',
+  };
+}, { sort: (a, b) => (b.year ?? 0) - (a.year ?? 0) || b.ongoing - a.ongoing || a.title.localeCompare(b.title) });
 
 // Each member's supervised theses, for the "Theses" section of their profile.
 for (const m of members) m.theses = theses.filter((x) => x.supervisors.some((p) => p.id === m.id));
 
-// ---------- Knowledge transfer ----------
-
-// content/transfer/<slug>.yaml (all languages, edited in the CMS at /admin/):
-// tools the group has developed to bring its research to companies and
-// society, by `order` and then name.
-// [{ label, url }] from the CMS: entries without a URL are dropped, and a link
-// without a label shows the site's name.
-export const linksOf = (links) => (links ?? []).filter((l) => l?.url).map((l) => ({ url: l.url, label: l.label || hostOf(l.url) }));
-
+// Knowledge transfer: tools the group has developed to bring its research to
+// companies and society. Their links are per language (see the page).
 export const transferAudiences = ['companies', 'society', 'education', 'administration'];
-export const transferTools = readEntries('content/transfer')
-  .map((entry) => {
-    const b = entry.base;
-    return {
-      entry,
-      id: entry.slug,
-      order: Number(b.order ?? 999),
-      image: b.image || '',
-      audiences: (b.audiences ?? []).filter((a) => transferAudiences.includes(a)),
-    };
-  })
-  .sort((a, b) => a.order - b.order || String(a.entry.base.title).localeCompare(String(b.entry.base.title)));
+export const transferTools = loadCollection('transfer', ({ entry, id, order, base: b }) => ({
+  entry,
+  id,
+  order,
+  image: b.image || '',
+  audiences: (b.audiences ?? []).filter((a) => transferAudiences.includes(a)),
+}));
 
 export function hasContent(cv, section) {
   if (section === 'theses') return cv.theses.length > 0;
