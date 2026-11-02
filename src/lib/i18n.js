@@ -1,9 +1,10 @@
 // UI strings per language. To add a language, copy one block, translate it,
-// and add the code to `languages` in cv.config.yaml.
+// and add the code to `languages` in site.config.yaml.
 export const ui = {
   en: {
     langName: 'English',
     sections: {
+      members: 'Members',
       about: 'About',
       employment: 'Employment',
       education: 'Education',
@@ -74,6 +75,7 @@ export const ui = {
   ca: {
     langName: 'Català',
     sections: {
+      members: 'Membres',
       about: 'Presentació',
       employment: 'Experiència professional',
       education: 'Formació',
@@ -144,6 +146,7 @@ export const ui = {
   es: {
     langName: 'Español',
     sections: {
+      members: 'Miembros',
       about: 'Presentación',
       employment: 'Experiencia profesional',
       education: 'Formación',

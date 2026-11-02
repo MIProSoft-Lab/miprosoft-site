@@ -2,12 +2,14 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse } from 'yaml';
 import { parseLooseDate } from './format.js';
+import { articleKey, orcidFile, personFile } from './articles.js';
 
 const file = (path) => resolve(process.cwd(), path);
 const read = (path) => readFileSync(file(path), 'utf8');
 const readYaml = (path) => (existsSync(file(path)) ? parse(read(path)) ?? {} : {});
+const readJson = (path, fallback) => (existsSync(file(path)) ? JSON.parse(read(path)) : fallback);
 
-export const config = readYaml('cv.config.yaml');
+export const config = readYaml('site.config.yaml');
 export const languages = config.languages?.length ? config.languages : ['en'];
 export const defaultLang = languages[0];
 
@@ -27,6 +29,19 @@ const groupOf = (w) => {
 };
 
 const squash = (s) => (typeof s === 'string' ? s.replace(/\s+/g, ' ').trim() : s);
+const normTitle = (s) => (s ?? '').normalize('NFD').replace(/[^a-z0-9]/gi, '').toLowerCase();
+
+// ---------- Works ----------
+
+// What was fetched about each article (data/works.json), shared by all members.
+const articles = readJson('data/works.json', {});
+
+// An ORCID work reference plus its article data. ORCID wins for what the member
+// entered (venue, date); the article fills the rest.
+function withArticle(ref) {
+  const { metadataFetched, venue, date, ...article } = articles[articleKey(ref)] ?? {};
+  return { ...article, ...ref, venue: ref.venue ?? venue ?? null, date: ref.date ?? date ?? null };
+}
 
 function openAccessOf(w) {
   if (w.openAccess !== undefined && w.openAccess !== null) return w.openAccess || null;
@@ -54,29 +69,42 @@ function cleanWork(w) {
   };
 }
 
-// ORCID often holds the same work several times.
-// Merge works with the same title and year, keeping the most complete record and filling its gaps from the others.
+// ORCID often holds the same work several times, and members share works.
+// Merge works with the same title and year, or the same DOI, keeping the most
+// complete record, filling its gaps from the others, and joining their members.
 function dedupeWorks(works) {
-  const key = (w) => `${w.title.normalize('NFD').replace(/[^a-z0-9]/gi, '').toLowerCase()}|${w.date?.year ?? ''}`;
+  const byTitle = (w) => `${normTitle(w.title)}|${w.date?.year ?? ''}`;
   const score = (w) =>
     (w.doi ? 8 : 0) + (w.authors?.length ? 4 : 0) + (w.url && !/publons\.com/.test(w.url) ? 2 : 0) +
     (w.selected ? 16 : 0) + (w.venue?.length ?? 0) / 1000;
-  const groups = new Map();
-  for (const w of works) groups.set(key(w), [...(groups.get(key(w)) ?? []), w]);
-  return [...groups.values()].map((dups) => {
-    const [best, ...rest] = dups.sort((a, b) => score(b) - score(a));
-    const merged = { ...best };
-    for (const other of rest) {
-      for (const [k, val] of Object.entries(other)) if (merged[k] == null || merged[k] === '') merged[k] = val;
-    }
-    return merged;
-  });
+  const mergeBy = (list, key) => {
+    const groups = new Map();
+    list.forEach((w, i) => {
+      const k = key(w) ?? `#${i}`;
+      groups.set(k, [...(groups.get(k) ?? []), w]);
+    });
+    return [...groups.values()].map((dups) => {
+      const [best, ...rest] = dups.sort((a, b) => score(b) - score(a));
+      const merged = { ...best };
+      for (const other of rest) {
+        for (const [k, val] of Object.entries(other)) if (merged[k] == null || merged[k] === '') merged[k] = val;
+      }
+      merged.members = [...new Set(dups.flatMap((w) => w.members ?? []))];
+      return merged;
+    });
+  };
+  return mergeBy(mergeBy(works, byTitle), (w) => w.doi);
 }
 
-// Journal Impact Factors: data/jcr.json (from the Clarivate API, scripts/fetch-jcr.mjs)
-// with data/jcr.yaml (entered by hand) taking precedence year by year.
+const byDateDesc = (a, b) =>
+  (b.date?.year ?? 0) * 100 + (b.date?.month ?? 0) - ((a.date?.year ?? 0) * 100 + (a.date?.month ?? 0));
+
+// ---------- Journal Impact Factors ----------
+
+// data/jcr.json (from the Clarivate API, scripts/fetch-jcr.mjs) with
+// data/jcr.yaml (entered by hand) taking precedence year by year.
 function loadJournals() {
-  const fetched = existsSync(file('data/jcr.json')) ? JSON.parse(read('data/jcr.json')).journals ?? [] : [];
+  const fetched = readJson('data/jcr.json', {}).journals ?? [];
   const manual = readYaml('data/jcr.yaml').journals ?? [];
   const journals = [];
   for (const j of [...fetched, ...manual]) {
@@ -91,8 +119,7 @@ function loadJournals() {
   }
   return journals;
 }
-
-const normTitle = (s) => (s ?? '').normalize('NFD').replace(/[^a-z0-9]/gi, '').toLowerCase();
+const journals = loadJournals();
 
 // Quartile and percentile follow from the rank ("12/131") the way JCR computes them.
 function withRankStats(m) {
@@ -107,7 +134,7 @@ function withRankStats(m) {
 
 // The JCR data of the publication year, or the latest available year otherwise.
 // Some journals have a category rank but no JIF.
-function impactFactorOf(w, journals) {
+function impactFactorOf(w) {
   if (w.jif !== undefined) return w.jif;
   const issn = (w.issn ?? []).map((s) => s.toUpperCase());
   const journal =
@@ -119,9 +146,9 @@ function impactFactorOf(w, journals) {
   return { year, ...withRankStats(journal.jif[year]) };
 }
 
-const shortLabel =(s) => s.replace(/\s+(author id|profile)$/i, '');
+// ---------- Metrics ----------
 
-// Citation metrics computed from the works shown on the CV
+// Citation metrics computed from a list of works.
 function computeMetrics(works) {
   const counts = works.map((w) => w.citations ?? 0).sort((a, b) => b - a);
   const byYear = {};
@@ -144,31 +171,38 @@ function computeMetrics(works) {
   };
 }
 
-function load() {
-  const orcid = existsSync(file('data/orcid.json'))
-    ? JSON.parse(read('data/orcid.json'))
-    : { person: {}, works: [] };
-  const manual = readYaml('data/manual.yaml');
-  const overrides = readYaml('data/overrides.yaml');
+// ---------- Members ----------
 
-  const itemOverride = new Map((overrides.items ?? []).map((o) => [Number(o.putCode), o]));
+const shortLabel = (s) => s.replace(/\s+(author id|profile)$/i, '');
+const globalOverrides = readYaml('data/overrides.yaml');
+const sameDoi = (o, w) => o.doi && w.doi && String(o.doi).toLowerCase() === w.doi;
+
+function loadMember({ id, orcid: orcidId }) {
+  orcidId = String(orcidId).trim();
+  const orcid = readJson(orcidFile(orcidId), { person: {}, works: [] });
+  const manual = readYaml(personFile(id));
+
+  const itemOverride = new Map((manual.items ?? []).map((o) => [Number(o.putCode), o]));
   const applyItems = (list = []) =>
     list
       .map((it) => ({ ...it, ...(itemOverride.get(it.putCode) ?? {}) }))
       .filter((it) => !it.hide);
 
-  const workOverride = (w) =>
-    (overrides.works ?? []).find(
-      (o) => (o.doi && w.doi && o.doi.toLowerCase() === w.doi) || (o.putCode && Number(o.putCode) === w.putCode),
-    ) ?? {};
+  // Group-wide corrections first, then this member's.
+  const workOverride = (w) => ({
+    ...(globalOverrides.works ?? []).find((o) => sameDoi(o, w)),
+    ...(manual.works ?? []).find((o) => sameDoi(o, w) || (o.putCode && Number(o.putCode) === w.putCode)),
+  });
 
   const allWorks = dedupeWorks(
     (orcid.works ?? [])
-      .map((w) => cleanWork({ ...w, ...workOverride(w) }))
+      .map((ref) => cleanWork({ ...withArticle(ref), ...workOverride(ref), members: [id] }))
       .filter((w) => !w.hide),
-  ).map((w) => ({ ...w, group: groupOf(w) }));
-  const journals = loadJournals();
-  for (const w of allWorks) if (w.group === 'journal') w.jif = impactFactorOf(w, journals);
+  ).map((w) => {
+    const work = { ...w, group: groupOf(w) };
+    if (work.group === 'journal') work.jif = impactFactorOf(work);
+    return work;
+  });
 
   // ORCID works of type "lecture-speech" are listed as talks, not publications.
   const talks = [
@@ -176,21 +210,24 @@ function load() {
       .filter((w) => w.type === 'lecture-speech')
       .map((w) => ({ title: w.title, event: w.venue, date: w.date, url: w.url })),
     ...(manual.talks ?? []).map((t) => ({ ...t, date: parseLooseDate(t.date) })),
-  ].sort((a, b) => (b.date?.year ?? 0) * 100 + (b.date?.month ?? 0) - ((a.date?.year ?? 0) * 100 + (a.date?.month ?? 0)));
+  ].sort(byDateDesc);
 
-  const works = allWorks.filter((w) => w.type !== 'lecture-speech');
+  const works = allWorks.filter((w) => w.type !== 'lecture-speech').sort(byDateDesc);
 
   const person = orcid.person ?? {};
   const profile = manual.profile ?? {};
-  const nameVariants = config.nameVariants?.length
-    ? config.nameVariants
+  const nameVariants = manual.nameVariants?.length
+    ? manual.nameVariants
     : [person.name, ...(person.otherNames ?? []), profile.name].filter(Boolean);
 
   return {
-    orcidId: orcid.orcid ?? config.orcid,
+    id,
+    orcidId: orcid.orcid ?? orcidId,
     lastModified: orcid.lastModified,
+    sections: manual.sections ?? config.sections ?? [],
+    collapsed: manual.collapsed ?? config.collapsed ?? [],
     profile: {
-      name: profile.name || person.name || '',
+      name: profile.name || person.name || id,
       title: profile.title,
       email: profile.email || person.emails?.[0] || '',
       location: profile.location,
@@ -227,9 +264,24 @@ function load() {
   };
 }
 
-export const cv = load();
+export const members = (config.members ?? []).map(loadMember);
+export const memberById = new Map(members.map((m) => [m.id, m]));
 
-export function hasContent(section) {
+// ---------- Group ----------
+
+// The group's publications: every member's works, once each, with the ids of
+// the members who list them in `members`. Per-member choices (selected) are dropped.
+const groupWorks = dedupeWorks(members.flatMap((m) => m.works.map(({ selected, ...w }) => w))).sort(byDateDesc);
+
+export const group = {
+  name: config.group?.name ?? '',
+  description: config.group?.description ?? '',
+  works: groupWorks,
+  metrics: computeMetrics(groupWorks),
+  lastModified: members.map((m) => m.lastModified).filter(Boolean).sort().at(-1) ?? null,
+};
+
+export function hasContent(cv, section) {
   if (section === 'about') return Boolean(cv.about) || cv.profile.keywords.length > 0;
   if (section === 'publications') return cv.works.length > 0;
   return Array.isArray(cv[section]) && cv[section].length > 0;

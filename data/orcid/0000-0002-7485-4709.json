@@ -1,0 +1,324 @@
+{
+  "orcid": "0000-0002-7485-4709",
+  "lastModified": "2026-11-02",
+  "person": {
+    "name": "Maria Monserrat Barceló",
+    "givenNames": "Maria",
+    "familyName": "Monserrat Barceló",
+    "otherNames": [],
+    "biography": null,
+    "keywords": [],
+    "links": [
+      {
+        "label": "UIB Profile",
+        "url": "https://www.uib.cat/personal/ABjMyNjYzMg/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/mariamonserratb/"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.es/citations?user=HeHrdrkAAAAJ&hl=ca"
+      }
+    ],
+    "identifiers": [],
+    "emails": [
+      "maria.monserrat@uib.cat"
+    ]
+  },
+  "employment": [
+    {
+      "putCode": 33473799,
+      "role": "Profesora Ayudante Doctora",
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": null,
+      "end": null,
+      "url": "https://www.uib.cat/personal/ABjMyNjYzMg/"
+    }
+  ],
+  "education": [
+    {
+      "putCode": 39564484,
+      "role": "Doctorado en Tecnologías de la Información y las Comunicaciones",
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2022
+      },
+      "end": {
+        "year": 2025
+      },
+      "url": null
+    },
+    {
+      "putCode": 39564468,
+      "role": "Máster Universitario en Sistemas Inteligentes",
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2020
+      },
+      "end": {
+        "year": 2021
+      },
+      "url": null
+    },
+    {
+      "putCode": 39564453,
+      "role": "Grado en Ingeniería Informática",
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2016
+      },
+      "end": {
+        "year": 2020
+      },
+      "url": null
+    }
+  ],
+  "qualifications": [],
+  "distinctions": [],
+  "invitedPositions": [],
+  "memberships": [],
+  "service": [],
+  "funding": [],
+  "works": [
+    {
+      "putCode": 230919004,
+      "type": "journal-article",
+      "title": "Process standardization for machine learning systems: A reference model based on international standards",
+      "subtitle": null,
+      "venue": "Future Generation Computer Systems",
+      "date": {
+        "year": 2026,
+        "month": 10
+      },
+      "doi": "10.1016/j.future.2026.108873",
+      "arxiv": null,
+      "url": "http://dx.doi.org/10.1016/j.future.2026.108873"
+    },
+    {
+      "putCode": 211661029,
+      "type": "journal-article",
+      "title": "Decoding success: an empirical study of critical success factors in software projects",
+      "subtitle": null,
+      "venue": "Empirical Software Engineering",
+      "date": {
+        "year": 2026,
+        "month": 9
+      },
+      "doi": "10.1007/s10664-026-10824-4",
+      "arxiv": null,
+      "url": "https://doi.org/10.1007/s10664-026-10824-4"
+    },
+    {
+      "putCode": 216168165,
+      "type": "journal-article",
+      "title": "The Missing Foundation of Machine Learning Engineering",
+      "subtitle": null,
+      "venue": "Computer",
+      "date": {
+        "year": 2026,
+        "month": 6
+      },
+      "doi": "10.1109/mc.2026.3658240",
+      "arxiv": null,
+      "url": "https://doi.org/10.1109/MC.2026.3658240"
+    },
+    {
+      "putCode": 228257731,
+      "type": "journal-article",
+      "title": "A critical success factor measurement framework for enhancing decision making in software projects",
+      "subtitle": null,
+      "venue": "Journal of Engineering Research",
+      "date": {
+        "year": 2026
+      },
+      "doi": "10.1016/j.jer.2026.07.021",
+      "arxiv": null,
+      "url": "https://www.sciencedirect.com/science/article/pii/S2307187726003561"
+    },
+    {
+      "putCode": 228259303,
+      "type": "conference-paper",
+      "title": "Desafíos y limitaciones en la gestión de calidad en sistemas de aprendizaje automático en producción",
+      "subtitle": null,
+      "venue": "XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026)",
+      "date": {
+        "year": 2026
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2026/139"
+    },
+    {
+      "putCode": 228259618,
+      "type": "conference-paper",
+      "title": "Inteligencia Artificial Generativa para la Captura de Requisitos: Una Revisión Sistemática",
+      "subtitle": null,
+      "venue": "XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026)",
+      "date": {
+        "year": 2026
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2026/146"
+    },
+    {
+      "putCode": 228257849,
+      "type": "journal-article",
+      "title": "Teaching Human Critical Success Factors in a First-Year Software Engineering Module",
+      "subtitle": null,
+      "venue": "International Journal of Engineering Education",
+      "date": {
+        "year": 2026
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": null
+    },
+    {
+      "putCode": 181771874,
+      "type": "journal-article",
+      "title": "Creativity Clogs: Identifying and Addressing Barriers to Innovation",
+      "subtitle": null,
+      "venue": "IEEE Software",
+      "date": {
+        "year": 2025,
+        "month": 5
+      },
+      "doi": "10.1109/ms.2025.3533017",
+      "arxiv": null,
+      "url": "https://doi.org/10.1109/MS.2025.3533017"
+    },
+    {
+      "putCode": 228258112,
+      "type": "conference-paper",
+      "title": "Desarrollo de un Marco de Factores Cŕiticos de Éxito en Proyectos de Software",
+      "subtitle": null,
+      "venue": "XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)",
+      "date": {
+        "year": 2025
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2025/101"
+    },
+    {
+      "putCode": 228258294,
+      "type": "conference-paper",
+      "title": "Evaluando los Factores Humanos en Proyectos de Software",
+      "subtitle": null,
+      "venue": "XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)",
+      "date": {
+        "year": 2025
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2025/102"
+    },
+    {
+      "putCode": 228934132,
+      "type": "conference-paper",
+      "title": "Towards a Process Reference Model for Machine Learning Applications: Challenges and Opportunities",
+      "subtitle": null,
+      "venue": "Proceedings of the 1st ECAI Workshop on Machine Learning Operations (MLOps25@ECAI 2025) co-located with 28th European Conference on Artificial Intelligence (ECAI 2025), Bologna, Italy, October 25, 2025",
+      "date": {
+        "year": 2025
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://ceur-ws.org/Vol-4109/paper2.pdf"
+    },
+    {
+      "putCode": 228258467,
+      "type": "conference-paper",
+      "title": "Técnicas y Aplicaciones de Inteligencia Artificial en el Ciclo de Vida de Desarrollo de Software",
+      "subtitle": null,
+      "venue": "XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)",
+      "date": {
+        "year": 2025
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2025/110"
+    },
+    {
+      "putCode": 173163778,
+      "type": "journal-article",
+      "title": "A Study of Factors That Influence the Software Project Success",
+      "subtitle": null,
+      "venue": "Journal of Software: Evolution and Process",
+      "date": {
+        "year": 2024,
+        "month": 11
+      },
+      "doi": "10.1002/smr.2735",
+      "arxiv": null,
+      "url": "http://dx.doi.org/10.1002/smr.2735"
+    },
+    {
+      "putCode": 133758286,
+      "type": "journal-article",
+      "title": "Applying Lean to Improve Software Project Management Education",
+      "subtitle": null,
+      "venue": "IEEE Transactions on Engineering Management",
+      "date": {
+        "year": 2024
+      },
+      "doi": "10.1109/tem.2023.3264981",
+      "arxiv": null,
+      "url": "https://doi.org/10.1109/TEM.2023.3264981"
+    },
+    {
+      "putCode": 167228258,
+      "type": "conference-paper",
+      "title": "Empowering Software Project Success: Guidelines to Enhance the Impact of Human Critical Success Factors",
+      "subtitle": null,
+      "venue": "Systems, Software and Services Process Improvement (EuroSPI 2024)",
+      "date": {
+        "year": 2024
+      },
+      "doi": "10.1007/978-3-031-71139-8_1",
+      "arxiv": null,
+      "url": "http://dx.doi.org/10.1007/978-3-031-71139-8_1"
+    },
+    {
+      "putCode": 127318705,
+      "type": "book",
+      "title": "Investigating the Use of Artificial Intelligence (AI) in Educational Settings: A Systematic Review",
+      "subtitle": null,
+      "venue": "Systems, Software and Services Process Improvement (EuroSPI 2022)",
+      "date": {
+        "year": 2022
+      },
+      "doi": "10.1007/978-3-031-15559-8_1",
+      "arxiv": null,
+      "url": "http://dx.doi.org/10.1007/978-3-031-15559-8_1"
+    }
+  ],
+  "peerReview": []
+}

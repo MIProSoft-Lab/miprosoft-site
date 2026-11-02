@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # commit refreshed data/orcid.json and data/jcr.json
+  contents: write   # commit refreshed data/orcid/, data/works.json and data/jcr.json
   pages: write
   id-token: write
 
@@ -36,13 +36,13 @@ jobs:
               echo "enabled=true" >> "$GITHUB_OUTPUT"
               exit 0
             fi
-            msg="GitHub Pages is set to deploy from a branch. Change Settings → Pages → Source to \"GitHub Actions\" to publish the CV."
+            msg="GitHub Pages is set to deploy from a branch. Change Settings → Pages → Source to \"GitHub Actions\" to publish the site."
           else
-            msg="GitHub Pages is not set up for this repository, so the CV is not built or published. Enable it in Settings → Pages → Source: \"GitHub Actions\"."
+            msg="GitHub Pages is not set up for this repository, so the site is not built or published. Enable it in Settings → Pages → Source: \"GitHub Actions\"."
           fi
           echo "enabled=false" >> "$GITHUB_OUTPUT"
-          echo "::notice title=CV not published::$msg"
-          echo "### CV not published" >> "$GITHUB_STEP_SUMMARY"
+          echo "::notice title=Site not published::$msg"
+          echo "### Site not published" >> "$GITHUB_STEP_SUMMARY"
           echo "$msg" >> "$GITHUB_STEP_SUMMARY"
 
   build:
@@ -60,7 +60,7 @@ jobs:
       - run: npm ci
 
       # If ORCID or Crossref is unreachable, keep going with the committed data.
-      - name: Fetch ORCID record
+      - name: Fetch ORCID records and article data
         id: fetch
         continue-on-error: true
         run: npm run fetch
@@ -78,10 +78,10 @@ jobs:
       - name: Commit updated data
         if: steps.fetch.outcome == 'success'
         run: |
-          if [ -n "$(git status --porcelain -- data/orcid.json data/jcr.json)" ]; then
+          if [ -n "$(git status --porcelain -- data/orcid data/works.json data/jcr.json)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/orcid.json $(ls data/jcr.json 2>/dev/null)
+            git add data/orcid data/works.json $(ls data/jcr.json 2>/dev/null)
             git commit -m "Update ORCID data"
             git push
           fi
@@ -99,16 +99,9 @@ jobs:
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: |
-          if [ "$(node -e "import('yaml').then(y=>console.log(y.parse(require('fs').readFileSync('cv.config.yaml','utf8')).features?.pdf!==false))")" != "true" ]; then
-            echo "PDF disabled in cv.config.yaml"; exit 0
-          fi
           npx astro preview --port 4321 &
           npx --yes wait-on@8 http://localhost:4321${BASE_PATH}/
-          for lang in $(node -e "import('yaml').then(y=>console.log(y.parse(require('fs').readFileSync('cv.config.yaml','utf8')).languages.join(' ')))"); do
-            google-chrome --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
-              --print-to-pdf="dist/cv-${lang}.pdf" "http://localhost:4321${BASE_PATH}/${lang}/"
-          done
-          ls -la dist/*.pdf
+          npm run pdf
 
       - uses: actions/upload-pages-artifact@v4
         with:

@@ -1,0 +1,97 @@
+# Content of one member's CV that ORCID does not hold. Everything here is
+# optional: an empty list or a missing key simply hides that section.
+# The file name is the member's `id` in site.config.yaml.
+#
+# Any text field can be written either as a plain string (same in every
+# language) or as a map per language, e.g.
+#   title: { en: Postdoctoral researcher, ca: Investigador postdoctoral, es: Investigador postdoctoral }
+# Missing languages fall back to the first language in site.config.yaml.
+
+# Variants of the name as it appears in author lists; they are highlighted.
+# Defaults to the ORCID name and "other names".
+nameVariants:
+  - Antonia Mas
+
+# Optional: a different section order for this CV (see site.config.yaml).
+# sections: [about, publications, employment]
+
+profile:
+  # Overrides the ORCID name if set.
+  name: ""
+  title:
+    en: ""
+    ca: ""
+    es: ""
+  email: ""        # shown on the page; leave empty to hide
+  location: ""
+  photo: ""        # path inside public/, e.g. /photo.jpg
+  # Extra links in addition to the ORCID "websites & social links".
+  links:
+  #  - { label: Google Scholar, url: https://scholar.google.com/citations?user=XXXX }
+
+  hideLinks: [Lens, Scopus]
+
+# Replaces the ORCID biography (which is only in one language).
+about: {}
+#  en: I work on ...
+#  ca: Treball en ...
+#  es: Trabajo en ...
+
+# Talks not registered in ORCID. ORCID works of type "lecture-speech"
+# are added automatically.
+talks: []
+#  - title: "Title of the talk"
+#    event: "Conference name"
+#    location: "Palma, Spain"
+#    date: 2026-05
+#    invited: true
+#    url: ""
+
+teaching: []
+#  - course: { en: Introduction to Programming, ca: Introducció a la programació, es: Introducción a la programación }
+#    institution: Universitat de les Illes Balears
+#    role: { en: Lecturer, ca: Professor, es: Profesor }
+#    years: 2023–2025
+#    details: ""
+
+supervision: []
+#  - student: Jane Doe
+#    level: { en: MSc thesis, ca: Treball de fi de màster, es: Trabajo de fin de máster }
+#    title: "Thesis title"
+#    years: 2025
+#    role: { en: Supervisor, ca: Director, es: Director }
+
+software: []
+#  - name: my-tool
+#    description: { en: Tool for ..., ca: Eina per a ..., es: Herramienta para ... }
+#    url: https://github.com/you/my-tool
+
+skills: []
+#  - group: { en: Programming, ca: Programació, es: Programación }
+#    items: [Python, C++, R]
+
+languages: []
+#  - language: { en: Catalan, ca: Català, es: Catalán }
+#    level: { en: Native, ca: Nadiu, es: Nativo }
+
+# Corrections for this member only, applied on top of their ORCID record.
+# Corrections that apply to every member (a wrong title, type or venue) go in
+# data/overrides.yaml instead.
+#
+# Works are matched by DOI (preferred) or by ORCID put-code.
+works: []
+#  - doi: 10.1234/abcd
+#    selected: true        # show in "Selected publications"
+#  - doi: 10.1234/efgh
+#    hide: true            # hide from this CV only
+#  - putCode: 123456
+#    title: "Corrected title"
+
+# Affiliations (employment, education, distinctions, funding, ...) are
+# matched by ORCID put-code (shown in data/orcid/<orcid>.json as "putCode").
+items: []
+#  - putCode: 4288
+#    hide: true
+#  - putCode: 4289
+#    role: { en: Postdoctoral researcher, ca: Investigador postdoctoral, es: Investigador postdoctoral }
+#    description: { en: "...", ca: "...", es: "..." }

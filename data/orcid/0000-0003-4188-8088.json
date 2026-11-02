@@ -1,0 +1,845 @@
+{
+  "orcid": "0000-0003-4188-8088",
+  "lastModified": "2025-03-06",
+  "person": {
+    "name": "Antonia Mas",
+    "givenNames": "Antonia",
+    "familyName": "Mas",
+    "otherNames": [],
+    "biography": null,
+    "keywords": [],
+    "links": [],
+    "identifiers": [
+      {
+        "type": "ResearcherID",
+        "value": "G-2596-2016",
+        "url": "http://www.researcherid.com/rid/G-2596-2016"
+      },
+      {
+        "type": "Scopus Author ID",
+        "value": "22635197600",
+        "url": "http://www.scopus.com/inward/authorDetails.url?authorID=22635197600&partnerID=MN8TOARS"
+      }
+    ],
+    "emails": []
+  },
+  "employment": [
+    {
+      "putCode": 8857142,
+      "role": "Dr.",
+      "department": "Computer sciences",
+      "organization": {
+        "name": "University of the Balearic Islands",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": null,
+      "end": null,
+      "url": null
+    }
+  ],
+  "education": [],
+  "qualifications": [],
+  "distinctions": [],
+  "invitedPositions": [],
+  "memberships": [],
+  "service": [],
+  "funding": [],
+  "works": [
+    {
+      "putCode": 62727230,
+      "type": "journal-article",
+      "title": "Agile software process improvement: A collaborative game toolbox",
+      "subtitle": null,
+      "venue": "IET Software",
+      "date": {
+        "year": 2019
+      },
+      "doi": "10.1049/iet-sen.2018.5096",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85063883708&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727236,
+      "type": "journal-article",
+      "title": "ISO 31000-based integrated risk management process assessment model for IT organizations",
+      "subtitle": null,
+      "venue": "Journal of Software: Evolution and Process",
+      "date": {
+        "year": 2019
+      },
+      "doi": "10.1002/smr.1984",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85060467999&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727239,
+      "type": "journal-article",
+      "title": "Lean and agile software process improvement in traditional and agile environments",
+      "subtitle": null,
+      "venue": "Journal of Software: Evolution and Process",
+      "date": {
+        "year": 2019
+      },
+      "doi": "10.1002/smr.1986",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85060441088&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727217,
+      "type": "book",
+      "title": "Being Agile While Coaching Teams Using Their Own Data",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2018
+      },
+      "doi": "10.1007/978-3-319-97925-0_36",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85053156493&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727234,
+      "type": "journal-article",
+      "title": "Experiences on the use of a game for improving learning and assessing knowledge",
+      "subtitle": null,
+      "venue": "Computer Applications in Engineering Education",
+      "date": {
+        "year": 2018
+      },
+      "doi": "10.1002/cae.21990",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85054195666&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727219,
+      "type": "journal-article",
+      "title": "Integrated risk management process assessment model for IT organizations based on ISO 31000 in an ISO multi-standards context",
+      "subtitle": null,
+      "venue": "Computer Standards and Interfaces",
+      "date": {
+        "year": 2018
+      },
+      "doi": "10.1016/j.csi.2018.04.010",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85049092022&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727223,
+      "type": "book",
+      "title": "SPI with Retrospectives: A Case Study",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2018
+      },
+      "doi": "10.1007/978-3-319-97925-0_39",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85053128634&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727231,
+      "type": "journal-article",
+      "title": "Software process improvement and capability determination conference 2017",
+      "subtitle": null,
+      "venue": "Computer Standards and Interfaces",
+      "date": {
+        "year": 2018
+      },
+      "doi": "10.1016/j.csi.2018.05.002",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85047380060&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727215,
+      "type": "book",
+      "title": "A game toolbox for process improvement in agile teams",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2017
+      },
+      "doi": "10.1007/978-3-319-64218-5_25",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85030654296&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727221,
+      "type": "book",
+      "title": "Developing an integrated risk management process model for IT settings in an iso multi-standards context",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2017
+      },
+      "doi": "10.1007/978-3-319-67383-7_24",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85029759833&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727232,
+      "type": "book",
+      "title": "How to elicit processes for an ISO-based integrated risk management process reference model in IT settings?",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2017
+      },
+      "doi": "10.1007/978-3-319-64218-5_4",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85030637582&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727245,
+      "type": "journal-article",
+      "title": "Integrating risk management in IT settings from ISO standards and management systems perspectives",
+      "subtitle": null,
+      "venue": "Computer Standards and Interfaces",
+      "date": {
+        "year": 2017
+      },
+      "doi": "10.1016/j.csi.2016.11.010",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85008233250&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727233,
+      "type": "book",
+      "title": "Lean and agile software process improvement - An overview and outlook",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2017
+      },
+      "doi": "10.1007/978-3-319-64218-5_38",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85030628677&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727199,
+      "type": "book",
+      "title": "Preface",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2017
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85029756441&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727244,
+      "type": "book",
+      "title": "Towards the development of a sequential framework for agile adoption",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2017
+      },
+      "doi": "10.1007/978-3-319-67383-7_3",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85029773339&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727222,
+      "type": "journal-article",
+      "title": "Transition of organizational roles in Agile transformation process: A grounded theory approach",
+      "subtitle": null,
+      "venue": "Journal of Systems and Software",
+      "date": {
+        "year": 2017
+      },
+      "doi": "10.1016/j.jss.2017.07.008",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85025115622&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727200,
+      "type": "journal-article",
+      "title": "Agile retrospective games for different team development phases",
+      "subtitle": null,
+      "venue": "Journal of Universal Computer Science",
+      "date": {
+        "year": 2016
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85010441116&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727211,
+      "type": "book",
+      "title": "An investigation of software development process terminology",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2016
+      },
+      "doi": "10.1007/978-3-319-38980-6_25",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84994005738&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727228,
+      "type": "book",
+      "title": "How to integrate risk management in IT settings within management systems? Comparison and integration perspectives from ISO standards",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2016
+      },
+      "doi": "10.1007/978-3-319-38980-6_19",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84993965430&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727213,
+      "type": "journal-article",
+      "title": "Lessons learned from 4-year empowering project management with TALAIA OpenPPM",
+      "subtitle": null,
+      "venue": "Journal of Software: Evolution and Process",
+      "date": {
+        "year": 2016
+      },
+      "doi": "10.1002/smr.1827",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84992473157&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727235,
+      "type": "book",
+      "title": "Process improving by playing: Implementing best practices through business games",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2016
+      },
+      "doi": "10.1007/978-3-319-44817-6_18",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84988009570&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727226,
+      "type": "book",
+      "title": "Refactoring software development process terminology through the use of ontology",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2016
+      },
+      "doi": "10.1007/978-3-319-44817-6_4",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84987986864&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638315,
+      "type": "journal-article",
+      "title": "Implementing information security best practices on software lifecycle processes: The ISO/IEC 15504 Security Extension",
+      "subtitle": null,
+      "venue": "Computers & Security",
+      "date": {
+        "year": 2015
+      },
+      "doi": "10.1016/j.cose.2014.09.003",
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000347763300002&KeyUID=WOS:000347763300002"
+    },
+    {
+      "putCode": 23638316,
+      "type": "journal-article",
+      "title": "Integrating IT service management requirements into the organizational management system",
+      "subtitle": null,
+      "venue": "Computer Standards & Interfaces",
+      "date": {
+        "year": 2015
+      },
+      "doi": "10.1016/j.csi.2014.06.005",
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000343633400009&KeyUID=WOS:000343633400009"
+    },
+    {
+      "putCode": 62727220,
+      "type": "book",
+      "title": "Process improvement with retrospective gaming in agile software development",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2015
+      },
+      "doi": "10.1007/978-3-319-24647-5_23",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84952325177&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727246,
+      "type": "journal-article",
+      "title": "The agile approach in industrial and software engineering project management",
+      "subtitle": null,
+      "venue": "Journal of Applied Engineering Science",
+      "date": {
+        "year": 2015
+      },
+      "doi": "10.5937/jaes13-9577",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84956627240&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727241,
+      "type": "book",
+      "title": "The project management SPICE (PMSPICE) process reference model: Towards a process assessment model",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2015
+      },
+      "doi": "10.1007/978-3-319-24647-5_16",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84952332429&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638317,
+      "type": "journal-article",
+      "title": "A project management improvement program according to ISO/IEC 29110 and PMBOK (R)",
+      "subtitle": null,
+      "venue": "Journal of Software-Evolution and Process",
+      "date": {
+        "year": 2014
+      },
+      "doi": "10.1002/smr.1665",
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000342829400010&KeyUID=WOS:000342829400010"
+    },
+    {
+      "putCode": 62727202,
+      "type": "book-chapter",
+      "title": "A successful case of software process improvement programme implementation",
+      "subtitle": null,
+      "venue": "Agile Estimation Techniques and Innovative Approaches to Software Process Improvement",
+      "date": {
+        "year": 2014
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84908531884&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727238,
+      "type": "book",
+      "title": "An Integrated Environment to Support Project Management in VSEs",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2014
+      },
+      "doi": "10.1007/978-3-662-43896-1_3",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84906536212&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727201,
+      "type": "book",
+      "title": "Development of the project management SPICE (PMSPICE) framework",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2014
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949143668&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727243,
+      "type": "journal-article",
+      "title": "Integrating IT management standards through MIN_ITs,Integración de Estándares de Gestión de TI mediante MIN-ITs",
+      "subtitle": null,
+      "venue": "RISTI - Revista Iberica de Sistemas e Tecnologias de Informacao",
+      "date": {
+        "year": 2014
+      },
+      "doi": "10.4304/risti.e1.31-45",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85034781957&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638318,
+      "type": "journal-article",
+      "title": "MIN-ITs: A Framework for Integration of IT Management Standards in Mature Environments",
+      "subtitle": null,
+      "venue": "International Journal of Software Engineering and Knowledge Engineering",
+      "date": {
+        "year": 2014
+      },
+      "doi": "10.1142/s0218194014400026",
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000343726500003&KeyUID=WOS:000343726500003"
+    },
+    {
+      "putCode": 23638319,
+      "type": "book-chapter",
+      "title": "Personal environment for teaching management in higher education",
+      "subtitle": null,
+      "venue": "Proceedings of the 2014 9th Iberian Conference on Information Systems and Technologies",
+      "date": {
+        "year": 2014
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000346367800112&KeyUID=WOS:000346367800112"
+    },
+    {
+      "putCode": 62727225,
+      "type": "conference-paper",
+      "title": "Personal environment for teaching management in higher education,Entorno personal de gestión docente en universidades",
+      "subtitle": null,
+      "venue": "Iberian Conference on Information Systems and Technologies, CISTI",
+      "date": {
+        "year": 2014
+      },
+      "doi": "10.1109/cisti.2014.6876972",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84906692157&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727240,
+      "type": "journal-article",
+      "title": "The evaluation of the IT service quality measurement framework in industry",
+      "subtitle": null,
+      "venue": "Global Journal of Flexible Systems Management",
+      "date": {
+        "year": 2014
+      },
+      "doi": "10.1007/s40171-013-0052-7",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84899062584&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638320,
+      "type": "book-chapter",
+      "title": "Software project management in small and very small entities",
+      "subtitle": null,
+      "venue": "Proceedings of the 2013 8th Iberian Conference on Information Systems and Technologies",
+      "date": {
+        "year": 2013
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000345737600016&KeyUID=WOS:000345737600016"
+    },
+    {
+      "putCode": 62727203,
+      "type": "conference-paper",
+      "title": "Software project management in small and very small entities,Gestión de proyectos de software en pequeñas y micro empresas",
+      "subtitle": null,
+      "venue": "Iberian Conference on Information Systems and Technologies, CISTI",
+      "date": {
+        "year": 2013
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84887887104&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638321,
+      "type": "book",
+      "title": "Application of PMBOK (R) to the management of teaching in universities",
+      "subtitle": null,
+      "venue": "Sistemas Y Tecnologias De Informacion, Vols 1 and 2",
+      "date": {
+        "year": 2012
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000306937600013&KeyUID=WOS:000306937600013"
+    },
+    {
+      "putCode": 23638322,
+      "type": "book-chapter",
+      "title": "Applying PMBOK (R) to teaching management in universities",
+      "subtitle": null,
+      "venue": "Information Systems and Technologies",
+      "date": {
+        "year": 2012
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000319285900058&KeyUID=WOS:000319285900058"
+    },
+    {
+      "putCode": 62727204,
+      "type": "conference-paper",
+      "title": "Applying PMBOK® to teaching management in universities",
+      "subtitle": null,
+      "venue": "Iberian Conference on Information Systems and Technologies, CISTI",
+      "date": {
+        "year": 2012
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84869014075&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727205,
+      "type": "book",
+      "title": "Communications in Computer and Information Science: Preface",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2012
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84862205291&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638324,
+      "type": "journal-article",
+      "title": "IT Service Management Process Improvement based on ISO/IEC 15504: A systematic review",
+      "subtitle": null,
+      "venue": "Information and Software Technology",
+      "date": {
+        "year": 2012
+      },
+      "doi": "10.1016/j.infsof.2011.11.002",
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000300741300001&KeyUID=WOS:000300741300001"
+    },
+    {
+      "putCode": 23638323,
+      "type": "book-chapter",
+      "title": "Improving the Tendering Process through the Deployment of PMBOK (R)",
+      "subtitle": null,
+      "venue": "Software Process Improvement and Capability Determination",
+      "date": {
+        "year": 2012
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000310938100016&KeyUID=WOS:000310938100016"
+    },
+    {
+      "putCode": 62727209,
+      "type": "book",
+      "title": "Improving the tendering process through the deployment of PMBOK®",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2012
+      },
+      "doi": "10.1007/978-3-642-30439-2_16",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84862223072&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638325,
+      "type": "journal-article",
+      "title": "Lessons learned from an ISO/IEC 15504 SPI programme in a company",
+      "subtitle": null,
+      "venue": "Journal of Software-Evolution and Process",
+      "date": {
+        "year": 2012
+      },
+      "doi": "10.1002/smr.501",
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000306479100005&KeyUID=WOS:000306479100005"
+    },
+    {
+      "putCode": 23638326,
+      "type": "book-chapter",
+      "title": "A Software Tool to Support the Integrated Management of Software Projects in Mature SMEs",
+      "subtitle": null,
+      "venue": "Systems, Software and Services Process Improvement",
+      "date": {
+        "year": 2011
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000297031000021&KeyUID=WOS:000297031000021"
+    },
+    {
+      "putCode": 23638327,
+      "type": "book-chapter",
+      "title": "An ISO/IEC 15504 Security Extension",
+      "subtitle": null,
+      "venue": "Software Process Improvement and Capability Determination",
+      "date": {
+        "year": 2011
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000297031600006&KeyUID=WOS:000297031600006"
+    },
+    {
+      "putCode": 62727242,
+      "type": "book",
+      "title": "An ISO/IEC 15504 security extension",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2011
+      },
+      "doi": "10.1007/978-3-642-21233-8-6",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-79959405674&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638328,
+      "type": "book-chapter",
+      "title": "ISO/IEC 15504-5 Best Practices for IT Service Management",
+      "subtitle": null,
+      "venue": "Systems, Software and Services Process Improvement",
+      "date": {
+        "year": 2011
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000297031000002&KeyUID=WOS:000297031000002"
+    },
+    {
+      "putCode": 62727216,
+      "type": "book",
+      "title": "ISO/IEC 15504-5 best practices for IT service management",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2011
+      },
+      "doi": "10.1007/978-3-642-22206-1",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84879469884&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638329,
+      "type": "book",
+      "title": "MiProJOC: A Software tool for Teaching support and Evaluation of Knowledge",
+      "subtitle": null,
+      "venue": "Sistemas E Tecnologias De Informacao, Vol I",
+      "date": {
+        "year": 2011
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000303491800042&KeyUID=WOS:000303491800042"
+    },
+    {
+      "putCode": 62727206,
+      "type": "conference-paper",
+      "title": "MiProJOC: A software tool support for teaching and assessment of knowledge",
+      "subtitle": null,
+      "venue": "Proceedings of the 6th Iberian Conference on Information Systems and Technologies, CISTI 2011",
+      "date": {
+        "year": 2011
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052485450&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638330,
+      "type": "book-chapter",
+      "title": "Application of ISO/IEC 15504 in Very Small Enterprises",
+      "subtitle": null,
+      "venue": "Systems, Software and Services Process Improvement",
+      "date": {
+        "year": 2010
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000289177000026&KeyUID=WOS:000289177000026"
+    },
+    {
+      "putCode": 62727212,
+      "type": "book",
+      "title": "Application of ISO/IEC 15504 in very small enterprises",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2010
+      },
+      "doi": "10.1007/978-3-642-15666-3_26",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77957608970&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 62727207,
+      "type": "conference-paper",
+      "title": "ISO/IEC 15504 best practices to facilitate ISO/IEC 27000 implementation",
+      "subtitle": null,
+      "venue": "ENASE 2010 - Proceedings of the 5th International Conference on Evaluation of Novel Approaches to Software Engineering",
+      "date": {
+        "year": 2010
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78751550012&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638331,
+      "type": "book",
+      "title": "SETE: software tools for the evaluation of team work",
+      "subtitle": null,
+      "venue": "Sistemas Y Tecnologias De Informacion",
+      "date": {
+        "year": 2010
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000282903000051&KeyUID=WOS:000282903000051"
+    },
+    {
+      "putCode": 23638332,
+      "type": "book-chapter",
+      "title": "Team SPICE: A SPICE-Based Teamwork Assessment Model",
+      "subtitle": null,
+      "venue": "Systems, Software and Services Process Improvement",
+      "date": {
+        "year": 2010
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000289177000004&KeyUID=WOS:000289177000004"
+    },
+    {
+      "putCode": 62727214,
+      "type": "book",
+      "title": "Team SPICE: A SPICE-based teamwork assessment model",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2010
+      },
+      "doi": "10.1007/978-3-642-15666-3_4",
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77957599275&partnerID=MN8TOARS"
+    },
+    {
+      "putCode": 23638333,
+      "type": "book-chapter",
+      "title": "Software process improvement through teamwork management",
+      "subtitle": null,
+      "venue": "Product-Focused Software Process Improvement, Proceedings",
+      "date": {
+        "year": 2007
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000247910000008&KeyUID=WOS:000247910000008"
+    },
+    {
+      "putCode": 62727208,
+      "type": "conference-paper",
+      "title": "Software process improvement through teamwork management",
+      "subtitle": null,
+      "venue": "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)",
+      "date": {
+        "year": 2007
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-35148835677&partnerID=MN8TOARS"
+    }
+  ],
+  "peerReview": []
+}

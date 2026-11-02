@@ -1,0 +1,1911 @@
+{
+  "doi:10.1002/cae.21990": {
+    "authors": [
+      "Antoni‐Lluís Mesquida",
+      "Antonia Mas"
+    ],
+    "venue": "Computer Applications in Engineering Education",
+    "volume": "26",
+    "issue": "6",
+    "pages": "2058-2070",
+    "issn": [
+      "1061-3773",
+      "1099-0542"
+    ],
+    "date": {
+      "year": 2018,
+      "month": 6
+    },
+    "abstract": "The combination of traditional teaching methods with innovative learning tools generates a positive effect on the learning. MiProJOC is a web‐based question and answer game developed to support the delivery of interactive lessons and the assessment of the students’ learning, both as in‐class and distance education activities. MiProJOC was designed to maintain a repository of questions from different knowledge areas, to define and set different game modes, and to present the statistical results from the use of the tool. MiProJOC has been used to facilitate the learning of the software life cycle processes of the ISO/IEC/IEEE 12207 International Standard within a Software Quality course. This tool has been tested and validated by three different groups of users: students, teachers, and experts from an Information Technology center. The use of MiProJOC to consolidate theoretical concepts is quite profitable, instructive, and beneficial. The tool has achieved an increase in the student interest toward the topics studied. Students are more motivated when innovative techniques are used for the acquisition and consolidation of knowledge.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "tldr": "MiProJOC has been used to facilitate the learning of the software life cycle processes of the ISO/IEC/IEEE 12207 International Standard within a Software Quality course and an increase in the student interest toward the topics studied.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 16,
+    "citationsByYear": {
+      "2018": 1,
+      "2019": 2,
+      "2020": 2,
+      "2021": 1,
+      "2022": 3,
+      "2023": 1,
+      "2024": 4,
+      "2025": 1,
+      "2026": 1
+    }
+  },
+  "doi:10.1002/smr.1665": {
+    "authors": [
+      "Antoni‐Lluís Mesquida",
+      "Antonia Mas"
+    ],
+    "venue": "Journal of Software: Evolution and Process",
+    "volume": "26",
+    "issue": "9",
+    "pages": "846-854",
+    "issn": [
+      "2047-7473",
+      "2047-7481"
+    ],
+    "date": {
+      "year": 2014,
+      "month": 8
+    },
+    "abstract": "This paper describes the results obtained and the lessons learned from the implementation of the ISO/IEC 29110 standard in four small software development companies, clustered in a joint process improvement program. The main results of this initiative have been, on the one hand, the definition of a standardized set of processes and procedures and, on the other, the development of a Process Asset Library to support project management good practices within the participant organizations. The PMBOK ® Guide was used to complement the ISO/IEC 29110‐5‐1‐2 standard, in order to provide detailed knowledge about project management inputs, outputs, and best techniques. Copyright © 2014 John Wiley & Sons, Ltd.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "tldr": "The main results of this initiative have been the definition of a standardized set of processes and procedures and the development of a Process Asset Library to support project management good practices within the participant organizations.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 31,
+    "citationsByYear": {
+      "2014": 1,
+      "2015": 1,
+      "2016": 8,
+      "2017": 1,
+      "2018": 3,
+      "2019": 5,
+      "2020": 2,
+      "2021": 4,
+      "2022": 1,
+      "2023": 1,
+      "2024": 2,
+      "2025": 1,
+      "2026": 1
+    }
+  },
+  "doi:10.1002/smr.1827": {
+    "authors": [
+      "Antonia Mas",
+      "Antoni‐Lluís Mesquida",
+      "Miloš Jovanović",
+      "Joan Barceló"
+    ],
+    "venue": "Journal of Software: Evolution and Process",
+    "volume": "28",
+    "issue": "11",
+    "pages": "981-989",
+    "issn": [
+      "2047-7473",
+      "2047-7481"
+    ],
+    "date": {
+      "year": 2016,
+      "month": 10
+    },
+    "abstract": "Knowledge and experience are not the only prerequisite for a successful project; a well‐performing team using proper tools and techniques ensures efficient project management. Adequate tool is essential to support decision making in management of any organizational business units. TALAIA OpenPPM is an open‐source solution for managing projects, programs, and portfolios. SM2, founder of TALAIA OpenPPM, after 4 years of experience of the tool implementation in companies from different sectors, came to a conclusion that the successful adoption of the tool is strongly affected with existing maturity level of the project management processes established in the organization. Also, this article derives lessons learned by SM2 in expansion and opening of a new business line in the international market.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "tldr": "It is concluded that the successful adoption of the tool is strongly affected with existing maturity level of the project management processes established in the organization.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 1,
+    "citationsByYear": {
+      "2016": 1
+    }
+  },
+  "doi:10.1002/smr.1984": {
+    "authors": [
+      "Béatrix Barafort",
+      "Antoni‐Lluís Mesquida",
+      "Antònia Mas"
+    ],
+    "venue": "Journal of Software: Evolution and Process",
+    "volume": "31",
+    "issue": "1",
+    "pages": null,
+    "issn": [
+      "2047-7473",
+      "2047-7481"
+    ],
+    "date": {
+      "year": 2018,
+      "month": 8
+    },
+    "abstract": "Governance, Risk management, and Compliance activities are key challenges faced by organizations. Process Models and Capability Process Assessments are governance instruments that can help organization in assessing and improving their processes. Several ISO standards propose process models for Management System Standards based on ISO 9001, ISO/IEC 20000‐1, and ISO/IEC 27001, and for project management with ISO 21500. The ISO 31000 standard provides guidance for Risk management with a process approach and systemic perspective. This paper presents an ISO 31000‐based Integrated Risk Management Process Assessment Model (PAM) for IT organizations enabling to integrate on an easy way several ISO process‐oriented standards which are often targeted by IT organizations. This PAM integrates risk management dimensions with ISO 9001, ISO 21500, ISO/IEC 20000‐1, and ISO/IEC 27001. It offers a centralized and integrated risk management approach which provides the basis to improve, coordinate, and interoperate risk management activities.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "tldr": "This paper presents an ISO 31000‐based Integrated Risk Management Process Assessment Model (PAM) for IT organizations enabling to integrate on an easy way several ISO process‐oriented standards which are often targeted by IT organizations.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 32,
+    "citationsByYear": {
+      "2020": 4,
+      "2021": 7,
+      "2022": 4,
+      "2023": 9,
+      "2024": 4,
+      "2025": 2,
+      "2026": 2
+    }
+  },
+  "doi:10.1002/smr.1986": {
+    "authors": [
+      "Alexander Poth",
+      "Susumu Sasabe",
+      "Antònia Mas",
+      "Antoni‐Lluís Mesquida"
+    ],
+    "venue": "Journal of Software: Evolution and Process",
+    "volume": "31",
+    "issue": "1",
+    "pages": null,
+    "issn": [
+      "2047-7473",
+      "2047-7481"
+    ],
+    "date": {
+      "year": 2018,
+      "month": 8
+    },
+    "abstract": "The culture of traditional organizations favors firmly established processes and standardization. Therefore, the adoption of Agile and Lean approaches in these organizations is a challenging issue. This paper presents an overview and outlook of the most well‐known Agile and Lean approaches in order to identify which kind of continuous software process improvement (SPI) is inherent in these approaches. The main objective of this research is to show that Lean and Agile SPI approaches can be pursued depending on the target environment, both in traditional and in agile organizations.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "tldr": "The main objective of this research is to show that Lean and Agile SPI approaches can be pursued depending on the target environment, both in traditional and in agile organizations.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 44,
+    "citationsByYear": {
+      "2019": 5,
+      "2020": 12,
+      "2021": 9,
+      "2022": 4,
+      "2023": 11,
+      "2024": 3
+    }
+  },
+  "doi:10.1002/smr.2735": {
+    "authors": [
+      "Maria Monserrat",
+      "Antonia Mas",
+      "Antoni‐Lluís Mesquida"
+    ],
+    "venue": "Journal of Software: Evolution and Process",
+    "volume": "37",
+    "issue": "2",
+    "pages": null,
+    "issn": [
+      "2047-7473",
+      "2047-7481"
+    ],
+    "date": {
+      "year": 2024,
+      "month": 11
+    },
+    "abstract": "Most software development organizations are project based. However, statistics show that the failure rate of projects is very high. Different authors have identified factors (critical success factors) that can influence the success or failure of software projects, and that must be considered when carrying out a software project. This study is part of a research aimed at defining a framework that allows software development companies to assess the extent of the impact of critical success factors on their projects and increase the probability of project success. To achieve this goal, the first step was to identify the factors influencing software project success as reported in recent literature, as presented in this paper. A systematic literature review was conducted to obtain the list of factors that can influence the success of software projects. The list of 50 critical success factors resulting from this literature review can be used as a guide of critical aspects to be taken into consideration by the project manager when managing a project. Several gaps were identified through the literature review, such as the lack of indicators to measure the level of impact of each factor and the absence of descriptions for these factors.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "tldr": "A systematic literature review was conducted to obtain the list of factors that can influence the success of software projects, and the list of 50 critical success factors can be used as a guide of critical aspects to be taken into consideration by the project manager when managing a project.",
+    "openAccessUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/smr.2735",
+    "openAccess": {
+      "status": "hybrid",
+      "license": "cc-by-nc-nd"
+    },
+    "citations": 4,
+    "citationsByYear": {
+      "2025": 1,
+      "2026": 3
+    }
+  },
+  "doi:10.1002/smr.501": {
+    "authors": [
+      "Antonia Mas",
+      "Bartomeu Fluxà",
+      "Esperança Amengual"
+    ],
+    "venue": "Journal of Software: Evolution and Process",
+    "volume": "24",
+    "issue": "5",
+    "pages": "493-500",
+    "issn": [
+      "2047-7473",
+      "2047-7481"
+    ],
+    "date": {
+      "year": 2012,
+      "month": 7
+    },
+    "abstract": "SUMMARY This paper describes a first‐hand experience in Software Process Improvement within a Spanish Company which, since 2002, has been involved in an improvement programme led by our research group. We discuss the experience and the results of this improvement programme, as well as the lessons learned to deal with new future improvement initiatives in other companies of our environment. Copyright © 2010 John Wiley & Sons, Ltd.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 15,
+    "citationsByYear": {
+      "2012": 1,
+      "2014": 7,
+      "2017": 1,
+      "2022": 1,
+      "2023": 1
+    }
+  },
+  "doi:10.1007/978-3-030-28005-5_37": {
+    "authors": [
+      "Marcos Pacheco",
+      "Antoni-Lluís Mesquida",
+      "Antònia Mas"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "481-494",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2019
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "This paper presents how the tool Actionable Agile can support Agile coaching by the interpretation of the values in the different charts it provides, which can be considered as objective inputs to find improvement opportunities.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 4,
+    "citationsByYear": {
+      "2020": 3,
+      "2025": 1
+    }
+  },
+  "doi:10.1007/978-3-030-56441-4_44": {
+    "authors": [
+      "Marcos Pacheco",
+      "Antònia Mas",
+      "Antoni-Lluís Mesquida"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "587-597",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2020
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "A Releasable Inventory Tool is presented, which was developed to support Agility, which facilitates the creation of an environment aligned to Lean and Agile principles.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 1,
+    "citationsByYear": {
+      "2024": 1
+    }
+  },
+  "doi:10.1007/978-3-031-15559-8_1": {
+    "authors": [
+      "Maria Monserrat",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida",
+      "Paul Clarke"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "3-17",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2022
+    },
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": "https://doras.dcu.ie/27739/1/16460001-cameraready.pdf",
+    "openAccess": {
+      "status": "green",
+      "license": null
+    },
+    "citations": 7,
+    "citationsByYear": {
+      "2023": 1,
+      "2024": 2,
+      "2025": 2,
+      "2026": 2
+    }
+  },
+  "doi:10.1007/978-3-031-71139-8_1": {
+    "authors": [
+      "Maria Monserrat",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida",
+      "Antonio Crespí"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "3-18",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 0,
+    "citationsByYear": {},
+    "date": {
+      "year": 2024
+    },
+    "metadataFetched": "2026-11-02"
+  },
+  "doi:10.1007/978-3-032-15477-4_62": {
+    "authors": [
+      "Jesús Soriano-González",
+      "Jose David Pérez-Cañellas",
+      "Josep Oliver-Sansó",
+      "Francisco Fabián Criado-Sudau",
+      "Àngels Fernández-Mora",
+      "Elena Sánchez-García"
+    ],
+    "venue": "Coastal Research Library",
+    "volume": null,
+    "issue": null,
+    "pages": "407-414",
+    "issn": [
+      "2211-0577",
+      "2211-0585"
+    ],
+    "date": {
+      "year": 2026
+    },
+    "abstract": "This study investigates the potential of Deep Learning (DL) for automated monitoring of beach seagrass wracks (BW) and shoreline position using snapshots from beach imaging systems (SIRENA and CoastSnap, respectively) and specialized-labelled datasets. BW detection and segmentation is approached using U-Net, YOLOv8–9, and the Segment Anything Model (SAM). The shoreline extraction is tackled using U-Net and Bidirectional Long Short-Term Memory (Bi-LSTM) networks. For each challenge, experiments involving variable data processing and models’ parametrization are explored. Results for shoreline extraction from CoastSnap images indicate that the U-Net outperforms Bi-LSTM, while Bi-LSTM, trained beach-wise, offers a viable option for limited training data scenarios. For BW monitoring from SIRENA images, YOLO outperforms the U-Net and SAM, but detection and segmentation performance decreases with lower density BW. Overall, this research presents open-access datasets, insights into model performance, and findings transferable to different imaging systems, showcasing the potential of DL applied to natural image processing for enhancing coastal monitoring.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": "https://link.springer.com/content/pdf/10.1007/978-3-032-15477-4_62.pdf",
+    "openAccess": {
+      "status": "hybrid",
+      "license": "cc-by"
+    },
+    "citations": 1,
+    "citationsByYear": {
+      "2026": 1
+    }
+  },
+  "doi:10.1007/978-3-319-24647-5_16": {
+    "authors": [
+      "Antoni-Lluís Mesquida",
+      "Antònia Mas",
+      "Béatrix Barafort"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "193-205",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2015
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "The requirements ofISO 21500 were transformed to develop the PMSPICE Process Reference Model (PRM), which is compliant with the requirements of ISO/IEC 33004 and will provide a process assessment and improvement model in the project management domain.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 6,
+    "citationsByYear": {
+      "2016": 3,
+      "2018": 1,
+      "2020": 1,
+      "2024": 1
+    }
+  },
+  "doi:10.1007/978-3-319-24647-5_23": {
+    "authors": [
+      "Milos Jovanovic",
+      "Antoni-Lluís Mesquida",
+      "Antònia Mas"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "287-294",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2015
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "Different games for improving agile software development processes are presented and they can be applied during the retrospective meetings and they are grouped in five sections: data gathering, ongoing activities, timeline, and team cohesion and risk management.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 15,
+    "citationsByYear": {
+      "2016": 3,
+      "2017": 3,
+      "2018": 3,
+      "2019": 2,
+      "2021": 3,
+      "2024": 1
+    }
+  },
+  "doi:10.1007/978-3-319-38980-6_19": {
+    "authors": [
+      "Béatrix Barafort",
+      "Antoni-Lluís Mesquida",
+      "Antònia Mas"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "254-269",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2016
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "This paper is investigating how risk management could be integrated from several ISO standards that are relevant for IT settings: quality management, project management, IT service management and information security management.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 2,
+    "citationsByYear": {
+      "2017": 2
+    }
+  },
+  "doi:10.1007/978-3-319-38980-6_25": {
+    "authors": [
+      "Paul Clarke",
+      "Antoni-Lluís Mesquida",
+      "Damjan Ekert",
+      "J. J. Ekstrom",
+      "Tatjana Gornostaja",
+      "Milos Jovanovic",
+      "Jørn Johansen",
+      "Antonia Mas",
+      "Richard Messnarz",
+      "Blanca Nájera Villar",
+      "Alexander O’Connor",
+      "Rory V. O’Connor",
+      "Michael Reiner",
+      "Gabriele Sauberer",
+      "Klaus-Dirk Schmitz",
+      "Murat Yilmaz"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "351-361",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2016
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "The practice of software development has evolved considerably in recent decades, with new programming technologies, the affordability of hardware, pervasive internet access and mobile computing all contributing to the emergence of new software development processes. The newer process initiatives, which include those which are sometimes referred to as agile or lean methods, have brought with them new terms, which sometimes reflect the introduction of novel concepts. Other times, new terms correspond to long established concepts that have been repackaged. The net position is that we have a proliferation of language and term usage in the software development process domain, a problem which has implications for assessors and assessment frameworks, and for the broader community. In this paper, we explore this problem, finding that it is worthy of further research. Plus, we identify a technique suited to addressing this concern: the establishment of a canonical software process ontological model.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "This paper explores the problem of a proliferation of language and term usage in the software development process domain, and identifies a technique suited to addressing this concern: the establishment of a canonical software process ontological model.",
+    "openAccessUrl": "https://hdl.handle.net/10344/5444",
+    "openAccess": {
+      "status": "green",
+      "license": "cc-by-nc-sa"
+    },
+    "citations": 36,
+    "citationsByYear": {
+      "2016": 1,
+      "2017": 4,
+      "2018": 4,
+      "2019": 2,
+      "2020": 4,
+      "2021": 4,
+      "2022": 11,
+      "2023": 2,
+      "2024": 2,
+      "2025": 2
+    }
+  },
+  "doi:10.1007/978-3-319-44817-6_18": {
+    "authors": [
+      "Antoni-Lluís Mesquida",
+      "Milos Jovanovic",
+      "Antònia Mas"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "225-233",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2016
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "Concrete application of one business game to the activities suggested by ISO 21500 is presented in the paper, thus showing the project management process improvement possibilities with business games.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 12,
+    "citationsByYear": {
+      "2016": 1,
+      "2017": 2,
+      "2018": 3,
+      "2019": 1,
+      "2020": 2,
+      "2022": 1,
+      "2023": 2
+    }
+  },
+  "doi:10.1007/978-3-319-44817-6_4": {
+    "authors": [
+      "Paul M. Clarke",
+      "Antoni Lluís Mesquida Calafat",
+      "Damjan Ekert",
+      "J. J. Ekstrom",
+      "Tatjana Gornostaja",
+      "Milos Jovanovic",
+      "Jørn Johansen",
+      "Antonia Mas",
+      "Richard Messnarz",
+      "Blanca Nájera Villar",
+      "Alexander O’Connor",
+      "Rory V. O’Connor",
+      "Michael Reiner",
+      "Gabriele Sauberer",
+      "Klaus-Dirk Schmitz",
+      "Murat Yilmaz"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "47-57",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2016
+    },
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": "https://doras.dcu.ie/21404/1/Published.pdf",
+    "openAccess": {
+      "status": "green",
+      "license": null
+    },
+    "citations": 19,
+    "citationsByYear": {
+      "2016": 1,
+      "2017": 5,
+      "2018": 2,
+      "2019": 4,
+      "2020": 1,
+      "2021": 2,
+      "2022": 1,
+      "2023": 1,
+      "2024": 2
+    }
+  },
+  "doi:10.1007/978-3-319-64218-5_25": {
+    "authors": [
+      "Antoni-Lluís Mesquida",
+      "Jovana Karać",
+      "Miloš Jovanović",
+      "Antònia Mas"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "302-309",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2017
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "InnoBox, a game toolbox for process improvement and innovation in agile teams is presented and authors selected 12 collaborative games to be used in team meetings.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 12,
+    "citationsByYear": {
+      "2017": 1,
+      "2018": 5,
+      "2019": 2,
+      "2021": 1,
+      "2022": 1,
+      "2023": 1,
+      "2025": 1
+    }
+  },
+  "doi:10.1007/978-3-319-64218-5_38": {
+    "authors": [
+      "Alexander Poth",
+      "Susumu Sasabe",
+      "Antònia Mas"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "471-485",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2017
+    },
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 3,
+    "citationsByYear": {
+      "2018": 1,
+      "2019": 1,
+      "2021": 1
+    }
+  },
+  "doi:10.1007/978-3-319-64218-5_4": {
+    "authors": [
+      "Béatrix Barafort",
+      "Antoni-Lluís Mesquida",
+      "Antònia Mas"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "43-57",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2017
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "This paper presents the approach for eliciting processes based on ISO 31000 as the main thread in a process reference model (PRM), which integrates risk management dimensions with the selected ISO standards: ISO 9001, ISO 21500, ISO/IEC 20000-1 and ISO/ IEC 27001.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 3,
+    "citationsByYear": {
+      "2017": 1,
+      "2018": 1,
+      "2020": 1
+    }
+  },
+  "doi:10.1007/978-3-319-67383-7_24": {
+    "authors": [
+      "Béatrix Barafort",
+      "Antoni-Lluís Mesquida",
+      "Antònia Mas"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "322-336",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2017
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "The Integrated Risk Management Process Model for IT settings in an ISO multi-standards context is developed with a Design Science research method to be the foundations for new process models.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 4,
+    "citationsByYear": {
+      "2018": 3,
+      "2025": 1
+    }
+  },
+  "doi:10.1007/978-3-319-67383-7_3": {
+    "authors": [
+      "Miloš Jovanović",
+      "Antoni-Lluís Mesquida",
+      "Antònia Mas",
+      "Bojan Lalić"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "30-42",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2017
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "This research demonstrates the first steps towards the creation of a generic sequential Agile adoption framework from which the first phase is ready to be used by practitioners, and second and third phases are useful for academic society and they can be developed and validated further in the future.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 14,
+    "citationsByYear": {
+      "2018": 3,
+      "2019": 3,
+      "2020": 2,
+      "2021": 1,
+      "2022": 2,
+      "2023": 2,
+      "2025": 1
+    }
+  },
+  "doi:10.1007/978-3-319-97925-0_36": {
+    "authors": [
+      "Marcos Pacheco",
+      "Antoni-Lluís Mesquida",
+      "Antònia Mas"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "426-436",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2018
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "Visual Agile, is a software tool to support Agile coaching, which has been developed to monitor and control the values for the metrics established by the team, and can be helpful to build team awareness and facilitate constant delivery of value.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 7,
+    "citationsByYear": {
+      "2019": 2,
+      "2020": 3,
+      "2022": 1,
+      "2025": 1
+    }
+  },
+  "doi:10.1007/978-3-319-97925-0_39": {
+    "authors": [
+      "Antònia Mas",
+      "Alexander Poth",
+      "Susumu Sasabe"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "456-466",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2018
+    },
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 7,
+    "citationsByYear": {
+      "2020": 1,
+      "2021": 3,
+      "2023": 1,
+      "2024": 1,
+      "2026": 1
+    }
+  },
+  "doi:10.1007/978-3-642-15666-3_26": {
+    "authors": [
+      "Antonia Mas",
+      "Esperança Amengual",
+      "Antoni Lluís Mesquida"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "290-301",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2010
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "This paper presents the experience of application of the ISO/IEC 15504 standard in eight software companies and the implementation of the project activities and its results are summarized.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 10,
+    "citationsByYear": {
+      "2014": 4,
+      "2018": 1,
+      "2019": 1
+    }
+  },
+  "doi:10.1007/978-3-642-15666-3_4": {
+    "authors": [
+      "Esperança Amengual",
+      "Antònia Mas",
+      "Antoni Lluís Mesquida"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "37-47",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2010
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "An SPICE-based Teamwork Assessment Model for software teams, composed of a Teamwork Reference Model (TRM) and a Measurement Framework, both introduced in previous works are presented.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 4,
+    "citationsByYear": {
+      "2012": 1,
+      "2015": 1,
+      "2018": 1
+    }
+  },
+  "doi:10.1007/978-3-642-21233-8-6": {
+    "metadataFetched": "2026-11-02"
+  },
+  "doi:10.1007/978-3-642-22206-1": {
+    "authors": [],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": null,
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2011
+    },
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 15,
+    "citationsByYear": {
+      "2015": 3,
+      "2017": 2,
+      "2018": 1,
+      "2022": 3,
+      "2023": 3,
+      "2024": 2,
+      "2025": 1
+    }
+  },
+  "doi:10.1007/978-3-642-30439-2_16": {
+    "authors": [
+      "Antònia Mas",
+      "Antoni Lluís Mesquida"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "173-185",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2012
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "Two generic processes to support the tendering preparation and the project management according to PMBOK® are presented and have been deployed in two software companies involved in an ISO/IEC 15504 SPI initiative.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 1,
+    "citationsByYear": {
+      "2019": 1
+    }
+  },
+  "doi:10.1007/978-3-662-43896-1_3": {
+    "authors": [
+      "Antoni-Lluís Mesquida",
+      "Antonia Mas",
+      "Adelaida Delgado"
+    ],
+    "venue": "Communications in Computer and Information Science",
+    "volume": null,
+    "issue": null,
+    "pages": "25-35",
+    "issn": [
+      "1865-0929",
+      "1865-0937"
+    ],
+    "date": {
+      "year": 2014
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "An integrated environment for project management that brings together a set of tools supporting some of the PMBOK® Guide good practices is presented, composed of both transversal tools and specific applications for managing project scope, time and communications.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 0,
+    "citationsByYear": {}
+  },
+  "doi:10.1007/s10664-026-10824-4": {
+    "authors": [
+      "Maria Monserrat",
+      "Antonio Crespí",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida"
+    ],
+    "venue": "Empirical Software Engineering",
+    "volume": "31",
+    "issue": "5",
+    "pages": null,
+    "issn": [
+      "1382-3256",
+      "1573-7616"
+    ],
+    "abstract": "Achieving project success is a primary objective for organizations dedicated to software development. Despite the concerted efforts of these organizations, statistics indicate that a significant portion of projects ultimately fail. Numerous authors in the literature have focused on defining success and failure in software projects, as well as the factors contributing to these outcomes. However, it appears that there is no consensus on these terms, and they do not accurately represent the experts’ perspective. This study presents results obtained from semi-structured interviews with 30 professionals in the technology sector, enabling the identification of Critical Success Factors that professionals believe can influence the success of software projects, along with their perception of the concepts of project success and project failure. The article outlines the conducted research, details the application of the thematic analysis methodology for analysing the interview data, and reports the findings of the empirical study. Specifically, the identification of 49 Critical Success Factors that experts deem influential in the success of software projects, providing a more nuanced and precise definition of project success and project failure. Among these 49 Critical Success Factors, grouped into six categories, it is important to highlight Skills, Involvement, Technology maturity, Detailed requirements analysis, and Good communication with all the people involved in the project, as the most frequently mentioned by the interviewees. The findings of this study not only provide a clearer definition of project success and project failure but also suggest that the resulting set of Critical Success Factors can support technology professionals in considering and adequately managing the factors that may increase the likelihood of success in their projects.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "The findings of this study suggest that the resulting set of Critical Success Factors can support technology professionals in considering and adequately managing the factors that may increase the likelihood of success in their projects.",
+    "openAccessUrl": "https://link.springer.com/content/pdf/10.1007/s10664-026-10824-4.pdf",
+    "openAccess": {
+      "status": "hybrid",
+      "license": "cc-by"
+    },
+    "citations": 1,
+    "citationsByYear": {
+      "2026": 1
+    },
+    "date": {
+      "year": 2026,
+      "month": 4
+    },
+    "metadataFetched": "2026-11-02"
+  },
+  "doi:10.1007/s40171-013-0052-7": {
+    "authors": [
+      "Marion Lepmets",
+      "Antoni Lluís Mesquida",
+      "Aileen Cater-Steel",
+      "Antonia Mas",
+      "Eric Ras"
+    ],
+    "venue": "Global Journal of Flexible Systems Management",
+    "volume": "15",
+    "issue": "1",
+    "pages": "39-57",
+    "issn": [
+      "0972-2696",
+      "0974-0198"
+    ],
+    "date": {
+      "year": 2013,
+      "month": 12
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "This study evaluates the IT service quality measurement framework that supports the provider-driven IT service improvement in the simple, complicated and complex contexts and contextualizes the IT Service Quality Measurement Framework that supports this framework.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 27,
+    "citationsByYear": {
+      "2014": 5,
+      "2015": 7,
+      "2016": 1,
+      "2017": 2,
+      "2018": 6,
+      "2020": 1,
+      "2021": 1,
+      "2022": 1,
+      "2023": 1,
+      "2025": 1,
+      "2026": 1
+    }
+  },
+  "doi:10.1016/j.cose.2014.09.003": {
+    "authors": [
+      "Antoni Lluís Mesquida",
+      "Antonia Mas"
+    ],
+    "venue": "Computers &amp; Security",
+    "volume": "48",
+    "issue": null,
+    "pages": "19-34",
+    "issn": [
+      "0167-4048"
+    ],
+    "date": {
+      "year": 2015,
+      "month": 2
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "The ISO/IEC 15504 Security Extension details the changes that software companies should make in the software lifecycle processes for the successful implementation of the related security controls.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 33,
+    "citationsByYear": {
+      "2015": 1,
+      "2016": 4,
+      "2017": 2,
+      "2018": 2,
+      "2019": 3,
+      "2020": 7,
+      "2021": 2,
+      "2022": 5,
+      "2023": 3,
+      "2024": 1,
+      "2025": 2,
+      "2026": 1
+    }
+  },
+  "doi:10.1016/j.csi.2014.06.005": {
+    "authors": [
+      "Antoni-Lluís Mesquida",
+      "Antonia Mas"
+    ],
+    "venue": "Computer Standards &amp; Interfaces",
+    "volume": "37",
+    "issue": null,
+    "pages": "80-91",
+    "issn": [
+      "0920-5489"
+    ],
+    "date": {
+      "year": 2015,
+      "month": 1
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "A new Integrated Management System (IMS) is proposed which widens the scope of the ISO 9001 QMS with the specific IT service management requirements of ISO/IEC 20000-1, and presents a guide to support organizations in implementing this IMS.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 41,
+    "citationsByYear": {
+      "2015": 2,
+      "2016": 5,
+      "2017": 7,
+      "2018": 4,
+      "2019": 3,
+      "2020": 7,
+      "2021": 5,
+      "2023": 6,
+      "2024": 1,
+      "2026": 1
+    }
+  },
+  "doi:10.1016/j.csi.2016.11.010": {
+    "authors": [
+      "Béatrix Barafort",
+      "Antoni-Lluís Mesquida",
+      "Antonia Mas"
+    ],
+    "venue": "Computer Standards &amp; Interfaces",
+    "volume": "54",
+    "issue": null,
+    "pages": "176-185",
+    "issn": [
+      "0920-5489"
+    ],
+    "date": {
+      "year": 2017,
+      "month": 11
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "This paper analyses risk management activities throughout various selected ISO standards in order to provide the basis to improve, coordinate and interoperaterisk management activities in IT settings for various purposes related to quality management, project management, IT service management and information security management.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 94,
+    "citationsByYear": {
+      "2017": 14,
+      "2018": 11,
+      "2019": 13,
+      "2020": 16,
+      "2021": 12,
+      "2022": 7,
+      "2023": 10,
+      "2024": 7,
+      "2025": 2,
+      "2026": 2
+    }
+  },
+  "doi:10.1016/j.csi.2018.04.010": {
+    "authors": [
+      "Béatrix Barafort",
+      "Antoni-Lluís Mesquida",
+      "Antònia Mas"
+    ],
+    "venue": "Computer Standards &amp; Interfaces",
+    "volume": "60",
+    "issue": null,
+    "pages": "57-66",
+    "issn": [
+      "0920-5489"
+    ],
+    "date": {
+      "year": 2018,
+      "month": 11
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "With risk management as a key challenge for most organizations, aligning and improving organisational and business processes is essential. Capability and Maturity Models can contribute to assess and then enable process improvement. With the need to integrate risk management in IT Organizations (IT department/organisation), ISO/IEC 15,504–330xx process assessment approach combined with the latest version of ISO 31,000 for risk management can be the foundations for new process models. An integrated process-based approach with various popular and market demands ISO standards (ISO 9001, ISO 21,500, ISO/IEC 20,000–1 and ISO/IEC 27,001) is proposed in the paper; it explains how the Integrated Risk Management Process Assessment Model for IT Organizations in an ISO multi-standards context is developed with a Design Science research method.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "The Integrated Risk Management Process Assessment Model for IT Organizations in an ISO multi-standards context is developed with a Design Science research method.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 27,
+    "citationsByYear": {
+      "2018": 2,
+      "2019": 1,
+      "2020": 2,
+      "2021": 5,
+      "2022": 4,
+      "2023": 3,
+      "2024": 4,
+      "2025": 3,
+      "2026": 3
+    }
+  },
+  "doi:10.1016/j.csi.2018.05.002": {
+    "authors": [
+      "Antonia Mas",
+      "Antoni Mesquida"
+    ],
+    "venue": "Computer Standards &amp; Interfaces",
+    "volume": "60",
+    "issue": null,
+    "pages": "1-2",
+    "issn": [
+      "0920-5489"
+    ],
+    "date": {
+      "year": 2018,
+      "month": 11
+    },
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 6,
+    "citationsByYear": {
+      "2019": 1,
+      "2020": 1,
+      "2021": 4
+    }
+  },
+  "doi:10.1016/j.csi.2019.103405": {
+    "authors": [
+      "Antònia Mas",
+      "Antoni-Lluís Mesquida",
+      "Marcos Pacheco"
+    ],
+    "venue": "Computer Standards &amp; Interfaces",
+    "volume": "70",
+    "issue": null,
+    "pages": "103405",
+    "issn": [
+      "0920-5489"
+    ],
+    "date": {
+      "year": 2020,
+      "month": 6
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "Agile approaches are well perceived in software development companies. These approaches are not faced with traditional process models. This research analyses how by defining and monitoring a set of Agile metrics, Agile mature companies can be also conformant with the best practices proposed by the targeted ISO process reference models. Conformance has been identified with five Technical Management processes of the ISO/IEC/IEEE 12207 standard and with two activities of the Project Management process of the ISO/IEC TR 29110-5-1-2 standard. The findings may be of the interest of those Agile settings that need to work according to the process model established in the company.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "This research analyses how by defining and monitoring a set of Agile metrics, Agile mature companies can be also conformant with the best practices proposed by the targeted ISO process reference models.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 14,
+    "citationsByYear": {
+      "2020": 1,
+      "2021": 3,
+      "2022": 3,
+      "2023": 2,
+      "2024": 1,
+      "2025": 3,
+      "2026": 1
+    }
+  },
+  "doi:10.1016/j.future.2026.108873": {
+    "authors": [
+      "Antonio Crespí",
+      "Maria Monserrat",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida"
+    ],
+    "venue": "Future Generation Computer Systems",
+    "volume": "188",
+    "issue": null,
+    "pages": "108873",
+    "issn": [
+      "0167-739X"
+    ],
+    "abstract": "Process standards have long provided a foundation for software engineering, but equivalent guidance for machine learning projects remains limited. Existing frameworks, such as ISO/IEC 5338, outline artificial intelligence lifecycle processes at a high level but lack the detail needed to guide engineering teams in practice. This paper proposes a Process Reference Model for machine learning and artificial intelligence systems that extends existing standards by providing detailed descriptions of the technical processes that define their lifecycle. The process model was developed through a structured methodology aligned with ISO/IEC 33004 and ISO/IEC 24774 and designed following the principles of Design Science Research. It focuses exclusively on technical processes, specifying their purposes, outcomes, inputs, outputs, and base practices in a consistent format. The resulting process reference model provides a standard-aligned foundation for defining, comparing, and assessing machine learning development processes, and supports future efforts in lifecycle standardization and process capability assessment.",
+    "abstractSource": "OpenAlex",
+    "openAccessUrl": "https://doi.org/10.1016/j.future.2026.108873",
+    "openAccess": {
+      "status": "hybrid",
+      "license": "cc-by-nc-nd"
+    },
+    "citations": 0,
+    "citationsByYear": {},
+    "date": {
+      "year": 2027,
+      "month": 3
+    },
+    "metadataFetched": "2026-11-02"
+  },
+  "doi:10.1016/j.infsof.2011.11.002": {
+    "authors": [
+      "Antoni Lluís Mesquida",
+      "Antonia Mas",
+      "Esperança Amengual",
+      "Jose A. Calvo-Manzano"
+    ],
+    "venue": "Information and Software Technology",
+    "volume": "54",
+    "issue": "3",
+    "pages": "239-247",
+    "issn": [
+      "0950-5849"
+    ],
+    "date": {
+      "year": 2012,
+      "month": 3
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "It is still necessary to define a method with the necessary guidelines to implement both software development processes and ITSM processes reducing the amount of effort, especially because some processes of both categories are overlapped.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 118,
+    "citationsByYear": {
+      "2012": 7,
+      "2013": 9,
+      "2014": 17,
+      "2015": 15,
+      "2016": 14,
+      "2017": 9,
+      "2018": 12,
+      "2019": 9,
+      "2020": 5,
+      "2021": 6,
+      "2022": 6,
+      "2023": 5,
+      "2024": 4
+    }
+  },
+  "doi:10.1016/j.jer.2026.07.021": {
+    "authors": [
+      "Maria Monserrat",
+      "Antonia Mas",
+      "Antonio Crespí",
+      "Antoni-Lluís Mesquida"
+    ],
+    "venue": "Journal of Engineering Research",
+    "volume": null,
+    "issue": null,
+    "pages": null,
+    "issn": [
+      "2307-1877"
+    ],
+    "abstract": "The success of software projects is significantly influenced by various Critical Success Factors (CSFs). Although previous research has extensively identified these factors, there is still a lack of consolidated frameworks that provide measurable indicators to systematically assess their impact on project outcomes. This study addresses this gap by proposing a measurement framework for CSFs in software projects, aligned with the ISO/IEC/IEEE 15939:2017 standard. The framework was developed by integrating evidence from a Systematic Literature Review with empirical insights obtained from interviews with 30 professionals from the technology sector, resulting in a consolidated set of 17 CSFs. For each factor, specific quantitative and qualitative metrics were defined following the processes established by the ISO standard. The proposed framework encompasses technical, organizational, and team-related aspects, including communication effectiveness, team motivation and training, project characteristics, and compliance with technical standards, among others. By defining measurable indicators for these CSFs, the framework provides a structured basis for their assessment and is intended to support organizations in identifying priority areas for improvement and increasing the likelihood of project success.",
+    "abstractSource": "OpenAlex",
+    "openAccessUrl": "https://www.sciencedirect.com/science/article/pii/S2307187726003561/pdf",
+    "openAccess": {
+      "status": "gold",
+      "license": "cc-by"
+    },
+    "citations": 0,
+    "citationsByYear": {},
+    "date": {
+      "year": 2026,
+      "month": 7
+    },
+    "metadataFetched": "2026-11-02"
+  },
+  "doi:10.1016/j.jss.2017.07.008": {
+    "authors": [
+      "Miloš Jovanović",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida",
+      "Bojan Lalić"
+    ],
+    "venue": "Journal of Systems and Software",
+    "volume": "133",
+    "issue": null,
+    "pages": "174-194",
+    "issn": [
+      "0164-1212"
+    ],
+    "date": {
+      "year": 2017,
+      "month": 11
+    },
+    "metadataFetched": "2026-11-02",
+    "tldr": "Recommendations and guidelines for organizational roles transition during the Agile method adoption are proposed based on the results of a grounded theory study with 5 software teams in a large software development company in Spain.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 78,
+    "citationsByYear": {
+      "2017": 1,
+      "2018": 3,
+      "2019": 13,
+      "2020": 11,
+      "2021": 12,
+      "2022": 10,
+      "2023": 11,
+      "2024": 8,
+      "2025": 7,
+      "2026": 2
+    }
+  },
+  "doi:10.1049/iet-sen.2018.5096": {
+    "authors": [
+      "Antoni-Lluís Mesquida",
+      "Jovana Jovanović",
+      "Miloš Jovanović",
+      "Antònia Mas"
+    ],
+    "venue": "IET Software",
+    "volume": "13",
+    "issue": "2",
+    "pages": "106-111",
+    "issn": [
+      "1751-8806"
+    ],
+    "date": {
+      "year": 2019,
+      "month": 4
+    },
+    "abstract": "Software development organisations are interested in adopting new agile methods and techniques. However, they often do not have the time and resources to explore available approaches or to customise them to the current situation at the project or organisational levels. As software companies are usually dealing with significant pressure and have to demonstrate productivity, time for software process improvement (SPI) is very limited. Using serious collaborative games can be helpful for the deployment of certain best practices recommended by agile methods. With the objective of facilitating SPI in organisations, the authors propose a ready‐to‐use collaborative game toolbox that is oriented for practical use in project team meetings. The set of collaborative games included in the toolbox have been designed for agile teams, regardless of the maturity level, to innovate and improve communication and cohesion, and to bring business value out of agile ceremonies.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "tldr": "A ready-to-use collaborative game toolbox that is oriented for practical use in project team meetings and designed for agile teams, regardless of the maturity level, to innovate and improve communication and cohesion, and to bring business value out of agile ceremonies is proposed.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 7,
+    "citationsByYear": {
+      "2019": 1,
+      "2020": 1,
+      "2021": 3,
+      "2022": 1,
+      "2023": 1
+    }
+  },
+  "doi:10.1109/access.2020.2967839": {
+    "authors": [
+      "Milos Jovanovic",
+      "Antoni-Lluis Mesquida",
+      "Antonia Mas",
+      "Ricardo Colomo-Palacios"
+    ],
+    "venue": "IEEE Access",
+    "volume": "8",
+    "issue": null,
+    "pages": "15711-15735",
+    "issn": [
+      "2169-3536"
+    ],
+    "date": {
+      "year": 2020
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "In order to adopt specific agile methods and to accommodate lean principles, many organizations need to tailor their processes. Different frameworks supporting and guiding the agile transition and adoption process exist in the literature. However, there is a demand for specific guidelines on the different circumstances influencing agile adoption. This paper provides a Systematic mapping of the available frameworks, issues and factors affecting a successful agile transition and adoption process. Twenty-eight primary studies have been considered. The results are presented according to the three research questions. Firstly, nine systematic approaches and frameworks for agile transition and adoption are analyzed. Secondly, different issues related to the agile transition and adoption process are gathered, compared and synthesized in the following five categories: pre-transformation activities, obstacles and results, stages and activities, agile practices and situational factors. Finally, a list of 154 situational factors affecting the agile transition and adoption process is proposed.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "A Systematic mapping of the available frameworks, issues and factors affecting a successful agile transition and adoption process and a list of 154 situational factors affecting the agile transitionand adoption process is proposed.",
+    "openAccessUrl": "https://ieeexplore.ieee.org/ielx7/6287639/8948470/08963684.pdf",
+    "openAccess": {
+      "status": "gold",
+      "license": "cc-by"
+    },
+    "citations": 37,
+    "citationsByYear": {
+      "2020": 5,
+      "2021": 4,
+      "2022": 5,
+      "2023": 3,
+      "2024": 7,
+      "2025": 8,
+      "2026": 5
+    }
+  },
+  "doi:10.1109/cisti.2014.6876972": {
+    "authors": [
+      "A. Mas",
+      "A. L. Mesquida",
+      "A. Delgado"
+    ],
+    "venue": "2014 9th Iberian Conference on Information Systems and Technologies (CISTI)",
+    "volume": null,
+    "issue": null,
+    "pages": "1-6",
+    "issn": null,
+    "date": {
+      "year": 2014,
+      "month": 6
+    },
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "abstract": "From the results of the research project entitled MiProDOC, where the PMBOK®Guide project management good practices were adapted to the organization and delivery of teaching in the European Higher Education Area (EHEA), in this paper a personal environment for teaching management is presented. This environment integrates a set of tools supporting the teaching life cycle and is formed by both transversal tools such as office suites, social bookmarking services or virtual storage services, and specific tools for managing scope, time, communications and quality.",
+    "abstractSource": "OpenAlex",
+    "citations": 5,
+    "citationsByYear": {
+      "2015": 2,
+      "2016": 1,
+      "2018": 2
+    }
+  },
+  "doi:10.1109/mc.2026.3658240": {
+    "authors": [
+      "Antonio Crespí",
+      "Maria Monserrat",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida"
+    ],
+    "venue": "Computer",
+    "volume": "59",
+    "issue": "6",
+    "pages": "112-115",
+    "issn": [
+      "0018-9162",
+      "1558-0814"
+    ],
+    "abstract": "This column argues that we must prioritize formally defining processes to transform machine learning development from ad-hoc experimentation into a mature, assessable engineering discipline. Without a rigorous process foundation aligned with international engineering standards, advanced qualities remain fragile.",
+    "abstractSource": "Semantic Scholar",
+    "openAccessUrl": "https://doi.org/10.1109/mc.2026.3658240",
+    "openAccess": {
+      "status": "hybrid",
+      "license": "cc-by"
+    },
+    "citations": 0,
+    "citationsByYear": {},
+    "date": {
+      "year": 2026,
+      "month": 6
+    },
+    "metadataFetched": "2026-11-02"
+  },
+  "doi:10.1109/mitp.2021.3139826": {
+    "authors": [
+      "Antoni Lluis Mesquida Calafat",
+      "Antonia Mas",
+      "Marcos Pacheco"
+    ],
+    "venue": "IT Professional",
+    "volume": "24",
+    "issue": "2",
+    "pages": "69-73",
+    "issn": [
+      "1520-9202",
+      "1941-045X"
+    ],
+    "date": {
+      "year": 2022,
+      "month": 3
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "During the past few years, the interpretation of the term “agile” has become so overburdened that it sometimes offers a wrong view of what agility is. This disharmony is called Fake Agile because there is not a complete alignment with the principles and values of agile. In this article, we deal with the causes and early symptoms that make a difference between true agile and Fake Agile. We identify some reasons for its emergence, we present some implications of practicing Fake Agile, and we discuss how to mitigate it.",
+    "abstractSource": "Semantic Scholar",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 7,
+    "citationsByYear": {
+      "2022": 1,
+      "2023": 2,
+      "2024": 2,
+      "2025": 2
+    }
+  },
+  "doi:10.1109/ms.2025.3533017": {
+    "authors": [
+      "Antonio Crespí Tobeña",
+      "Maria Monserrat Barceló",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida Calafat"
+    ],
+    "venue": "IEEE Software",
+    "volume": "42",
+    "issue": "3",
+    "pages": "75-81",
+    "issn": [
+      "0740-7459",
+      "1937-4194"
+    ],
+    "abstract": "Creativity drives innovation in software engineering, but various obstacles—“creativity clogs”—can block idea generation and implementation. This article identifies common challenges that limit creative thinking, examines their impact on teams, and explores ways to foster a work environment that supports innovation.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "Common challenges that limit creative thinking are identified, their impact on teams is examined, and ways to foster a work environment that supports innovation are explored.",
+    "openAccessUrl": "https://doi.org/10.1109/ms.2025.3533017",
+    "openAccess": {
+      "status": "hybrid",
+      "license": "cc-by"
+    },
+    "citations": 3,
+    "citationsByYear": {
+      "2026": 3
+    },
+    "date": {
+      "year": 2025,
+      "month": 5
+    },
+    "metadataFetched": "2026-11-02"
+  },
+  "doi:10.1109/quatic.2014.30": {
+    "authors": [
+      "Marion Lepmets",
+      "Rory V. O'Connor",
+      "Aileen Cater-Steel",
+      "Antoni Lluis Mesquida",
+      "Tom McBride"
+    ],
+    "venue": "2014 9th International Conference on the Quality of Information and Communications Technology",
+    "volume": null,
+    "issue": null,
+    "pages": "166-169",
+    "issn": null,
+    "date": {
+      "year": 2014,
+      "month": 9
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "In an industrial context all process models require a certain amount of tailoring to fit to the business environment of any specific organization in which the model is to be deployed. Process models should therefore be accompanied by tailoring guidelines and approaches to assist with strategic and operational goal alignment that support their use in industry. This paper explores shortcomings of process improvement and the existing process models, suggesting that a more holistic approach should be taken to process improvement in the modern organization. The paper provides an overview of systems thinking and the Cynefin framework that organizations can use to detect the characteristics of the domain in which they are operate. Knowing their domain helps the organization realize the amount of tailoring and goal alignment necessary to benefit from implementing process model guidance.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "The paper provides an overview of systems thinking and the Cynefin framework that organizations can use to detect the characteristics of the domain in which they are operate to benefit from implementing process model guidance.",
+    "openAccessUrl": "https://hdl.handle.net/10344/4155",
+    "openAccess": {
+      "status": "green",
+      "license": "cc-by-nc-sa"
+    },
+    "citations": 11,
+    "citationsByYear": {
+      "2015": 3,
+      "2016": 2,
+      "2019": 1,
+      "2021": 2,
+      "2022": 1,
+      "2023": 1,
+      "2025": 1
+    }
+  },
+  "doi:10.1109/te.2020.2998429": {
+    "authors": [
+      "Antonia Mas",
+      "Antoni-Lluis Mesquida",
+      "Ricardo Colomo-Palacio"
+    ],
+    "venue": "IEEE Transactions on Education",
+    "volume": "64",
+    "issue": "1",
+    "pages": "1-11",
+    "issn": [
+      "0018-9359",
+      "1557-9638"
+    ],
+    "date": {
+      "year": 2021,
+      "month": 2
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "Contribution: This article presents a research for enhancing the computer science students’ perception on the software project management subject. The main objective of this article is double. The first one is to redesign the current course by including new teaching and new learning methods that encourage students to learn the project management competences and skills. The second one is to analyze the satisfaction of the students regarding the new software project management course. The design of the new course has been based on the improvement proposals from the students, which were collected throughout a grounded theory (GT) study during two academic years. Background: Students must be motivated with both the technical and other transversal competencies provided by the different subjects in the computer science curricula. It is not easy to teach a management subject because students do not clearly find the relationship with their studies. However, it is widely accepted that computer science students need to be trained in project management to be able to work at full capacity in the industry. There is not much literature on how to increase the motivation of students in management subjects. Research Question: Which are the causes and consequences of a low level of interest for software project management in computer science studies? Methodology: Two different experiments were carried out. The first one consisted of determining, during two academic years, the main reasons why computer science students do not get to comprehend the need for such this subject in the curricula. From the GT results, a set of innovative actions were introduced in order to redesign the subject. In the second experiment, during the following two academic years, the satisfaction of the students regarding the changes introduced in the course was analyzed. Findings: The first finding was obtained from the GT study conducted. Four causes influencing students to do not give enough importance to software project management, two consequences derived from these causes and three contingencies to potentially mitigate the consequences were identified. The second finding was the corroboration that the new course design contributes to student motivation and engagement. Through the evaluation of the new course, students can better understand project management techniques and their application to projects. Data collected show that students are aware of the importance of these skills and competencies for their background and professional profile.",
+    "abstractSource": "Semantic Scholar",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 17,
+    "citationsByYear": {
+      "2021": 1,
+      "2022": 3,
+      "2023": 4,
+      "2024": 7,
+      "2025": 1,
+      "2026": 1
+    }
+  },
+  "doi:10.1109/tem.2023.3264981": {
+    "authors": [
+      "Maria Monserrat",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida Calafat",
+      "Paul Clarke"
+    ],
+    "venue": "IEEE Transactions on Engineering Management",
+    "volume": "71",
+    "issue": null,
+    "pages": "7496-7510",
+    "issn": [
+      "0018-9391",
+      "1558-0040"
+    ],
+    "date": {
+      "year": 2024
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "This article describes how different Lean principles and techniques have been adapted and applied to identify, analyze, and improve the value chain of a Software Project Management module in a computer science curriculum. This research is part of an initiative to improve the processes related to higher education teaching management, at a university, with the main goal of maximizing the value that is provided to students when taking a module. To represent and visualize the whole value chain of the module, the value stream mapping Lean management tool has been used. The essential module activities and the necessary elements to teach each one of these activities, from the first session to the final mark, were detected, collected, and represented using diagrams. The value chain analysis and review were performed by applying Lean principles and techniques. This article details several improvements to be applied to the module to eliminate the waste that did not add value to students.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "Improvements to be applied to the value chain of a Software Project Management module to eliminate the waste that did not add value to students are detailed.",
+    "openAccessUrl": "https://doi.org/10.1109/tem.2023.3264981",
+    "openAccess": {
+      "status": "hybrid",
+      "license": "cc-by"
+    },
+    "citations": 8,
+    "citationsByYear": {
+      "2024": 1,
+      "2025": 6,
+      "2026": 1
+    }
+  },
+  "doi:10.1111/exsy.70029": {
+    "authors": [
+      "Antonio Crespí",
+      "Antoni‐Lluís Mesquida",
+      "Maria Monserrat",
+      "Antonia Mas"
+    ],
+    "venue": "Expert Systems",
+    "volume": "42",
+    "issue": "4",
+    "pages": null,
+    "issn": [
+      "0266-4720",
+      "1468-0394"
+    ],
+    "abstract": "Machine Learning (ML) development introduces challenges that traditional software processes often struggle to address. As ML applications grow in complexity and adoption, various lifecycle models have been proposed to address the unique stages of ML development. This study systematically synthesises these models, mapping their stages and activities to provide an understanding of the ML development landscape. The findings highlight research gaps and opportunities, offering insights for advancing academic research and practical implementation.",
+    "abstractSource": "Crossref",
+    "tldr": "This study systematically synthesises various lifecycle models, mapping their stages and activities to provide an understanding of the ML development landscape and highlights research gaps and opportunities.",
+    "openAccessUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1111/exsy.70029",
+    "openAccess": {
+      "status": "hybrid",
+      "license": "cc-by-nc-nd"
+    },
+    "citations": 2,
+    "citationsByYear": {
+      "2026": 2
+    },
+    "date": {
+      "year": 2025,
+      "month": 3
+    },
+    "metadataFetched": "2026-11-02"
+  },
+  "doi:10.1142/s0218194014400026": {
+    "authors": [
+      "Antoni-Lluís Mesquida",
+      "Antonia Mas",
+      "Tomás San Feliu",
+      "Magdalena Arcilla"
+    ],
+    "venue": "International Journal of Software Engineering and Knowledge Engineering",
+    "volume": "24",
+    "issue": "06",
+    "pages": "887-908",
+    "issn": [
+      "0218-1940",
+      "1793-6403"
+    ],
+    "date": {
+      "year": 2014,
+      "month": 8
+    },
+    "abstract": "The growing interest of software companies for improving their internal processes, not just software development processes, but also processes in other domains such as Information Technology (IT) service management or information security management, has encouraged these companies to implement recognized models or standards. Most of the ISO standards that define models for software quality, IT service management or information security management provide their recommendations, guidelines, requirements or good practices under a process approach. Due to this approach, there are a large number of relations between these models as well as many common elements. From the study of these relations, this paper presents MIN-ITs, a new framework that supports the integration of different ISO standards related to IT management.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "tldr": "This paper presents MIN-ITs, a new framework that supports the integration of different ISO standards related to IT management, and a large number of relations between these models as well as many common elements.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 8,
+    "citationsByYear": {
+      "2016": 2,
+      "2017": 1,
+      "2019": 1,
+      "2021": 1,
+      "2023": 2,
+      "2024": 1
+    }
+  },
+  "doi:10.4018/978-1-4666-5182-1.ch014": {
+    "authors": [
+      "Antonia Mas",
+      "Antoni Lluís Mesquida"
+    ],
+    "venue": "Advances in Systems Analysis, Software Engineering, and High Performance Computing",
+    "volume": null,
+    "issue": null,
+    "pages": "243-257",
+    "issn": [
+      "2327-3453",
+      "2327-3461"
+    ],
+    "date": {
+      "year": 2014
+    },
+    "abstract": "This chapter describes the experience of a Spanish software company founded in 2000, which bet strongly on quality as the way to progress towards maturity. The authors discuss the continuous evolution the company experienced through the implementation of quality standards. The actions related to the deployment and improvement of both the management and production processes are detailed. The most significant results and lessons learned during the improvement path are presented. The experience gained from continuous improvement has facilitated the deployment of a knowledge reuse strategy that enables an effort and cost reduction when implementing a new quality standard.",
+    "abstractSource": "Crossref",
+    "metadataFetched": "2026-11-02",
+    "tldr": "This chapter describes the experience of a Spanish software company founded in 2000, which bet strongly on quality as the way to progress towards maturity through the implementation of quality standards.",
+    "openAccessUrl": null,
+    "openAccess": null,
+    "citations": 1,
+    "citationsByYear": {
+      "2014": 1
+    }
+  },
+  "doi:10.4304/risti.e1.31-45": {
+    "authors": [
+      "Antoni Lluís Mesquida",
+      "Antonia Mas",
+      "Tomás San Feliu",
+      "Magdalena Arcilla"
+    ],
+    "venue": "Iberian Journal of Information Systems and Technologies",
+    "volume": "0",
+    "issue": "e1",
+    "pages": null,
+    "issn": [
+      "1646-9895"
+    ],
+    "date": {
+      "year": 2014,
+      "month": 3
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "Software development companies have opted for implementing quality models and standards in order to provide products that meet customers' needs and increase their satisfaction. In addition to improving their software development processes, these organizations also wish to increase the capability of the processes related to other disciplines, such as Information Technology (IT) service management and information security management. The ISO standards that define the best practices in these areas keep a great number of relations among their recommendations, guidelines and requirements. From the study of all these common elements and aspects we have developed MIN-ITs, a framework",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "From the study of all these common elements and aspects, MIN-ITs, a framework for information technology service management and information security management, is developed.",
+    "openAccessUrl": "http://scielo.pt/pdf/rist/nspe1/nspe1a04.pdf",
+    "openAccess": {
+      "status": "diamond",
+      "license": null
+    },
+    "citations": 4,
+    "citationsByYear": {
+      "2015": 1,
+      "2016": 1,
+      "2017": 1,
+      "2023": 1
+    }
+  },
+  "doi:10.5220/0014346800004084": {
+    "authors": [
+      "Josep Sánchez",
+      "Jose-Luis Lisani",
+      "Antoni Garau"
+    ],
+    "venue": "Proceedings of the 21st International Conference on Computer Vision Theory and Applications",
+    "volume": null,
+    "issue": null,
+    "pages": "374-381",
+    "issn": null,
+    "date": {
+      "year": 2026
+    },
+    "metadataFetched": "2026-11-02",
+    "openAccessUrl": "https://doi.org/10.5220/0014346800004084",
+    "openAccess": {
+      "status": "hybrid",
+      "license": "cc-by-nc-nd"
+    },
+    "citations": 0,
+    "citationsByYear": {}
+  },
+  "doi:10.5281/zenodo.12698764": {
+    "metadataFetched": "2026-11-02"
+  },
+  "doi:10.5937/jaes13-9577": {
+    "authors": [
+      "Milos Jovanovic",
+      "Bojan Lalic",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida"
+    ],
+    "venue": "Istrazivanja i projektovanja za privredu",
+    "volume": "13",
+    "issue": "4",
+    "pages": "213-216",
+    "issn": [
+      "1451-4117"
+    ],
+    "date": {
+      "year": 2015
+    },
+    "metadataFetched": "2026-11-02",
+    "abstract": "The paper presents the agile approach in industrial engineering and discusses similar ways of agile development in different disciplines. Societal changes and technological innovation brought significant changes in the market, leading to highly demanding users and frequent changes in product design. Agile is implemented in different disciplines as a response to current changes in the market. Industry 4.0 as part of 'High-Tech Strategy 2020 for Germany' involves agile principles and brings latest technological trends in production process. Agile framework was firstly used in manufacturing but along with that it started to develop as a lightweight framework in software development. Agile is interdisciplinary and brings flexibility to organization. For successful implementation of agile principles, experiences and recommendations from all the industries should be used.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "The paper presents the agile approach in industrial engineering and discusses similar ways of agile development in different disciplines as a response to current changes in the market.",
+    "openAccessUrl": "https://scindeks-clanci.ceon.rs/data/pdf/1451-4117/2015/1451-41171504213J.pdf",
+    "openAccess": {
+      "status": "gold",
+      "license": "cc-by-nc-nd"
+    },
+    "citations": 17,
+    "citationsByYear": {
+      "2018": 1,
+      "2019": 2,
+      "2020": 3,
+      "2021": 3,
+      "2022": 2,
+      "2023": 2,
+      "2024": 2,
+      "2025": 1,
+      "2026": 1
+    }
+  },
+  "hdl:11705/JISBD/2025/101": {
+    "authors": [
+      "Maria Monserrat",
+      "Antonio Crespí",
+      "Antonia Mas",
+      "Antoni-Lluís Mesquida"
+    ],
+    "venue": "Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)",
+    "abstract": "Este artículo presenta el proceso y los métodos usados en el desarrollo de una tesis doctoral en curso, cuyo objetivo principal es la elaboración de un marco de factores críticos que influyen en el éxito de los proyectos de software. El marco resultante está formado por 17 factores y un conjunto de indicadores y métricas para evaluar estos factores. Esta herramienta facilita la identificación de áreas de mejora y contribuye a incrementar la tasa de éxito de los proyectos de software. Para su elaboración, se ha considerado tanto la opinión de los investigadores que han publicado estudios relevantes en la materia como la experiencia de los jefes de proyecto del sector tecnológico en activo. En este sentido, los métodos utilizados en la realización de este trabajo podrían representar una guía para futuras investigaciones que busquen abordar una problemática real basada en evidencia empírica.",
+    "abstractSource": "SISTEDES",
+    "license": "CC BY-NC-ND 4.0",
+    "metadataFetched": "2026-11-02"
+  },
+  "hdl:11705/JISBD/2025/102": {
+    "authors": [
+      "Maria Monserrat",
+      "Jose-David Pérez",
+      "Antonio Crespí",
+      "Antoni-Lluís Mesquida",
+      "Antonia Mas"
+    ],
+    "venue": "Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)",
+    "abstract": "El éxito de los proyectos de software está influenciado por múltiples factores humanos que afectan al desarrollo del proyecto. En este artículo, que forma parte de una investigación en curso, se presenta el proceso de elaboración de un marco de factores humanos que afectan al éxito de los proyectos de software. Los resultados destacan aspectos clave como la comunicación, la experiencia y la cohesión del equipo. Además, en esta investigación se establecerán indicadores y métricas para medir estos factores, permitiendo, en un futuro, definir pautas para mejorar la gestión y la tasa de éxito de los proyectos.",
+    "abstractSource": "SISTEDES",
+    "license": "CC BY-NC-ND 4.0",
+    "metadataFetched": "2026-11-02"
+  },
+  "hdl:11705/JISBD/2025/110": {
+    "authors": [
+      "Jose-David Pérez",
+      "Maria Monserrat",
+      "Antonio Crespí",
+      "Antoni-Lluís Mesquida",
+      "Antonia Mas"
+    ],
+    "venue": "Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025)",
+    "abstract": "El uso de aplicaciones y técnicas de Inteligencia Artificial (IA) en las distintas fases del ciclo de vida del desarrollo de software (SDLC) busca mejorar la eficiencia, la precisión y la innovación en cada etapa del proceso. Este artículo presenta una investigación en curso que nace con el propósito de resumir las técnicas y aplicaciones de IA aplicadas en las diferentes fases del SDLC: planificación, análisis, diseño, implementación, pruebas, despliegue y mantenimiento. El objetivo de esta investigación es identificar las tareas del SDLC que pueden ser automatizadas total o parcialmente mediante IA, detectar posibles lagunas en la automatización dentro de la ingeniería del software y proporcionar una base de conocimiento para investigadores y profesionales interesados en aprovechar la IA para transformar los flujos de trabajo en esta disciplina.",
+    "abstractSource": "SISTEDES",
+    "license": "CC BY-NC-ND 4.0",
+    "metadataFetched": "2026-11-02"
+  },
+  "hdl:11705/JISBD/2026/139": {
+    "authors": [
+      "Antoni Bennasar Garau",
+      "Jose David Pérez Cañellas",
+      "Antonio Crespí Tobeña",
+      "Maria Monserrat Barceló",
+      "Antoni Lluís Mesquida Calafat"
+    ],
+    "venue": "Actas de las XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026)",
+    "abstract": "El despliegue de sistemas de aprendizaje automático (ML) en entornos de producción ha transformado el papel de los modelos de ML, que pasan de ser artefactos experimentales a componentes críticos de sistemas software que deben satisfacer múltiples atributos de calidad, como el rendimiento, la disponibilidad o la equidad. Sin embargo, la gestión de estos atributos suele abordarse de forma fragmentada y centrada en fases específicas del ciclo de vida. Este trabajo en curso examina cómo se gestionan y priorizan los atributos de calidad en sistemas de ML en producción, considerando el papel de las prácticas asociadas a MLOps en su despliegue y operación. A partir de este contexto, se plantean preguntas de investigación y se identifican retos relacionados con la gestión de la calidad en sistemas de ML operativos.",
+    "abstractSource": "SISTEDES",
+    "license": "CC BY-NC-ND 4.0",
+    "metadataFetched": "2026-11-02"
+  },
+  "hdl:11705/JISBD/2026/146": {
+    "authors": [
+      "Jose David Pérez Cañellas",
+      "Antoni Bennasar Garau",
+      "Maria Monserrat Barceló",
+      "Antonio Crespí Tobeña",
+      "Antoni-Lluís Mesquida"
+    ],
+    "venue": "Actas de las XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026)",
+    "abstract": "Este artículo presenta una revisión sistemática de la literatura sobre el uso de la inteligencia artificial generativa en la captura de requisitos de software. El trabajo se sitúa en un campo todavía incipiente dentro de la fase de planificación, donde la aplicación de la inteligencia artificial generativa ha sido menos explorada que en otras fases del ciclo de vida. A partir de un corpus de 33 estudios primarios, los hallazgos muestran un claro predominio de enfoques basados en grandes modelos del lenguaje, un uso recurrente de prompting con plantillas estructuradas para estandarizar las salidas y una presencia limitada de enfoques con recuperación de contexto. Asimismo, la evidencia se concentra en contextos académicos o prototípicos, con una validación industrial todavía escasa. Se sintetizan tendencias sobre modelos, técnicas de prompting y entornos de estudio, y se identifican vacíos en la evaluación empírica y en la transferencia a proyectos reales. Se discuten desafíos de reproducibilidad, calidad de datos y gobernanza, y se proponen líneas de investigación para fortalecer la aplicabilidad práctica.",
+    "abstractSource": "SISTEDES",
+    "license": "CC BY-NC-ND 4.0",
+    "metadataFetched": "2026-11-02"
+  }
+}

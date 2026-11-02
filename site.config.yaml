@@ -1,0 +1,74 @@
+# Main configuration of the research group site.
+
+group:
+  # Any text can be a plain string or a map per language.
+  name: MiProSoft
+  description: ""
+  #  en: …
+  #  ca: …
+  #  es: …
+
+# Members of the group, in the order they are listed. Each one gets a CV page at
+# /<lang>/people/<id>/, built from their public ORCID record plus the content in
+# data/people/<id>.yaml (optional: name variants, title, teaching, overrides…).
+# Default ORCID for testing: 0000-0002-1825-0097
+members:
+  - id: antonio-crespi
+    orcid: 0009-0000-0046-8330
+  - id: maria-monserrat
+    orcid: 0000-0002-7485-4709
+  - id: antoni-mesquida
+    orcid: 0000-0002-1191-6220
+  - id: jose-cañellas
+    orcid: 0009-0000-2218-2800
+  - id: toni-bennasar
+    orcid: 0009-0006-1673-9880
+  - id: antonia-mas
+    orcid: 0000-0003-4188-8088
+
+# Languages the site is generated in.
+languages: [en, ca, es]
+
+# Optional e-mail sent to Crossref/OpenAlex in the User-Agent so requests go to
+# their "polite pool".
+contactEmail: "antonio.crespi@uib.eu"
+
+fetch:
+  # Article metadata (authors, venue, pages, abstracts) is fetched once per
+  # article and shared by all members; it is refetched after this many days.
+  # Citations are refreshed on every run. `npm run fetch -- --refresh` refetches
+  # everything now.
+  refreshDays: 30
+
+# Order of sections on each CV. Remove an entry to never show it. A member can
+# use a different order with `sections:` in their data/people/<id>.yaml.
+# Sections with no data are hidden automatically.
+sections:
+  - about
+  - education
+  - publications
+  - funding
+  - distinctions
+  - talks
+  - teaching
+  - supervision
+  - software
+  - invitedPositions
+  - memberships
+  - service
+  - skills
+  - languages
+
+# Every section can be opened and closed by clicking its heading. Sections
+# listed here start closed (useful for long lists); a member can choose their
+# own with `collapsed:` in data/people/<id>.yaml. Print and PDF show everything.
+collapsed: []
+#  - publications
+
+features:
+  citations: true   # citation counts from OpenAlex
+  metrics: true     # citations / h-index / i10-index summary (needs citations)
+  abstracts: true   # collapsible abstracts
+  bibtex: true      # BibTeX downloads (per member, and the whole group)
+  pdf: true         # PDF of each CV per language rendered in CI
+  impactFactor: true # Journal Impact Factor (data/jcr.yaml, or data/jcr.json from the Clarivate API)

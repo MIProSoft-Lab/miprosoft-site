@@ -1,0 +1,59 @@
+{
+  "orcid": "0009-0006-1673-9880",
+  "lastModified": "2026-06-04",
+  "person": {
+    "name": "Antoni Bennasar Garau",
+    "givenNames": "Antoni",
+    "familyName": "Bennasar Garau",
+    "otherNames": [],
+    "biography": null,
+    "keywords": [],
+    "links": [],
+    "identifiers": [],
+    "emails": [
+      "antoni.bennasar-garau@uib.cat"
+    ]
+  },
+  "employment": [
+    {
+      "putCode": 31726203,
+      "role": null,
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2025,
+        "month": 9
+      },
+      "end": null,
+      "url": null
+    }
+  ],
+  "education": [],
+  "qualifications": [],
+  "distinctions": [],
+  "invitedPositions": [],
+  "memberships": [],
+  "service": [],
+  "funding": [],
+  "works": [
+    {
+      "putCode": 216722765,
+      "type": "conference-paper",
+      "title": "Improving Underwater Fish Detection and Tracking via Temporal Modeling and Deformable Convolutions",
+      "subtitle": null,
+      "venue": "Proceedings of the 21st International Conference on Computer Vision Theory and Applications",
+      "date": {
+        "year": 2026
+      },
+      "doi": "10.5220/0014346800004084",
+      "arxiv": null,
+      "url": "http://dx.doi.org/10.5220/0014346800004084"
+    }
+  ],
+  "peerReview": []
+}

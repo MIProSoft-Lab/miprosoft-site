@@ -1,10 +1,22 @@
-# Content that ORCID does not hold. Everything here is optional:
-# an empty list or a missing key simply hides that section.
+# Content of one member's CV that ORCID does not hold. Everything here is
+# optional: an empty list or a missing key simply hides that section.
+# The file name is the member's `id` in site.config.yaml.
 #
 # Any text field can be written either as a plain string (same in every
 # language) or as a map per language, e.g.
 #   title: { en: Postdoctoral researcher, ca: Investigador postdoctoral, es: Investigador postdoctoral }
-# Missing languages fall back to the first language in cv.config.yaml.
+# Missing languages fall back to the first language in site.config.yaml.
+
+# Variants of the name as it appears in author lists; they are highlighted.
+# Defaults to the ORCID name and "other names".
+nameVariants:
+  - Antonio Crespi
+  - Crespi, Antonio
+
+# Optional: a different section order for this CV (see site.config.yaml).
+# sections: [about, publications, employment]
+# Optional: sections that start closed on this CV (see site.config.yaml).
+# collapsed: [publications]
 
 profile:
   # Overrides the ORCID name if set.
@@ -66,3 +78,25 @@ skills: []
 languages: []
 #  - language: { en: Catalan, ca: Català, es: Catalán }
 #    level: { en: Native, ca: Nadiu, es: Nativo }
+
+# Corrections for this member only, applied on top of their ORCID record.
+# Corrections that apply to every member (a wrong title, type or venue) go in
+# data/overrides.yaml instead.
+#
+# Works are matched by DOI (preferred) or by ORCID put-code.
+works: []
+#  - doi: 10.1234/abcd
+#    selected: true        # show in "Selected publications"
+#  - doi: 10.1234/efgh
+#    hide: true            # hide from this CV only
+#  - putCode: 123456
+#    title: "Corrected title"
+
+# Affiliations (employment, education, distinctions, funding, ...) are
+# matched by ORCID put-code (shown in data/orcid/<orcid>.json as "putCode").
+items: []
+#  - putCode: 4288
+#    hide: true
+#  - putCode: 4289
+#    role: { en: Postdoctoral researcher, ca: Investigador postdoctoral, es: Investigador postdoctoral }
+#    description: { en: "...", ca: "...", es: "..." }

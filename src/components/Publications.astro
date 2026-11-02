@@ -1,22 +1,15 @@
 ---
 import { strings } from '../lib/i18n.js';
 import { workGroupOrder } from '../lib/data.js';
+import { authorMatcher } from '../lib/authors.js';
 
-const { works, lang, nameVariants, familyName = '', givenNames = '', showCitations, showAbstracts = true, showImpactFactor = true } = Astro.props;
+// In author lists, `self` (the id of the member whose CV this is) is shown in
+// bold, and the other `members` link to their CVs.
+const { works, lang, members = [], self, showCitations, showAbstracts = true, showImpactFactor = true } = Astro.props;
 const t = strings(lang);
-
-const norm = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[.\s]+/g, ' ').trim().toLowerCase();
-const variants = new Set(nameVariants.map(norm));
-const family = norm(familyName).split(' ').filter(Boolean);
-const initial = norm(givenNames).charAt(0);
-// Exact variant, or a matching first initial plus the first family name, so that
-// "J. S. Carberry" matches Carberry and "Antonio Crespí" matches Crespí Tobeña.
-const isMe = (author) => {
-  const a = norm(author);
-  if (variants.has(a)) return true;
-  const tokens = a.split(' ');
-  return family.length > 0 && a.charAt(0) === initial && tokens.slice(1).includes(family[0]);
-};
+const memberOf = authorMatcher(members);
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const cvUrl = (m) => `${base}${lang}/people/${m.id}/`;
 
 // "cc-by-nc-nd" -> "CC BY-NC-ND"; values like "CC BY-NC-ND 4.0" are kept.
 const licenseName = (l) => (/^cc-/i.test(l) ? l.toUpperCase().replace(/^CC-/, 'CC ') : l);
@@ -47,8 +40,14 @@ const groups = workGroupOrder
 <div class="publications" data-mode={hasSelected ? 'selected' : 'all'}>
   {groups.map((g) => (
     <div class:list={['pub-group', { 'has-selected': g.items.some((w) => w.selected) }]}>
-      {groups.length > 1 && <h3>{t.workGroups[g.id]} <span class="count">{g.items.length}</span></h3>}
-      <ol class="pubs">
+      {groups.length > 1 && (
+        <h3>
+          <button type="button" class="group-toggle disclosure" aria-expanded="true" aria-controls={`pubs-${g.id}`}>
+            {t.workGroups[g.id]} <span class="count">{g.items.length}</span>
+          </button>
+        </h3>
+      )}
+      <ol class="pubs" id={`pubs-${g.id}`}>
         {g.items.map((w, i) => (
           <li class:list={['pub', { selected: w.selected }]}>
             {/* Timeline: the year is shown once per run of works from the same year. */}
@@ -67,7 +66,12 @@ const groups = workGroupOrder
               {w.authors?.length > 0 && (
                 <div class="authors">
                   {w.authors.map((a, j) => (
-                    <>{isMe(a) ? <strong>{a}</strong> : a}{j < w.authors.length - 1 ? ', ' : ''}</>
+                    <>{(() => {
+                      const m = memberOf(a);
+                      if (!m) return a;
+                      if (m.id === self) return <strong>{a}</strong>;
+                      return <a class="member" href={cvUrl(m)} title={m.profile?.name}>{a}</a>;
+                    })()}{j < w.authors.length - 1 ? ', ' : ''}</>
                   ))}
                 </div>
               )}
@@ -95,7 +99,7 @@ const groups = workGroupOrder
                   {w.arxiv && <a href={`https://arxiv.org/abs/${w.arxiv}`}>arXiv</a>}
                   {w.openAccessUrl && <a href={w.openAccessUrl}>PDF</a>}
                   {hasAbstract(w) && (
-                    <button type="button" class="abstract-toggle" aria-expanded="false" aria-controls={`abstract-${g.id}-${i}`}>{t.abstract}</button>
+                    <button type="button" class="abstract-toggle disclosure" aria-expanded="false" aria-controls={`abstract-${g.id}-${i}`}>{t.abstract}</button>
                   )}
                 </div>
               )}
@@ -115,6 +119,8 @@ const groups = workGroupOrder
 </div>
 
 <script>
+  import { setupToggles } from '../scripts/disclosure.js';
+
   for (const btn of document.querySelectorAll('.pub-toggle button')) {
     btn.addEventListener('click', () => {
       document.querySelector('.publications').dataset.mode = btn.dataset.filter;
@@ -122,33 +128,7 @@ const groups = workGroupOrder
     });
   }
 
-  // Slide abstracts open and closed with the Web Animations API. The toggle sits
-  // in the links row and the abstract below it, so this is a button, not <details>.
-  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  for (const toggle of document.querySelectorAll('.abstract-toggle')) {
-    const body = document.getElementById(toggle.getAttribute('aria-controls'));
-    let animation = null;
-
-    toggle.addEventListener('click', () => {
-      const opening = toggle.getAttribute('aria-expanded') !== 'true';
-      toggle.setAttribute('aria-expanded', String(opening));
-      if (reduceMotion.matches) {
-        body.hidden = !opening;
-        return;
-      }
-      // Start from the current height so a click mid-animation reverses smoothly.
-      const from = body.hidden ? '0px' : `${body.getBoundingClientRect().height}px`;
-      animation?.cancel();
-      body.hidden = false;
-      const to = opening ? `${body.scrollHeight}px` : '0px';
-      animation = body.animate(
-        { height: [from, to], opacity: opening ? [0, 1] : [1, 0] },
-        { duration: 220, easing: 'cubic-bezier(0.2, 0, 0, 1)' },
-      );
-      animation.onfinish = () => {
-        animation = null;
-        body.hidden = !opening;
-      };
-    });
-  }
+  // The abstract toggle sits in the links row and the abstract below it, so
+  // this is a button, not <details>.
+  setupToggles('.group-toggle, .abstract-toggle');
 </script>

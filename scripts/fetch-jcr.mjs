@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Fetches Journal Impact Factors from the Clarivate Journals API for the
-// journals of the works in data/orcid.json, and writes data/jcr.json (same
+// journals of every member's works (data/orcid/*.json, with ISSNs from
+// data/works.json), and writes data/jcr.json (same
 // format as data/jcr.yaml, which takes precedence over it).
 //
 // Needs an API key with JCR access (https://developer.clarivate.com) in
@@ -10,6 +11,7 @@
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { parse } from 'yaml';
+import { articleKey, orcidFile } from '../src/lib/articles.js';
 
 const API = 'https://api.clarivate.com/apis/wos-journals/v1';
 const apiKey = process.env.CLARIVATE_API_KEY ?? '';
@@ -20,7 +22,15 @@ if (!apiKey) {
 
 const root = new URL('..', import.meta.url);
 const readJson = (path) => readFile(new URL(path, root), 'utf8').then(JSON.parse).catch(() => null);
-const orcid = await readJson('data/orcid.json');
+const config = parse(await readFile(new URL('site.config.yaml', root), 'utf8'));
+const articles = (await readJson('data/works.json')) ?? {};
+const works = [];
+for (const m of config.members ?? []) {
+  for (const ref of (await readJson(orcidFile(m.orcid)))?.works ?? []) {
+    const article = articles[articleKey(ref)] ?? {};
+    works.push({ ...ref, venue: ref.venue ?? article.venue, issn: article.issn, date: ref.date ?? article.date });
+  }
+}
 const manual = parse(await readFile(new URL('data/jcr.yaml', root), 'utf8').catch(() => '')) ?? {};
 const previous = (await readJson('data/jcr.json'))?.journals ?? [];
 
@@ -37,7 +47,7 @@ async function get(path) {
 
 // Journals to look up, with the years their works were published in.
 const journals = [];
-for (const w of orcid?.works ?? []) {
+for (const w of works) {
   if (w.type !== 'journal-article' || !w.venue) continue;
   const issn = (w.issn ?? manual.journals?.find((j) => normTitle(j.title) === normTitle(w.venue))?.issn ?? []).map(String);
   if (!issn.length) continue;

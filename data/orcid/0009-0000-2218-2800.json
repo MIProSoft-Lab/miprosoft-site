@@ -1,0 +1,176 @@
+{
+  "orcid": "0009-0000-2218-2800",
+  "lastModified": "2026-06-04",
+  "person": {
+    "name": "Pérez-Cañellas, J.D.",
+    "givenNames": "Jose David",
+    "familyName": "Pérez Cañellas",
+    "otherNames": [],
+    "biography": null,
+    "keywords": [],
+    "links": [],
+    "identifiers": [],
+    "emails": []
+  },
+  "employment": [
+    {
+      "putCode": 36925446,
+      "role": null,
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2025,
+        "month": 9
+      },
+      "end": null,
+      "url": null
+    },
+    {
+      "putCode": 24454683,
+      "role": null,
+      "department": null,
+      "organization": {
+        "name": "Balearic Islands Coastal Observing and Forecasting System",
+        "city": "Palma",
+        "region": null,
+        "country": "ES"
+      },
+      "start": {
+        "year": 2024,
+        "month": 1
+      },
+      "end": {
+        "year": 2024,
+        "month": 6
+      },
+      "url": null
+    }
+  ],
+  "education": [
+    {
+      "putCode": 25863013,
+      "role": " Master's Degree in Intelligent Systems, major in Computer Vision and Mobile Robotics",
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": null,
+        "country": "ES"
+      },
+      "start": {
+        "year": 2024,
+        "month": 9
+      },
+      "end": {
+        "year": 2025,
+        "month": 6
+      },
+      "url": null
+    },
+    {
+      "putCode": 25862804,
+      "role": "Computer Engineering major in Artificial Intelligence and Computing",
+      "department": null,
+      "organization": {
+        "name": "University of the Balearic Islands",
+        "city": "Palma",
+        "region": null,
+        "country": "ES"
+      },
+      "start": {
+        "year": 2020,
+        "month": 9
+      },
+      "end": {
+        "year": 2024,
+        "month": 6
+      },
+      "url": null
+    }
+  ],
+  "qualifications": [],
+  "distinctions": [],
+  "invitedPositions": [],
+  "memberships": [],
+  "service": [],
+  "funding": [],
+  "works": [
+    {
+      "putCode": 216714872,
+      "type": "book-chapter",
+      "title": "Machine Learning-Driven Shoreline Extraction and Beach Seagrass Wrack Detection from Beach Imaging Systems",
+      "subtitle": null,
+      "venue": "Coastal Research Library",
+      "date": {
+        "year": 2026
+      },
+      "doi": "10.1007/978-3-032-15477-4_62",
+      "arxiv": null,
+      "url": "http://dx.doi.org/10.1007/978-3-032-15477-4_62"
+    },
+    {
+      "putCode": 169504589,
+      "type": "data-set",
+      "title": "BWILD: Beach seagrass Wrack Identification Labelled Dataset",
+      "subtitle": null,
+      "venue": null,
+      "date": {
+        "year": 2024,
+        "month": 7
+      },
+      "doi": "10.5281/zenodo.12698764",
+      "arxiv": null,
+      "url": "https://zenodo.org/doi/10.5281/zenodo.12698764"
+    },
+    {
+      "putCode": 216715261,
+      "type": "conference-paper",
+      "title": "Desaf́ios y limitaciones en la gestión de calidad en sistemas de aprendizaje automático en producción",
+      "subtitle": null,
+      "venue": null,
+      "date": null,
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2026/139"
+    },
+    {
+      "putCode": 216715742,
+      "type": "conference-paper",
+      "title": "Evaluando los Factores Humanos en Proyectos de Software",
+      "subtitle": null,
+      "venue": null,
+      "date": null,
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2025/102"
+    },
+    {
+      "putCode": 216715815,
+      "type": "conference-paper",
+      "title": "Inteligencia Artificial Generativa para la Captura de Requisitos: Una Revisión Sistemática",
+      "subtitle": null,
+      "venue": null,
+      "date": null,
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2026/146"
+    },
+    {
+      "putCode": 216715430,
+      "type": "conference-paper",
+      "title": "Técnicas y Aplicaciones de Inteligencia Artificial en el Ciclo de Vida de Desarrollo de Software",
+      "subtitle": null,
+      "venue": null,
+      "date": null,
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2025/110"
+    }
+  ],
+  "peerReview": []
+}

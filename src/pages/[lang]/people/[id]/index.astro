@@ -1,0 +1,151 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import Section from '../../../../components/Section.astro';
+import Entry from '../../../../components/Entry.astro';
+import Publications from '../../../../components/Publications.astro';
+import Metrics from '../../../../components/Metrics.astro';
+import { members, memberById, group, config, languages, defaultLang, hasContent } from '../../../../lib/data.js';
+import { strings, loc } from '../../../../lib/i18n.js';
+import { formatRange, formatDate, formatPlace } from '../../../../lib/format.js';
+
+// One CV per member and language: /<lang>/people/<id>/
+export function getStaticPaths() {
+  return languages.flatMap((lang) => members.map((m) => ({ params: { lang, id: m.id } })));
+}
+
+const { lang, id } = Astro.params;
+const cv = memberById.get(id);
+const t = strings(lang);
+const L = (x) => loc(x, lang, defaultLang);
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const features = config.features ?? {};
+const sections = cv.sections.filter((s) => hasContent(cv, s));
+const title = L(cv.profile.title);
+const aboutText = L(cv.about);
+
+const actions = [
+  features.pdf !== false && { label: t.downloadPdf, href: `${base}people/${id}/cv-${lang}.pdf` },
+  features.bibtex !== false && cv.works.length > 0 && { label: t.downloadBib, href: `${base}people/${id}/publications.bib`, download: true },
+].filter(Boolean);
+
+const orgLine = (it) => [it.department, it.organization?.name].filter(Boolean).join(', ');
+const affiliationEntry = (it) => ({
+  when: formatRange(it.start, it.end, lang),
+  title: L(it.role) || orgLine(it),
+  subtitle: L(it.role) ? orgLine(it) : '',
+  meta: formatPlace(it.organization, lang),
+  description: L(it.description),
+  url: it.url,
+});
+---
+<Base
+  lang={lang}
+  path={`people/${id}/`}
+  title={`${cv.profile.name}${title ? ` — ${title}` : ''}`}
+  description={`${cv.profile.name}${title ? ', ' + title : ''}. ${t.sections.publications}, ${t.sections.employment.toLowerCase()}.`}
+  homeLabel={L(group.name)}
+  actions={actions}
+  lastModified={cv.lastModified}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: cv.profile.name,
+    jobTitle: title || undefined,
+    memberOf: L(group.name) ? { '@type': 'Organization', name: L(group.name) } : undefined,
+    sameAs: [`https://orcid.org/${cv.orcidId}`, ...cv.profile.links.map((l) => l.url)],
+  }}
+>
+  <header class="header">
+    {cv.profile.photo && <img class="photo" src={`${base}${cv.profile.photo.replace(/^\//, '')}`} alt="" width="120" height="120" />}
+    <div>
+      <h1>{cv.profile.name}</h1>
+      {title && <p class="headline">{title}</p>}
+      <ul class="contact">
+        {cv.profile.location && <li>{cv.profile.location}</li>}
+        {cv.profile.email && <li><a href={`mailto:${cv.profile.email}`}>{cv.profile.email}</a></li>}
+        <li><a class="orcid" href={`https://orcid.org/${cv.orcidId}`}>ORCID {cv.orcidId}</a></li>
+        {cv.profile.links.map((l) => <li><a href={l.url}>{l.label}</a></li>)}
+      </ul>
+    </div>
+  </header>
+
+  {sections.map((s) => (
+    <Section id={s} title={t.sections[s]} collapsed={cv.collapsed.includes(s)}>
+      {s === 'about' && (
+        <>
+          {aboutText && aboutText.split(/\r?\n\s*\r?\n/).map((p) => <p>{p}</p>)}
+          {cv.profile.keywords.length > 0 && (
+            <p class="keywords"><span>{t.keywords}:</span> {cv.profile.keywords.join(' · ')}</p>
+          )}
+        </>
+      )}
+
+      {['employment', 'education', 'distinctions', 'invitedPositions', 'memberships', 'service'].includes(s) &&
+        cv[s].map((it) => <Entry {...affiliationEntry(it)} />)}
+
+      {s === 'publications' && (
+        <>
+          {features.metrics !== false && features.citations !== false && <Metrics metrics={cv.metrics} lang={lang} />}
+          <Publications works={cv.works} lang={lang} members={members} self={cv.id} showCitations={features.citations !== false} showAbstracts={features.abstracts !== false} showImpactFactor={features.impactFactor !== false} />
+        </>
+      )}
+
+      {s === 'funding' && cv.funding.map((f) => (
+        <Entry
+          when={formatRange(f.start, f.end, lang)}
+          title={L(f.title)}
+          subtitle={f.organization?.name}
+          meta={f.grantNumber && `${t.grant} ${f.grantNumber}`}
+          description={L(f.description)}
+          url={f.url}
+        />
+      ))}
+
+      {s === 'talks' && cv.talks.map((tk) => (
+        <Entry
+          when={formatDate(tk.date, lang)}
+          title={L(tk.title)}
+          url={tk.url}
+          subtitle={[L(tk.event), L(tk.location)].filter(Boolean).join(', ')}
+          meta={tk.invited ? t.invited : ''}
+        />
+      ))}
+
+      {s === 'teaching' && cv.teaching.map((c) => (
+        <Entry when={L(c.years)} title={L(c.course)} subtitle={[L(c.role), L(c.institution)].filter(Boolean).join(', ')} description={L(c.details)} />
+      ))}
+
+      {s === 'supervision' && cv.supervision.map((x) => (
+        <Entry when={L(x.years)} title={L(x.title)} subtitle={[x.student, L(x.level)].filter(Boolean).join(' — ')} meta={L(x.role)} />
+      ))}
+
+      {s === 'software' && cv.software.map((x) => (
+        <Entry when="" title={x.name} url={x.url} description={L(x.description)} />
+      ))}
+
+      {s === 'peerReview' && (
+        <ul class="inline-list">
+          {cv.peerReview.map((r) => (
+            <li>
+              {r.venue}{' '}
+              <span class="meta">({t.reviews(r.count)}{r.firstYear && `, ${r.firstYear === r.lastYear ? r.firstYear : `${r.firstYear}–${r.lastYear}`}`})</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {s === 'skills' && (
+        <dl class="pairs">
+          {cv.skills.map((g) => (<><dt>{L(g.group)}</dt><dd>{(g.items ?? []).map(L).join(', ')}</dd></>))}
+        </dl>
+      )}
+
+      {s === 'languages' && (
+        <dl class="pairs">
+          {cv.languages.map((x) => (<><dt>{L(x.language)}</dt><dd>{L(x.level)}</dd></>))}
+        </dl>
+      )}
+    </Section>
+  ))}
+  <Fragment slot="footer">{t.sourceOrcid} <a href={`https://orcid.org/${cv.orcidId}`}>ORCID</a></Fragment>
+</Base>

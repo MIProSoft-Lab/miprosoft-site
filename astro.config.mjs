@@ -1,17 +1,18 @@
 import { defineConfig } from 'astro/config';
-import { resolve } from 'node:path';
+import { resolve, sep } from 'node:path';
 
-const DATA_FILES = ['data/orcid.json', 'data/manual.yaml', 'data/overrides.yaml', 'cv.config.yaml'].map((f) =>
-  resolve(process.cwd(), f),
-);
+// Reload the dev server when the config or anything under data/ changes.
+const CONFIG_FILE = resolve(process.cwd(), 'site.config.yaml');
+const DATA_DIR = resolve(process.cwd(), 'data') + sep;
+const isData = (file) => resolve(file) === CONFIG_FILE || resolve(file).startsWith(DATA_DIR);
 
 function reloadOnDataChange() {
   return {
     name: 'reload-on-data-change',
     configureServer(server) {
-      server.watcher.add(DATA_FILES);
+      server.watcher.add([CONFIG_FILE, DATA_DIR]);
       const onChange = (file) => {
-        if (!DATA_FILES.includes(resolve(file))) return;
+        if (!isData(file)) return;
         for (const mod of server.moduleGraph.idToModuleMap.values()) {
           if (mod.file?.endsWith('/src/lib/data.js')) server.moduleGraph.invalidateModule(mod);
         }
