@@ -1,6 +1,6 @@
 {
   "orcid": "0000-0002-1191-6220",
-  "lastModified": "2026-10-24",
+  "lastModified": "2026-11-02",
   "person": {
     "name": "Antoni Lluís Mesquida Calafat",
     "givenNames": "Antoni Lluís",
@@ -21,7 +21,9 @@
         "url": "http://www.scopus.com/inward/authorDetails.url?authorID=36537497300&partnerID=MN8TOARS"
       }
     ],
-    "emails": []
+    "emails": [
+      "antoni.mesquida@uib.es"
+    ]
   },
   "employment": [
     {

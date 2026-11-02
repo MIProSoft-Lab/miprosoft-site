@@ -1,16 +1,35 @@
 {
   "orcid": "0009-0000-2218-2800",
-  "lastModified": "2026-06-04",
+  "lastModified": "2026-11-02",
   "person": {
-    "name": "Pérez-Cañellas, J.D.",
+    "name": "Jose David Pérez Cañellas",
     "givenNames": "Jose David",
     "familyName": "Pérez Cañellas",
     "otherNames": [],
     "biography": null,
     "keywords": [],
-    "links": [],
+    "links": [
+      {
+        "label": "UIB Profile",
+        "url": "https://www.uib.eu/personal/ABjM5ODE5NQ/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jose-david-perez/"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.es/citations?user=FavgNXQAAAAJ&hl=es"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/jd-perez96"
+      }
+    ],
     "identifiers": [],
-    "emails": []
+    "emails": [
+      "jose-david.perez@uib.es"
+    ]
   },
   "employment": [
     {

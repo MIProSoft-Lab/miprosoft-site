@@ -1,6 +1,6 @@
 {
   "orcid": "0009-0000-0046-8330",
-  "lastModified": "2026-10-29",
+  "lastModified": "2026-11-02",
   "person": {
     "name": "Antonio Crespi Tobeña",
     "givenNames": "Antonio",
@@ -10,8 +10,16 @@
     "keywords": [],
     "links": [
       {
-        "label": "Lens Profile",
-        "url": "https://www.lens.org/lens/orcid/0009-0000-0046-8330"
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/antonio-crespi/"
+      },
+      {
+        "label": "UIB",
+        "url": "https://www.uib.es/personal/ABjI5Nzc2NA/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/toni-crespi-uib"
       }
     ],
     "identifiers": [
@@ -21,7 +29,9 @@
         "url": "http://www.scopus.com/inward/authorDetails.url?authorID=59532397800&partnerID=MN8TOARS"
       }
     ],
-    "emails": []
+    "emails": [
+      "antonio.crespi@uib.eu"
+    ]
   },
   "employment": [
     {
@@ -39,7 +49,62 @@
       "url": null
     }
   ],
-  "education": [],
+  "education": [
+    {
+      "putCode": 40327186,
+      "role": "Doctorado en Tecnologías de la Información y las Comunicaciones",
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2023
+      },
+      "end": {
+        "year": 2027
+      },
+      "url": null
+    },
+    {
+      "putCode": 40327212,
+      "role": "Doctorado en Tecnologías de la Información y las Comunicaciones",
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2017
+      },
+      "end": {
+        "year": 2018
+      },
+      "url": null
+    },
+    {
+      "putCode": 40327235,
+      "role": "Grado en Ingeniería Informática",
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2013
+      },
+      "end": {
+        "year": 2017
+      },
+      "url": null
+    }
+  ],
   "qualifications": [],
   "distinctions": [],
   "invitedPositions": [],
