@@ -1,0 +1,13 @@
+---
+// /<lang>/research/ has no page of its own (the menu lists its pages): send
+// visitors to the research lines.
+import Redirect from '../../../components/Redirect.astro';
+import { languages } from '../../../lib/data.js';
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+---
+<Redirect to={`${lang}/research/lines/`} />

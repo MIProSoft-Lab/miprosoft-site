@@ -1,0 +1,28 @@
+en:
+  title: "Sample research line: placeholder title"
+  order: 1
+  summary: This is a sample research line with placeholder text, to show how research lines look on the website.
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Topics include:
+
+    - Software process improvement in small organisations
+    - Lorem ipsum dolor sit amet
+  members:
+    - antoni-mesquida
+    - antonia-mas
+ca:
+  title: "Línia de recerca d'exemple: títol provisional"
+  summary: Aquesta és una línia de recerca d'exemple amb text provisional, per mostrar com es veuen les línies de recerca al web.
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Alguns temes:
+
+    - Millora de processos de programari en organitzacions petites
+    - Lorem ipsum dolor sit amet
+es:
+  title: "Línea de investigación de ejemplo: título provisional"
+  summary: Esta es una línea de investigación de ejemplo con texto provisional, para mostrar cómo se ven las líneas de investigación en la web.
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Algunos temas:
+
+    - Mejora de procesos de software en organizaciones pequeñas
+    - Lorem ipsum dolor sit amet

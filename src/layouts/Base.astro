@@ -2,7 +2,8 @@
 // Page shell shared by every page: top bar (institution, languages, theme),
 // masthead with the group name and navigation, and footer.
 //   path:         the page's path after the language, e.g. "team/jane-doe/" ("" for the home page)
-//   nav:          the navigation entry to mark as current: home | news | team | publications | courses
+//   nav:          the navigation entry to mark as current: home | news | team | research | courses
+//   subnav:       the entry of its menu to mark as current (research: lines | publications | theses)
 //   jsonLd:       optional schema.org object
 //   lastModified: shown in the footer
 // Slots: "hero" (full-width band above the content) and the default slot.
@@ -10,7 +11,7 @@ import '../styles/site.css';
 import { languages, group, defaultLang, courses } from '../lib/data.js';
 import { strings, ui, loc } from '../lib/i18n.js';
 
-const { lang, title, description, path = '', nav, jsonLd, lastModified } = Astro.props;
+const { lang, title, description, path = '', nav, subnav, jsonLd, lastModified } = Astro.props;
 const t = strings(lang);
 const L = (x) => loc(x, lang, defaultLang);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
@@ -24,7 +25,16 @@ const links = [
   { id: 'home', label: t.nav.home, href: home },
   { id: 'news', label: t.nav.news, href: `${home}news/` },
   { id: 'team', label: t.nav.team, href: `${home}team/` },
-  { id: 'publications', label: t.nav.publications, href: `${home}publications/` },
+  {
+    id: 'research',
+    label: t.nav.research,
+    // A menu: opens on hover (and on click or tap, for touch screens and keyboards).
+    items: [
+      { id: 'lines', label: t.research.lines, href: `${home}research/lines/` },
+      { id: 'publications', label: t.research.publications, href: `${home}research/publications/` },
+      { id: 'theses', label: t.research.theses, href: `${home}research/theses/` },
+    ],
+  },
   courses.length > 0 && { id: 'courses', label: t.nav.courses, href: `${home}courses/` },
 ].filter(Boolean);
 ---
@@ -77,7 +87,16 @@ const links = [
           </a>
           <nav class="main-nav" aria-label={t.nav.home}>
             <ul>
-              {links.map((l) => <li><a href={l.href} aria-current={l.id === nav ? 'page' : undefined}>{l.label}</a></li>)}
+              {links.map((l) => l.items ? (
+                <li class:list={['has-menu', { current: l.id === nav }]}>
+                  <button type="button" class="menu-toggle" aria-expanded="false" aria-controls={`menu-${l.id}`}>{l.label}</button>
+                  <ul class="menu" id={`menu-${l.id}`}>
+                    {l.items.map((i) => <li><a href={i.href} aria-current={l.id === nav && i.id === subnav ? 'page' : undefined}>{i.label}</a></li>)}
+                  </ul>
+                </li>
+              ) : (
+                <li><a href={l.href} aria-current={l.id === nav ? 'page' : undefined}>{l.label}</a></li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -124,6 +143,35 @@ const links = [
       });
       systemDark.addEventListener('change', label);
       label();
+
+      // Navigation menus (Research): hover opens them with CSS; this adds
+      // click/tap, Escape, and closing when clicking elsewhere.
+      const menus = [...document.querySelectorAll('.main-nav .has-menu')];
+      const setOpen = (item, open) => {
+        item.classList.toggle('open', open);
+        item.querySelector('.menu-toggle').setAttribute('aria-expanded', String(open));
+      };
+      for (const item of menus) {
+        const button = item.querySelector('.menu-toggle');
+        button.addEventListener('click', () => {
+          const open = !item.classList.contains('open');
+          for (const other of menus) if (other !== item) setOpen(other, false);
+          setOpen(item, open);
+        });
+        item.addEventListener('mouseenter', () => button.setAttribute('aria-expanded', 'true'));
+        item.addEventListener('mouseleave', () => setOpen(item, false));
+        item.addEventListener('keydown', (e) => {
+          if (e.key !== 'Escape' || !item.classList.contains('open')) return;
+          setOpen(item, false);
+          button.focus();
+        });
+        item.addEventListener('focusout', (e) => {
+          if (!item.contains(e.relatedTarget)) setOpen(item, false);
+        });
+      }
+      document.addEventListener('click', (e) => {
+        for (const item of menus) if (!item.contains(e.target)) setOpen(item, false);
+      });
     </script>
   </body>
 </html>

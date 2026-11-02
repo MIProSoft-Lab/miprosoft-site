@@ -151,6 +151,59 @@ const courses = {
   ],
 };
 
+const researchLines = {
+  name: 'research-lines',
+  label: 'Research lines',
+  label_singular: 'Research line',
+  description: 'The research lines shown on the Research page.',
+  folder: 'content/research-lines',
+  extension: 'yaml',
+  format: 'yaml',
+  create: true,
+  i18n: true,
+  summary: '{{title}}',
+  sortable_fields: ['order', 'title'],
+  fields: [
+    { name: 'title', label: 'Title', widget: 'string', i18n: true },
+    { name: 'order', label: 'Order', widget: 'number', value_type: 'int', required: false, hint: 'Research lines are listed by this number, lowest first.' },
+    { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences, shown under the title.' },
+    { name: 'description', label: 'Description', widget: 'markdown', i18n: true, required: false, hint: 'Topics, projects, results… Optional.' },
+    memberSelect('members', 'Researchers', 'Group members working on this line; they link to their profiles.'),
+  ],
+};
+
+const theses = {
+  name: 'theses',
+  label: 'Theses',
+  label_singular: 'Thesis',
+  description: 'PhD theses, master’s theses (TFM) and bachelor’s theses (TFG) supervised by members. They are listed on the Research page and on the supervisors’ profiles.',
+  folder: 'content/theses',
+  extension: 'yaml',
+  format: 'yaml',
+  create: true,
+  i18n: true,
+  summary: '{{year}} · {{student}} · {{title}}',
+  sortable_fields: ['year', 'title', 'student'],
+  fields: [
+    { name: 'title', label: 'Title', widget: 'string', hint: 'In the language the thesis is written in.' },
+    { name: 'student', label: 'Student', widget: 'string' },
+    {
+      name: 'type', label: 'Type', widget: 'select', default: 'phd',
+      options: Object.entries(texts.research?.thesisTypes ?? {}).map(([value, label]) => ({ label, value })),
+    },
+    {
+      name: 'status', label: 'Status', widget: 'select', default: 'defended',
+      options: [{ label: 'Defended', value: 'defended' }, { label: 'In progress', value: 'ongoing' }],
+    },
+    { name: 'year', label: 'Year', widget: 'number', value_type: 'int', required: false, hint: 'Year of the defence (or of the start, if in progress).' },
+    memberSelect('supervisors', 'Supervisors', 'Group members; they link to their profiles, and the thesis is listed on them.'),
+    guestList('guestSupervisors', 'Other supervisors'),
+    { name: 'degree', label: 'Degree or programme', widget: 'string', i18n: true, required: false, hint: 'E.g. "Doctoral Programme in Information and Communication Technologies".' },
+    { name: 'institution', label: 'University', widget: 'string', i18n: true, required: false },
+    { name: 'url', label: 'Link', widget: 'string', required: false, hint: 'The thesis in a repository, e.g. UIB’s or TDX.' },
+  ],
+};
+
 const collaborators = {
   name: 'collaborators',
   label: 'Collaborators',
@@ -223,7 +276,7 @@ const cms = {
   media_folder: '/public/media',
   public_folder: '/media',
   i18n: { structure: 'single_file', locales: languages, default_locale: defaultLang, initial_locales: 'all' },
-  collections: [news, courses, collaborators, translations],
+  collections: [news, researchLines, theses, courses, collaborators, translations],
 };
 
 await mkdir(new URL('public/admin/fonts/', root), { recursive: true });

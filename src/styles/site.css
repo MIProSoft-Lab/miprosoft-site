@@ -159,6 +159,37 @@ a:hover { text-decoration: underline; }
 .main-nav a:hover { background: var(--tint); color: var(--accent); text-decoration: none; }
 .main-nav a[aria-current='page'] { color: var(--accent); font-weight: 700; box-shadow: inset 0 -3px 0 var(--accent); border-radius: 6px 6px 0 0; }
 
+/* A menu in the navigation (Research): opens below its button on hover, and
+   on click or tap (.open, set by the script in Base.astro). */
+.has-menu { position: relative; }
+.menu-toggle {
+  display: flex; align-items: center; gap: 0.35rem; padding: 0.5rem 0.85rem; border: 0; border-radius: 6px;
+  background: none; color: var(--fg); font: inherit; cursor: pointer;
+}
+.menu-toggle::after {
+  content: ''; width: 0.4em; height: 0.4em; margin-top: -0.2em;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg);
+  transition: transform 0.15s;
+}
+.has-menu.current .menu-toggle { color: var(--accent); font-weight: 700; box-shadow: inset 0 -3px 0 var(--accent); border-radius: 6px 6px 0 0; }
+.menu-toggle:hover, .has-menu.open .menu-toggle { background: var(--tint); color: var(--accent); }
+.menu-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.main-nav .menu {
+  position: absolute; top: 100%; left: 0; z-index: 6; display: none; flex-direction: column; gap: 0;
+  min-width: 15rem; margin: 0; padding: 0.4rem;
+  border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-hover);
+}
+/* An invisible bridge over the gap, so the pointer can reach the menu. */
+.main-nav .menu::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: 0.5rem; }
+.has-menu.open .menu { display: flex; }
+.has-menu.open .menu-toggle::after { transform: rotate(-135deg); margin-top: 0.2em; }
+@media (hover: hover) {
+  .has-menu:hover .menu { display: flex; }
+  .has-menu:hover .menu-toggle::after { transform: rotate(-135deg); margin-top: 0.2em; }
+}
+.main-nav .menu a { padding: 0.55rem 0.8rem; border-radius: 6px; white-space: nowrap; }
+.main-nav .menu a[aria-current='page'] { box-shadow: inset 3px 0 0 var(--accent); border-radius: 0 6px 6px 0; background: var(--tint); }
+
 /* ---------- Hero and page heads ---------- */
 
 .hero { background: var(--hero-bg); color: var(--on-accent); }
@@ -285,7 +316,7 @@ h3 { font: 700 1rem var(--sans); margin: 1.6rem 0 0.6rem; color: var(--accent); 
 }
 
 /* Publications */
-h3 .count {
+h2 .count, h3 .count {
   display: inline-block; min-width: 1.5em; padding: 0 0.4em; margin-left: 0.3em;
   border-radius: 999px; background: var(--tint); color: var(--accent);
   font-size: 0.75rem; text-align: center;
@@ -496,6 +527,21 @@ h3 .count {
   .course-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+/* ---------- Research ---------- */
+
+/* A research line without researchers takes the full width. */
+.course:not(:has(.course-side)) { grid-template-columns: 1fr; }
+.research-line-text { font-size: 1rem; max-width: 46rem; }
+.research-line-text > :last-child { margin-bottom: 0; }
+.post-authors.stacked { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+.status-badge {
+  display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px;
+  background: var(--tint); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent);
+  font: 700 0.7rem/1.6 var(--sans); white-space: nowrap;
+}
+.thesis .meta a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.15em; }
+.thesis .meta a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
 /* ---------- Footer ---------- */
 
 .site-footer { background: var(--footer-bg); color: var(--footer-fg); font-size: 0.85rem; }
@@ -516,6 +562,11 @@ h3 .count {
   /* Five tabs don't fit a phone in every language: let them wrap. */
   .main-nav ul { flex-wrap: wrap; gap: 0 0.1rem; }
   .main-nav a { padding: 0.45rem 0.6rem; }
+  .menu-toggle { padding: 0.45rem 0.6rem; }
+  /* On phones the menu opens under the whole navigation, so it fits the screen. */
+  .main-nav { position: relative; }
+  .has-menu { position: static; }
+  .main-nav .menu { left: 0.6rem; right: auto; }
   .profile { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .footer-meta { text-align: left; }
 }

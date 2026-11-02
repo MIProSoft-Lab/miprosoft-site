@@ -73,7 +73,7 @@ const news = (await getPosts()).slice(0, LATEST_NEWS).map((p) => inLanguage(p, l
     <section class="block" aria-labelledby="latest-heading">
       <div class="block-head">
         <h2 id="latest-heading">{t.latestPublications}</h2>
-        <a class="more" href={`${base}${lang}/publications/`}>{t.allPublications} ({group.works.length}) <span aria-hidden="true">→</span></a>
+        <a class="more" href={`${base}${lang}/research/publications/`}>{t.allPublications} ({group.works.length}) <span aria-hidden="true">→</span></a>
       </div>
       <Publications
         works={group.works.slice(0, LATEST)}

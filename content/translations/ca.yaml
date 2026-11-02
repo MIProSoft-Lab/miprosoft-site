@@ -5,7 +5,7 @@ langName: Català
 nav:
   home: Inici
   team: Equip
-  publications: Publicacions
+  research: Recerca
   news: Notícies
   courses: Cursos
 team:
@@ -14,6 +14,25 @@ team:
   members: Membres
   collaborators: Col·laboradors
   collaboratorsLead: Investigadors d'altres grups i institucions que col·laboren amb nosaltres.
+research:
+  title: Recerca
+  lines: Línies de recerca
+  publications: Publicacions
+  theses: Tesis i treballs
+  people: Investigadors
+  linesEmpty: Encara no hi ha línies de recerca.
+  thesesEmpty: Encara no hi ha tesis ni treballs.
+  thesisGroups:
+    phd: Tesis doctorals
+    master: Treballs de fi de màster
+    bachelor: Treballs de fi de grau
+  thesisTypes:
+    phd: Tesi doctoral
+    master: Treball de fi de màster
+    bachelor: Treball de fi de grau
+  inProgress: En curs
+  supervisors: Direcció
+  document: Document
 courses:
   title: Cursos
   lead: Cursos que impartim actualment.

@@ -1,0 +1,15 @@
+en:
+  title: "Sample PhD thesis: placeholder title"
+  student: Sample Student
+  type: phd
+  status: ongoing
+  year: 2024
+  supervisors:
+    - antoni-mesquida
+    - antonia-mas
+  degree: Doctoral Programme in Information and Communication Technologies
+  institution: Universitat de les Illes Balears
+ca:
+  degree: Programa de Doctorat en Tecnologies de la Informació i les Comunicacions
+es:
+  degree: Programa de Doctorado en Tecnologías de la Información y las Comunicaciones

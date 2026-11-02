@@ -4,6 +4,7 @@ import Section from '../../../../components/Section.astro';
 import Entry from '../../../../components/Entry.astro';
 import Publications from '../../../../components/Publications.astro';
 import Avatar from '../../../../components/Avatar.astro';
+import Thesis from '../../../../components/Thesis.astro';
 import { members, memberById, group, config, languages, defaultLang, hasContent } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
 import { formatRange, formatDate, formatPlace } from '../../../../lib/format.js';
@@ -122,9 +123,14 @@ const affiliationEntry = (it) => ({
         <Entry when={L(c.years)} title={L(c.course)} subtitle={[L(c.role), L(c.institution)].filter(Boolean).join(', ')} description={L(c.details)} />
       ))}
 
-      {s === 'supervision' && cv.supervision.map((x) => (
-        <Entry when={L(x.years)} title={L(x.title)} subtitle={[x.student, L(x.level)].filter(Boolean).join(' — ')} meta={L(x.role)} />
-      ))}
+      {s === 'supervision' && (
+        <>
+          {cv.theses.map((x) => <Thesis thesis={x} lang={lang} showType self={cv.id} />)}
+          {cv.supervision.map((x) => (
+            <Entry when={L(x.years)} title={L(x.title)} subtitle={[x.student, L(x.level)].filter(Boolean).join(' — ')} meta={L(x.role)} />
+          ))}
+        </>
+      )}
 
       {s === 'software' && cv.software.map((x) => (
         <Entry when="" title={x.name} url={x.url} description={L(x.description)} />

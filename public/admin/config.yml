@@ -104,6 +104,129 @@ collections:
         widget: markdown
         i18n: true
         hint: An image followed by a line in italics shows the italics as its caption.
+  - name: research-lines
+    label: Research lines
+    label_singular: Research line
+    description: The research lines shown on the Research page.
+    folder: content/research-lines
+    extension: yaml
+    format: yaml
+    create: true
+    i18n: true
+    summary: "{{title}}"
+    sortable_fields:
+      - order
+      - title
+    fields:
+      - name: title
+        label: Title
+        widget: string
+        i18n: true
+      - name: order
+        label: Order
+        widget: number
+        value_type: int
+        required: false
+        hint: Research lines are listed by this number, lowest first.
+      - name: summary
+        label: Summary
+        widget: text
+        i18n: true
+        required: false
+        hint: One or two sentences, shown under the title.
+      - name: description
+        label: Description
+        widget: markdown
+        i18n: true
+        required: false
+        hint: Topics, projects, results… Optional.
+      - name: members
+        label: Researchers
+        widget: select
+        multiple: true
+        required: false
+        options: *a1
+        hint: Group members working on this line; they link to their profiles.
+  - name: theses
+    label: Theses
+    label_singular: Thesis
+    description: PhD theses, master’s theses (TFM) and bachelor’s theses (TFG) supervised by members. They are listed on the Research page and on the supervisors’ profiles.
+    folder: content/theses
+    extension: yaml
+    format: yaml
+    create: true
+    i18n: true
+    summary: "{{year}} · {{student}} · {{title}}"
+    sortable_fields:
+      - year
+      - title
+      - student
+    fields:
+      - name: title
+        label: Title
+        widget: string
+        hint: In the language the thesis is written in.
+      - name: student
+        label: Student
+        widget: string
+      - name: type
+        label: Type
+        widget: select
+        default: phd
+        options:
+          - label: PhD thesis
+            value: phd
+          - label: Master's thesis
+            value: master
+          - label: Bachelor's thesis
+            value: bachelor
+      - name: status
+        label: Status
+        widget: select
+        default: defended
+        options:
+          - label: Defended
+            value: defended
+          - label: In progress
+            value: ongoing
+      - name: year
+        label: Year
+        widget: number
+        value_type: int
+        required: false
+        hint: Year of the defence (or of the start, if in progress).
+      - name: supervisors
+        label: Supervisors
+        widget: select
+        multiple: true
+        required: false
+        options: *a1
+        hint: Group members; they link to their profiles, and the thesis is listed on them.
+      - name: guestSupervisors
+        label: Other supervisors
+        widget: list
+        required: false
+        hint: People who are not members of the group.
+        field:
+          name: name
+          label: Name
+          widget: string
+      - name: degree
+        label: Degree or programme
+        widget: string
+        i18n: true
+        required: false
+        hint: E.g. "Doctoral Programme in Information and Communication Technologies".
+      - name: institution
+        label: University
+        widget: string
+        i18n: true
+        required: false
+      - name: url
+        label: Link
+        widget: string
+        required: false
+        hint: The thesis in a repository, e.g. UIB’s or TDX.
   - name: courses
     label: Courses
     label_singular: Course
@@ -323,8 +446,8 @@ collections:
                 i18n: true
                 required: false
                 widget: string
-              - name: publications
-                label: Publications
+              - name: research
+                label: Research
                 i18n: true
                 required: false
                 widget: string
@@ -367,6 +490,107 @@ collections:
                 widget: string
               - name: collaboratorsLead
                 label: Collaborators lead
+                i18n: true
+                required: false
+                widget: string
+          - name: research
+            label: Research
+            i18n: true
+            required: false
+            widget: object
+            collapsed: true
+            fields:
+              - name: title
+                label: Title
+                i18n: true
+                required: false
+                widget: string
+              - name: lines
+                label: Lines
+                i18n: true
+                required: false
+                widget: string
+              - name: publications
+                label: Publications
+                i18n: true
+                required: false
+                widget: string
+              - name: theses
+                label: Theses
+                i18n: true
+                required: false
+                widget: string
+              - name: people
+                label: People
+                i18n: true
+                required: false
+                widget: string
+              - name: linesEmpty
+                label: Lines empty
+                i18n: true
+                required: false
+                widget: string
+              - name: thesesEmpty
+                label: Theses empty
+                i18n: true
+                required: false
+                widget: string
+              - name: thesisGroups
+                label: Thesis groups
+                i18n: true
+                required: false
+                widget: object
+                collapsed: true
+                fields:
+                  - name: phd
+                    label: Phd
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: master
+                    label: Master
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: bachelor
+                    label: Bachelor
+                    i18n: true
+                    required: false
+                    widget: string
+              - name: thesisTypes
+                label: Thesis types
+                i18n: true
+                required: false
+                widget: object
+                collapsed: true
+                fields:
+                  - name: phd
+                    label: Phd
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: master
+                    label: Master
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: bachelor
+                    label: Bachelor
+                    i18n: true
+                    required: false
+                    widget: string
+              - name: inProgress
+                label: In progress
+                i18n: true
+                required: false
+                widget: string
+              - name: supervisors
+                label: Supervisors
+                i18n: true
+                required: false
+                widget: string
+              - name: document
+                label: Document
                 i18n: true
                 required: false
                 widget: string

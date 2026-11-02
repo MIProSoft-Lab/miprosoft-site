@@ -5,7 +5,7 @@ langName: Español
 nav:
   home: Inicio
   team: Equipo
-  publications: Publicaciones
+  research: Investigación
   news: Noticias
   courses: Cursos
 team:
@@ -14,6 +14,25 @@ team:
   members: Miembros
   collaborators: Colaboradores
   collaboratorsLead: Investigadores de otros grupos e instituciones que colaboran con nosotros.
+research:
+  title: Investigación
+  lines: Líneas de investigación
+  publications: Publicaciones
+  theses: Tesis y trabajos
+  people: Investigadores
+  linesEmpty: Todavía no hay líneas de investigación.
+  thesesEmpty: Todavía no hay tesis ni trabajos.
+  thesisGroups:
+    phd: Tesis doctorales
+    master: Trabajos de fin de máster
+    bachelor: Trabajos de fin de grado
+  thesisTypes:
+    phd: Tesis doctoral
+    master: Trabajo de fin de máster
+    bachelor: Trabajo de fin de grado
+  inProgress: En curso
+  supervisors: Dirección
+  document: Documento
 courses:
   title: Cursos
   lead: Cursos que impartimos actualmente.

@@ -1,0 +1,15 @@
+en:
+  title: "Sample master's thesis: placeholder title"
+  student: Sample Student
+  type: master
+  status: defended
+  year: 2025
+  supervisors:
+    - antonio-crespi
+  degree: Master's Degree in Computer Engineering
+  institution: Universitat de les Illes Balears
+  url: https://example.org
+ca:
+  degree: Màster Universitari en Enginyeria Informàtica
+es:
+  degree: Máster Universitario en Ingeniería Informática

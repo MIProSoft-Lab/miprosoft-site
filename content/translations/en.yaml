@@ -5,7 +5,7 @@ langName: English
 nav:
   home: Home
   team: Team
-  publications: Publications
+  research: Research
   news: News
   courses: Courses
 team:
@@ -14,6 +14,25 @@ team:
   members: Members
   collaborators: Collaborators
   collaboratorsLead: Researchers from other groups and institutions who work with us.
+research:
+  title: Research
+  lines: Research lines
+  publications: Publications
+  theses: Theses
+  people: Researchers
+  linesEmpty: No research lines yet.
+  thesesEmpty: No theses yet.
+  thesisGroups:
+    phd: PhD theses
+    master: Master's theses
+    bachelor: Bachelor's theses
+  thesisTypes:
+    phd: PhD thesis
+    master: Master's thesis
+    bachelor: Bachelor's thesis
+  inProgress: In progress
+  supervisors: Supervisors
+  document: Document
 courses:
   title: Courses
   lead: Courses we currently teach.

@@ -3,8 +3,9 @@
 A multilingual research group website for GitHub Pages that keeps itself up to
 date from [ORCID](https://orcid.org), styled after the UIB's visual identity:
 a home page with latest news, the team and latest publications; a team page
-with members and collaborators; a page per member; the group's publications;
-multilingual news and blog posts; and the courses the group teaches.
+with members and collaborators; a page per member; a research section with the
+research lines, the group's publications and supervised theses; multilingual
+news and blog posts; and the courses the group teaches.
 
 Every Monday (and on every push) a GitHub Action:
 
@@ -26,6 +27,8 @@ Every Monday (and on every push) a GitHub Action:
 | `data/overrides.yaml` | Corrections to works (by DOI) applied for every member |
 | `content/news/<slug>/index.yaml` | News and blog posts, every language in one file, with their images beside it (*CMS*) |
 | `content/courses/<slug>.yaml` | Courses the group currently teaches (*CMS*) |
+| `content/research-lines/<slug>.yaml` | Research lines (*CMS*) |
+| `content/theses/<slug>.yaml` | PhD, master's and bachelor's theses supervised by members (*CMS*) |
 | `content/collaborators/<slug>.yaml` | Collaborators shown on the team page (*CMS*) |
 | `content/translations/<lang>.yaml` | Interface texts: menus, labels, buttons (*CMS*) |
 | `data/jcr.yaml` | Journal Impact Factors entered by hand |
@@ -37,7 +40,11 @@ Pages:
 - `/<lang>/`: home page: latest news, the team and latest publications
 - `/<lang>/team/`: members (principal investigators first) and collaborators
 - `/<lang>/team/<id>/`: a member's profile
-- `/<lang>/publications/`: the group's publications, each paper once
+- Research (a menu in the navigation; `/<lang>/research/` goes to the first page):
+  - `/<lang>/research/lines/`: research lines
+  - `/<lang>/research/publications/`: the group's publications, each paper once
+  - `/<lang>/research/theses/`: supervised theses, by type (also listed on each
+    supervisor's profile, under "Supervision")
 - `/<lang>/news/` and `/<lang>/news/<slug>/`: news and blog posts
 - `/<lang>/courses/`: courses the group currently teaches (hidden when there are none)
 
@@ -45,7 +52,7 @@ Members' names in author lists link to their profiles.
 
 ## Editing content
 
-News, courses, collaborators and the interface texts can be edited without touching code, in
+News, research lines, theses, courses, collaborators and the interface texts can be edited without touching code, in
 the content editor ([Sveltia CMS](https://sveltiacms.app)) at **`/admin/`** of
 the site, e.g. `https://<site>/admin/`. It shows every language side by side
 and commits each change to the repository, which rebuilds and publishes the
@@ -113,9 +120,8 @@ Interface texts (`content/translations/<lang>.yaml`) keep `{n}`, `{total}`,
 texts that depend on a number. A text left empty in Catalan or Spanish is shown
 in English.
 
-The home page shows the three latest posts. The files under `content/news/`,
-`content/courses/` and `content/collaborators/` include a sample post, a sample
-course and a sample collaborator with placeholder text: replace or delete them.
+The home page shows the three latest posts. The files under `content/` include a sample post, course, collaborator,
+research line and two theses with placeholder text: replace or delete them.
 
 ## Adding a member
 

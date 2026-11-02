@@ -334,7 +334,57 @@ export const courses = readEntries('content/courses')
   })
   .sort((a, b) => a.order - b.order || String(a.entry.base.title).localeCompare(String(b.entry.base.title)));
 
+// ---------- Research ----------
+
+// Members (by id, linked to their profiles) and other people (by name).
+const peopleOf = (ids, guests) => [
+  ...(ids ?? []).map((id) => {
+    const member = memberById.get(id);
+    return member ? { id, name: member.name, member } : { name: id };
+  }),
+  ...(guests ?? []).filter(Boolean).map((name) => ({ name })),
+];
+
+// content/research-lines/<slug>.yaml (all languages, edited in the CMS at /admin/):
+// the group's research lines, by `order` and then title.
+export const researchLines = readEntries('content/research-lines')
+  .map((entry) => ({
+    entry,
+    id: entry.slug,
+    order: Number(entry.base.order ?? 999),
+    members: peopleOf(entry.base.members),
+  }))
+  .sort((a, b) => a.order - b.order || String(a.entry.base.title).localeCompare(String(b.entry.base.title)));
+
+// content/theses/<slug>.yaml (edited in the CMS at /admin/): PhD, master's and
+// bachelor's theses supervised by members, ongoing first, then newest first.
+export const thesisTypes = ['phd', 'master', 'bachelor'];
+export const theses = readEntries('content/theses')
+  .map((entry) => {
+    const b = entry.base;
+    return {
+      entry,
+      id: entry.slug,
+      type: thesisTypes.includes(b.type) ? b.type : 'phd',
+      title: String(b.title ?? '').trim(),
+      student: String(b.student ?? '').trim(),
+      year: b.year ? Number(b.year) : null,
+      ongoing: b.status === 'ongoing',
+      // Per language, for loc() (the title is in the thesis's own language).
+      degree: perLanguage(entry, 'degree'),
+      institution: perLanguage(entry, 'institution'),
+      supervisors: peopleOf(b.supervisors, b.guestSupervisors),
+      url: b.url || '',
+    };
+  })
+  .filter((x) => x.title)
+  .sort((a, b) => b.ongoing - a.ongoing || (b.year ?? 0) - (a.year ?? 0) || a.title.localeCompare(b.title));
+
+// Each member's supervised theses, for the "Supervision" section of their profile.
+for (const m of members) m.theses = theses.filter((x) => x.supervisors.some((p) => p.id === m.id));
+
 export function hasContent(cv, section) {
+  if (section === 'supervision') return cv.supervision.length > 0 || cv.theses.length > 0;
   if (section === 'about') return Boolean(cv.about) || cv.profile.keywords.length > 0;
   if (section === 'publications') return cv.works.length > 0;
   return Array.isArray(cv[section]) && cv[section].length > 0;
