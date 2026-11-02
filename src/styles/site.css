@@ -149,6 +149,8 @@ a:hover { text-decoration: underline; }
 .brand:hover { text-decoration: none; }
 .brand-name { font-size: 1.45rem; font-weight: 700; letter-spacing: -0.01em; }
 .brand-tagline { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; }
+/* The group's full name: longer, so in normal case. */
+.brand-fullname { margin-top: 0.1rem; color: var(--muted); font-size: 0.85rem; }
 .main-nav ul { display: flex; gap: 0.25rem; margin: 0; padding: 0; list-style: none; }
 .main-nav a {
   display: block; padding: 0.5rem 0.85rem; border-radius: 6px;

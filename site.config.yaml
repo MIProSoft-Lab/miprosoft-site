@@ -3,6 +3,10 @@
 group:
   # Any text can be a plain string or a map per language.
   name: MIProSoft
+  # What the name stands for, shown under it in the header. The official name
+  # (www.uib.es/recerca/estructures/estructura/MiProSoft/) is used in every
+  # language; it can also be a map per language.
+  fullName: Mejora e Innovación en Proyectos de Software
   # A sentence or two shown on the home page under the name.
   description: ""
   #  en: …

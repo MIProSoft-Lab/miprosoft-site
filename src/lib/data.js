@@ -286,6 +286,7 @@ const groupWorks = dedupeWorks(members.flatMap((m) => m.works.map(({ selected, .
 
 export const group = {
   name: config.group?.name ?? '',
+  fullName: config.group?.fullName ?? '',
   description: config.group?.description ?? '',
   institution: config.group?.institution ?? null,
   works: groupWorks,
