@@ -21,12 +21,17 @@ group:
 # data/people/<id>.yaml (optional: name variants, title, teaching, overrides…).
 # Add `pi: true` to a member to mark them as a principal investigator (IP):
 # they get a badge and are listed first.
+# Add `github: <user>` to assign them an issue when an article they co-author
+# is missing from their ORCID (they need access to this repository to be
+# assigned; otherwise they are only mentioned). Without it, it is only a
+# warning in the "Check ORCID records" action.
 # Collaborators (people outside the group) are edited in the CMS, in
 # content/collaborators/.
 # Default ORCID for testing: 0000-0002-1825-0097
 members:
   - id: antonio-crespi
     orcid: 0009-0000-0046-8330
+    github: toni-crespi-uib
   - id: maria-monserrat
     orcid: 0000-0002-7485-4709
   - id: antoni-mesquida
@@ -34,6 +39,7 @@ members:
     pi: true
   - id: jose-cañellas
     orcid: 0009-0000-2218-2800
+    github: jd-perez96
   - id: toni-bennasar
     orcid: 0009-0006-1673-9880
   - id: antonia-mas

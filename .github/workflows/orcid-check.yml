@@ -1,8 +1,11 @@
 name: Check ORCID records
 
-# Warns when a member co-authors an article that is missing from their ORCID
-# record (see scripts/check-orcid.mjs). Runs on the committed data, after each
-# weekly ORCID update, and whenever the data or the members change.
+# Finds articles a member co-authors that are missing from their ORCID record
+# (see scripts/check-orcid.mjs). Members with a `github:` user in
+# site.config.yaml get an issue assigned to them, kept up to date and closed
+# when fixed; the rest get a warning in the run's log and summary. Runs on the
+# committed data, after each weekly ORCID update, and whenever the data or the
+# members change.
 
 on:
   workflow_run:
@@ -20,6 +23,12 @@ on:
 
 permissions:
   contents: read
+  issues: write   # open, update and close the "orcid" issues
+
+# One run at a time, so two runs never open the same issue twice.
+concurrency:
+  group: orcid-check
+  cancel-in-progress: false
 
 jobs:
   check:
@@ -38,4 +47,6 @@ jobs:
       - run: npm ci
 
       - name: Check every co-authored article is in each member's ORCID
-        run: node scripts/check-orcid.mjs
+        run: node scripts/check-orcid.mjs --issues
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

@@ -142,10 +142,17 @@ articles no remaining member lists.
 
 Co-authors sometimes forget to add a shared paper to their ORCID. The
 **Check ORCID records** action (`.github/workflows/orcid-check.yml`) runs after
-every weekly update, and whenever the data or the members change, and warns
-about every member who appears in an article's author list but does not list
-the article in ORCID. Warnings show up as annotations on the run and in its
-summary.
+every weekly update, and whenever the data or the members change, and finds
+every member who appears in an article's author list but does not list the
+article in ORCID.
+
+- Members with a GitHub user (`github: <user>` in `site.config.yaml`) get **one
+  issue** (label `orcid`) assigned to them, listing what is missing and how to
+  add it. It is updated by every run (with a comment that mentions them when
+  something new is missing) and closed automatically once everything is in
+  their ORCID. They need access to the repository to be assigned; otherwise
+  the issue only mentions them.
+- Members without one only get a **warning** in the run's log and summary.
 
 Authors are matched by each member's `nameVariants`, their ORCID name and
 "other names", or by family name plus a known first name or initial
@@ -155,8 +162,10 @@ Authors are matched by each member's `nameVariants`, their ORCID name and
 the article under `works:` there with `notMine: true`.
 
 ```sh
-node scripts/check-orcid.mjs           # check the committed data
+node scripts/check-orcid.mjs           # check the committed data, print what is missing
 node scripts/check-orcid.mjs --strict  # exit with an error if anything is missing
+GITHUB_TOKEN=$(gh auth token) GITHUB_REPOSITORY=MIProSoft-Lab/miprosoft-site \
+  node scripts/check-orcid.mjs --issues --dry-run   # preview the issues
 ```
 
 ## Fetching
