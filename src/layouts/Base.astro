@@ -40,7 +40,7 @@ const links = [
         if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
       } catch {}
     </script>
-    <noscript><style>.section-body[hidden] { display: block !important; } .section-toggle::before, .member-filter { display: none !important; }</style></noscript>
+    <noscript><style>.section-body[hidden] { display: block !important; } .section-toggle::before { display: none !important; }</style></noscript>
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     {languages.map((l) => <link rel="alternate" hreflang={l} href={new URL(href(l), Astro.site)} />)}

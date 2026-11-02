@@ -54,9 +54,6 @@ researchGroup: Research group
 latestPublications: Latest publications
 allPublications: All publications
 viewProfile: View profile
-allMembers: All members
-filterByMember: Author
-showing: Showing {n} of {total}
 seeAll: See all
 sections:
   members: Members

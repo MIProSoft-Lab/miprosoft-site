@@ -54,9 +54,6 @@ researchGroup: Grupo de investigación
 latestPublications: Últimas publicaciones
 allPublications: Todas las publicaciones
 viewProfile: Ver el perfil
-allMembers: Todos los miembros
-filterByMember: Autor
-showing: Se muestran {n} de {total}
 seeAll: Ver todas
 sections:
   members: Miembros

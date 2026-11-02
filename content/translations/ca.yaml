@@ -54,9 +54,6 @@ researchGroup: Grup de recerca
 latestPublications: Darreres publicacions
 allPublications: Totes les publicacions
 viewProfile: Veure el perfil
-allMembers: Tots els membres
-filterByMember: Autor
-showing: Se'n mostren {n} de {total}
 seeAll: Veure-les totes
 sections:
   members: Membres

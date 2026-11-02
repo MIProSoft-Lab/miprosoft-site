@@ -17,7 +17,7 @@ const defaultLang = languages[0];
 // (t.citations(3)) or with an object ({ n: 3, total: 10 }). A template with
 // `one` and `other` forms picks one by the number {n}.
 const TEMPLATES = new Set([
-  'citations', 'reviews', 'showing', 'jifTooltip', 'jcrTooltip',
+  'citations', 'reviews', 'jifTooltip', 'jcrTooltip',
   'news.notTranslated', 'courses.ects', 'courses.hours',
 ]);
 

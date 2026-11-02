@@ -503,22 +503,6 @@ collections:
             i18n: true
             required: false
             widget: string
-          - name: allMembers
-            label: All members
-            i18n: true
-            required: false
-            widget: string
-          - name: filterByMember
-            label: Filter by member
-            i18n: true
-            required: false
-            widget: string
-          - name: showing
-            label: Showing
-            i18n: true
-            required: false
-            hint: "{n} and {total} are replaced by numbers."
-            widget: string
           - name: seeAll
             label: See all
             i18n: true
