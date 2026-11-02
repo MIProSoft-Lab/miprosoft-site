@@ -519,11 +519,6 @@ collections:
             required: false
             hint: "{n} and {total} are replaced by numbers."
             widget: string
-          - name: groupFigures
-            label: Group figures
-            i18n: true
-            required: false
-            widget: string
           - name: seeAll
             label: See all
             i18n: true
@@ -807,38 +802,8 @@ collections:
             widget: object
             collapsed: true
             fields:
-              - name: members
-                label: Members
-                i18n: true
-                required: false
-                widget: string
               - name: publications
                 label: Publications
-                i18n: true
-                required: false
-                widget: string
-              - name: citations
-                label: Citations
-                i18n: true
-                required: false
-                widget: string
-              - name: hIndex
-                label: H index
-                i18n: true
-                required: false
-                widget: string
-              - name: i10Index
-                label: I10 index
-                i18n: true
-                required: false
-                widget: string
-              - name: perYear
-                label: Per year
-                i18n: true
-                required: false
-                widget: string
-              - name: year
-                label: Year
                 i18n: true
                 required: false
                 widget: string

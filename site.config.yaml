@@ -86,6 +86,5 @@ collapsed: []
 
 features:
   citations: true   # citation counts from OpenAlex
-  metrics: true     # citations / h-index / i10-index summary (needs citations)
   abstracts: true   # collapsible abstracts
   impactFactor: true # Journal Impact Factor (data/jcr.yaml, or data/jcr.json from the Clarivate API)

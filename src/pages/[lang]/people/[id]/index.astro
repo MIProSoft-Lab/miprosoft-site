@@ -3,7 +3,6 @@ import Base from '../../../../layouts/Base.astro';
 import Section from '../../../../components/Section.astro';
 import Entry from '../../../../components/Entry.astro';
 import Publications from '../../../../components/Publications.astro';
-import Metrics from '../../../../components/Metrics.astro';
 import Avatar from '../../../../components/Avatar.astro';
 import { members, memberById, group, config, languages, defaultLang, hasContent } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
@@ -94,10 +93,7 @@ const affiliationEntry = (it) => ({
         cv[s].map((it) => <Entry {...affiliationEntry(it)} />)}
 
       {s === 'publications' && (
-        <>
-          {features.metrics !== false && features.citations !== false && <Metrics metrics={cv.metrics} lang={lang} />}
-          <Publications works={cv.works} lang={lang} members={members} self={cv.id} showCitations={features.citations !== false} showAbstracts={features.abstracts !== false} showImpactFactor={features.impactFactor !== false} />
-        </>
+        <Publications works={cv.works} lang={lang} members={members} self={cv.id} showCitations={features.citations !== false} showAbstracts={features.abstracts !== false} showImpactFactor={features.impactFactor !== false} />
       )}
 
       {s === 'funding' && cv.funding.map((f) => (

@@ -57,7 +57,6 @@ viewProfile: Ver el perfil
 allMembers: Todos los miembros
 filterByMember: Autor
 showing: Se muestran {n} de {total}
-groupFigures: El grupo en cifras
 seeAll: Ver todas
 sections:
   members: Miembros
@@ -117,11 +116,5 @@ inCategory: en
 tldr: En breve
 via: vía
 metrics:
-  members: Miembros
   publications: Publicaciones
-  citations: Citas
-  hIndex: Índice h
-  i10Index: Índice i10
-  perYear: Citas por año
-  year: Año
   source: Datos de citas de

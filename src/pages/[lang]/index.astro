@@ -1,5 +1,5 @@
 ---
-// Group home page: introduction and figures, latest news, people, latest publications.
+// Group home page: introduction, latest news, people, latest publications.
 import Base from '../../layouts/Base.astro';
 import MemberCard from '../../components/MemberCard.astro';
 import Publications from '../../components/Publications.astro';
@@ -24,15 +24,6 @@ const name = L(group.name);
 const description = L(group.description);
 const institution = group.institution;
 const news = (await getPosts()).slice(0, LATEST_NEWS).map((p) => inLanguage(p, lang));
-const fmt = new Intl.NumberFormat(lang, { notation: 'compact', maximumFractionDigits: 1 });
-
-const showCitations = features.citations !== false && group.metrics.citations > 0;
-const figures = [
-  [t.metrics.members, members.length],
-  [t.metrics.publications, group.metrics.publications],
-  showCitations && [t.metrics.citations, group.metrics.citations],
-  showCitations && [t.metrics.hIndex, group.metrics.hIndex],
-].filter(Boolean);
 ---
 <Base
   lang={lang}
@@ -56,11 +47,6 @@ const figures = [
         <h1>{name}</h1>
         {description && <p class="hero-lead">{description}</p>}
       </div>
-      <dl class="hero-figures" aria-label={t.groupFigures}>
-        {figures.map(([label, value]) => (
-          <div><dt>{label}</dt><dd>{fmt.format(value)}</dd></div>
-        ))}
-      </dl>
     </div>
   </section>
 

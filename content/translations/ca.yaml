@@ -57,7 +57,6 @@ viewProfile: Veure el perfil
 allMembers: Tots els membres
 filterByMember: Autor
 showing: Se'n mostren {n} de {total}
-groupFigures: El grup en xifres
 seeAll: Veure-les totes
 sections:
   members: Membres
@@ -117,11 +116,5 @@ inCategory: a
 tldr: En breu
 via: via
 metrics:
-  members: Membres
   publications: Publicacions
-  citations: Citacions
-  hIndex: Índex h
-  i10Index: Índex i10
-  perYear: Citacions per any
-  year: Any
   source: Dades de citacions de
