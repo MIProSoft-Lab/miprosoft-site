@@ -294,6 +294,21 @@ export const group = {
   lastModified: members.map((m) => m.lastModified).filter(Boolean).sort().at(-1) ?? null,
 };
 
+// ---------- Courses ----------
+
+// data/courses.yaml: courses the group currently teaches, in the order given.
+export const courses = (readYaml('data/courses.yaml').courses ?? []).map((c, i) => ({
+  ...c,
+  id: c.id ?? `course-${i + 1}`,
+  start: parseLooseDate(c.start),
+  end: parseLooseDate(c.end),
+  languages: c.languages ?? [],
+  instructors: (c.instructors ?? []).map((name) => {
+    const member = memberById.get(name);
+    return member ? { id: name, name: member.name, member } : { name };
+  }),
+}));
+
 export function hasContent(cv, section) {
   if (section === 'about') return Boolean(cv.about) || cv.profile.keywords.length > 0;
   if (section === 'publications') return cv.works.length > 0;

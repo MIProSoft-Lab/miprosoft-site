@@ -2,12 +2,12 @@
 // Page shell shared by every page: top bar (institution, languages, theme),
 // masthead with the group name and navigation, and footer.
 //   path:         the page's path after the language, e.g. "people/jane-doe/" ("" for the home page)
-//   nav:          the navigation entry to mark as current: home | news | people | publications
+//   nav:          the navigation entry to mark as current: home | news | people | publications | courses
 //   jsonLd:       optional schema.org object
 //   lastModified: shown in the footer
 // Slots: "hero" (full-width band above the content) and the default slot.
 import '../styles/site.css';
-import { languages, group, defaultLang } from '../lib/data.js';
+import { languages, group, defaultLang, courses } from '../lib/data.js';
 import { strings, ui, loc } from '../lib/i18n.js';
 
 const { lang, title, description, path = '', nav, jsonLd, lastModified } = Astro.props;
@@ -25,7 +25,8 @@ const links = [
   { id: 'news', label: t.nav.news, href: `${home}news/` },
   { id: 'people', label: t.nav.people, href: `${home}people/` },
   { id: 'publications', label: t.nav.publications, href: `${home}publications/` },
-];
+  courses.length > 0 && { id: 'courses', label: t.nav.courses, href: `${home}courses/` },
+].filter(Boolean);
 ---
 <!doctype html>
 <html lang={lang}>

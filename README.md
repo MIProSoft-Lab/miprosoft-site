@@ -4,7 +4,7 @@ A multilingual research group website for GitHub Pages that keeps itself up to
 date from [ORCID](https://orcid.org), styled after the UIB's visual identity:
 a home page with the group's figures, latest news, people and latest
 publications; a page per member; the group's publications, with a filter by
-author; and multilingual news and blog posts.
+author; multilingual news and blog posts; and the courses the group teaches.
 
 Every Monday (and on every push) a GitHub Action:
 
@@ -24,6 +24,7 @@ Every Monday (and on every push) a GitHub Action:
 | `site.config.yaml` | Group name, description and institution, **members** (`id` + ORCID iD), languages, profile sections, features |
 | `data/people/<id>.yaml` | Per-member content ORCID lacks: name variants, title, teaching, talks…, plus per-member overrides (selected works, hidden items) |
 | `data/overrides.yaml` | Corrections to works (by DOI) applied for every member |
+| `data/courses.yaml` | Courses the group currently teaches |
 | `data/jcr.yaml` | Journal Impact Factors entered by hand |
 | `data/orcid/<orcid>.json` | *Fetched.* One ORCID record per member, with references to their works |
 | `data/works.json` | *Fetched.* One entry per article (by DOI, or handle for SISTEDES), shared by all members |
@@ -35,6 +36,7 @@ Pages:
 - `/<lang>/people/<id>/`: a member's profile
 - `/<lang>/publications/`: the group's publications, each paper once, with a filter by author
 - `/<lang>/news/` and `/<lang>/news/<slug>/`: news and blog posts
+- `/<lang>/courses/`: courses the group currently teaches (hidden when there are none)
 
 Members' names in author lists link to their profiles.
 
@@ -71,6 +73,17 @@ The other languages only need `title` (and optionally `summary` and
 `imageAlt`) plus the text. A post without a version in some language is shown
 in that language's pages in the default language, with a notice. The home page
 shows the three latest posts. Every post in the folder is published.
+
+## Courses
+
+The Courses tab lists `data/courses.yaml` in order. Each course has a title and,
+optionally, a type (`master`, `postgraduate`, `short`, `workshop`, `online`),
+summary, instructors (member ids link to their profiles), dates and/or a
+schedule, format (`in-person`, `online`, `hybrid`), teaching languages, ECTS or
+hours, institution and a link. Texts can be translated with `{ en: …, ca: …, es: … }`;
+quote texts that contain commas or colons. The template is at the top of the
+file. Remove a course when it is no longer offered; with no courses, the tab
+disappears. The file starts with a sample course to replace.
 
 ## Adding a member
 
