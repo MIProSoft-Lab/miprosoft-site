@@ -34,6 +34,17 @@ members:
   - id: antonia-mas
     orcid: 0000-0003-4188-8088
 
+# Content editor (Sveltia CMS) at /admin/. Its configuration,
+# public/admin/config.yml, is generated from this file by scripts/cms-config.mjs
+# before every `npm run dev` and `npm run build`.
+cms:
+  repo: MIProSoft-Lab/miprosoft-site   # GitHub repository the editor commits to
+  branch: main
+  # URL of an OAuth client such as Sveltia CMS Authenticator
+  # (https://github.com/sveltia/sveltia-cms-auth) to offer "Sign In with GitHub".
+  # Without it, editors sign in with a GitHub access token.
+  # authUrl: https://sveltia-cms-auth.<account>.workers.dev
+
 # Languages the site is generated in.
 languages: [en, ca, es]
 

@@ -1,0 +1,23 @@
+en:
+  title: "Sample course: placeholder title"
+  order: 1
+  type: postgraduate
+  summary: This is a sample course with placeholder text, to show how courses look on the website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  instructors:
+    - antonia-mas
+    - antoni-mesquida
+  start: 2027-02
+  end: 2027-06
+  format: hybrid
+  languages:
+    - ca
+    - es
+  ects: 6
+  institution: Universitat de les Illes Balears
+  url: https://www.uib.eu
+ca:
+  title: "Curs d'exemple: títol provisional"
+  summary: Aquest és un curs d'exemple amb text provisional, per mostrar com es veuen els cursos al web. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+es:
+  title: "Curso de ejemplo: título provisional"
+  summary: Este es un curso de ejemplo con texto provisional, para mostrar cómo se ven los cursos en la web. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

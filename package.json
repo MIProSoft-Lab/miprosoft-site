@@ -5,12 +5,16 @@
   "scripts": {
     "fetch": "node scripts/fetch.mjs",
     "fetch:jcr": "node scripts/fetch-jcr.mjs",
+    "predev": "node scripts/cms-config.mjs",
     "dev": "astro dev",
+    "prebuild": "node scripts/cms-config.mjs",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "cms:config": "node scripts/cms-config.mjs"
   },
   "dependencies": {
     "astro": "^7.4.4",
+    "marked": "^18.1.2",
     "yaml": "^2.9.1"
   }
 }

@@ -1,7 +1,16 @@
-// News and blog posts (src/content/news/<slug>/<lang>.md), grouped by post with
-// one version per language.
-import { getCollection } from 'astro:content';
-import { languages, defaultLang, memberById } from './data.js';
+// News and blog posts: content/news/<slug>/index.yaml (all languages, edited in
+// the CMS at /admin/), with their images in the same folder.
+import { getImage } from 'astro:assets';
+import { marked } from 'marked';
+import { memberById } from './data.js';
+import { readEntries, localize, toDate } from './content.js';
+
+// The posts' images, by path, so they can be resized and converted at build time.
+const images = import.meta.glob('/content/news/*/*.{png,jpg,jpeg,webp,gif,avif,svg,PNG,JPG,JPEG,WEBP}', {
+  eager: true,
+  import: 'default',
+});
+const imageOf = (slug, name) => (name ? images[`/content/news/${slug}/${String(name).replace(/^\.?\//, '')}`] : undefined);
 
 // "**Bold** [link](url) text" -> "Bold link text", for summaries made from the body.
 const plainText = (md = '') =>
@@ -23,38 +32,34 @@ function excerpt(md, max = 220) {
   return text.slice(0, text.lastIndexOf(' ', max)).replace(/[,;:.]$/, '') + '…';
 }
 
+// Member ids (linked to their profiles) plus other names.
+export const people = (ids = [], guests = []) => [
+  ...(ids ?? []).map((a) => {
+    const member = memberById.get(a);
+    return member ? { id: a, name: member.name, member } : { name: a };
+  }),
+  ...(guests ?? []).filter(Boolean).map((name) => ({ name })),
+];
+
 let cache;
 
-// All posts, newest first. Cached for the build;
-// in dev, read every time so new and edited posts show up on reload.
+// All posts, newest first. Cached for the build; in dev, read every time so
+// new and edited posts show up on reload.
 export async function getPosts() {
   if (cache && !import.meta.env.DEV) return cache;
-  const bySlug = new Map();
-  for (const entry of await getCollection('news')) {
-    const [, slug, lang] = entry.filePath.match(/([^/\\]+)[/\\]([^/\\]+)\.md$/) ?? [];
-    if (!languages.includes(lang)) {
-      throw new Error(`${entry.filePath}: the file name must be a language of the site (${languages.join(', ')}).md`);
-    }
-    if (!bySlug.has(slug)) bySlug.set(slug, {});
-    bySlug.get(slug)[lang] = entry;
-  }
-
-  cache = [...bySlug.entries()]
-    .map(([slug, versions]) => {
-      // Shared fields come from the default language, or the first one present.
-      const baseLang = versions[defaultLang] ? defaultLang : languages.find((l) => versions[l]);
-      const base = versions[baseLang].data;
-      if (!base.date) throw new Error(`src/content/news/${slug}/${baseLang}.md: add a date (e.g. date: 2026-11-02)`);
+  cache = readEntries('content/news', { bundles: true })
+    .map((entry) => {
+      const { base, slug, path } = entry;
+      const date = toDate(base.date);
+      if (!date) throw new Error(`${path}: add a date (e.g. date: 2026-11-02)`);
+      if (base.image && !imageOf(slug, base.image)) throw new Error(`${path}: image "${base.image}" not found next to it`);
       return {
+        entry,
         slug,
-        versions,
-        date: base.date,
+        date,
         kind: base.kind ?? 'news',
-        image: base.image,
-        authors: (base.authors ?? []).map((a) => {
-          const member = memberById.get(a);
-          return member ? { id: a, name: member.name, member } : { name: a };
-        }),
+        image: imageOf(slug, base.image),
+        authors: people(base.authors, base.guestAuthors),
       };
     })
     .sort((a, b) => b.date - a.date || a.slug.localeCompare(b.slug));
@@ -62,18 +67,38 @@ export async function getPosts() {
 }
 
 // A post in one language: that version if it exists, otherwise the default
-// language's (or the first available), with `translated: false`.
+// language's, with `translated: false`.
 export function inLanguage(post, lang) {
-  const shown = post.versions[lang] ? lang : post.versions[defaultLang] ? defaultLang : languages.find((l) => post.versions[l]);
-  const entry = post.versions[shown];
-  const baseAlt = Object.values(post.versions).find((v) => v.data.imageAlt)?.data.imageAlt;
+  const text = localize(post.entry, lang);
   return {
     ...post,
-    lang: shown,
-    translated: shown === lang,
-    entry,
-    title: entry.data.title,
-    summary: entry.data.summary ?? excerpt(entry.body),
-    imageAlt: entry.data.imageAlt ?? baseAlt ?? '',
+    lang: text.lang,
+    translated: text.translated,
+    title: text.title,
+    summary: text.summary || excerpt(text.body),
+    imageAlt: text.imageAlt ?? '',
+    body: text.body ?? '',
   };
+}
+
+// Typographic apostrophes after a letter (l'equip -> l’equip, group's -> group’s,
+// d'[ORCID](…) -> d’ORCID),
+// as Astro's own Markdown does; code is left alone.
+marked.use({
+  walkTokens(token) {
+    if (token.type === 'text' && !token.tokens) token.text = token.text.replace(/(\p{L})'(?=\p{L}|$)/gu, '$1\u2019');
+  },
+});
+
+// The post's Markdown as HTML. Images next to the post are resized and
+// converted like the cover image.
+export async function renderBody(post) {
+  let md = post.body;
+  for (const [match, alt, src] of md.matchAll(/!\[([^\]]*)\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/g)) {
+    const meta = imageOf(post.slug, src);
+    if (!meta) continue;
+    const img = await getImage({ src: meta, width: Math.min(meta.width, 1400), format: 'webp' });
+    md = md.replace(match, `![${alt}](${img.src})`);
+  }
+  return marked.parse(md, { async: false });
 }

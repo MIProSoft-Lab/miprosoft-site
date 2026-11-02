@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { parse } from 'yaml';
 import { parseLooseDate } from './format.js';
 import { articleKey, orcidFile, personFile } from './articles.js';
+import { readEntries } from './content.js';
 
 const file = (path) => resolve(process.cwd(), path);
 const read = (path) => readFileSync(file(path), 'utf8');
@@ -296,18 +297,33 @@ export const group = {
 
 // ---------- Courses ----------
 
-// data/courses.yaml: courses the group currently teaches, in the order given.
-export const courses = (readYaml('data/courses.yaml').courses ?? []).map((c, i) => ({
-  ...c,
-  id: c.id ?? `course-${i + 1}`,
-  start: parseLooseDate(c.start),
-  end: parseLooseDate(c.end),
-  languages: c.languages ?? [],
-  instructors: (c.instructors ?? []).map((name) => {
-    const member = memberById.get(name);
-    return member ? { id: name, name: member.name, member } : { name };
-  }),
-}));
+// content/courses/<slug>.yaml (all languages, edited in the CMS at /admin/):
+// courses the group currently teaches, by `order` and then title.
+export const courses = readEntries('content/courses')
+  .map((entry) => {
+    const b = entry.base;
+    return {
+      entry,
+      id: entry.slug,
+      order: Number(b.order ?? 999),
+      type: b.type,
+      start: parseLooseDate(b.start),
+      end: parseLooseDate(b.end),
+      format: b.format,
+      languages: b.languages ?? [],
+      ects: b.ects,
+      hours: b.hours,
+      url: b.url,
+      instructors: [
+        ...(b.instructors ?? []).map((name) => {
+          const member = memberById.get(name);
+          return member ? { id: name, name: member.name, member } : { name };
+        }),
+        ...(b.guestInstructors ?? []).filter(Boolean).map((name) => ({ name })),
+      ],
+    };
+  })
+  .sort((a, b) => a.order - b.order || String(a.entry.base.title).localeCompare(String(b.entry.base.title)));
 
 export function hasContent(cv, section) {
   if (section === 'about') return Boolean(cv.about) || cv.profile.keywords.length > 0;

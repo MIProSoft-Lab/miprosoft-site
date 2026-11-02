@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Content editor</title>
+    <!--
+      The editor in the website's look: UIB blue (#0065BD), the light blue tint
+      (#E7EDF7) and UIB sans. Sveltia CMS is themed with CSS variables
+      (--sui-*), set per theme on :root[data-theme=light|dark] or, in automatic
+      mode, by prefers-color-scheme; the selectors below are one notch more
+      specific so they win in every mode. Only variables are changed, not
+      Sveltia's markup, so updates are unlikely to break it.
+    -->
+    <style>
+      @font-face { font-family: UIBsans; font-weight: 300; font-display: swap; src: url('fonts/UIBsans-Light.ttf') format('truetype'); }
+      @font-face { font-family: UIBsans; font-weight: 400; font-display: swap; src: url('fonts/UIBsans-Regular.ttf') format('truetype'); }
+      @font-face { font-family: UIBsans; font-weight: 400; font-style: italic; font-display: swap; src: url('fonts/UIBsans-Italic.ttf') format('truetype'); }
+      @font-face { font-family: UIBsans; font-weight: 700; font-display: swap; src: url('fonts/UIBsans-Bold.ttf') format('truetype'); }
+
+      html:root {
+        --sui-font-family-default: UIBsans, Arial, 'Liberation Sans', Helvetica, sans-serif;
+        --sui-control-medium-border-radius: 6px;
+        --sui-control-large-border-radius: 10px;
+      }
+
+      /* Light: white, with the UIB tint for side bars and toolbars. */
+      html:root[data-theme='light'] {
+        --sui-base-hue: 214;
+        --sui-background-color-2-hsl: 214 40% 99%;
+        --sui-background-color-3-hsl: 216 52% 94%;   /* #E7EDF7 */
+        --sui-background-color-4-hsl: 216 45% 90%;
+        --sui-background-color-5-hsl: 216 38% 80%;
+        --sui-primary-accent-color: #0065bd;
+        --sui-primary-accent-color-light: #1a77c9;
+        --sui-primary-accent-color-dark: #004f94;
+        --sui-primary-accent-color-text: #0065bd;
+        --sui-primary-accent-color-translucent: rgb(0 101 189 / 55%);
+        --sui-primary-accent-color-translucent-light: rgb(0 101 189 / 25%);
+      }
+      @media (prefers-color-scheme: light) {
+        html:root:not([data-theme]) {
+          --sui-base-hue: 214;
+          --sui-background-color-2-hsl: 214 40% 99%;
+          --sui-background-color-3-hsl: 216 52% 94%;
+          --sui-background-color-4-hsl: 216 45% 90%;
+          --sui-background-color-5-hsl: 216 38% 80%;
+          --sui-primary-accent-color: #0065bd;
+          --sui-primary-accent-color-light: #1a77c9;
+          --sui-primary-accent-color-dark: #004f94;
+          --sui-primary-accent-color-text: #0065bd;
+          --sui-primary-accent-color-translucent: rgb(0 101 189 / 55%);
+          --sui-primary-accent-color-translucent-light: rgb(0 101 189 / 25%);
+        }
+      }
+
+      /* Dark: the site's dark blues; links and focus in the lighter UIB blue. */
+      html:root[data-theme='dark'] {
+        --sui-base-hue: 216;
+        --sui-primary-accent-color: #0a4f91;
+        --sui-primary-accent-color-light: #0b5aa6;
+        --sui-primary-accent-color-dark: #083a6b;
+        --sui-primary-accent-color-text: #6aaef2;
+        --sui-primary-accent-color-translucent: rgb(106 174 242 / 50%);
+        --sui-primary-accent-color-translucent-light: rgb(106 174 242 / 25%);
+      }
+      @media (prefers-color-scheme: dark) {
+        html:root:not([data-theme]) {
+          --sui-base-hue: 216;
+          --sui-primary-accent-color: #0a4f91;
+          --sui-primary-accent-color-light: #0b5aa6;
+          --sui-primary-accent-color-dark: #083a6b;
+          --sui-primary-accent-color-text: #6aaef2;
+          --sui-primary-accent-color-translucent: rgb(106 174 242 / 50%);
+          --sui-primary-accent-color-translucent-light: rgb(106 174 242 / 25%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sveltia CMS (https://sveltiacms.app), pinned to a tested version; it reads config.yml next to this file. -->
+    <script src="https://unpkg.com/@sveltia/cms@0.256.1/dist/sveltia-cms.js"></script>
+    <script>
+      // Previews of entries use the site's typography and colours.
+      CMS.registerPreviewStyle('preview.css');
+    </script>
+  </body>
+</html>

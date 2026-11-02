@@ -1,0 +1,37 @@
+en:
+  title: Our new website
+  date: 2026-11-02
+  kind: news
+  authors:
+    - antonio-crespi
+  summary: The group now has a website that brings together our people, publications and news, kept up to date from ORCID.
+  body: |
+    We have launched a new website for the group. It brings together:
+
+    - **People**: a profile for each member, with their publications, education and other activity.
+    - **Publications**: every paper by the group, once each, with a filter by author, citation figures and open-access links.
+    - **News and blog**: announcements and posts about what we do, like this one.
+
+    Publications are kept up to date automatically from [ORCID](https://orcid.org), so the site stays current without manual editing.
+ca:
+  title: El nostre nou web
+  summary: El grup ja té un web que reuneix les persones, les publicacions i les notícies, actualitzat a partir d'ORCID.
+  body: |
+    Hem estrenat un nou web per al grup. Hi trobareu:
+
+    - **Persones**: un perfil per a cada membre, amb les seves publicacions, formació i altres activitats.
+    - **Publicacions**: tots els articles del grup, un sol cop cadascun, amb un filtre per autor, dades de citacions i enllaços d'accés obert.
+    - **Notícies i blog**: anuncis i entrades sobre la nostra feina, com aquesta.
+
+    Les publicacions s'actualitzen automàticament a partir d'[ORCID](https://orcid.org), de manera que el web es manté al dia sense edició manual.
+es:
+  title: Nuestra nueva web
+  summary: El grupo ya tiene una web que reúne a las personas, las publicaciones y las noticias, actualizada a partir de ORCID.
+  body: |
+    Hemos estrenado una nueva web para el grupo. En ella encontraréis:
+
+    - **Personas**: un perfil para cada miembro, con sus publicaciones, formación y otras actividades.
+    - **Publicaciones**: todos los artículos del grupo, una sola vez cada uno, con un filtro por autor, datos de citas y enlaces de acceso abierto.
+    - **Noticias y blog**: anuncios y entradas sobre nuestro trabajo, como esta.
+
+    Las publicaciones se actualizan automáticamente a partir de [ORCID](https://orcid.org), de modo que la web se mantiene al día sin edición manual.

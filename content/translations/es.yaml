@@ -1,0 +1,127 @@
+# Interface texts in Español. Edit them in the CMS (/admin/) or here.
+# {n}, {total}, {year} and {language} are replaced by values; keep them as they are.
+# "one" / "other": the text for exactly one, and for any other number.
+langName: Español
+nav:
+  home: Inicio
+  people: Personas
+  publications: Publicaciones
+  news: Noticias
+  courses: Cursos
+courses:
+  title: Cursos
+  lead: Cursos que impartimos actualmente.
+  types:
+    master: Máster
+    postgraduate: Posgrado
+    short: Curso breve
+    workshop: Taller
+    online: Curso en línea
+    other: Curso
+  formats:
+    in-person: Presencial
+    online: En línea
+    hybrid: Híbrido
+  instructors: Profesorado
+  dates: Fechas
+  schedule: Horario
+  format: Modalidad
+  languages: Idiomas
+  workload: Duración
+  ects: "{n} ECTS"
+  hours:
+    one: "{n} hora"
+    other: "{n} horas"
+  institution: Institución
+  moreInfo: Más información
+news:
+  title: Noticias y blog
+  latest: Últimas noticias
+  all: Todas las noticias
+  kinds:
+    news: Noticia
+    blog: Blog
+  filters:
+    all: Todo
+    news: Noticias
+    blog: Blog
+  by: Por
+  empty: Todavía no hay ninguna entrada.
+  notTranslated: Esta entrada no está disponible en español; se muestra en {language}.
+  back: Todas las noticias
+skipToContent: Ir al contenido
+researchGroup: Grupo de investigación
+latestPublications: Últimas publicaciones
+allPublications: Todas las publicaciones
+viewProfile: Ver el perfil
+allMembers: Todos los miembros
+filterByMember: Autor
+showing: Se muestran {n} de {total}
+groupFigures: El grupo en cifras
+seeAll: Ver todas
+sections:
+  members: Miembros
+  about: Presentación
+  employment: Experiencia profesional
+  education: Formación
+  publications: Publicaciones
+  funding: Financiación
+  distinctions: Premios y distinciones
+  talks: Ponencias
+  teaching: Docencia
+  supervision: Dirección de trabajos
+  software: Software
+  invitedPositions: Estancias y puestos invitados
+  memberships: Afiliaciones
+  service: Servicios
+  peerReview: Revisión por pares
+  skills: Competencias
+  languages: Idiomas
+workGroups:
+  journal: Artículos en revistas
+  conference: Artículos en congresos
+  preprint: Preprints
+  book: Libros y capítulos
+  thesis: Tesis
+  data: Datos y software
+  other: Otros
+present: actualidad
+selected: Seleccionadas
+all: Todas
+citations:
+  one: "{n} cita"
+  other: "{n} citas"
+reviews:
+  one: "{n} revisión"
+  other: "{n} revisiones"
+invited: invitada
+grant: Ref.
+lastUpdated: Última actualización
+sourceOrcid: Datos sincronizados desde
+themeDark: Cambiar al tema oscuro
+themeLight: Cambiar al tema claro
+keywords: Áreas de investigación
+abstract: Resumen
+openAccess: Acceso abierto
+oaStatus:
+  diamond: "Acceso abierto diamante: gratuito para leer y para publicar"
+  gold: "Acceso abierto dorado: publicado en una revista de acceso abierto"
+  hybrid: "Acceso abierto híbrido: con licencia abierta en una revista de suscripción"
+  green: "Acceso abierto verde: copia gratuita en un repositorio"
+  bronze: De lectura gratuita en la editorial, sin licencia abierta
+license: Licencia
+jifTooltip: Factor de impacto {year} (Clarivate Journal Citation Reports)
+jcrTooltip: Posición en la categoría en los Clarivate Journal Citation Reports {year}
+percentile: Percentil
+inCategory: en
+tldr: En breve
+via: vía
+metrics:
+  members: Miembros
+  publications: Publicaciones
+  citations: Citas
+  hIndex: Índice h
+  i10Index: Índice i10
+  perYear: Citas por año
+  year: Año
+  source: Datos de citas de

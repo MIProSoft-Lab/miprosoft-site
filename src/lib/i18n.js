@@ -1,331 +1,66 @@
-// UI strings per language. To add a language, copy one block, translate it,
-// and add the code to `languages` in site.config.yaml.
-export const ui = {
-  en: {
-    langName: 'English',
-    nav: { home: 'Home', people: 'People', publications: 'Publications', news: 'News', courses: 'Courses' },
-    courses: {
-      title: 'Courses',
-      lead: 'Courses we currently teach.',
-      types: { master: "Master's", postgraduate: 'Postgraduate', short: 'Short course', workshop: 'Workshop', online: 'Online course', other: 'Course' },
-      formats: { 'in-person': 'In person', online: 'Online', hybrid: 'Hybrid' },
-      instructors: 'Instructors',
-      dates: 'Dates',
-      schedule: 'Schedule',
-      format: 'Format',
-      languages: 'Taught in',
-      workload: 'Workload',
-      ects: (n) => `${n} ECTS`,
-      hours: (n) => `${n} hours`,
-      institution: 'Institution',
-      moreInfo: 'More information',
-    },
-    news: {
-      title: 'News & blog',
-      latest: 'Latest news',
-      all: 'All news',
-      kinds: { news: 'News', blog: 'Blog' },
-      filters: { all: 'All', news: 'News', blog: 'Blog' },
-      by: 'By',
-      empty: 'Nothing posted yet.',
-      notTranslated: (shown) => `This post is not available in English; it is shown in ${shown}.`,
-      back: 'All news',
-    },
-    skipToContent: 'Skip to content',
-    researchGroup: 'Research group',
-    latestPublications: 'Latest publications',
-    allPublications: 'All publications',
-    viewProfile: 'View profile',
-    allMembers: 'All members',
-    filterByMember: 'Author',
-    showing: (n, total) => `Showing ${n} of ${total}`,
-    groupFigures: 'The group in figures',
-    seeAll: 'See all',
-    sections: {
-      members: 'Members',
-      about: 'About',
-      employment: 'Employment',
-      education: 'Education',
-      publications: 'Publications',
-      funding: 'Funding',
-      distinctions: 'Awards & distinctions',
-      talks: 'Talks',
-      teaching: 'Teaching',
-      supervision: 'Supervision',
-      software: 'Software',
-      invitedPositions: 'Invited positions',
-      memberships: 'Memberships',
-      service: 'Service',
-      peerReview: 'Peer review',
-      skills: 'Skills',
-      languages: 'Languages',
-    },
-    workGroups: {
-      journal: 'Journal articles',
-      conference: 'Conference papers',
-      preprint: 'Preprints',
-      book: 'Books & chapters',
-      thesis: 'Theses',
-      data: 'Datasets & software',
-      other: 'Other',
-    },
-    present: 'present',
-    selected: 'Selected',
-    all: 'All',
-    citations: (n) => `${n} citation${n === 1 ? '' : 's'}`,
-    reviews: (n) => `${n} review${n === 1 ? '' : 's'}`,
-    invited: 'invited',
-    grant: 'Grant no.',
-    lastUpdated: 'Last updated',
-    sourceOrcid: 'Data synchronised from',
-    themeDark: 'Switch to dark theme',
-    themeLight: 'Switch to light theme',
-    keywords: 'Research interests',
-    abstract: 'Abstract',
-    openAccess: 'Open access',
-    oaStatus: {
-      diamond: 'Diamond open access: free to read and to publish',
-      gold: 'Gold open access: published in an open-access journal',
-      hybrid: 'Hybrid open access: openly licensed in a subscription journal',
-      green: 'Green open access: free copy in a repository',
-      bronze: 'Free to read on the publisher site, without an open licence',
-    },
-    license: 'Licence',
-    jifTooltip: (year) => `Journal Impact Factor ${year} (Clarivate Journal Citation Reports)`,
-    jcrTooltip: (year) => `Category rank in the Clarivate Journal Citation Reports ${year}`,
-    percentile: 'Percentile',
-    inCategory: 'in',
-    tldr: 'In short',
-    via: 'via',
-    metrics: {
-      members: 'Members',
-      publications: 'Publications',
-      citations: 'Citations',
-      hIndex: 'h-index',
-      i10Index: 'i10-index',
-      perYear: 'Citations per year',
-      year: 'Year',
-      source: 'Citation data from',
-    },
-  },
-  ca: {
-    langName: 'Català',
-    nav: { home: 'Inici', people: 'Persones', publications: 'Publicacions', news: 'Notícies', courses: 'Cursos' },
-    courses: {
-      title: 'Cursos',
-      lead: 'Cursos que impartim actualment.',
-      types: { master: 'Màster', postgraduate: 'Postgrau', short: 'Curs breu', workshop: 'Taller', online: 'Curs en línia', other: 'Curs' },
-      formats: { 'in-person': 'Presencial', online: 'En línia', hybrid: 'Híbrid' },
-      instructors: 'Professorat',
-      dates: 'Dates',
-      schedule: 'Horari',
-      format: 'Modalitat',
-      languages: 'Llengües',
-      workload: 'Durada',
-      ects: (n) => `${n} ECTS`,
-      hours: (n) => `${n} hores`,
-      institution: 'Institució',
-      moreInfo: 'Més informació',
-    },
-    news: {
-      title: 'Notícies i blog',
-      latest: 'Darreres notícies',
-      all: 'Totes les notícies',
-      kinds: { news: 'Notícia', blog: 'Blog' },
-      filters: { all: 'Tot', news: 'Notícies', blog: 'Blog' },
-      by: 'Per',
-      empty: 'Encara no hi ha cap publicació.',
-      notTranslated: (shown) => `Aquesta entrada no està disponible en català; es mostra en ${shown}.`,
-      back: 'Totes les notícies',
-    },
-    skipToContent: 'Vés al contingut',
-    researchGroup: 'Grup de recerca',
-    latestPublications: 'Darreres publicacions',
-    allPublications: 'Totes les publicacions',
-    viewProfile: 'Veure el perfil',
-    allMembers: 'Tots els membres',
-    filterByMember: 'Autor',
-    showing: (n, total) => `Se'n mostren ${n} de ${total}`,
-    groupFigures: 'El grup en xifres',
-    seeAll: 'Veure-les totes',
-    sections: {
-      members: 'Membres',
-      about: 'Presentació',
-      employment: 'Experiència professional',
-      education: 'Formació',
-      publications: 'Publicacions',
-      funding: 'Finançament',
-      distinctions: 'Premis i distincions',
-      talks: 'Ponències',
-      teaching: 'Docència',
-      supervision: 'Direcció de treballs',
-      software: 'Programari',
-      invitedPositions: 'Estades i posicions convidades',
-      memberships: 'Afiliacions',
-      service: 'Serveis',
-      peerReview: 'Revisió per parells',
-      skills: 'Competències',
-      languages: 'Idiomes',
-    },
-    workGroups: {
-      journal: 'Articles en revistes',
-      conference: 'Articles en congressos',
-      preprint: 'Preprints',
-      book: 'Llibres i capítols',
-      thesis: 'Tesis',
-      data: 'Dades i programari',
-      other: 'Altres',
-    },
-    present: 'actualitat',
-    selected: 'Seleccionades',
-    all: 'Totes',
-    citations: (n) => `${n} citaci${n === 1 ? 'ó' : 'ons'}`,
-    reviews: (n) => `${n} revisi${n === 1 ? 'ó' : 'ons'}`,
-    invited: 'convidada',
-    grant: 'Ref.',
-    lastUpdated: 'Darrera actualització',
-    sourceOrcid: 'Dades sincronitzades des de',
-    themeDark: 'Canvia al tema fosc',
-    themeLight: 'Canvia al tema clar',
-    keywords: 'Àmbits de recerca',
-    abstract: 'Resum',
-    openAccess: 'Accés obert',
-    oaStatus: {
-      diamond: 'Accés obert diamant: gratuït per llegir i per publicar',
-      gold: 'Accés obert daurat: publicat en una revista d’accés obert',
-      hybrid: 'Accés obert híbrid: amb llicència oberta en una revista de subscripció',
-      green: 'Accés obert verd: còpia gratuïta en un repositori',
-      bronze: 'De lectura gratuïta a l’editorial, sense llicència oberta',
-    },
-    license: 'Llicència',
-    jifTooltip: (year) => `Factor d'impacte ${year} (Clarivate Journal Citation Reports)`,
-    jcrTooltip: (year) => `Posició a la categoria als Clarivate Journal Citation Reports ${year}`,
-    percentile: 'Percentil',
-    inCategory: 'a',
-    tldr: 'En breu',
-    via: 'via',
-    metrics: {
-      members: 'Membres',
-      publications: 'Publicacions',
-      citations: 'Citacions',
-      hIndex: 'Índex h',
-      i10Index: 'Índex i10',
-      perYear: 'Citacions per any',
-      year: 'Any',
-      source: 'Dades de citacions de',
-    },
-  },
-  es: {
-    langName: 'Español',
-    nav: { home: 'Inicio', people: 'Personas', publications: 'Publicaciones', news: 'Noticias', courses: 'Cursos' },
-    courses: {
-      title: 'Cursos',
-      lead: 'Cursos que impartimos actualmente.',
-      types: { master: 'Máster', postgraduate: 'Posgrado', short: 'Curso breve', workshop: 'Taller', online: 'Curso en línea', other: 'Curso' },
-      formats: { 'in-person': 'Presencial', online: 'En línea', hybrid: 'Híbrido' },
-      instructors: 'Profesorado',
-      dates: 'Fechas',
-      schedule: 'Horario',
-      format: 'Modalidad',
-      languages: 'Idiomas',
-      workload: 'Duración',
-      ects: (n) => `${n} ECTS`,
-      hours: (n) => `${n} horas`,
-      institution: 'Institución',
-      moreInfo: 'Más información',
-    },
-    news: {
-      title: 'Noticias y blog',
-      latest: 'Últimas noticias',
-      all: 'Todas las noticias',
-      kinds: { news: 'Noticia', blog: 'Blog' },
-      filters: { all: 'Todo', news: 'Noticias', blog: 'Blog' },
-      by: 'Por',
-      empty: 'Todavía no hay ninguna entrada.',
-      notTranslated: (shown) => `Esta entrada no está disponible en español; se muestra en ${shown}.`,
-      back: 'Todas las noticias',
-    },
-    skipToContent: 'Ir al contenido',
-    researchGroup: 'Grupo de investigación',
-    latestPublications: 'Últimas publicaciones',
-    allPublications: 'Todas las publicaciones',
-    viewProfile: 'Ver el perfil',
-    allMembers: 'Todos los miembros',
-    filterByMember: 'Autor',
-    showing: (n, total) => `Se muestran ${n} de ${total}`,
-    groupFigures: 'El grupo en cifras',
-    seeAll: 'Ver todas',
-    sections: {
-      members: 'Miembros',
-      about: 'Presentación',
-      employment: 'Experiencia profesional',
-      education: 'Formación',
-      publications: 'Publicaciones',
-      funding: 'Financiación',
-      distinctions: 'Premios y distinciones',
-      talks: 'Ponencias',
-      teaching: 'Docencia',
-      supervision: 'Dirección de trabajos',
-      software: 'Software',
-      invitedPositions: 'Estancias y puestos invitados',
-      memberships: 'Afiliaciones',
-      service: 'Servicios',
-      peerReview: 'Revisión por pares',
-      skills: 'Competencias',
-      languages: 'Idiomas',
-    },
-    workGroups: {
-      journal: 'Artículos en revistas',
-      conference: 'Artículos en congresos',
-      preprint: 'Preprints',
-      book: 'Libros y capítulos',
-      thesis: 'Tesis',
-      data: 'Datos y software',
-      other: 'Otros',
-    },
-    present: 'actualidad',
-    selected: 'Seleccionadas',
-    all: 'Todas',
-    citations: (n) => `${n} cita${n === 1 ? '' : 's'}`,
-    reviews: (n) => `${n} revisi${n === 1 ? 'ón' : 'ones'}`,
-    invited: 'invitada',
-    grant: 'Ref.',
-    lastUpdated: 'Última actualización',
-    sourceOrcid: 'Datos sincronizados desde',
-    themeDark: 'Cambiar al tema oscuro',
-    themeLight: 'Cambiar al tema claro',
-    keywords: 'Áreas de investigación',
-    abstract: 'Resumen',
-    openAccess: 'Acceso abierto',
-    oaStatus: {
-      diamond: 'Acceso abierto diamante: gratuito para leer y para publicar',
-      gold: 'Acceso abierto dorado: publicado en una revista de acceso abierto',
-      hybrid: 'Acceso abierto híbrido: con licencia abierta en una revista de suscripción',
-      green: 'Acceso abierto verde: copia gratuita en un repositorio',
-      bronze: 'De lectura gratuita en la editorial, sin licencia abierta',
-    },
-    license: 'Licencia',
-    jifTooltip: (year) => `Factor de impacto ${year} (Clarivate Journal Citation Reports)`,
-    jcrTooltip: (year) => `Posición en la categoría en los Clarivate Journal Citation Reports ${year}`,
-    percentile: 'Percentil',
-    inCategory: 'en',
-    tldr: 'En breve',
-    via: 'vía',
-    metrics: {
-      members: 'Miembros',
-      publications: 'Publicaciones',
-      citations: 'Citas',
-      hIndex: 'Índice h',
-      i10Index: 'Índice i10',
-      perYear: 'Citas por año',
-      year: 'Año',
-      source: 'Datos de citas de',
-    },
-  },
-};
+// Interface texts per language, from content/translations/<lang>.yaml (editable
+// in the CMS at /admin/). To add a language, add its code to `languages` in
+// site.config.yaml and translate a copy of en.yaml.
+import { readFileSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { parse } from 'yaml';
+
+const file = (path) => resolve(process.cwd(), path);
+const readYaml = (path) => (existsSync(file(path)) ? parse(readFileSync(file(path), 'utf8')) ?? {} : {});
+
+const config = readYaml('site.config.yaml');
+const languages = config.languages?.length ? config.languages : ['en'];
+const defaultLang = languages[0];
+
+// Texts that take values. In the YAML they are templates with {placeholders};
+// here they become functions, called with the value of their only placeholder
+// (t.citations(3)) or with an object ({ n: 3, total: 10 }). A template with
+// `one` and `other` forms picks one by the number {n}.
+const TEMPLATES = new Set([
+  'citations', 'reviews', 'showing', 'jifTooltip', 'jcrTooltip',
+  'news.notTranslated', 'courses.ects', 'courses.hours',
+]);
+
+function template(value, lang) {
+  const forms = typeof value === 'object' ? value : { other: value };
+  const first = (forms.other ?? '').match(/\{(\w+)\}/)?.[1] ?? 'n';
+  const plural = new Intl.PluralRules(lang);
+  return (arg) => {
+    const params = arg !== null && typeof arg === 'object' ? arg : { [first]: arg };
+    const text = (typeof params.n === 'number' && forms[plural.select(params.n)]) || forms.other || '';
+    return text.replace(/\{(\w+)\}/g, (m, name) => (name in params ? String(params[name]) : m));
+  };
+}
+
+// Missing or empty texts in a language are taken from the default language.
+function merge(base, over) {
+  const out = { ...base };
+  for (const [k, v] of Object.entries(over ?? {})) {
+    out[k] = v && typeof v === 'object' && !Array.isArray(v) && base?.[k] && typeof base[k] === 'object' && !isForms(v)
+      ? merge(base[k], v)
+      : v == null || v === '' ? base?.[k] : v;
+  }
+  return out;
+}
+const isForms = (v) => 'other' in v || 'one' in v;
+
+function compile(obj, lang, path = []) {
+  return Object.fromEntries(
+    Object.entries(obj).map(([k, v]) => {
+      const key = [...path, k].join('.');
+      if (TEMPLATES.has(key)) return [k, template(v, lang)];
+      return [k, v && typeof v === 'object' && !Array.isArray(v) ? compile(v, lang, [...path, k]) : v];
+    }),
+  );
+}
+
+const raw = Object.fromEntries(languages.map((l) => [l, readYaml(`content/translations/${l}.yaml`)]));
+export const ui = Object.fromEntries(
+  languages.map((l) => [l, compile(l === defaultLang ? raw[l] : merge(raw[defaultLang], raw[l]), l)]),
+);
 
 export function strings(lang) {
-  return ui[lang] ?? ui.en;
+  return ui[lang] ?? ui[defaultLang];
 }
 
 // A localized value is a string or a { lang: string } map.

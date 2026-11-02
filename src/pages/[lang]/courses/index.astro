@@ -1,11 +1,12 @@
 ---
-// Courses the group currently teaches (data/courses.yaml).
+// Courses the group currently teaches (content/courses/*.yaml).
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import Avatar from '../../../components/Avatar.astro';
 import { courses, group, languages, defaultLang } from '../../../lib/data.js';
 import { strings, loc } from '../../../lib/i18n.js';
 import { formatRange } from '../../../lib/format.js';
+import { localize } from '../../../lib/content.js';
 
 // Only built when there are courses (the tab is hidden otherwise).
 export function getStaticPaths() {
@@ -26,36 +27,39 @@ const languageName = (code) => {
 };
 
 // The facts shown next to each course, in this order; empty ones are left out.
+// Each course's texts in this language (or the default one where missing).
+const list = courses.map((course) => ({ ...course, text: localize(course.entry, lang) }));
+
 const facts = (course) => [
   [c.dates, course.start || course.end ? formatRange(course.start, course.end, lang) : ''],
-  [c.schedule, L(course.schedule)],
-  [c.format, c.formats[course.format] ?? L(course.format)],
+  [c.schedule, course.text.schedule],
+  [c.format, c.formats[course.format] ?? course.format],
   [c.languages, course.languages.map(languageName).join(', ')],
   [c.workload, course.ects ? c.ects(course.ects) : course.hours ? c.hours(course.hours) : ''],
-  [c.institution, L(course.institution)],
+  [c.institution, course.text.institution],
 ].filter(([, value]) => value);
 ---
 <Base lang={lang} nav="courses" path="courses/" title={`${c.title} — ${loc(group.name, lang, defaultLang)}`} description={c.lead} lastModified={null}
   jsonLd={{
     '@context': 'https://schema.org',
-    '@graph': courses.map((course) => ({
+    '@graph': list.map((course) => ({
       '@type': 'Course',
-      name: L(course.title),
-      description: L(course.summary) || undefined,
+      name: course.text.title,
+      description: course.text.summary || undefined,
       url: course.url || undefined,
-      provider: { '@type': 'Organization', name: L(course.institution) || loc(group.name, lang, defaultLang) },
+      provider: { '@type': 'Organization', name: course.text.institution || loc(group.name, lang, defaultLang) },
     })),
   }}
 >
   <PageHead slot="hero" title={c.title} lead={c.lead} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }]} />
 
   <ul class="course-list">
-    {courses.map((course) => (
+    {list.map((course) => (
       <li class="course" id={course.id}>
         <div class="course-main">
-          {course.type && <p class="news-meta"><span class="kind kind-news">{c.types[course.type] ?? L(course.type)}</span></p>}
-          <h2 class="course-title">{L(course.title)}</h2>
-          {L(course.summary) && <p class="course-summary">{L(course.summary)}</p>}
+          {course.type && <p class="news-meta"><span class="kind kind-news">{c.types[course.type] ?? course.type}</span></p>}
+          <h2 class="course-title" lang={course.text.translated ? undefined : course.text.lang}>{course.text.title}</h2>
+          {course.text.summary && <p class="course-summary" lang={course.text.translated ? undefined : course.text.lang}>{course.text.summary}</p>}
           {course.instructors.length > 0 && (
             <div class="course-instructors">
               <h3>{c.instructors}</h3>

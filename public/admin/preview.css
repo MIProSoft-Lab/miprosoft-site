@@ -1,0 +1,80 @@
+/* Entry previews in the content editor, styled like the website's post pages
+   (src/styles/site.css). The preview is an iframe where Sveltia CMS renders
+   each field as <section role="group" data-field-type data-key-path>, with an
+   <h4> label and the value. Selectors use two attributes so they win over
+   Sveltia's own class-based styles. */
+
+@font-face { font-family: UIBsans; font-weight: 300; font-display: swap; src: url('fonts/UIBsans-Light.ttf') format('truetype'); }
+@font-face { font-family: UIBsans; font-weight: 400; font-display: swap; src: url('fonts/UIBsans-Regular.ttf') format('truetype'); }
+@font-face { font-family: UIBsans; font-weight: 400; font-style: italic; font-display: swap; src: url('fonts/UIBsans-Italic.ttf') format('truetype'); }
+@font-face { font-family: UIBsans; font-weight: 700; font-display: swap; src: url('fonts/UIBsans-Bold.ttf') format('truetype'); }
+
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #5c6370;
+  --rule: #dde3ec;
+  --tint: #e7edf7;
+  --accent: #0065bd;
+  --sans: UIBsans, Arial, 'Liberation Sans', Helvetica, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161a;
+    --fg: #e8e8e8;
+    --muted: #9ba3ae;
+    --rule: #2b313a;
+    --tint: #1b2a3d;
+    --accent: #6aaef2;
+  }
+}
+
+html, body { background: var(--bg); color: var(--fg); }
+body { font: 17px/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+body { max-width: 46rem; margin: 0 auto; padding: 0.5rem 1.5rem 3rem; }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+
+/* Field labels, small and quiet like the site's meta text. */
+section[role='group'][data-field-type] > h4 {
+  margin: 1.6rem 0 0.3rem; color: var(--muted);
+  font: 700 0.72rem var(--sans); text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* The title as the post's heading. */
+section[data-key-path='title'][data-field-type] > p {
+  margin: 0; font-size: 2.1rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.01em;
+}
+/* Summary as the lead text of the cards. */
+section[data-key-path='summary'][data-field-type] > p { color: var(--muted); font-size: 1.05rem; }
+/* Cover image with the site's rounded corners. */
+section[data-field-type='image'][data-key-path] img { max-width: 100%; height: auto; border-radius: 10px; }
+/* Values: plain text like the site's body text. */
+section[role='group'][data-field-type] > p { margin: 0; }
+
+/* Markdown text: the site's .prose styles. */
+[data-rich-text-preview] h2 {
+  position: relative; margin: 2.5rem 0 1rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule); font-size: 1.45rem; line-height: 1.25;
+}
+[data-rich-text-preview] h2::after { content: ''; position: absolute; left: 0; bottom: -1px; width: 3rem; height: 3px; background: var(--accent); }
+[data-rich-text-preview] h3 { margin: 2rem 0 0.75rem; font-size: 1.15rem; }
+[data-rich-text-preview] ul,
+[data-rich-text-preview] ol { padding-left: 1.4rem; }
+[data-rich-text-preview] li::marker { color: var(--accent); }
+[data-rich-text-preview] img { max-width: 100%; height: auto; border-radius: 6px; }
+[data-rich-text-preview] blockquote {
+  margin: 1.2rem 0; padding: 0.25rem 0 0.25rem 1.1rem;
+  border-left: 3px solid var(--accent); color: var(--muted); font-style: italic;
+}
+[data-rich-text-preview] code { padding: 0.1em 0.35em; border-radius: 4px; background: var(--tint); font-size: 0.88em; }
+[data-rich-text-preview] pre { padding: 1rem 1.2rem; border-radius: 8px; background: var(--tint); overflow-x: auto; }
+[data-rich-text-preview] pre code { padding: 0; background: none; }
+[data-rich-text-preview] table { width: 100%; border-collapse: collapse; }
+[data-rich-text-preview] th,
+[data-rich-text-preview] td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--rule); text-align: left; }
+[data-rich-text-preview] th { background: var(--tint); }
+/* An image followed by a line in italics: the caption, as on the site. */
+[data-rich-text-preview] p:has(> img:only-child) + p:has(> em:only-child) {
+  margin-top: 0.4rem; color: var(--muted); font-size: 0.88rem; text-align: center;
+}

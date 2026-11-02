@@ -1,0 +1,127 @@
+# Interface texts in Català. Edit them in the CMS (/admin/) or here.
+# {n}, {total}, {year} and {language} are replaced by values; keep them as they are.
+# "one" / "other": the text for exactly one, and for any other number.
+langName: Català
+nav:
+  home: Inici
+  people: Persones
+  publications: Publicacions
+  news: Notícies
+  courses: Cursos
+courses:
+  title: Cursos
+  lead: Cursos que impartim actualment.
+  types:
+    master: Màster
+    postgraduate: Postgrau
+    short: Curs breu
+    workshop: Taller
+    online: Curs en línia
+    other: Curs
+  formats:
+    in-person: Presencial
+    online: En línia
+    hybrid: Híbrid
+  instructors: Professorat
+  dates: Dates
+  schedule: Horari
+  format: Modalitat
+  languages: Llengües
+  workload: Durada
+  ects: "{n} ECTS"
+  hours:
+    one: "{n} hora"
+    other: "{n} hores"
+  institution: Institució
+  moreInfo: Més informació
+news:
+  title: Notícies i blog
+  latest: Darreres notícies
+  all: Totes les notícies
+  kinds:
+    news: Notícia
+    blog: Blog
+  filters:
+    all: Tot
+    news: Notícies
+    blog: Blog
+  by: Per
+  empty: Encara no hi ha cap publicació.
+  notTranslated: Aquesta entrada no està disponible en català; es mostra en {language}.
+  back: Totes les notícies
+skipToContent: Vés al contingut
+researchGroup: Grup de recerca
+latestPublications: Darreres publicacions
+allPublications: Totes les publicacions
+viewProfile: Veure el perfil
+allMembers: Tots els membres
+filterByMember: Autor
+showing: Se'n mostren {n} de {total}
+groupFigures: El grup en xifres
+seeAll: Veure-les totes
+sections:
+  members: Membres
+  about: Presentació
+  employment: Experiència professional
+  education: Formació
+  publications: Publicacions
+  funding: Finançament
+  distinctions: Premis i distincions
+  talks: Ponències
+  teaching: Docència
+  supervision: Direcció de treballs
+  software: Programari
+  invitedPositions: Estades i posicions convidades
+  memberships: Afiliacions
+  service: Serveis
+  peerReview: Revisió per parells
+  skills: Competències
+  languages: Idiomes
+workGroups:
+  journal: Articles en revistes
+  conference: Articles en congressos
+  preprint: Preprints
+  book: Llibres i capítols
+  thesis: Tesis
+  data: Dades i programari
+  other: Altres
+present: actualitat
+selected: Seleccionades
+all: Totes
+citations:
+  one: "{n} citació"
+  other: "{n} citacions"
+reviews:
+  one: "{n} revisió"
+  other: "{n} revisions"
+invited: convidada
+grant: Ref.
+lastUpdated: Darrera actualització
+sourceOrcid: Dades sincronitzades des de
+themeDark: Canvia al tema fosc
+themeLight: Canvia al tema clar
+keywords: Àmbits de recerca
+abstract: Resum
+openAccess: Accés obert
+oaStatus:
+  diamond: "Accés obert diamant: gratuït per llegir i per publicar"
+  gold: "Accés obert daurat: publicat en una revista d’accés obert"
+  hybrid: "Accés obert híbrid: amb llicència oberta en una revista de subscripció"
+  green: "Accés obert verd: còpia gratuïta en un repositori"
+  bronze: De lectura gratuïta a l’editorial, sense llicència oberta
+license: Llicència
+jifTooltip: Factor d'impacte {year} (Clarivate Journal Citation Reports)
+jcrTooltip: Posició a la categoria als Clarivate Journal Citation Reports {year}
+percentile: Percentil
+inCategory: a
+tldr: En breu
+via: via
+metrics:
+  members: Membres
+  publications: Publicacions
+  citations: Citacions
+  hIndex: Índex h
+  i10Index: Índex i10
+  perYear: Citacions per any
+  year: Any
+  source: Dades de citacions de

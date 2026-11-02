@@ -1,0 +1,127 @@
+# Interface texts in English. Edit them in the CMS (/admin/) or here.
+# {n}, {total}, {year} and {language} are replaced by values; keep them as they are.
+# "one" / "other": the text for exactly one, and for any other number.
+langName: English
+nav:
+  home: Home
+  people: People
+  publications: Publications
+  news: News
+  courses: Courses
+courses:
+  title: Courses
+  lead: Courses we currently teach.
+  types:
+    master: Master's
+    postgraduate: Postgraduate
+    short: Short course
+    workshop: Workshop
+    online: Online course
+    other: Course
+  formats:
+    in-person: In person
+    online: Online
+    hybrid: Hybrid
+  instructors: Instructors
+  dates: Dates
+  schedule: Schedule
+  format: Format
+  languages: Taught in
+  workload: Workload
+  ects: "{n} ECTS"
+  hours:
+    one: "{n} hour"
+    other: "{n} hours"
+  institution: Institution
+  moreInfo: More information
+news:
+  title: News & blog
+  latest: Latest news
+  all: All news
+  kinds:
+    news: News
+    blog: Blog
+  filters:
+    all: All
+    news: News
+    blog: Blog
+  by: By
+  empty: Nothing posted yet.
+  notTranslated: This post is not available in English; it is shown in {language}.
+  back: All news
+skipToContent: Skip to content
+researchGroup: Research group
+latestPublications: Latest publications
+allPublications: All publications
+viewProfile: View profile
+allMembers: All members
+filterByMember: Author
+showing: Showing {n} of {total}
+groupFigures: The group in figures
+seeAll: See all
+sections:
+  members: Members
+  about: About
+  employment: Employment
+  education: Education
+  publications: Publications
+  funding: Funding
+  distinctions: Awards & distinctions
+  talks: Talks
+  teaching: Teaching
+  supervision: Supervision
+  software: Software
+  invitedPositions: Invited positions
+  memberships: Memberships
+  service: Service
+  peerReview: Peer review
+  skills: Skills
+  languages: Languages
+workGroups:
+  journal: Journal articles
+  conference: Conference papers
+  preprint: Preprints
+  book: Books & chapters
+  thesis: Theses
+  data: Datasets & software
+  other: Other
+present: present
+selected: Selected
+all: All
+citations:
+  one: "{n} citation"
+  other: "{n} citations"
+reviews:
+  one: "{n} review"
+  other: "{n} reviews"
+invited: invited
+grant: Grant no.
+lastUpdated: Last updated
+sourceOrcid: Data synchronised from
+themeDark: Switch to dark theme
+themeLight: Switch to light theme
+keywords: Research interests
+abstract: Abstract
+openAccess: Open access
+oaStatus:
+  diamond: "Diamond open access: free to read and to publish"
+  gold: "Gold open access: published in an open-access journal"
+  hybrid: "Hybrid open access: openly licensed in a subscription journal"
+  green: "Green open access: free copy in a repository"
+  bronze: Free to read on the publisher site, without an open licence
+license: Licence
+jifTooltip: Journal Impact Factor {year} (Clarivate Journal Citation Reports)
+jcrTooltip: Category rank in the Clarivate Journal Citation Reports {year}
+percentile: Percentile
+inCategory: in
+tldr: In short
+via: via
+metrics:
+  members: Members
+  publications: Publications
+  citations: Citations
+  hIndex: h-index
+  i10Index: i10-index
+  perYear: Citations per year
+  year: Year
+  source: Citation data from

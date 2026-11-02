@@ -46,7 +46,7 @@ const authors = filter ? members.filter((m) => works.some((w) => w.members?.incl
         {authors.map((m) => <option value={m.id}>{m.name} ({works.filter((w) => w.members?.includes(m.id)).length})</option>)}
       </select>
     </label>
-    <p class="member-filter-status" aria-live="polite" data-template={t.showing('{n}', '{total}')}></p>
+    <p class="member-filter-status" aria-live="polite" data-template={t.showing({ n: '{n}', total: '{total}' })}></p>
   </div>
 )}
 {hasSelected && (
