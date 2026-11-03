@@ -1,6 +1,6 @@
 {
   "orcid": "0000-0002-7485-4709",
-  "lastModified": "2026-11-02",
+  "lastModified": "2026-11-03",
   "person": {
     "name": "Maria Monserrat Barceló",
     "givenNames": "Maria",
@@ -20,6 +20,10 @@
       {
         "label": "Google Scholar",
         "url": "https://scholar.google.es/citations?user=HeHrdrkAAAAJ&hl=ca"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/maria-monserrat-uib"
       }
     ],
     "identifiers": [],

@@ -8,7 +8,20 @@
     "otherNames": [],
     "biography": null,
     "keywords": [],
-    "links": [],
+    "links": [
+      {
+        "label": "UIB Profile",
+        "url": "http://personal.uib.eu/antoni.mesquida"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/toni-mesquida/"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?hl=es&user=wYVsVfcAAAAJ"
+      }
+    ],
     "identifiers": [
       {
         "type": "ResearcherID",
@@ -44,7 +57,7 @@
   "education": [
     {
       "putCode": 8833367,
-      "role": "PhD",
+      "role": "Doctor (PhD) en Tecnologías de la Información y las Comunicaciones",
       "department": "Computer Science",
       "organization": {
         "name": "University of the Balearic Islands",
@@ -53,7 +66,44 @@
         "country": "ES"
       },
       "start": null,
-      "end": null,
+      "end": {
+        "year": 2012,
+        "month": 7
+      },
+      "url": null
+    },
+    {
+      "putCode": 40328772,
+      "role": "Ingeniero en Informática",
+      "department": "Computer Science",
+      "organization": {
+        "name": "University of the Balearic Islands",
+        "city": "Palma (Mallorca)",
+        "region": null,
+        "country": "ES"
+      },
+      "start": null,
+      "end": {
+        "year": 2007,
+        "month": 10
+      },
+      "url": null
+    },
+    {
+      "putCode": 40328816,
+      "role": "Ingeniero Técnico en Informática de Gestión",
+      "department": "Computer Science",
+      "organization": {
+        "name": "University of the Balearic Islands",
+        "city": "Palma (Mallorca)",
+        "region": null,
+        "country": "ES"
+      },
+      "start": null,
+      "end": {
+        "year": 2005,
+        "month": 8
+      },
       "url": null
     }
   ],
@@ -630,6 +680,19 @@
       "doi": "10.1007/978-3-319-44817-6_18",
       "arxiv": null,
       "url": "https://doi.org/10.1007/978-3-319-44817-6_18"
+    },
+    {
+      "putCode": 231996344,
+      "type": "book-chapter",
+      "title": "Refactoring Software Development Process Terminology Through the Use of Ontology",
+      "subtitle": null,
+      "venue": "Communications in Computer and Information Science",
+      "date": {
+        "year": 2016
+      },
+      "doi": "10.1007/978-3-319-44817-6_4",
+      "arxiv": null,
+      "url": "http://dx.doi.org/10.1007/978-3-319-44817-6_4"
     },
     {
       "putCode": 200897332,

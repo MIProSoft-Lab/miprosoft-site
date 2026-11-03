@@ -1,6 +1,6 @@
 {
   "orcid": "0009-0006-1673-9880",
-  "lastModified": "2026-06-04",
+  "lastModified": "2026-11-03",
   "person": {
     "name": "Antoni Bennasar Garau",
     "givenNames": "Antoni",
@@ -8,7 +8,24 @@
     "otherNames": [],
     "biography": null,
     "keywords": [],
-    "links": [],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/antoni-bennasar-0532582bb"
+      },
+      {
+        "label": "UIB Profile",
+        "url": "https://www.uib.cat/personal/ABjM2MDM5Mg/"
+      },
+      {
+        "label": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=zMhGaO0AAAAJ&hl=es"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/iwhizerd"
+      }
+    ],
     "identifiers": [],
     "emails": [
       "antoni.bennasar-garau@uib.cat"
@@ -42,6 +59,20 @@
   "funding": [],
   "works": [
     {
+      "putCode": 232067165,
+      "type": "conference-paper",
+      "title": "Desafíos y limitaciones en la gestión de calidad en sistemas de aprendizaje automático en producción",
+      "subtitle": null,
+      "venue": null,
+      "date": {
+        "year": 2026,
+        "month": 6
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2026/139"
+    },
+    {
       "putCode": 216722765,
       "type": "conference-paper",
       "title": "Improving Underwater Fish Detection and Tracking via Temporal Modeling and Deformable Convolutions",
@@ -53,6 +84,19 @@
       "doi": "10.5220/0014346800004084",
       "arxiv": null,
       "url": "http://dx.doi.org/10.5220/0014346800004084"
+    },
+    {
+      "putCode": 232068757,
+      "type": "conference-paper",
+      "title": "Inteligencia Artificial Generativa para la Captura de Requisitos: Una Revisión Sistemática",
+      "subtitle": null,
+      "venue": "Actas de las XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026)",
+      "date": {
+        "year": 2026
+      },
+      "doi": null,
+      "arxiv": null,
+      "url": "https://hdl.handle.net/11705/JISBD/2026/146"
     }
   ],
   "peerReview": []

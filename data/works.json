@@ -600,7 +600,8 @@
       "2022": 1,
       "2023": 1,
       "2024": 2
-    }
+    },
+    "tldr": "The development of such an ontology would in effect represent a systematic refactoring of the terminology and concepts produced over four decades of software process innovation."
   },
   "doi:10.1007/978-3-319-64218-5_25": {
     "authors": [
@@ -660,7 +661,8 @@
       "2018": 1,
       "2019": 1,
       "2021": 1
-    }
+    },
+    "tldr": "This work presents an overview and outlook about agile andlean approaches to help to find answers to some questions: What is the difference between agile and lean?"
   },
   "doi:10.1007/978-3-319-64218-5_4": {
     "authors": [
@@ -806,7 +808,8 @@
       "2023": 1,
       "2024": 1,
       "2026": 1
-    }
+    },
+    "tldr": "This paper shows how the different phases to celebrate effective retrospectives should be deployed, using as example the retrospective celebrated at the end of the workshop “Experiences with Agile and Lean” in the EuroAsiaSPI2 2017 conference."
   },
   "doi:10.1007/978-3-642-15666-3_26": {
     "authors": [
@@ -1795,7 +1798,10 @@
       "license": "cc-by-nc-nd"
     },
     "citations": 0,
-    "citationsByYear": {}
+    "citationsByYear": {},
+    "abstract": ": Underwater fish detection and tracking remain challenging due to the complex visual conditions of aquatic environments, including turbidity, occlusion, and dynamic lighting. This work presents two architectural enhancements to the YOLOX detector aimed at improving temporal consistency and spatial adaptability for underwater video analysis. The first introduces multi-frame input to capture short-term motion cues, while the second integrates deformable convolutions to better handle non-rigid object deformation. Both modifications maintain real-time inference while enhancing detection robustness. Experiments conducted on the FishCLEF 2015 dataset and a custom underwater tracking benchmark demonstrate that multi-frame input significantly improves detection stability and tracking accuracy, whereas deformable convolutions enhance spatial precision under occlusion and motion blur. When coupled with the Deep OC-SORT tracker, the proposed framework achieves superior identity preservation and smoother trajectories. These results highlight the benefits of embedding temporal and motion awareness directly within detection architectures for efficient underwater fish tracking and monitoring applications.",
+    "abstractSource": "Semantic Scholar",
+    "tldr": "This work presents two architectural enhancements to the YOLOX detector aimed at improving temporal consistency and spatial adaptability for underwater video analysis, which introduces multi-frame input to capture short-term motion cues, and integrates deformable convolutions to better handle non-rigid object deformation."
   },
   "doi:10.5281/zenodo.12698764": {
     "metadataFetched": "2026-11-02"
