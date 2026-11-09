@@ -1,6 +1,6 @@
 {
   "orcid": "0009-0000-0046-8330",
-  "lastModified": "2026-11-02",
+  "lastModified": "2026-11-09",
   "person": {
     "name": "Antonio Crespi Tobeña",
     "givenNames": "Antonio",
@@ -70,7 +70,7 @@
     },
     {
       "putCode": 40327212,
-      "role": "Doctorado en Tecnologías de la Información y las Comunicaciones",
+      "role": "Master en Análisis Masivo de Datos en Economía y Empresa",
       "department": null,
       "organization": {
         "name": "Universitat de les Illes Balears",

@@ -50,7 +50,48 @@
       "url": null
     }
   ],
-  "education": [],
+  "education": [
+    {
+      "putCode": 40344494,
+      "role": "Master's Degree in Intelligent Systems, major in Computer Vision ",
+      "department": null,
+      "organization": {
+        "name": "University of the Balearic Islands",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2024,
+        "month": 9
+      },
+      "end": {
+        "year": 2025,
+        "month": 6
+      },
+      "url": null
+    },
+    {
+      "putCode": 40344408,
+      "role": "Computer Engineering major in Artificial Intelligence and Computing",
+      "department": null,
+      "organization": {
+        "name": "Universitat de les Illes Balears",
+        "city": "Palma",
+        "region": "Balearic Islands",
+        "country": "ES"
+      },
+      "start": {
+        "year": 2018,
+        "month": 9
+      },
+      "end": {
+        "year": 2024,
+        "month": 6
+      },
+      "url": null
+    }
+  ],
   "qualifications": [],
   "distinctions": [],
   "invitedPositions": [],

@@ -58,21 +58,21 @@
     "tldr": "The main results of this initiative have been the definition of a standardized set of processes and procedures and the development of a Process Asset Library to support project management good practices within the participant organizations.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 31,
+    "citations": 37,
     "citationsByYear": {
-      "2014": 1,
+      "2014": 2,
       "2015": 1,
       "2016": 8,
       "2017": 1,
-      "2018": 3,
-      "2019": 5,
+      "2018": 4,
+      "2019": 6,
       "2020": 2,
       "2021": 4,
       "2022": 1,
       "2023": 1,
       "2024": 2,
-      "2025": 1,
-      "2026": 1
+      "2025": 3,
+      "2026": 2
     }
   },
   "doi:10.1002/smr.1827": {
@@ -129,15 +129,15 @@
     "tldr": "This paper presents an ISO 31000‐based Integrated Risk Management Process Assessment Model (PAM) for IT organizations enabling to integrate on an easy way several ISO process‐oriented standards which are often targeted by IT organizations.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 32,
+    "citations": 44,
     "citationsByYear": {
       "2020": 4,
-      "2021": 7,
-      "2022": 4,
-      "2023": 9,
+      "2021": 8,
+      "2022": 5,
+      "2023": 12,
       "2024": 4,
-      "2025": 2,
-      "2026": 2
+      "2025": 8,
+      "2026": 3
     }
   },
   "doi:10.1002/smr.1986": {
@@ -165,14 +165,15 @@
     "tldr": "The main objective of this research is to show that Lean and Agile SPI approaches can be pursued depending on the target environment, both in traditional and in agile organizations.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 44,
+    "citations": 46,
     "citationsByYear": {
       "2019": 5,
       "2020": 12,
       "2021": 9,
       "2022": 4,
-      "2023": 11,
-      "2024": 3
+      "2023": 12,
+      "2024": 3,
+      "2025": 1
     }
   },
   "doi:10.1002/smr.2735": {
@@ -202,10 +203,10 @@
       "status": "hybrid",
       "license": "cc-by-nc-nd"
     },
-    "citations": 4,
+    "citations": 8,
     "citationsByYear": {
-      "2025": 1,
-      "2026": 3
+      "2025": 2,
+      "2026": 6
     }
   },
   "doi:10.1002/smr.501": {
@@ -231,10 +232,11 @@
     "metadataFetched": "2026-11-02",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 15,
+    "citations": 16,
     "citationsByYear": {
       "2012": 1,
       "2014": 7,
+      "2015": 1,
       "2017": 1,
       "2022": 1,
       "2023": 1
@@ -317,12 +319,12 @@
       "status": "green",
       "license": null
     },
-    "citations": 7,
+    "citations": 11,
     "citationsByYear": {
       "2023": 1,
-      "2024": 2,
-      "2025": 2,
-      "2026": 2
+      "2024": 3,
+      "2025": 4,
+      "2026": 3
     }
   },
   "doi:10.1007/978-3-031-71139-8_1": {
@@ -432,13 +434,15 @@
     "tldr": "Different games for improving agile software development processes are presented and they can be applied during the retrospective meetings and they are grouped in five sections: data gathering, ongoing activities, timeline, and team cohesion and risk management.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 15,
+    "citations": 18,
     "citationsByYear": {
       "2016": 3,
       "2017": 3,
       "2018": 3,
       "2019": 2,
-      "2021": 3,
+      "2020": 1,
+      "2021": 4,
+      "2022": 1,
       "2024": 1
     }
   },
@@ -463,9 +467,10 @@
     "tldr": "This paper is investigating how risk management could be integrated from several ISO standards that are relevant for IT settings: quality management, project management, IT service management and information security management.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 2,
+    "citations": 3,
     "citationsByYear": {
-      "2017": 2
+      "2017": 2,
+      "2024": 1
     }
   },
   "doi:10.1007/978-3-319-38980-6_25": {
@@ -507,7 +512,7 @@
       "status": "green",
       "license": "cc-by-nc-sa"
     },
-    "citations": 36,
+    "citations": 37,
     "citationsByYear": {
       "2016": 1,
       "2017": 4,
@@ -517,7 +522,7 @@
       "2021": 4,
       "2022": 11,
       "2023": 2,
-      "2024": 2,
+      "2024": 3,
       "2025": 2
     }
   },
@@ -625,14 +630,14 @@
     "tldr": "InnoBox, a game toolbox for process improvement and innovation in agile teams is presented and authors selected 12 collaborative games to be used in team meetings.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 12,
+    "citations": 13,
     "citationsByYear": {
       "2017": 1,
       "2018": 5,
       "2019": 2,
       "2021": 1,
       "2022": 1,
-      "2023": 1,
+      "2023": 2,
       "2025": 1
     }
   },
@@ -741,7 +746,7 @@
     "tldr": "This research demonstrates the first steps towards the creation of a generic sequential Agile adoption framework from which the first phase is ready to be used by practitioners, and second and third phases are useful for academic society and they can be developed and validated further in the future.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 14,
+    "citations": 16,
     "citationsByYear": {
       "2018": 3,
       "2019": 3,
@@ -749,7 +754,8 @@
       "2021": 1,
       "2022": 2,
       "2023": 2,
-      "2025": 1
+      "2024": 1,
+      "2025": 2
     }
   },
   "doi:10.1007/978-3-319-97925-0_36": {
@@ -886,15 +892,17 @@
     "metadataFetched": "2026-11-02",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 15,
+    "citations": 19,
     "citationsByYear": {
-      "2015": 3,
+      "2015": 4,
       "2017": 2,
-      "2018": 1,
+      "2018": 2,
+      "2019": 1,
       "2022": 3,
       "2023": 3,
       "2024": 2,
-      "2025": 1
+      "2025": 1,
+      "2026": 1
     }
   },
   "doi:10.1007/978-3-642-30439-2_16": {
@@ -1003,17 +1011,18 @@
     "tldr": "This study evaluates the IT service quality measurement framework that supports the provider-driven IT service improvement in the simple, complicated and complex contexts and contextualizes the IT Service Quality Measurement Framework that supports this framework.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 27,
+    "citations": 29,
     "citationsByYear": {
       "2014": 5,
       "2015": 7,
-      "2016": 1,
+      "2016": 2,
       "2017": 2,
       "2018": 6,
       "2020": 1,
       "2021": 1,
       "2022": 1,
       "2023": 1,
+      "2024": 1,
       "2025": 1,
       "2026": 1
     }
@@ -1038,20 +1047,20 @@
     "tldr": "The ISO/IEC 15504 Security Extension details the changes that software companies should make in the software lifecycle processes for the successful implementation of the related security controls.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 33,
+    "citations": 38,
     "citationsByYear": {
       "2015": 1,
       "2016": 4,
-      "2017": 2,
+      "2017": 3,
       "2018": 2,
-      "2019": 3,
-      "2020": 7,
+      "2019": 4,
+      "2020": 8,
       "2021": 2,
-      "2022": 5,
+      "2022": 6,
       "2023": 3,
       "2024": 1,
       "2025": 2,
-      "2026": 1
+      "2026": 2
     }
   },
   "doi:10.1016/j.csi.2014.06.005": {
@@ -1074,18 +1083,20 @@
     "tldr": "A new Integrated Management System (IMS) is proposed which widens the scope of the ISO 9001 QMS with the specific IT service management requirements of ISO/IEC 20000-1, and presents a guide to support organizations in implementing this IMS.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 41,
+    "citations": 46,
     "citationsByYear": {
+      "2014": 1,
       "2015": 2,
       "2016": 5,
       "2017": 7,
       "2018": 4,
       "2019": 3,
-      "2020": 7,
+      "2020": 8,
       "2021": 5,
       "2023": 6,
       "2024": 1,
-      "2026": 1
+      "2025": 2,
+      "2026": 2
     }
   },
   "doi:10.1016/j.csi.2016.11.010": {
@@ -1109,18 +1120,18 @@
     "tldr": "This paper analyses risk management activities throughout various selected ISO standards in order to provide the basis to improve, coordinate and interoperaterisk management activities in IT settings for various purposes related to quality management, project management, IT service management and information security management.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 94,
+    "citations": 119,
     "citationsByYear": {
       "2017": 14,
       "2018": 11,
-      "2019": 13,
-      "2020": 16,
-      "2021": 12,
-      "2022": 7,
-      "2023": 10,
-      "2024": 7,
-      "2025": 2,
-      "2026": 2
+      "2019": 16,
+      "2020": 18,
+      "2021": 15,
+      "2022": 9,
+      "2023": 14,
+      "2024": 8,
+      "2025": 8,
+      "2026": 6
     }
   },
   "doi:10.1016/j.csi.2018.04.010": {
@@ -1146,17 +1157,17 @@
     "tldr": "The Integrated Risk Management Process Assessment Model for IT Organizations in an ISO multi-standards context is developed with a Design Science research method.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 27,
+    "citations": 39,
     "citationsByYear": {
-      "2018": 2,
+      "2018": 3,
       "2019": 1,
-      "2020": 2,
+      "2020": 4,
       "2021": 5,
-      "2022": 4,
-      "2023": 3,
-      "2024": 4,
-      "2025": 3,
-      "2026": 3
+      "2022": 5,
+      "2023": 4,
+      "2024": 5,
+      "2025": 6,
+      "2026": 6
     }
   },
   "doi:10.1016/j.csi.2018.05.002": {
@@ -1208,14 +1219,14 @@
     "tldr": "This research analyses how by defining and monitoring a set of Agile metrics, Agile mature companies can be also conformant with the best practices proposed by the targeted ISO process reference models.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 14,
+    "citations": 19,
     "citationsByYear": {
       "2020": 1,
-      "2021": 3,
+      "2021": 4,
       "2022": 3,
       "2023": 2,
-      "2024": 1,
-      "2025": 3,
+      "2024": 2,
+      "2025": 6,
       "2026": 1
     }
   },
@@ -1270,7 +1281,7 @@
     "tldr": "It is still necessary to define a method with the necessary guidelines to implement both software development processes and ITSM processes reducing the amount of effort, especially because some processes of both categories are overlapped.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 118,
+    "citations": 121,
     "citationsByYear": {
       "2012": 7,
       "2013": 9,
@@ -1279,12 +1290,14 @@
       "2016": 14,
       "2017": 9,
       "2018": 12,
-      "2019": 9,
+      "2019": 8,
       "2020": 5,
       "2021": 6,
-      "2022": 6,
-      "2023": 5,
-      "2024": 4
+      "2022": 7,
+      "2023": 6,
+      "2024": 4,
+      "2025": 1,
+      "2026": 1
     }
   },
   "doi:10.1016/j.jer.2026.07.021": {
@@ -1338,17 +1351,17 @@
     "tldr": "Recommendations and guidelines for organizational roles transition during the Agile method adoption are proposed based on the results of a grounded theory study with 5 software teams in a large software development company in Spain.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 78,
+    "citations": 91,
     "citationsByYear": {
       "2017": 1,
-      "2018": 3,
-      "2019": 13,
-      "2020": 11,
-      "2021": 12,
-      "2022": 10,
-      "2023": 11,
-      "2024": 8,
-      "2025": 7,
+      "2018": 4,
+      "2019": 12,
+      "2020": 13,
+      "2021": 13,
+      "2022": 14,
+      "2023": 13,
+      "2024": 9,
+      "2025": 10,
       "2026": 2
     }
   },
@@ -1376,13 +1389,14 @@
     "tldr": "A ready-to-use collaborative game toolbox that is oriented for practical use in project team meetings and designed for agile teams, regardless of the maturity level, to innovate and improve communication and cohesion, and to bring business value out of agile ceremonies is proposed.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 7,
+    "citations": 8,
     "citationsByYear": {
       "2019": 1,
       "2020": 1,
       "2021": 3,
       "2022": 1,
-      "2023": 1
+      "2023": 1,
+      "2025": 1
     }
   },
   "doi:10.1109/access.2020.2967839": {
@@ -1411,15 +1425,15 @@
       "status": "gold",
       "license": "cc-by"
     },
-    "citations": 37,
+    "citations": 47,
     "citationsByYear": {
       "2020": 5,
       "2021": 4,
-      "2022": 5,
-      "2023": 3,
-      "2024": 7,
-      "2025": 8,
-      "2026": 5
+      "2022": 6,
+      "2023": 7,
+      "2024": 8,
+      "2025": 11,
+      "2026": 6
     }
   },
   "doi:10.1109/cisti.2014.6876972": {
@@ -1502,10 +1516,10 @@
     "abstractSource": "Semantic Scholar",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 7,
+    "citations": 8,
     "citationsByYear": {
       "2022": 1,
-      "2023": 2,
+      "2023": 3,
       "2024": 2,
       "2025": 2
     }
@@ -1603,13 +1617,13 @@
     "abstractSource": "Semantic Scholar",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 17,
+    "citations": 21,
     "citationsByYear": {
       "2021": 1,
       "2022": 3,
-      "2023": 4,
+      "2023": 5,
       "2024": 7,
-      "2025": 1,
+      "2025": 4,
       "2026": 1
     }
   },
@@ -1640,11 +1654,11 @@
       "status": "hybrid",
       "license": "cc-by"
     },
-    "citations": 8,
+    "citations": 13,
     "citationsByYear": {
-      "2024": 1,
-      "2025": 6,
-      "2026": 1
+      "2024": 2,
+      "2025": 8,
+      "2026": 3
     }
   },
   "doi:10.1111/exsy.70029": {
@@ -1670,9 +1684,10 @@
       "status": "hybrid",
       "license": "cc-by-nc-nd"
     },
-    "citations": 2,
+    "citations": 4,
     "citationsByYear": {
-      "2026": 2
+      "2025": 1,
+      "2026": 3
     },
     "date": {
       "year": 2025,
@@ -1705,12 +1720,13 @@
     "tldr": "This paper presents MIN-ITs, a new framework that supports the integration of different ISO standards related to IT management, and a large number of relations between these models as well as many common elements.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 8,
+    "citations": 9,
     "citationsByYear": {
       "2016": 2,
       "2017": 1,
       "2019": 1,
       "2021": 1,
+      "2022": 1,
       "2023": 2,
       "2024": 1
     }
@@ -1769,12 +1785,12 @@
       "status": "diamond",
       "license": null
     },
-    "citations": 4,
+    "citations": 5,
     "citationsByYear": {
       "2015": 1,
       "2016": 1,
       "2017": 1,
-      "2023": 1
+      "2023": 2
     }
   },
   "doi:10.5220/0014346800004084": {
@@ -1832,16 +1848,16 @@
       "status": "gold",
       "license": "cc-by-nc-nd"
     },
-    "citations": 17,
+    "citations": 21,
     "citationsByYear": {
-      "2018": 1,
+      "2018": 2,
       "2019": 2,
       "2020": 3,
       "2021": 3,
-      "2022": 2,
+      "2022": 4,
       "2023": 2,
       "2024": 2,
-      "2025": 1,
+      "2025": 2,
       "2026": 1
     }
   },
