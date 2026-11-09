@@ -128,7 +128,7 @@ texts that depend on a number. A text left empty in Catalan or Spanish is shown
 in English.
 
 The home page shows the three latest posts. The files under `content/` include a sample post, course, tool, collaborator,
-research line and two theses with placeholder text: replace or delete them.
+two theses with placeholder text: replace or delete them.
 
 ## Adding a member
 
