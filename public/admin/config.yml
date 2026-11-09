@@ -353,15 +353,18 @@ collections:
         widget: string
         required: false
         hint: Information or enrolment page.
-  - name: transfer
-    label: Knowledge transfer
+  - name: tools
+    label: Tools
     label_singular: Tool
-    description: Tools the group has developed to bring its research to companies and society, shown under Teaching & Transfer.
-    folder: content/transfer
+    description: Tools the group has developed. Each one is listed, as a card with its summary, on the Tools page of Research, of Teaching, or of both, as its sections say, and has a page of its own with the full text.
+    folder: content/tools
     extension: yaml
     format: yaml
     create: true
     i18n: true
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
     summary: "{{title}}"
     sortable_fields:
       - order
@@ -371,6 +374,19 @@ collections:
         label: Name
         widget: string
         i18n: true
+      - name: tags
+        label: Sections
+        widget: select
+        multiple: true
+        min: 1
+        default:
+          - research
+        hint: "Where the tool is listed: under Research, under Teaching, or both."
+        options:
+          - label: Research
+            value: research
+          - label: Teaching
+            value: teaching
       - name: order
         label: Order
         widget: number
@@ -397,25 +413,25 @@ collections:
         widget: text
         i18n: true
         required: false
-        hint: One or two sentences, shown under the name.
-      - name: description
-        label: Description
-        widget: markdown
-        i18n: true
-        required: false
-        hint: What it does, who uses it, results… Optional.
+        hint: One or two sentences, shown on the card and at the top of the tool’s page.
       - name: image
-        label: Logo or image
+        label: Logo
         widget: image
         required: false
         hint: Shown small, next to the name. Square works best.
+      - name: body
+        label: Page text
+        widget: markdown
+        i18n: true
+        required: false
+        hint: "The tool’s own page: what it does, pictures, guides, results… An image followed by a line in italics shows the italics as its caption."
       - name: links
         label: Links
         widget: list
         i18n: true
         required: false
         label_singular: Link
-        hint: The first one is shown as a button, e.g. the tool itself; then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown.
+        hint: Shown on the tool’s page, and the first one also on its card. The first one is shown as a button, e.g. the tool itself; then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown.
         summary: "{{label}} · {{url}}"
         fields:
           - name: label
@@ -788,8 +804,8 @@ collections:
                 i18n: true
                 required: false
                 widget: string
-          - name: transfer
-            label: Transfer
+          - name: tools
+            label: Tools
             i18n: true
             required: false
             widget: object
@@ -800,11 +816,62 @@ collections:
                 i18n: true
                 required: false
                 widget: string
-              - name: lead
-                label: Lead
+              - name: details
+                label: Details
                 i18n: true
                 required: false
-                widget: text
+                widget: string
+              - name: research
+                label: Research
+                i18n: true
+                required: false
+                widget: object
+                collapsed: true
+                fields:
+                  - name: title
+                    label: Title
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: lead
+                    label: Lead
+                    i18n: true
+                    required: false
+                    widget: text
+              - name: teaching
+                label: Teaching
+                i18n: true
+                required: false
+                widget: object
+                collapsed: true
+                fields:
+                  - name: title
+                    label: Title
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: lead
+                    label: Lead
+                    i18n: true
+                    required: false
+                    widget: string
+              - name: tags
+                label: Tags
+                i18n: true
+                required: false
+                widget: object
+                collapsed: true
+                fields:
+                  - name: research
+                    label: Research
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: teaching
+                    label: Teaching
+                    i18n: true
+                    required: false
+                    widget: string
               - name: audience
                 label: Audience
                 i18n: true

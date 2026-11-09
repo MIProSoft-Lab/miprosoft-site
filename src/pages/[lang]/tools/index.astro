@@ -1,0 +1,15 @@
+---
+// /<lang>/tools/ has no page of its own (each section has its Tools page):
+// send visitors to the research tools, or to the teaching ones.
+import Redirect from '../../../components/Redirect.astro';
+import { toolsFor, languages } from '../../../lib/data.js';
+
+export function getStaticPaths() {
+  const to = toolsFor('research').length ? 'research' : toolsFor('teaching').length ? 'teaching' : null;
+  return to ? languages.map((lang) => ({ params: { lang }, props: { to } })) : [];
+}
+
+const { lang } = Astro.params;
+const { to } = Astro.props;
+---
+<Redirect to={`${lang}/${to}/tools/`} />

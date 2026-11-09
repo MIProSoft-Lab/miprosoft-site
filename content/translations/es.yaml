@@ -7,7 +7,7 @@ nav:
   team: Equipo
   research: Investigación
   news: Noticias
-  teaching: Docencia y transferencia
+  teaching: Docencia
 team:
   pi: IP
   piTitle: Investigador principal
@@ -59,9 +59,18 @@ courses:
     other: "{n} horas"
   institution: Institución
   moreInfo: Más información
-transfer:
-  title: Transferencia de conocimiento
-  lead: Herramientas que hemos desarrollado para acercar nuestra investigación a las empresas y a la sociedad.
+tools:
+  title: Herramientas
+  details: Detalles
+  research:
+    title: Herramientas de investigación
+    lead: Herramientas que hemos desarrollado en nuestra investigación, para otros investigadores, empresas y la sociedad.
+  teaching:
+    title: Herramientas docentes
+    lead: Herramientas que hemos desarrollado para la enseñanza y el aprendizaje.
+  tags:
+    research: Investigación
+    teaching: Docencia
   audience: Para
   audiences:
     companies: Empresas

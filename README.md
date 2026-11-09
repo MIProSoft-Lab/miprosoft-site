@@ -27,7 +27,7 @@ Every Monday (and on every push) a GitHub Action:
 | `data/overrides.yaml` | Corrections to works (by DOI) applied for every member |
 | `content/news/<slug>/index.yaml` | News and blog posts, every language in one file, with their images beside it (*CMS*) |
 | `content/courses/<slug>.yaml` | Courses the group currently teaches (*CMS*) |
-| `content/transfer/<slug>.yaml` | Knowledge transfer tools (*CMS*) |
+| `content/tools/<slug>/index.yaml` | Tools the group has developed, tagged `research`, `teaching` or both, with their images beside it: each is listed as a card on the Tools page of its sections and has a page of its own (*CMS*) |
 | `content/research-lines/<slug>.yaml` | Research lines (*CMS*) |
 | `content/theses/<slug>.yaml` | PhD, master's and bachelor's theses supervised by members (*CMS*) |
 | `content/collaborators/<slug>.yaml` | Collaborators shown on the team page (*CMS*) |
@@ -46,17 +46,20 @@ Pages:
   - `/<lang>/research/publications/`: the group's publications, each paper once
   - `/<lang>/research/theses/`: supervised theses, by type (also listed on each
     supervisor's profile, under "Supervised theses")
+  - `/<lang>/research/tools/`: tools tagged `research` (hidden when there are none)
 - `/<lang>/news/` and `/<lang>/news/<slug>/`: news and blog posts
-- Teaching & Transfer (a menu in the navigation; each page is hidden when it has no content):
+- `/<lang>/tools/<slug>/`: a tool's own page (text, pictures, guides, links); it
+  sits in the menu of its first tag
+- Teaching (a menu in the navigation; each page is hidden when it has no content):
   - `/<lang>/teaching/courses/`: courses the group currently teaches
-  - `/<lang>/teaching/transfer/`: knowledge transfer: tools the group has developed
-    for companies and society
+  - `/<lang>/teaching/tools/`: tools tagged `teaching` (the old
+    `/<lang>/teaching/transfer/` redirects here)
 
 Members' names in author lists link to their profiles.
 
 ## Editing content
 
-News, research lines, theses, courses, knowledge transfer tools, collaborators and the interface texts can be edited without touching code, in
+News, research lines, theses, courses, tools, collaborators and the interface texts can be edited without touching code, in
 the content editor ([Sveltia CMS](https://sveltiacms.app)) at **`/admin/`** of
 the site, e.g. `https://<site>/admin/`. It shows every language side by side
 and commits each change to the repository, which rebuilds and publishes the

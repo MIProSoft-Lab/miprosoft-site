@@ -302,8 +302,8 @@ const initialsOf = (name) => name.split(/\s+/).filter(Boolean).map((n) => n.char
 // as `map` makes them from { entry, id, order, base }, listed by `order` (if
 // they have one) and then by `name`, or by `sort` if given. Entries `map`
 // returns nothing for are left out.
-function loadCollection(dir, map, { sort, name = (x) => x.entry.base.title } = {}) {
-  return readEntries(`content/${dir}`)
+function loadCollection(dir, map, { sort, bundles = false, name = (x) => x.entry.base.title } = {}) {
+  return readEntries(`content/${dir}`, { bundles })
     .map((entry) => map({ entry, id: entry.slug, order: Number(entry.base.order ?? 999), base: entry.base }))
     .filter(Boolean)
     .sort(sort ?? ((a, b) => (a.order ?? 999) - (b.order ?? 999) || String(name(a) ?? '').localeCompare(String(name(b) ?? ''))));
@@ -376,16 +376,26 @@ export const theses = loadCollection('theses', ({ entry, id, base: b }) => {
 // Each member's supervised theses, for the "Theses" section of their profile.
 for (const m of members) m.theses = theses.filter((x) => x.supervisors.some((p) => p.id === m.id));
 
-// Knowledge transfer: tools the group has developed to bring its research to
-// companies and society. Their links are per language (see the page).
-export const transferAudiences = ['companies', 'society', 'education', 'administration'];
-export const transferTools = loadCollection('transfer', ({ entry, id, order, base: b }) => ({
-  entry,
-  id,
-  order,
-  image: b.image || '',
-  audiences: (b.audiences ?? []).filter((a) => transferAudiences.includes(a)),
-}));
+// Tools the group has developed: content/tools/<slug>/index.yaml, with their
+// images next to it. Each one has one or more `tags` (research, teaching) and
+// is listed, as a card, on the Tools page of each of those sections, and has a
+// page of its own at /<lang>/tools/<slug>/; tools without a valid tag are left
+// out. Their links are per language (see ToolCard).
+export const toolTags = ['research', 'teaching'];
+export const toolAudiences = ['companies', 'society', 'education', 'administration'];
+export const tools = loadCollection('tools', ({ entry, id, order, base: b }) => {
+  const tags = [].concat(b.tags ?? []).filter((x) => toolTags.includes(x));
+  if (!tags.length) return null;
+  return {
+    entry,
+    id,
+    order,
+    tags,
+    image: b.image || '',
+    audiences: (b.audiences ?? []).filter((a) => toolAudiences.includes(a)),
+  };
+}, { bundles: true });
+export const toolsFor = (tag) => tools.filter((x) => x.tags.includes(tag));
 
 export function hasContent(cv, section) {
   if (section === 'theses') return cv.theses.length > 0;

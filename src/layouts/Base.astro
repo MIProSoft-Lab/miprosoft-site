@@ -3,13 +3,13 @@
 // masthead with the group name and navigation, and footer.
 //   path:         the page's path after the language, e.g. "team/jane-doe/" ("" for the home page)
 //   nav:          the navigation entry to mark as current: home | news | team | research | teaching
-//   subnav:       the entry of its menu to mark as current (research: lines | publications | theses;
-//                 teaching: courses | transfer)
+//   subnav:       the entry of its menu to mark as current (research: lines | publications | theses | tools;
+//                 teaching: courses | tools)
 //   jsonLd:       optional schema.org object
 //   lastModified: shown in the footer
 // Slots: "hero" (full-width band above the content) and the default slot.
 import '../styles/site.css';
-import { languages, group, defaultLang, courses, transferTools } from '../lib/data.js';
+import { languages, group, defaultLang, courses, toolsFor } from '../lib/data.js';
 import { strings, ui, loc } from '../lib/i18n.js';
 
 const { lang, title, description, path = '', nav, subnav, jsonLd, lastModified } = Astro.props;
@@ -34,7 +34,8 @@ const links = [
       { id: 'lines', label: t.research.lines, href: `${home}research/lines/` },
       { id: 'publications', label: t.research.publications, href: `${home}research/publications/` },
       { id: 'theses', label: t.research.theses, href: `${home}research/theses/` },
-    ],
+      toolsFor('research').length > 0 && { id: 'tools', label: t.tools.title, href: `${home}research/tools/` },
+    ].filter(Boolean),
   },
   {
     id: 'teaching',
@@ -42,7 +43,7 @@ const links = [
     // Each page only when it has content; the menu only when one of them has.
     items: [
       courses.length > 0 && { id: 'courses', label: t.courses.title, href: `${home}teaching/courses/` },
-      transferTools.length > 0 && { id: 'transfer', label: t.transfer.title, href: `${home}teaching/transfer/` },
+      toolsFor('teaching').length > 0 && { id: 'tools', label: t.tools.title, href: `${home}teaching/tools/` },
     ].filter(Boolean),
   },
 ].filter((l) => !l.items || l.items.length);

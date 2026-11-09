@@ -493,7 +493,7 @@ h2 .count, h3 .count {
 .prose th { background: var(--tint); }
 .prose hr { margin: 2.5rem 0; border: 0; border-top: 1px solid var(--rule); }
 
-/* ---------- Cards: courses, research lines, knowledge transfer tools ---------- */
+/* ---------- Cards: courses, research lines, tools ---------- */
 
 /* A wide card: the main text, and an optional tinted side panel. */
 .card-list { display: flex; flex-direction: column; gap: 1.5rem; margin: 0; padding: 0; list-style: none; }
@@ -512,7 +512,7 @@ h2 .count, h3 .count {
 .card-side { display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; padding: 1.6rem 1.75rem; background: var(--tint); }
 /* Without a side panel, the text takes the full width. */
 .card:not(:has(.card-side)) { grid-template-columns: 1fr; }
-/* Markdown text (a research line's or a tool's description). */
+/* Markdown text (a research line's description). */
 .card-text { font-size: 1rem; max-width: 46rem; }
 .card-text > :last-child { margin-bottom: 0; }
 /* Courses: dates, format, workload… in the side panel. */
@@ -550,13 +550,20 @@ h2 .count, h3 .count {
 .theses .pub-metrics a.member { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.15em; }
 .theses .pub-metrics a.member:hover { color: var(--accent); text-decoration-color: currentColor; }
 
-/* ---------- Knowledge transfer ---------- */
+/* ---------- Tools ---------- */
 
 .tool-head { display: flex; align-items: center; gap: 1rem; }
 .tool-logo { flex: none; width: 3.5rem; height: 3.5rem; object-fit: contain; border-radius: 8px; background: var(--bg); }
 .tool .news-meta { gap: 0.4rem; }
 .tool-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.25rem; margin-top: 0.6rem; font-weight: 700; font-size: 0.92rem; }
 .tool-links .button { align-self: auto; }
+.tool .card-title a { color: var(--fg); }
+.tool .card-title a:hover { color: var(--accent); text-decoration: none; }
+/* A tool's own page: its sections and audiences, logo and name, summary, links. */
+.tool-page-head .news-meta { gap: 0.4rem; margin: 0.6rem 0 0.9rem; }
+.tool-page-head a.kind:hover { text-decoration: none; filter: brightness(1.1); }
+.tool-page-head .lead { max-width: 46rem; }
+.tool-page-head .tool-links { margin-top: 1.1rem; }
 
 /* ---------- Footer ---------- */
 

@@ -1,16 +1,10 @@
 // News and blog posts: content/news/<slug>/index.yaml (all languages, edited in
 // the CMS at /admin/), with their images in the same folder.
-import { getImage } from 'astro:assets';
 import { peopleOf } from './data.js';
-import { markdown } from './markdown.js';
 import { readEntries, localize, toDate } from './content.js';
+import { imageOf as bundleImage, renderMarkdown } from './bundle.js';
 
-// The posts' images, by path, so they can be resized and converted at build time.
-const images = import.meta.glob('/content/news/*/*.{png,jpg,jpeg,webp,gif,avif,svg,PNG,JPG,JPEG,WEBP}', {
-  eager: true,
-  import: 'default',
-});
-const imageOf = (slug, name) => (name ? images[`/content/news/${slug}/${String(name).replace(/^\.?\//, '')}`] : undefined);
+const imageOf = (slug, name) => bundleImage('news', slug, name);
 
 // "**Bold** [link](url) text" -> "Bold link text", for summaries made from the body.
 const plainText = (md = '') =>
@@ -74,13 +68,4 @@ export function inLanguage(post, lang) {
 
 // The post's Markdown as HTML. Images next to the post are resized and
 // converted like the cover image.
-export async function renderBody(post) {
-  let md = post.body;
-  for (const [match, alt, src] of md.matchAll(/!\[([^\]]*)\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/g)) {
-    const meta = imageOf(post.slug, src);
-    if (!meta) continue;
-    const img = await getImage({ src: meta, width: Math.min(meta.width, 1400), format: 'webp' });
-    md = md.replace(match, `![${alt}](${img.src})`);
-  }
-  return markdown(md);
-}
+export const renderBody = (post) => renderMarkdown(post.body, 'news', post.slug);

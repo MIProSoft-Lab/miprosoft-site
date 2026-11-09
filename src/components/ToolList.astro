@@ -1,0 +1,51 @@
+---
+// The tools of one section, research or teaching (content/tools/*/index.yaml
+// with that tag), as cards, as the whole of its Tools page. Each card has the
+// tool's summary and links to its own page (src/pages/[lang]/tools/[slug]/).
+//   lang, section: 'research' | 'teaching'
+import Base from '../layouts/Base.astro';
+import PageHead from './PageHead.astro';
+import ToolLogo from './ToolLogo.astro';
+import { toolsFor, linksOf, group, defaultLang } from '../lib/data.js';
+import { strings, loc } from '../lib/i18n.js';
+import { localize } from '../lib/content.js';
+
+const { lang, section } = Astro.props;
+const t = strings(lang);
+const x = t.tools;
+const page = x[section];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const name = loc(group.name, lang, defaultLang);
+const tools = toolsFor(section).map((tool) => {
+  const text = localize(tool.entry, lang);
+  // Links per language (their texts are translated), or the default language's.
+  return { ...tool, text, href: `${base}${lang}/tools/${tool.id}/`, link: linksOf(text.links)[0] };
+});
+---
+<Base lang={lang} nav={section} subnav="tools" path={`${section}/tools/`} title={`${page.title} — ${name}`} description={page.lead} lastModified={null}>
+  <PageHead slot="hero" title={page.title} lead={page.lead} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }, { label: t.nav[section] }]} />
+
+  <ul class="card-list">
+    {tools.map((tool) => (
+      <li class="card tool" id={tool.id}>
+        <div class="card-main" lang={tool.text.translated ? undefined : tool.text.lang}>
+          {tool.audiences.length > 0 && (
+            <p class="news-meta">
+              <span class="visually-hidden">{x.audience}:</span>
+              {tool.audiences.map((a) => <span class="kind kind-blog">{x.audiences[a]}</span>)}
+            </p>
+          )}
+          <div class="tool-head">
+            <ToolLogo tool={tool} />
+            <h2 class="card-title"><a href={tool.href}>{tool.text.title}</a></h2>
+          </div>
+          {tool.text.summary && <p class="card-summary">{tool.text.summary}</p>}
+          <div class="tool-links">
+            <a class="button" href={tool.href}>{x.details}<span class="visually-hidden">: {tool.text.title}</span><span aria-hidden="true"> →</span></a>
+            {tool.link && <a href={tool.link.url} rel="noopener">{tool.link.label}</a>}
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</Base>

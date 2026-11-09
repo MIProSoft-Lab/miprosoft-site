@@ -7,7 +7,7 @@ nav:
   team: Equip
   research: Recerca
   news: Notícies
-  teaching: Docència i transferència
+  teaching: Docència
 team:
   pi: IP
   piTitle: Investigador principal
@@ -59,9 +59,18 @@ courses:
     other: "{n} hores"
   institution: Institució
   moreInfo: Més informació
-transfer:
-  title: Transferència de coneixement
-  lead: Eines que hem desenvolupat per acostar la nostra recerca a les empreses i a la societat.
+tools:
+  title: Eines
+  details: Detalls
+  research:
+    title: Eines de recerca
+    lead: Eines que hem desenvolupat en la nostra recerca, per a altres investigadors, empreses i la societat.
+  teaching:
+    title: Eines docents
+    lead: Eines que hem desenvolupat per a l'ensenyament i l'aprenentatge.
+  tags:
+    research: Recerca
+    teaching: Docència
   audience: Per a
   audiences:
     companies: Empreses

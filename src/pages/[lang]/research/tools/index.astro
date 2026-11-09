@@ -1,0 +1,13 @@
+---
+// Tools for research (content/tools/*.yaml tagged "research").
+import ToolList from '../../../../components/ToolList.astro';
+import { toolsFor, languages } from '../../../../lib/data.js';
+
+// Only built when there are such tools (the menu entry is hidden otherwise).
+export function getStaticPaths() {
+  return toolsFor('research').length ? languages.map((lang) => ({ params: { lang } })) : [];
+}
+
+const { lang } = Astro.params;
+---
+<ToolList lang={lang} section="research" />

@@ -1,0 +1,14 @@
+---
+// A tool's logo: an image next to its index.yaml (resized at build time), or a
+// path under public/ (e.g. /media/… from the CMS) or a full URL.
+import { Image } from 'astro:assets';
+import { imageOf } from '../lib/bundle.js';
+
+const { tool, size = 56 } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const local = imageOf('tools', tool.id, tool.image);
+const src = /^https?:\/\//.test(tool.image) ? tool.image : `${base}${tool.image.replace(/^\//, '')}`;
+---
+{tool.image && (local
+  ? <Image class="tool-logo" src={local} alt="" width={size * 2} loading="lazy" />
+  : <img class="tool-logo" src={src} alt="" loading="lazy" />)}

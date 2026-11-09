@@ -213,27 +213,36 @@ const theses = folderCollection({
   ],
 });
 
-const transfer = folderCollection({
-  name: 'transfer',
-  label: 'Knowledge transfer',
+const tools = folderCollection({
+  name: 'tools',
+  label: 'Tools',
   label_singular: 'Tool',
-  description: 'Tools the group has developed to bring its research to companies and society, shown under Teaching & Transfer.',
+  description: 'Tools the group has developed. Each one is listed, as a card with its summary, on the Tools page of Research, of Teaching, or of both, as its sections say, and has a page of its own with the full text.',
+  path: '{{slug}}/index',
+  // Images are kept in each tool's folder.
+  media_folder: '',
+  public_folder: '',
   summary: '{{title}}',
   sortable_fields: ['order', 'title'],
   fields: [
     { name: 'title', label: 'Name', widget: 'string', i18n: true },
+    {
+      name: 'tags', label: 'Sections', widget: 'select', multiple: true, min: 1, default: ['research'],
+      hint: 'Where the tool is listed: under Research, under Teaching, or both.',
+      options: optionsFrom(texts.tools?.tags),
+    },
     orderField('Tools are listed by this number, lowest first.'),
     {
       name: 'audiences', label: 'For', widget: 'select', multiple: true, required: false, hint: 'Who the tool is for.',
-      options: optionsFrom(texts.transfer?.audiences),
+      options: optionsFrom(texts.tools?.audiences),
     },
-    { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences, shown under the name.' },
-    { name: 'description', label: 'Description', widget: 'markdown', i18n: true, required: false, hint: 'What it does, who uses it, results… Optional.' },
-    { name: 'image', label: 'Logo or image', widget: 'image', required: false, hint: 'Shown small, next to the name. Square works best.' },
+    { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences, shown on the card and at the top of the tool’s page.' },
+    { name: 'image', label: 'Logo', widget: 'image', required: false, hint: 'Shown small, next to the name. Square works best.' },
+    { name: 'body', label: 'Page text', widget: 'markdown', i18n: true, required: false, hint: 'The tool’s own page: what it does, pictures, guides, results… An image followed by a line in italics shows the italics as its caption.' },
     linksField({
       i18n: true,
       example: 'Try it',
-      hint: 'The first one is shown as a button, e.g. the tool itself; then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown.',
+      hint: 'Shown on the tool’s page, and the first one also on its card. The first one is shown as a button, e.g. the tool itself; then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown.',
     }),
   ],
 });
@@ -297,7 +306,7 @@ const cms = {
   media_folder: '/public/media',
   public_folder: '/media',
   i18n: { structure: 'single_file', locales: languages, default_locale: defaultLang, initial_locales: 'all' },
-  collections: [news, researchLines, theses, courses, transfer, collaborators, translations],
+  collections: [news, researchLines, theses, courses, tools, collaborators, translations],
 };
 
 await mkdir(new URL('public/admin/fonts/', root), { recursive: true });

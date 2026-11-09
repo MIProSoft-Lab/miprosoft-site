@@ -7,7 +7,7 @@ nav:
   team: Team
   research: Research
   news: News
-  teaching: Teaching & Transfer
+  teaching: Teaching
 team:
   pi: PI
   piTitle: Principal investigator
@@ -59,9 +59,18 @@ courses:
     other: "{n} hours"
   institution: Institution
   moreInfo: More information
-transfer:
-  title: Knowledge transfer
-  lead: Tools we have developed to bring our research to companies and society.
+tools:
+  title: Tools
+  details: Details
+  research:
+    title: Research tools
+    lead: Tools we have developed in our research, for other researchers, companies and society.
+  teaching:
+    title: Teaching tools
+    lead: Tools we have developed for teaching and learning.
+  tags:
+    research: Research
+    teaching: Teaching
   audience: For
   audiences:
     companies: Companies

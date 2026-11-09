@@ -1,0 +1,75 @@
+---
+// One tool's own page: /<lang>/tools/<slug>/, with its full text (pictures,
+// guides…) and links. It belongs to the menu of its first section (tag); the
+// Tools pages of its sections list it as a card.
+import Base from '../../../../layouts/Base.astro';
+import ToolLogo from '../../../../components/ToolLogo.astro';
+import { tools, linksOf, group, languages, defaultLang } from '../../../../lib/data.js';
+import { strings, loc } from '../../../../lib/i18n.js';
+import { localize } from '../../../../lib/content.js';
+import { renderMarkdown } from '../../../../lib/bundle.js';
+
+export function getStaticPaths() {
+  return languages.flatMap((lang) => tools.map((tool) => ({ params: { lang, slug: tool.id }, props: { tool } })));
+}
+
+const { lang } = Astro.params;
+const { tool } = Astro.props;
+const t = strings(lang);
+const x = t.tools;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const home = `${base}${lang}/`;
+const text = localize(tool.entry, lang);
+const links = linksOf(text.links);
+const html = await renderMarkdown(text.body, 'tools', tool.id);
+const section = tool.tags[0];
+const textLang = text.translated ? undefined : text.lang;
+---
+<Base
+  lang={lang}
+  nav={section}
+  subnav="tools"
+  path={`tools/${tool.id}/`}
+  title={`${text.title} — ${loc(group.name, lang, defaultLang)}`}
+  description={text.summary}
+  lastModified={null}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: text.title,
+    description: text.summary || undefined,
+    url: links[0]?.url,
+    creator: { '@type': 'ResearchOrganization', name: loc(group.name, lang, defaultLang) },
+  }}
+>
+  <div slot="hero" class="page-head tool-page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href={home}>{t.nav.home}</a></li>
+          <li><span>{t.nav[section]}</span></li>
+          <li><a href={`${home}${section}/tools/`}>{x[section].title}</a></li>
+        </ol>
+      </nav>
+      <p class="news-meta">
+        {tool.tags.map((tag) => <a class="kind kind-news" href={`${home}${tag}/tools/`}>{x[tag].title}</a>)}
+        {tool.audiences.length > 0 && <span class="visually-hidden">{x.audience}:</span>}
+        {tool.audiences.map((a) => <span class="kind kind-blog">{x.audiences[a]}</span>)}
+      </p>
+      <div class="tool-head">
+        <ToolLogo tool={tool} />
+        <h1 lang={textLang}>{text.title}</h1>
+      </div>
+      {text.summary && <p class="lead" lang={textLang}>{text.summary}</p>}
+      {links.length > 0 && (
+        <div class="tool-links">
+          {links.map((l, i) => (
+            <a class:list={[{ button: i === 0 }]} href={l.url} rel="noopener">{l.label}{i === 0 && <span aria-hidden="true"> →</span>}</a>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+
+  {html && <article class="post prose" lang={textLang} set:html={html} />}
+</Base>
