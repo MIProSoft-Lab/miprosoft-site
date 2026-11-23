@@ -1,0 +1,79 @@
+---
+// A course's own page: /<lang>/teaching/courses/<slug>/, for courses with page
+// text (programme, teaching staff, prices…). Its facts and instructors are in a
+// side panel, with a button to its official page; the Courses page and the
+// instructors' profiles link here instead of to that page.
+import Base from '../../../../../layouts/Base.astro';
+import PeopleList from '../../../../../components/PeopleList.astro';
+import { courses, group, languages, defaultLang } from '../../../../../lib/data.js';
+import { strings, loc } from '../../../../../lib/i18n.js';
+import { courseText, courseFacts } from '../../../../../lib/courses.js';
+import { renderMarkdown } from '../../../../../lib/bundle.js';
+
+export function getStaticPaths() {
+  return languages.flatMap((lang) => courses.filter((c) => c.hasPage).map((course) => ({ params: { lang, slug: course.id }, props: { course } })));
+}
+
+const { lang } = Astro.params;
+const { course } = Astro.props;
+const t = strings(lang);
+const c = t.courses;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const home = `${base}${lang}/`;
+const text = courseText(course, lang);
+const facts = courseFacts(course, text, lang);
+const textLang = text.translated ? undefined : text.lang;
+// The page text in this language, or the default language's if it has none.
+const body = text.body || course.entry.base.body;
+const html = await renderMarkdown(body, 'courses', course.id, lang);
+---
+<Base
+  lang={lang}
+  nav="teaching"
+  subnav="courses"
+  path={`teaching/courses/${course.id}/`}
+  title={`${text.title} — ${loc(group.name, lang, defaultLang)}`}
+  description={text.summary}
+  lastModified={null}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: text.title,
+    description: text.summary || undefined,
+    url: course.url || undefined,
+    provider: { '@type': 'Organization', name: text.institution || loc(group.name, lang, defaultLang) },
+  }}
+>
+  <div slot="hero" class="page-head course-page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href={home}>{t.nav.home}</a></li>
+          <li><span>{t.nav.teaching}</span></li>
+          <li><a href={`${home}teaching/courses/`}>{c.title}</a></li>
+        </ol>
+      </nav>
+      {course.type && <p class="news-meta"><span class="kind kind-news">{c.types[course.type] ?? course.type}</span></p>}
+      <h1 lang={textLang}>{text.title}</h1>
+      {text.summary && <p class="lead" lang={textLang}>{text.summary}</p>}
+    </div>
+  </div>
+
+  <div class="course-page">
+    <article class="post prose" lang={textLang} set:html={html} />
+    <aside class="course-aside">
+      {facts.length > 0 && (
+        <dl class="course-facts">
+          {facts.map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
+        </dl>
+      )}
+      {course.instructors.length > 0 && (
+        <div class="card-people">
+          <h2>{c.instructors}</h2>
+          <PeopleList people={course.instructors} lang={lang} stacked />
+        </div>
+      )}
+      {course.url && <a class="button" href={course.url} rel="noopener">{c.officialSite} <span aria-hidden="true">→</span></a>}
+    </aside>
+  </div>
+</Base>

@@ -1,7 +1,8 @@
 ---
 // A member's courses on their profile, laid out like the publications and
 // theses: one group per course type that opens and closes, on a timeline by
-// year (newest first). Each title links to the course on the Courses page.
+// year (newest first). Each title links to the course's own page, or to its
+// card on the Courses page if it has none.
 //   self: the member whose profile this is, shown in bold among the instructors
 //         (the other members link to their profiles), as in author lists
 //   idPrefix: keeps the groups' ids unique if a page has more than one list
@@ -9,6 +10,7 @@ import { courseTypes } from '../lib/data.js';
 import { strings } from '../lib/i18n.js';
 import { localize } from '../lib/content.js';
 import { formatRange } from '../lib/format.js';
+import { coursePageUrl } from '../lib/courses.js';
 
 const { courses, lang, self, idPrefix = 'courses' } = Astro.props;
 const t = strings(lang);
@@ -42,7 +44,7 @@ const groups = courseTypes
               {/* Timeline: the year is shown once per run of courses from the same year. */}
               <span class:list={['pub-year', { repeat: i > 0 && yearOf(g.items[i - 1]) === yearOf(x) }]}><span class="year-label">{yearOf(x)}</span></span>
               <div class="pub-body">
-                <div class="pub-title" lang={textLang}><a href={`${base}${lang}/teaching/courses/#${x.id}`}>{x.text.title}</a></div>
+                <div class="pub-title" lang={textLang}><a href={x.hasPage ? coursePageUrl(x, lang) : `${base}${lang}/teaching/courses/#${x.id}`}>{x.text.title}</a></div>
                 {x.text.institution && <div class="pub-meta"><em class="venue">{x.text.institution}</em></div>}
                 {meta && <div class="pub-meta">{meta}</div>}
                 {x.instructors.length > 0 && (

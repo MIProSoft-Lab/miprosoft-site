@@ -355,7 +355,13 @@ collections:
         label: Link
         widget: string
         required: false
-        hint: Information or enrolment page.
+        hint: The official information or enrolment page. Shown as a button on the course’s own page if it has one; otherwise “More information” leads here.
+      - name: body
+        label: Page text
+        widget: markdown
+        i18n: true
+        required: false
+        hint: Optional. With text here the course gets a page of its own on this site (programme, teaching staff, prices…), and “More information” leads to it instead of the link above.
   - name: tools
     label: Tools
     label_singular: Tool
@@ -805,6 +811,11 @@ collections:
                 widget: string
               - name: moreInfo
                 label: More info
+                i18n: true
+                required: false
+                widget: string
+              - name: officialSite
+                label: Official site
                 i18n: true
                 required: false
                 widget: string

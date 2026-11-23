@@ -68,6 +68,7 @@ courses:
     other: "{n} hores"
   institution: Institució
   moreInfo: Més informació
+  officialSite: Web oficial
 tools:
   title: Eines
   research:

@@ -558,6 +558,23 @@ h2 .count, h3 .count {
 .card-text { font-size: 1rem; max-width: 46rem; }
 .card-text > :last-child { margin-bottom: 0; }
 /* Courses: dates, format, workload… in the side panel. */
+/* A course's own page: the text, with its facts, instructors and official
+   link in a side panel that stays in view (below the sticky masthead). */
+.course-page-head .news-meta { margin: 0.6rem 0 0.9rem; }
+.course-page-head .lead { max-width: 46rem; }
+.course-page { display: grid; grid-template-columns: minmax(0, 1fr) 18rem; gap: 2.5rem; align-items: start; }
+.course-aside {
+  position: sticky; top: 5.75rem; display: flex; flex-direction: column; gap: 1.25rem;
+  padding: 1.4rem 1.5rem; border-radius: var(--radius); background: var(--tint);
+}
+.course-aside .card-people { margin: 0; }
+.card-people h2 { position: static; margin: 0 0 0.4rem; padding: 0; border: 0; color: var(--muted); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.card-people h2::after { content: none; }
+.course-aside .button { align-self: stretch; }
+@media (max-width: 900px) {
+  .course-page { grid-template-columns: 1fr; gap: 1.5rem; }
+  .course-aside { position: static; order: -1; }
+}
 .course-facts { display: grid; gap: 0.75rem; margin: 0; }
 .course-facts dt { color: var(--muted); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
 .course-facts dd { margin: 0.1rem 0 0; font-size: 0.95rem; }

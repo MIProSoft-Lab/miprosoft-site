@@ -5,8 +5,7 @@ import PageHead from '../../../../components/PageHead.astro';
 import PeopleList from '../../../../components/PeopleList.astro';
 import { courses, group, languages, defaultLang } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
-import { formatRange } from '../../../../lib/format.js';
-import { localize } from '../../../../lib/content.js';
+import { courseText, courseFacts, courseMoreInfo } from '../../../../lib/courses.js';
 
 // Only built when there are courses (the menu entry is hidden otherwise).
 export function getStaticPaths() {
@@ -19,25 +18,13 @@ const c = t.courses;
 const L = (x) => loc(x, lang, defaultLang);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
-const languageName = (code) => {
-  try {
-    const name = new Intl.DisplayNames([lang], { type: 'language' }).of(code);
-    return name.charAt(0).toLocaleUpperCase(lang) + name.slice(1);
-  } catch { return code; }
-};
-
-// The facts shown next to each course, in this order; empty ones are left out.
-// Each course's texts in this language (or the default one where missing).
-const list = courses.map((course) => ({ ...course, text: localize(course.entry, lang) }));
-
-const facts = (course) => [
-  [c.dates, course.start || course.end ? formatRange(course.start, course.end, lang) : ''],
-  [c.schedule, course.text.schedule],
-  [c.format, c.formats[course.format] ?? course.format],
-  [c.languages, course.languages.map(languageName).join(', ')],
-  [c.workload, course.ects ? c.ects(course.ects) : course.hours ? c.hours(course.hours) : ''],
-  [c.institution, course.text.institution],
-].filter(([, value]) => value);
+// Each course's texts in this language (or the default one where missing), the
+// facts shown next to it, and where "More information" leads (its own page, if
+// it has page text, or its external link).
+const list = courses.map((course) => {
+  const text = courseText(course, lang);
+  return { ...course, text, facts: courseFacts(course, text, lang), moreInfo: courseMoreInfo(course, lang) };
+});
 ---
 <Base lang={lang} nav="teaching" subnav="courses" path="teaching/courses/" title={`${c.title} — ${loc(group.name, lang, defaultLang)}`} description={c.lead} lastModified={null}
   jsonLd={{
@@ -46,7 +33,7 @@ const facts = (course) => [
       '@type': 'Course',
       name: course.text.title,
       description: course.text.summary || undefined,
-      url: course.url || undefined,
+      url: course.moreInfo ? new URL(course.moreInfo, Astro.site).href : undefined,
       provider: { '@type': 'Organization', name: course.text.institution || loc(group.name, lang, defaultLang) },
     })),
   }}
@@ -58,7 +45,7 @@ const facts = (course) => [
       <li class="card course" id={course.id}>
         <div class="card-main">
           {course.type && <p class="news-meta"><span class="kind kind-news">{c.types[course.type] ?? course.type}</span></p>}
-          <h2 class="card-title" lang={course.text.translated ? undefined : course.text.lang}>{course.text.title}</h2>
+          <h2 class="card-title" lang={course.text.translated ? undefined : course.text.lang}>{course.hasPage ? <a href={course.moreInfo}>{course.text.title}</a> : course.text.title}</h2>
           {course.text.summary && <p class="card-summary" lang={course.text.translated ? undefined : course.text.lang}>{course.text.summary}</p>}
           {course.instructors.length > 0 && (
             <div class="card-people">
@@ -68,12 +55,12 @@ const facts = (course) => [
           )}
         </div>
         <div class="card-side">
-          {facts(course).length > 0 && (
+          {course.facts.length > 0 && (
             <dl class="course-facts">
-              {facts(course).map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
+              {course.facts.map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
             </dl>
           )}
-          {course.url && <a class="button" href={course.url}>{c.moreInfo} <span aria-hidden="true">→</span></a>}
+          {course.moreInfo && <a class="button" href={course.moreInfo}>{c.moreInfo}<span class="visually-hidden">: {course.text.title}</span> <span aria-hidden="true">→</span></a>}
         </div>
       </li>
     ))}

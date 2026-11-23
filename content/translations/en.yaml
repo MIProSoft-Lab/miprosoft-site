@@ -68,6 +68,7 @@ courses:
     other: "{n} hours"
   institution: Institution
   moreInfo: More information
+  officialSite: Official website
 tools:
   title: Tools
   research:

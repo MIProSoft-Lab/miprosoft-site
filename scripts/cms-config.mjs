@@ -166,7 +166,8 @@ const courses = folderCollection({
     { name: 'ects', label: 'ECTS credits', widget: 'number', value_type: 'float', required: false },
     { name: 'hours', label: 'Hours', widget: 'number', value_type: 'int', required: false, hint: 'Shown when there are no ECTS credits.' },
     { name: 'institution', label: 'Institution', widget: 'string', i18n: true, required: false },
-    { name: 'url', label: 'Link', widget: 'string', required: false, hint: 'Information or enrolment page.' },
+    { name: 'url', label: 'Link', widget: 'string', required: false, hint: 'The official information or enrolment page. Shown as a button on the course’s own page if it has one; otherwise “More information” leads here.' },
+    { name: 'body', label: 'Page text', widget: 'markdown', i18n: true, required: false, hint: 'Optional. With text here the course gets a page of its own on this site (programme, teaching staff, prices…), and “More information” leads to it instead of the link above.' },
   ],
 });
 

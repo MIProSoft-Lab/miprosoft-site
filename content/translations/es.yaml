@@ -68,6 +68,7 @@ courses:
     other: "{n} horas"
   institution: Institución
   moreInfo: Más información
+  officialSite: Web oficial
 tools:
   title: Herramientas
   research:

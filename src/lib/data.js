@@ -344,6 +344,8 @@ export const courses = loadCollection('courses', ({ entry, id, order, base: b })
   ects: b.ects,
   hours: b.hours,
   url: b.url,
+  // Courses with page text get a page of their own (/<lang>/teaching/courses/<slug>/).
+  hasPage: languages.some((l) => String(entry.data[l]?.body ?? '').trim()),
   instructors: peopleOf(b.instructors, b.guestInstructors),
 }), {
   sort: (a, b) =>
