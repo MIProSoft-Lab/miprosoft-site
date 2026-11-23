@@ -35,14 +35,23 @@ research:
   document: Document
 courses:
   title: Formació
-  lead: Cursos que impartim actualment.
+  lead: Cursos impartits per membres del grup de recerca.
   types:
+    microcredential: Microcredencial
     master: Màster
     postgraduate: Postgrau
     short: Curs breu
     workshop: Taller
     online: Curs en línia
     other: Curs
+  typeGroups:
+    microcredential: Microcredencials
+    master: Màsters
+    postgraduate: Cursos de postgrau
+    short: Cursos breus
+    workshop: Tallers
+    online: Cursos en línia
+    other: Altres cursos
   formats:
     in-person: Presencial
     online: En línia
@@ -107,6 +116,7 @@ sections:
   funding: Finançament
   distinctions: Premis i distincions
   talks: Ponències
+  courses: Cursos
   teaching: Docència
   supervision: Direcció de treballs
   software: Programari

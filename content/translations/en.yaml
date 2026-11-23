@@ -35,14 +35,23 @@ research:
   document: Document
 courses:
   title: Courses
-  lead: Courses we currently teach.
+  lead: Courses taught by members of the research group.
   types:
+    microcredential: Microcredential
     master: Master's
     postgraduate: Postgraduate
     short: Short course
     workshop: Workshop
     online: Online course
     other: Course
+  typeGroups:
+    microcredential: Microcredentials
+    master: Master's degrees
+    postgraduate: Postgraduate courses
+    short: Short courses
+    workshop: Workshops
+    online: Online courses
+    other: Other courses
   formats:
     in-person: In person
     online: Online
@@ -107,6 +116,7 @@ sections:
   funding: Funding
   distinctions: Awards & distinctions
   talks: Talks
+  courses: Courses
   teaching: Teaching
   supervision: Supervision
   software: Software

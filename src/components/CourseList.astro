@@ -1,0 +1,71 @@
+---
+// A member's courses on their profile, laid out like the publications and
+// theses: one group per course type that opens and closes, on a timeline by
+// year (newest first). Each title links to the course on the Courses page.
+//   self: the member whose profile this is, shown in bold among the instructors
+//         (the other members link to their profiles), as in author lists
+//   idPrefix: keeps the groups' ids unique if a page has more than one list
+import { courseTypes } from '../lib/data.js';
+import { strings } from '../lib/i18n.js';
+import { localize } from '../lib/content.js';
+import { formatRange } from '../lib/format.js';
+
+const { courses, lang, self, idPrefix = 'courses' } = Astro.props;
+const t = strings(lang);
+const c = t.courses;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const profileUrl = (id) => `${base}${lang}/team/${id}/`;
+const yearOf = (course) => (course.start ?? course.end)?.year ?? '';
+
+const groups = courseTypes
+  .map((type) => ({ type, items: courses.filter((x) => x.type === type).map((x) => ({ ...x, text: localize(x.entry, lang) })) }))
+  .filter((g) => g.items.length);
+---
+<div class="publications courses">
+  {groups.map((g) => (
+    <div class="pub-group">
+      <h3>
+        <button type="button" class="group-toggle disclosure" aria-expanded="true" aria-controls={`${idPrefix}-${g.type}`}>
+          {c.typeGroups[g.type]} <span class="count">{g.items.length}</span>
+        </button>
+      </h3>
+      <ol class="pubs" id={`${idPrefix}-${g.type}`}>
+        {g.items.map((x, i) => {
+          const textLang = x.text.translated ? undefined : x.text.lang;
+          const meta = [
+            x.start || x.end ? formatRange(x.start, x.end, lang) : '',
+            c.formats[x.format] ?? x.format,
+            x.ects ? c.ects(x.ects) : x.hours ? c.hours(x.hours) : '',
+          ].filter(Boolean).join(' · ');
+          return (
+            <li class="pub">
+              {/* Timeline: the year is shown once per run of courses from the same year. */}
+              <span class:list={['pub-year', { repeat: i > 0 && yearOf(g.items[i - 1]) === yearOf(x) }]}><span class="year-label">{yearOf(x)}</span></span>
+              <div class="pub-body">
+                <div class="pub-title" lang={textLang}><a href={`${base}${lang}/teaching/courses/#${x.id}`}>{x.text.title}</a></div>
+                {x.text.institution && <div class="pub-meta"><em class="venue">{x.text.institution}</em></div>}
+                {meta && <div class="pub-meta">{meta}</div>}
+                {x.instructors.length > 0 && (
+                  <div class="pub-metrics">
+                    <span>
+                      {c.instructors}:{' '}
+                      {x.instructors.map((p, j) => (
+                        <>{p.id === self ? <strong>{p.name}</strong> : p.member ? <a class="member" href={profileUrl(p.id)}>{p.name}</a> : p.name}{j < x.instructors.length - 1 ? ', ' : ''}</>
+                      ))}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  ))}
+</div>
+
+<script>
+  import { setupToggles } from '../scripts/disclosure.js';
+
+  setupToggles('.courses .group-toggle');
+</script>

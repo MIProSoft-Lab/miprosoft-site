@@ -35,14 +35,23 @@ research:
   document: Documento
 courses:
   title: Formación
-  lead: Cursos que impartimos actualmente.
+  lead: Cursos impartidos por miembros del grupo de investigación.
   types:
+    microcredential: Microcredencial
     master: Máster
     postgraduate: Posgrado
     short: Curso breve
     workshop: Taller
     online: Curso en línea
     other: Curso
+  typeGroups:
+    microcredential: Microcredenciales
+    master: Másteres
+    postgraduate: Cursos de posgrado
+    short: Cursos breves
+    workshop: Talleres
+    online: Cursos en línea
+    other: Otros cursos
   formats:
     in-person: Presencial
     online: En línea
@@ -107,6 +116,7 @@ sections:
   funding: Financiación
   distinctions: Premios y distinciones
   talks: Ponencias
+  courses: Cursos
   teaching: Docencia
   supervision: Dirección de trabajos
   software: Software

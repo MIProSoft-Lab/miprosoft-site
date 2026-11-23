@@ -142,12 +142,12 @@ const courses = folderCollection({
   name: 'courses',
   label: 'Courses',
   label_singular: 'Course',
-  description: 'Courses the group currently teaches. Delete a course when it is no longer offered.',
+  description: 'Courses taught by members of the group, current and past.',
   summary: '{{title}}',
-  sortable_fields: ['order', 'title'],
+  sortable_fields: ['start', 'order', 'title'],
   fields: [
     { name: 'title', label: 'Title', widget: 'string', i18n: true },
-    orderField('Courses are listed by this number, lowest first.'),
+    orderField('Courses are listed newest first, by date; this number (lowest first) only orders courses that start in the same month.'),
     {
       name: 'type', label: 'Type', widget: 'select', required: false,
       options: optionsFrom(texts.courses?.types),

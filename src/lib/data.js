@@ -327,12 +327,16 @@ export const collaborators = loadCollection('collaborators', ({ entry, id, order
   };
 }, { name: (c) => c.name });
 
-// Courses the group currently teaches.
+// Courses taught by members of the group, current and past: newest first, by
+// start (or end) date; courses without dates last. `order` (then the title)
+// only decides between courses that start in the same month.
+export const courseTypes = ['microcredential', 'master', 'postgraduate', 'short', 'workshop', 'online', 'other'];
+const monthsOf = (d) => (d ? d.year * 12 + (d.month ?? 1) : -Infinity);
 export const courses = loadCollection('courses', ({ entry, id, order, base: b }) => ({
   entry,
   id,
   order,
-  type: b.type,
+  type: courseTypes.includes(b.type) ? b.type : 'other',
   start: parseLooseDate(b.start),
   end: parseLooseDate(b.end),
   format: b.format,
@@ -341,7 +345,11 @@ export const courses = loadCollection('courses', ({ entry, id, order, base: b })
   hours: b.hours,
   url: b.url,
   instructors: peopleOf(b.instructors, b.guestInstructors),
-}));
+}), {
+  sort: (a, b) =>
+    monthsOf(b.start ?? b.end) - monthsOf(a.start ?? a.end) || a.order - b.order ||
+    String(a.entry.base.title ?? '').localeCompare(String(b.entry.base.title ?? '')),
+});
 
 // The group's research lines.
 export const researchLines = loadCollection('research-lines', ({ entry, id, order, base: b }) => ({
@@ -375,6 +383,9 @@ export const theses = loadCollection('theses', ({ entry, id, base: b }) => {
 
 // Each member's supervised theses, for the "Theses" section of their profile.
 for (const m of members) m.theses = theses.filter((x) => x.supervisors.some((p) => p.id === m.id));
+
+// Each member's courses (as an instructor), for the "Courses" section of their profile.
+for (const m of members) m.courses = courses.filter((c) => c.instructors.some((p) => p.id === m.id));
 
 // Tools the group has developed: content/tools/<slug>/index.yaml, with their
 // images next to it. Each one has one or more `tags` (research, teaching) and

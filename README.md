@@ -26,7 +26,7 @@ Every Monday (and on every push) a GitHub Action:
 | `data/people/<id>.yaml` | Per-member content ORCID lacks: name variants, title, teaching, talks…, plus per-member overrides (selected works, hidden items) |
 | `data/overrides.yaml` | Corrections to works (by DOI) applied for every member |
 | `content/news/<slug>/index.yaml` | News and blog posts, every language in one file, with their images beside it (*CMS*) |
-| `content/courses/<slug>.yaml` | Courses the group currently teaches (*CMS*) |
+| `content/courses/<slug>.yaml` | Courses taught by members of the group, current and past (*CMS*) |
 | `content/tools/<slug>/index.yaml` | Tools the group has developed, tagged `research`, `teaching` or both, with their images beside it: each is listed as a card on the Tools page of its sections and has a page of its own (*CMS*) |
 | `content/research-lines/<slug>.yaml` | Research lines (*CMS*) |
 | `content/theses/<slug>.yaml` | PhD, master's and bachelor's theses supervised by members (*CMS*) |
@@ -51,7 +51,7 @@ Pages:
 - `/<lang>/tools/<slug>/`: a tool's own page (text, pictures, guides, links); it
   sits in the menu of its first tag
 - Teaching (a menu in the navigation; each page is hidden when it has no content):
-  - `/<lang>/teaching/courses/`: courses the group currently teaches
+  - `/<lang>/teaching/courses/`: courses taught by members of the group
   - `/<lang>/teaching/tools/`: tools tagged `teaching` (the old
     `/<lang>/teaching/transfer/` redirects here)
 

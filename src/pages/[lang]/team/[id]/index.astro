@@ -5,6 +5,7 @@ import Entry from '../../../../components/Entry.astro';
 import Publications from '../../../../components/Publications.astro';
 import Avatar from '../../../../components/Avatar.astro';
 import ThesisList from '../../../../components/ThesisList.astro';
+import CourseList from '../../../../components/CourseList.astro';
 import { members, memberById, group, config, languages, defaultLang, hasContent } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
 import { formatRange, formatDate, formatPlace } from '../../../../lib/format.js';
@@ -124,6 +125,8 @@ const affiliationEntry = (it) => ({
       ))}
 
       {s === 'theses' && <ThesisList theses={cv.theses} lang={lang} self={cv.id} />}
+
+      {s === 'courses' && <CourseList courses={cv.courses} lang={lang} self={cv.id} />}
 
       {s === 'supervision' && cv.supervision.map((x) => (
         <Entry when={L(x.years)} title={L(x.title)} subtitle={[x.student, L(x.level)].filter(Boolean).join(' — ')} meta={L(x.role)} />

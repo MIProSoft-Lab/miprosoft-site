@@ -586,8 +586,8 @@ h2 .count, h3 .count {
 }
 .pub-title .status-badge { margin-left: 0.4rem; vertical-align: 0.1em; font-weight: 700; }
 .theses .authors { color: var(--fg); }
-.theses .pub-metrics a.member { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.15em; }
-.theses .pub-metrics a.member:hover { color: var(--accent); text-decoration-color: currentColor; }
+.theses .pub-metrics a.member, .courses .pub-metrics a.member { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 0.15em; }
+.theses .pub-metrics a.member:hover, .courses .pub-metrics a.member:hover { color: var(--accent); text-decoration-color: currentColor; }
 
 /* ---------- Tools ---------- */
 

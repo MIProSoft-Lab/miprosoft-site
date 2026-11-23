@@ -230,7 +230,7 @@ collections:
   - name: courses
     label: Courses
     label_singular: Course
-    description: Courses the group currently teaches. Delete a course when it is no longer offered.
+    description: Courses taught by members of the group, current and past.
     folder: content/courses
     extension: yaml
     format: yaml
@@ -238,6 +238,7 @@ collections:
     i18n: true
     summary: "{{title}}"
     sortable_fields:
+      - start
       - order
       - title
     fields:
@@ -250,12 +251,14 @@ collections:
         widget: number
         value_type: int
         required: false
-        hint: Courses are listed by this number, lowest first.
+        hint: Courses are listed newest first, by date; this number (lowest first) only orders courses that start in the same month.
       - name: type
         label: Type
         widget: select
         required: false
         options:
+          - label: Microcredential
+            value: microcredential
           - label: Master's
             value: master
           - label: Postgraduate
@@ -704,6 +707,22 @@ collections:
                     widget: string
                     i18n: true
                     required: false
+              - name: typeGroups
+                label: Type groups
+                i18n: true
+                required: false
+                widget: object
+                fields:
+                  - name: one
+                    label: Exactly one
+                    widget: string
+                    i18n: true
+                    required: false
+                  - name: other
+                    label: Any other number
+                    widget: string
+                    i18n: true
+                    required: false
               - name: formats
                 label: Formats
                 i18n: true
@@ -1045,6 +1064,11 @@ collections:
                 widget: string
               - name: talks
                 label: Talks
+                i18n: true
+                required: false
+                widget: string
+              - name: courses
+                label: Courses
                 i18n: true
                 required: false
                 widget: string
