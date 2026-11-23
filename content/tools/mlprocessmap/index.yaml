@@ -4,11 +4,11 @@ en:
   image: logo.svg
   tags:
     - research
-  summary: An interactive map of the Process Reference Model (PRM) for Machine Learning, to explore its processes and build a lifecycle model for your own project.
+  summary: An interactive map of the process reference model for Machine Learning applications, to explore its processes and build a lifecycle model tailored to each project.
   body: |
-    MLProcessMap is a website to explore the Process Reference Model (PRM) for Machine Learning developed in a doctoral thesis at the Universitat de les Illes Balears. Following ISO/IEC 33004 and ISO/IEC/IEEE 24774, the PRM focuses on the technical processes and specifies each one with its purpose, outcomes, activities, inputs and outputs. It keeps the names and structure of ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15288 and ISO/IEC 5338, so it can be used alongside them.
+    MLProcessMap is a web tool to explore the process reference model (PRM) for Machine Learning developed in a doctoral thesis at the Universitat de les Illes Balears. Following ISO/IEC 33004 and ISO/IEC/IEEE 24774, the PRM focuses on the technical processes and specifies each one with its purpose, outcomes, activities, inputs and outputs. It keeps the names and structure of ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15288 and ISO/IEC 5338, so they can be used together.
 
-    It is free to use, needs no account, and is available in English, Catalan and Spanish. It helps:
+    It is free to use and is available in English, Catalan and Spanish. It helps:
 
     - **Companies** that build Machine Learning systems define, assess and improve their development process, and tailor a lifecycle to each project.
     - **Teachers and students** learn how a Machine Learning project is organised, from the business analysis to operation and maintenance, process by process.
@@ -19,21 +19,15 @@ en:
 
     ## What you can do
 
-    - **Explore the process map** of each version of the PRM, with full-text search, and read each process: purpose, outcomes, inputs, outputs, activities, the sources of each activity and its traceability to the ISO/IEC standards.
+    - **Explore the process map** of each version of the PRM, and each process.
     - **Follow the work products**: which process produces each input and which processes use each output.
-    - **Compare versions** of the PRM, word by word.
-    - **Build a lifecycle model** for a project: choose the processes and activities, arrange them into phases with repetitions and feedback loops, see the inputs left without a producer, and export it as a Markdown checklist, CSV, JSON or YAML, or print it.
-    - **Print** a version of the PRM, or a single process, or save it as a PDF, with boxes to tick and space for notes.
-
-    ## Getting started
-
-    1. Open MLProcessMap and choose your language.
-    2. Explore the process map and open the processes that interest you.
-    3. Start from a lifecycle template, or from scratch, in **Build a lifecycle**, and export or print the result.
+    - **Compare versions** of the PRM's processes.
+    - **Build a tailored lifecycle model** for a project: choose the processes and activities, arrange them into phases with repetitions and cycles, and export it to share it.
+    - **Print** the PRM, or a single process, or save it as a PDF.
 
     ## How to cite
 
-    If you use the PRM, cite the thesis:
+    If you use this tool, cite the thesis:
 
     ```cite
     @phdthesis{crespi2027prm,
@@ -57,11 +51,11 @@ ca:
       url: https://miprosoft-lab.github.io/MLProcessMap/ca/
     - label: Codi font
       url: https://github.com/MIProSoft-Lab/MLProcessMap
-  summary: Un mapa interactiu del Model de Referència de Processos (PRM) per a l'Aprenentatge Automàtic, per explorar-ne els processos i construir un model de cicle de vida per al vostre projecte.
+  summary: Un mapa interactiu del model de referència de processos per aplicacions d'Aprenentatge Automàtic, per explorar-ne els processos i construir un model de cicle de vida adaptats a cada projecte.
   body: |
-    MLProcessMap és un web per explorar el Model de Referència de Processos (PRM) per a l'Aprenentatge Automàtic desenvolupat en una tesi doctoral a la Universitat de les Illes Balears. Seguint les normes ISO/IEC 33004 i ISO/IEC/IEEE 24774, el PRM se centra en els processos tècnics i especifica cadascun amb el seu propòsit, resultats, activitats, entrades i sortides. Manté els noms i l'estructura de les normes ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15288 i ISO/IEC 5338, de manera que es pot fer servir juntament amb elles.
+    MLProcessMap és un eina web per explorar el model de referència de processos (PRM) per a l'Aprenentatge Automàtic desenvolupat en una tesi doctoral a la Universitat de les Illes Balears. Seguint les normes ISO/IEC 33004 i ISO/IEC/IEEE 24774, el PRM es centra en els processos tècnics i especifica cadascun amb el seu propòsit, resultats, activitats, entrades i sortides. Manté els noms i l'estructura de les normes ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15288 i ISO/IEC 5338, de manera que es poden fer servir de forma complementaria.
 
-    És d'ús lliure, no necessita cap compte i està disponible en anglès, català i castellà. Ajuda:
+    És d'ús lliure i està disponible en anglès, català i castellà. Ajuda:
 
     - **Les empreses** que desenvolupen sistemes d'Aprenentatge Automàtic a definir, avaluar i millorar el seu procés de desenvolupament, i a adaptar un cicle de vida a cada projecte.
     - **El professorat i l'alumnat** a aprendre com s'organitza un projecte d'Aprenentatge Automàtic, des de l'anàlisi de negoci fins a l'operació i el manteniment, procés a procés.
@@ -72,21 +66,15 @@ ca:
 
     ## Què hi podeu fer
 
-    - **Explorar el mapa de processos** de cada versió del PRM, amb cerca de text complet, i llegir cada procés: propòsit, resultats, entrades, sortides, activitats, les fonts de cada activitat i la seva traçabilitat a les normes ISO/IEC.
+    - **Explorar el mapa de processos** de cada versió del PRM i cada procés.
     - **Seguir els productes de treball**: quin procés produeix cada entrada i quins processos fan servir cada sortida.
-    - **Comparar versions** del PRM, paraula per paraula.
-    - **Construir un model de cicle de vida** per a un projecte: triar els processos i les activitats, organitzar-los en fases amb repeticions i retroaccions, veure les entrades que queden sense productor, i exportar-lo com a llista de comprovació en Markdown, CSV, JSON o YAML, o imprimir-lo.
-    - **Imprimir** una versió del PRM, o un sol procés, o desar-lo com a PDF, amb caselles per marcar i espai per a notes.
-
-    ## Primers passos
-
-    1. Obriu MLProcessMap i triau la vostra llengua.
-    2. Explorau el mapa de processos i obriu els processos que us interessin.
-    3. Començau des d'una plantilla de cicle de vida, o des de zero, a **Crea un cicle de vida**, i exportau o imprimiu el resultat.
+    - **Comparar versions** de processos del PRM.
+    - **Construir un model de cicle de vida adaptat** a un projecte: triar els processos i les activitats, organitzar-los en fases amb repeticions i cicles, i exportar-lo per compartir.
+    - **Imprimir** el PRM, o un sol procés, o desar-lo com a PDF.
 
     ## Com citar-la
 
-    Si feu servir el PRM, citau la tesi:
+    Si feu servir aquesta eina, citau la tesi:
 
     ```cite
     @phdthesis{crespi2027prm,
@@ -105,11 +93,11 @@ es:
       url: https://miprosoft-lab.github.io/MLProcessMap/es/
     - label: Código fuente
       url: https://github.com/MIProSoft-Lab/MLProcessMap
-  summary: Un mapa interactivo del Modelo de Referencia de Procesos (PRM) para el Aprendizaje Automático, para explorar sus procesos y construir un modelo de ciclo de vida para tu propio proyecto.
+  summary: Un mapa interactivo del modelo de referencia de procesos para aplicaciones de Aprendizaje Automático, para explorar sus procesos y construir un modelo de ciclo de vida adaptado a cada proyecto.
   body: |
-    MLProcessMap es una web para explorar el Modelo de Referencia de Procesos (PRM) para el Aprendizaje Automático desarrollado en una tesis doctoral en la Universitat de les Illes Balears. Siguiendo las normas ISO/IEC 33004 e ISO/IEC/IEEE 24774, el PRM se centra en los procesos técnicos y especifica cada uno con su propósito, resultados, actividades, entradas y salidas. Mantiene los nombres y la estructura de las normas ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15288 e ISO/IEC 5338, de modo que puede usarse junto con ellas.
+    MLProcessMap es una herramienta web para explorar el modelo de referencia de procesos (PRM) para el Aprendizaje Automático desarrollado en una tesis doctoral en la Universitat de les Illes Balears. Siguiendo las normas ISO/IEC 33004 e ISO/IEC/IEEE 24774, el PRM se centra en los procesos técnicos y especifica cada uno con su propósito, resultados, actividades, entradas y salidas. Mantiene los nombres y la estructura de las normas ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15288 e ISO/IEC 5338, de modo que pueden usarse de forma complementaria.
 
-    Es de uso libre, no necesita cuenta y está disponible en inglés, catalán y castellano. Ayuda a:
+    Es de uso libre y está disponible en inglés, catalán y castellano. Ayuda a:
 
     - **Las empresas** que desarrollan sistemas de Aprendizaje Automático a definir, evaluar y mejorar su proceso de desarrollo, y a adaptar un ciclo de vida a cada proyecto.
     - **El profesorado y el alumnado** a aprender cómo se organiza un proyecto de Aprendizaje Automático, desde el análisis de negocio hasta la operación y el mantenimiento, proceso a proceso.
@@ -120,21 +108,15 @@ es:
 
     ## Qué puedes hacer
 
-    - **Explorar el mapa de procesos** de cada versión del PRM, con búsqueda de texto completo, y leer cada proceso: propósito, resultados, entradas, salidas, actividades, las fuentes de cada actividad y su trazabilidad a las normas ISO/IEC.
+    - **Explorar el mapa de procesos** de cada versión del PRM y cada proceso.
     - **Seguir los productos de trabajo**: qué proceso produce cada entrada y qué procesos usan cada salida.
-    - **Comparar versiones** del PRM, palabra por palabra.
-    - **Construir un modelo de ciclo de vida** para un proyecto: elegir los procesos y las actividades, organizarlos en fases con repeticiones y retroalimentaciones, ver las entradas que quedan sin productor, y exportarlo como lista de comprobación en Markdown, CSV, JSON o YAML, o imprimirlo.
-    - **Imprimir** una versión del PRM, o un solo proceso, o guardarlo como PDF, con casillas para marcar y espacio para notas.
-
-    ## Primeros pasos
-
-    1. Abre MLProcessMap y elige tu idioma.
-    2. Explora el mapa de procesos y abre los procesos que te interesen.
-    3. Empieza desde una plantilla de ciclo de vida, o desde cero, en **Crear un ciclo de vida**, y exporta o imprime el resultado.
+    - **Comparar versiones** de procesos del PRM.
+    - **Construir un modelo de ciclo de vida adaptado** a un proyecto: elegir los procesos y las actividades, organizarlos en fases con repeticiones y ciclos, y exportarlo para compartirlo.
+    - **Imprimir** el PRM, o un solo proceso, o guardarlo como PDF.
 
     ## Cómo citarla
 
-    Si usas el PRM, cita la tesis:
+    Si usas esta herramienta, cita la tesis:
 
     ```cite
     @phdthesis{crespi2027prm,
