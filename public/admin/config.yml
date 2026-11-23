@@ -211,6 +211,22 @@ collections:
           name: name
           label: Name
           widget: string
+      - name: support
+        label: With the support of
+        widget: select
+        multiple: true
+        required: false
+        options: *a1
+        hint: Group members who helped without being supervisors; they link to their profiles, and the thesis is listed on them.
+      - name: guestSupport
+        label: Others who supported it
+        widget: list
+        required: false
+        hint: People who are not members of the group.
+        field:
+          name: name
+          label: Name
+          widget: string
       - name: degree
         label: Degree or programme
         widget: string
@@ -227,6 +243,17 @@ collections:
         widget: string
         required: false
         hint: The thesis in a repository, e.g. UIB’s or TDX.
+      - name: tool
+        label: Tool
+        widget: relation
+        collection: tools
+        search_fields:
+          - title
+        value_field: "{{slug}}"
+        display_fields:
+          - title
+        required: false
+        hint: The tool the thesis developed, if it is on the Tools pages. The thesis then links to it.
   - name: courses
     label: Courses
     label_singular: Course
@@ -430,7 +457,7 @@ collections:
         i18n: true
         required: false
         label_singular: Link
-        hint: Shown on the tool’s page, and the first one also on its card. The first one is shown as a button, e.g. the tool itself; then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown.
+        hint: "Shown on the tool’s page, and the first one also on its card. The first one is shown as a button, e.g. the tool itself (unless it is a GitHub link: the code alone is never the button); then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown."
         summary: "{{label}} · {{url}}"
         fields:
           - name: label
@@ -677,6 +704,16 @@ collections:
                 widget: string
               - name: supervisors
                 label: Supervisors
+                i18n: true
+                required: false
+                widget: string
+              - name: support
+                label: Support
+                i18n: true
+                required: false
+                widget: string
+              - name: tool
+                label: Tool
                 i18n: true
                 required: false
                 widget: string

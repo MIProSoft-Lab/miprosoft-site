@@ -389,12 +389,16 @@ export const theses = loadCollection('theses', ({ entry, id, base: b }) => {
     degree: perLanguage(entry, 'degree'),
     institution: perLanguage(entry, 'institution'),
     supervisors: peopleOf(b.supervisors, b.guestSupervisors),
+    // People who helped without being supervisors ("With the support of").
+    support: peopleOf(b.support, b.guestSupport),
     url: b.url || '',
+    // The slug of the tool the thesis developed (content/tools/<slug>/), if any.
+    tool: b.tool || '',
   };
 }, { sort: (a, b) => (b.year ?? 0) - (a.year ?? 0) || b.ongoing - a.ongoing || a.title.localeCompare(b.title) });
 
-// Each member's supervised theses, for the "Theses" section of their profile.
-for (const m of members) m.theses = theses.filter((x) => x.supervisors.some((p) => p.id === m.id));
+// Each member's supervised (or supported) theses, for the "Theses" section of their profile.
+for (const m of members) m.theses = theses.filter((x) => [...x.supervisors, ...x.support].some((p) => p.id === m.id));
 
 // Each member's courses (as an instructor), for the "Courses" section of their profile.
 for (const m of members) m.courses = courses.filter((c) => c.instructors.some((p) => p.id === m.id));

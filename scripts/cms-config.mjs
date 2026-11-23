@@ -209,9 +209,15 @@ const theses = folderCollection({
     { name: 'year', label: 'Year', widget: 'number', value_type: 'int', required: false, hint: 'Year of the defence (or of the start, if in progress).' },
     memberSelect('supervisors', 'Supervisors', 'Group members; they link to their profiles, and the thesis is listed on them.'),
     guestList('guestSupervisors', 'Other supervisors'),
+    memberSelect('support', 'With the support of', 'Group members who helped without being supervisors; they link to their profiles, and the thesis is listed on them.'),
+    guestList('guestSupport', 'Others who supported it'),
     { name: 'degree', label: 'Degree or programme', widget: 'string', i18n: true, required: false, hint: 'E.g. "Doctoral Programme in Information and Communication Technologies".' },
     { name: 'institution', label: 'University', widget: 'string', i18n: true, required: false },
     { name: 'url', label: 'Link', widget: 'string', required: false, hint: 'The thesis in a repository, e.g. UIB’s or TDX.' },
+    {
+      name: 'tool', label: 'Tool', widget: 'relation', collection: 'tools', search_fields: ['title'], value_field: '{{slug}}', display_fields: ['title'], required: false,
+      hint: 'The tool the thesis developed, if it is on the Tools pages. The thesis then links to it.',
+    },
   ],
 });
 
@@ -240,7 +246,7 @@ const tools = folderCollection({
     linksField({
       i18n: true,
       example: 'Try it',
-      hint: 'Shown on the tool’s page, and the first one also on its card. The first one is shown as a button, e.g. the tool itself; then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown.',
+      hint: 'Shown on the tool’s page, and the first one also on its card. The first one is shown as a button, e.g. the tool itself (unless it is a GitHub link: the code alone is never the button); then a demo, the code, a paper… Each language has its own list, so the texts can be translated; if a language has none, the default language’s are shown.',
     }),
   ],
 });

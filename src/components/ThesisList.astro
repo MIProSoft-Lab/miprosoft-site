@@ -1,9 +1,12 @@
 ---
 // Supervised theses, laid out like the publications: one group per kind (PhD,
-// master's, bachelor's) that opens and closes, on a timeline by year.
-//   self: the member whose profile this is, left out of the supervisors
+// master's, bachelor's) that opens and closes, on a timeline by year. Each
+// thesis has the id thesis-<slug>, so a tool's page can link to it.
+//   self: the member whose profile this is, left out of the supervisors and
+//         of those who supported it
 //   idPrefix: keeps the groups' ids unique if a page has more than one list
-import { thesisTypes, defaultLang } from '../lib/data.js';
+import { thesisTypes, tools, defaultLang } from '../lib/data.js';
+import { localize } from '../lib/content.js';
 import { strings, loc } from '../lib/i18n.js';
 
 const { theses, lang, self, idPrefix = 'theses' } = Astro.props;
@@ -12,6 +15,12 @@ const r = t.research;
 const L = (x) => loc(x, lang, defaultLang);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const profileUrl = (id) => `${base}${lang}/team/${id}/`;
+const collaboratorUrl = (id) => `${base}${lang}/team/#collaborator-${id}`;
+// The tool a thesis developed: its name and page (if it is on the Tools pages).
+const toolOf = (slug) => {
+  const tool = slug && tools.find((x) => x.id === slug);
+  return tool ? { name: localize(tool.entry, lang).title, href: `${base}${lang}/tools/${tool.id}/` } : null;
+};
 
 const groups = thesisTypes
   .map((type) => ({ type, items: theses.filter((x) => x.type === type) }))
@@ -28,9 +37,13 @@ const groups = thesisTypes
       <ol class="pubs" id={`${idPrefix}-${g.type}`}>
         {g.items.map((x, i) => {
           const where = [L(x.degree), L(x.institution)].filter(Boolean).join(', ');
-          const supervisors = x.supervisors.filter((p) => !self || p.id !== self);
+          const people = [
+            [r.supervisors, x.supervisors.filter((p) => !self || p.id !== self)],
+            [r.support, x.support.filter((p) => !self || p.id !== self)],
+          ].filter(([, list]) => list.length);
+          const tool = toolOf(x.tool);
           return (
-            <li class="pub">
+            <li class="pub" id={`thesis-${x.id}`}>
               {/* Timeline: the year is shown once per run of theses from the same year. */}
               <span class:list={['pub-year', { repeat: i > 0 && g.items[i - 1].year === x.year }]}><span class="year-label">{x.year ?? ''}</span></span>
               <div class="pub-body">
@@ -40,17 +53,24 @@ const groups = thesisTypes
                 </div>
                 <div class="authors">{x.student}</div>
                 {where && <div class="pub-meta"><em class="venue">{where}</em></div>}
-                {supervisors.length > 0 && (
+                {people.length > 0 && (
                   <div class="pub-metrics">
-                    <span>
-                      {r.supervisors}:{' '}
-                      {supervisors.map((p, j) => (
-                        <>{p.member ? <a class="member" href={profileUrl(p.id)}>{p.name}</a> : p.collaborator ? <a class="member" href={`${base}${lang}/team/#collaborator-${p.collaborator.id}`}>{p.name}</a> : p.name}{j < supervisors.length - 1 ? ', ' : ''}</>
-                      ))}
-                    </span>
+                    {people.map(([label, list]) => (
+                      <span>
+                        {label}:{' '}
+                        {list.map((p, j) => (
+                          <>{p.member ? <a class="member" href={profileUrl(p.id)}>{p.name}</a> : p.collaborator ? <a class="member" href={collaboratorUrl(p.collaborator.id)}>{p.name}</a> : p.name}{j < list.length - 1 ? ', ' : ''}</>
+                        ))}
+                      </span>
+                    ))}
                   </div>
                 )}
-                {x.url && <div class="pub-links"><a href={x.url}>{r.document}</a></div>}
+                {(x.url || tool) && (
+                  <div class="pub-links">
+                    {x.url && <a href={x.url}>{r.document}</a>}
+                    {tool && <a href={tool.href}>{r.tool}: {tool.name}</a>}
+                  </div>
+                )}
               </div>
             </li>
           );

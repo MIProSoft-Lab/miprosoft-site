@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><rect x="1" y="1" width="7" height="7" rx="2" fill="#dce8b4"/><rect x="10" y="1" width="7" height="7" rx="2" fill="#6a994e"/><rect x="19" y="1" width="7" height="7" rx="2" fill="#ffe38a"/><rect x="1" y="10" width="7" height="7" rx="2" fill="#ffe38a"/><rect x="10" y="10" width="7" height="7" rx="2" fill="#6a994e"/><rect x="19" y="10" width="7" height="7" rx="2" fill="#dce8b4"/><rect x="1" y="19" width="7" height="7" rx="2" fill="#6a994e"/><rect x="10" y="19" width="7" height="7" rx="2" fill="#dce8b4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- The MLProcessMap logo (its 3 × 3 grid of tiles), centred on a dark green rounded square so it has the same weight as the other tools' icons. -->
+  <rect width="64" height="64" rx="14" fill="#2d4a1f"/>
+  <rect x="12" y="12" width="11.2" height="11.2" rx="3.2" fill="#dce8b4"/>
+  <rect x="26.4" y="12" width="11.2" height="11.2" rx="3.2" fill="#6a994e"/>
+  <rect x="40.8" y="12" width="11.2" height="11.2" rx="3.2" fill="#ffe38a"/>
+  <rect x="12" y="26.4" width="11.2" height="11.2" rx="3.2" fill="#ffe38a"/>
+  <rect x="26.4" y="26.4" width="11.2" height="11.2" rx="3.2" fill="#6a994e"/>
+  <rect x="40.8" y="26.4" width="11.2" height="11.2" rx="3.2" fill="#dce8b4"/>
+  <rect x="12" y="40.8" width="11.2" height="11.2" rx="3.2" fill="#6a994e"/>
+  <rect x="26.4" y="40.8" width="11.2" height="11.2" rx="3.2" fill="#dce8b4"/>
+</svg>

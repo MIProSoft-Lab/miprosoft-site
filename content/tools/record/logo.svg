@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="RECORD">
+  <title>RECORD</title>
+  <!-- Colors from the UIB palette (UIBPreset in src/app/app.config.ts) -->
+  <rect width="64" height="64" rx="14" fill="#0065bd"/>
+
+  <!-- Page block peeking below the cover -->
+  <rect x="17" y="10" width="31" height="45" rx="2" fill="#c2d9ed"/>
+
+  <!-- Bound journal: front cover with spine -->
+  <rect x="14" y="7" width="36" height="45" rx="3" fill="#ffffff"/>
+  <rect x="14" y="7" width="6" height="45" rx="3" fill="#9bc0df"/>
+  <rect x="17" y="7" width="3" height="45" fill="#9bc0df"/>
+
+  <!-- Title band -->
+  <rect x="20" y="15" width="30" height="13" fill="#0065bd"/>
+  <line x1="25" y1="19.5" x2="41" y2="19.5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="25" y1="24" x2="35" y2="24" stroke="#c2d9ed" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Volume number -->
+  <line x1="25" y1="44" x2="31" y2="44" stroke="#9bc0df" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Bookmark ribbon hanging out of the bottom -->
+  <path d="M38 50H45V61L41.5 57.5L38 61Z" fill="#002d59"/>
+</svg>

@@ -1,0 +1,67 @@
+en:
+  title: RECORD
+  order: 2
+  image: logo.svg
+  tags:
+    - research
+  summary: A web application for research groups to keep a shared record of their scientific publications and of the journals that interest them, with journal impact metrics synced from Clarivate's Web of Science.
+  body: |
+    RECORD is a web application to manage academic research groups and their scientific publications. Researchers organise themselves into groups, invite colleagues, mark the journals they are interested in, and keep a shared record of the group's publications, enriched with journal impact metrics synced from Clarivate's Web of Science.
+
+    RECORD started as a [bachelor's thesis (TFG)](../../research/theses/#thesis-record-castillo-benito) by Jesús Castillo Benito, and is now maintained by MIProSoft.
+
+    ## What you can do
+
+    - **Create research groups** and invite colleagues to join them.
+    - **Keep a shared record of publications** for each group.
+    - **Search journals** and see their impact factor and their quartile in each category, year by year.
+    - **Mark journals of interest**, and see which journals the group's members are interested in.
+
+    ## How it is built
+
+    RECORD is an API-first application: a single OpenAPI contract defines its REST API, and both sides generate their code from it. The backend is written in Kotlin with Spring Boot and PostgreSQL, following a modular, hexagonal architecture, and the frontend is an Angular single-page application.
+  links:
+    - label: Source code
+      url: https://github.com/MIProSoft-Lab/RECORD
+ca:
+  title: RECORD
+  summary: Una aplicació web perquè els grups de recerca mantenguin un registre compartit de les seves publicacions científiques i de les revistes que els interessen, amb les mètriques d'impacte de les revistes sincronitzades de la Web of Science de Clarivate.
+  body: |
+    RECORD és una aplicació web per gestionar grups de recerca acadèmics i les seves publicacions científiques. Els investigadors s'organitzen en grups, conviden col·legues, marquen les revistes que els interessen i mantenen un registre compartit de les publicacions del grup, enriquit amb les mètriques d'impacte de les revistes sincronitzades de la Web of Science de Clarivate.
+
+    RECORD va néixer com a [treball de fi de grau (TFG)](../../research/theses/#thesis-record-castillo-benito) de Jesús Castillo Benito, i ara és mantinguda per MIProSoft.
+
+    ## Què hi podeu fer
+
+    - **Crear grups de recerca** i convidar-hi col·legues.
+    - **Mantenir un registre compartit de publicacions** per a cada grup.
+    - **Cercar revistes** i consultar-ne el factor d'impacte i el quartil en cada categoria, any per any.
+    - **Marcar les revistes que us interessen**, i veure quines revistes interessen als membres del grup.
+
+    ## Com està feta
+
+    RECORD és una aplicació *API-first*: un únic contracte OpenAPI defineix la seva API REST, i les dues parts en generen el codi. El backend està escrit en Kotlin amb Spring Boot i PostgreSQL, amb una arquitectura modular i hexagonal, i el frontend és una aplicació d'una sola pàgina en Angular.
+  links:
+    - label: Codi font
+      url: https://github.com/MIProSoft-Lab/RECORD
+es:
+  title: RECORD
+  summary: Una aplicación web para que los grupos de investigación mantengan un registro compartido de sus publicaciones científicas y de las revistas que les interesan, con las métricas de impacto de las revistas sincronizadas desde la Web of Science de Clarivate.
+  body: |
+    RECORD es una aplicación web para gestionar grupos de investigación académicos y sus publicaciones científicas. Los investigadores se organizan en grupos, invitan a colegas, marcan las revistas que les interesan y mantienen un registro compartido de las publicaciones del grupo, enriquecido con las métricas de impacto de las revistas sincronizadas desde la Web of Science de Clarivate.
+
+    RECORD nació como [trabajo de fin de grado (TFG)](../../research/theses/#thesis-record-castillo-benito) de Jesús Castillo Benito, y ahora la mantiene MIProSoft.
+
+    ## Qué puedes hacer
+
+    - **Crear grupos de investigación** e invitar a colegas.
+    - **Mantener un registro compartido de publicaciones** para cada grupo.
+    - **Buscar revistas** y consultar su factor de impacto y su cuartil en cada categoría, año a año.
+    - **Marcar las revistas que te interesan**, y ver qué revistas interesan a los miembros del grupo.
+
+    ## Cómo está hecha
+
+    RECORD es una aplicación *API-first*: un único contrato OpenAPI define su API REST, y las dos partes generan su código a partir de él. El backend está escrito en Kotlin con Spring Boot y PostgreSQL, con una arquitectura modular y hexagonal, y el frontend es una aplicación de una sola página en Angular.
+  links:
+    - label: Código fuente
+      url: https://github.com/MIProSoft-Lab/RECORD
