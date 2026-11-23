@@ -94,7 +94,7 @@
 [hidden] { display: none !important; }
 /* Keep in-page anchor targets clear of the sticky masthead. */
 html { scroll-padding-top: 5.5rem; }
-@media (max-width: 760px) { html { scroll-padding-top: 0; } }
+@media (max-width: 900px) { html { scroll-padding-top: 4.5rem; } }
 
 body {
   margin: 0;
@@ -198,6 +198,20 @@ a:hover { text-decoration: underline; }
 }
 .main-nav .menu a { padding: 0.55rem 0.8rem; border-radius: 6px; white-space: nowrap; }
 .main-nav .menu a[aria-current='page'] { box-shadow: inset 3px 0 0 var(--accent); border-radius: 0 6px 6px 0; background: var(--tint); }
+/* On phones the menu's name is a heading in the navigation panel instead. */
+.menu-label { display: none; }
+
+/* Menu button: only on phones (see Small screens). Three bars that turn into an X. */
+.nav-toggle {
+  display: none; place-items: center; width: 2.75rem; height: 2.75rem; margin-right: -0.5rem; padding: 0;
+  border: 0; border-radius: 8px; background: none; color: var(--fg); cursor: pointer;
+}
+@media (hover: hover) { .nav-toggle:hover { background: var(--tint); color: var(--accent); } }
+.nav-toggle-bars { display: grid; gap: 5px; width: 1.35rem; }
+.nav-toggle-bars span { display: block; height: 2px; border-radius: 2px; background: currentColor; transition: transform 0.2s, opacity 0.2s; }
+.nav-open .nav-toggle-bars span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-open .nav-toggle-bars span:nth-child(2) { opacity: 0; }
+.nav-open .nav-toggle-bars span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ---------- Hero and page heads ---------- */
 
@@ -365,6 +379,19 @@ h2 .count, h3 .count {
 }
 .pub-year.repeat::after { width: 5px; height: 5px; margin: -2.5px -2.5px 0 0; background: var(--muted); box-shadow: none; }
 .pub-year.repeat .year-label { visibility: hidden; }
+/* Phones: no year column; the year is a heading above its works (a dot, the
+   year and a rule), and the other works of that year have none. */
+@media (max-width: 600px) {
+  .pub { grid-template-columns: 1fr; gap: 0; }
+  .pub-year.repeat { display: none; }
+  .pub-year { display: flex; align-items: center; gap: 0.5rem; padding: 1rem 0 0.1rem; color: var(--accent); font-size: 0.9rem; }
+  .pub:first-child .pub-year { padding-top: 0.25rem; }
+  .pub-year::before, .pub:first-child .pub-year::before, .pub:last-child .pub-year::before {
+    position: static; order: 1; display: block; flex: 1; width: auto; height: 1px; margin: 0; background: var(--rule);
+  }
+  .pub-year::after { position: static; order: -1; margin: 0; }
+  .pub-year:not(.repeat) + .pub-body { border-top: 0; }
+}
 .pub-title { font-weight: 700; line-height: 1.4; }
 .pub-title a { color: inherit; }
 .pub-title a:hover { color: var(--accent); }
@@ -630,6 +657,10 @@ h2 .count, h3 .count {
   .card-side { padding: 1.1rem 1.25rem 1.25rem; }
   .course-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+/* Phones: one fact per line, so long values (dates, schedules) stay readable. */
+@media (max-width: 600px) {
+  .course-facts { grid-template-columns: 1fr; gap: 0.6rem; }
+}
 
 /* ---------- Research ---------- */
 
@@ -681,20 +712,43 @@ h2 .count, h3 .count {
 
 /* ---------- Small screens ---------- */
 
+/* Phones and portrait tablets: the five tabs and the group's full name don't fit
+   side by side in every language. */
+@media (max-width: 900px) {
+  /* Header: a compact bar (brand and menu button) that stays pinned; the
+     navigation opens as a panel under it, with every menu's pages listed. */
+  .masthead-inner { flex-wrap: wrap; gap: 0 1rem; min-height: 3.75rem; padding-top: 0.55rem; padding-bottom: 0.55rem; }
+  .brand { padding-left: 0.7rem; border-left-width: 3px; }
+  .brand-name { font-size: 1.25rem; }
+  .brand-fullname { font-size: 0.75rem; }
+  .nav-toggle { display: grid; }
+  .main-nav { display: none; width: 100%; margin: 0.55rem 0 0.25rem; padding-top: 0.4rem; border-top: 1px solid var(--rule); }
+  .nav-open .main-nav { display: block; max-height: calc(100dvh - 4.5rem); padding-bottom: 0.5rem; overflow-y: auto; overscroll-behavior: contain; }
+  .main-nav ul { flex-direction: column; gap: 0; }
+  .main-nav a { padding: 0.7rem 0.75rem; font-size: 1.05rem; }
+  .main-nav a[aria-current='page'], .main-nav .menu a[aria-current='page'] { box-shadow: inset 3px 0 0 var(--accent); border-radius: 0 6px 6px 0; background: var(--tint); }
+  .menu-toggle { display: none; }
+  .menu-label {
+    display: block; margin-top: 0.4rem; padding: 0.85rem 0.75rem 0.25rem; border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .has-menu.current .menu-label { color: var(--accent); }
+  .has-menu { position: static; }
+  .main-nav .menu, .has-menu:hover .menu {
+    position: static; display: flex; min-width: 0; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none;
+  }
+  .main-nav .menu::before { display: none; }
+  .main-nav .menu a { padding: 0.7rem 0.75rem; white-space: normal; }
+}
+
 @media (max-width: 760px) {
   .hero-inner { padding-top: 2.75rem; padding-bottom: 2.5rem; }
-  .site-header { position: static; }
-  .masthead-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding-top: 0.85rem; padding-bottom: 0.35rem; }
-  .main-nav { width: 100%; margin-left: -0.6rem; }
-  /* Five tabs don't fit a phone in every language: let them wrap. */
-  .main-nav ul { flex-wrap: wrap; gap: 0 0.1rem; }
-  .main-nav a { padding: 0.45rem 0.6rem; }
-  .menu-toggle { padding: 0.45rem 0.6rem; }
-  /* On phones the menu opens under the whole navigation, so it fits the screen. */
-  .main-nav { position: relative; }
-  .has-menu { position: static; }
-  .main-nav .has-menu .menu { left: 0.6rem; right: auto; }
+  .page { padding-top: 1.75rem; padding-bottom: 3rem; }
+  .page-head { padding: 1.4rem 0 1.6rem; }
+  .page-head h1 { font-size: 1.85rem; }
   .profile { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .profile .avatar { --size: 84px !important; width: var(--size); height: var(--size); }
+  .eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; line-height: 1.5; }
   .footer-meta { text-align: left; }
 }
 @media (max-width: 600px) {

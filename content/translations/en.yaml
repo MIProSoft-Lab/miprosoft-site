@@ -3,6 +3,7 @@
 # "one" / "other": the text for exactly one, and for any other number.
 langName: English
 nav:
+  menu: Menu
   home: Home
   team: Team
   research: Research

@@ -554,6 +554,11 @@ collections:
             widget: object
             collapsed: true
             fields:
+              - name: menu
+                label: Menu
+                i18n: true
+                required: false
+                widget: string
               - name: home
                 label: Home
                 i18n: true

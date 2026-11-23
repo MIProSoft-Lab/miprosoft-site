@@ -98,11 +98,15 @@ const links = [
             <span class="brand-name">{groupName}</span>
             {fullName ? <span class="brand-fullname">{fullName}</span> : <span class="brand-tagline">{t.researchGroup}</span>}
           </a>
-          <nav class="main-nav" aria-label={t.nav.home}>
+          <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label={t.nav.menu}>
+            <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+          </button>
+          <nav class="main-nav" id="main-nav" aria-label={t.nav.home}>
             <ul>
               {links.map((l) => l.items ? (
                 <li class:list={['has-menu', { current: l.id === nav }]}>
                   <button type="button" class="menu-toggle" aria-expanded="false" aria-controls={`menu-${l.id}`}>{l.label}</button>
+                  <span class="menu-label" aria-hidden="true">{l.label}</span>
                   <ul class="menu" id={`menu-${l.id}`}>
                     {l.items.map((i) => <li><a href={i.href} aria-current={l.id === nav && i.id === subnav ? 'page' : undefined}>{i.label}</a></li>)}
                   </ul>
@@ -157,6 +161,22 @@ const links = [
       });
       systemDark.addEventListener('change', label);
       label();
+
+      // Phones: the navigation is a panel under the masthead, opened by the
+      // menu button; Escape or a click outside the header closes it.
+      const masthead = document.querySelector('.masthead');
+      const navToggle = masthead.querySelector('.nav-toggle');
+      const setNav = (open) => {
+        masthead.classList.toggle('nav-open', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+      };
+      navToggle.addEventListener('click', () => setNav(!masthead.classList.contains('nav-open')));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && masthead.classList.contains('nav-open')) { setNav(false); navToggle.focus(); }
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.site-header')) setNav(false);
+      });
 
       // Navigation menus (Research): hover opens them with CSS; this adds
       // click/tap, Escape, and closing when clicking elsewhere.
