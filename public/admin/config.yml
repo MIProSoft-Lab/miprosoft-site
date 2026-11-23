@@ -1063,6 +1063,11 @@ collections:
             i18n: true
             required: false
             widget: string
+          - name: followUs
+            label: Follow us
+            i18n: true
+            required: false
+            widget: string
           - name: latestPublications
             label: Latest publications
             i18n: true

@@ -11,6 +11,7 @@
 import '../styles/site.css';
 import { languages, group, defaultLang, courses, toolsFor } from '../lib/data.js';
 import { strings, ui, loc } from '../lib/i18n.js';
+import SocialLinks from '../components/SocialLinks.astro';
 
 const { lang, title, description, path = '', nav, subnav, jsonLd, lastModified } = Astro.props;
 const t = strings(lang);
@@ -127,6 +128,7 @@ const links = [
         <div>
           <p class="footer-name">{groupName}</p>
           <p>{t.researchGroup}{institution?.name && <> · <a href={institution.url}>{L(institution.name)}</a></>}</p>
+          <SocialLinks lang={lang} class="footer-social" />
         </div>
         <div class="footer-meta">
           <p>

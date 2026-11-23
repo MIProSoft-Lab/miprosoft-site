@@ -15,6 +15,11 @@ group:
   institution:
     name: Universitat de les Illes Balears
     url: https://www.uib.eu
+  # The group's social networks, shown with their logos in the footer of every
+  # page. Leave one empty (or remove it) to hide it.
+  social:
+    instagram: https://www.instagram.com/miprosoftuib/
+    linkedin: https://www.linkedin.com/company/146686212/
 
 # Members of the group, in the order they are listed. Each one gets a profile
 # page at /<lang>/team/<id>/, built from their public ORCID record plus the content in

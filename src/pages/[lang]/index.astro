@@ -1,6 +1,7 @@
 ---
 // Group home page: introduction, latest news, latest publications.
 import Base from '../../layouts/Base.astro';
+import SocialLinks from '../../components/SocialLinks.astro';
 import Publications from '../../components/Publications.astro';
 import NewsCard from '../../components/NewsCard.astro';
 import { getPosts, inLanguage } from '../../lib/news.js';
@@ -45,6 +46,7 @@ const news = (await getPosts()).slice(0, LATEST_NEWS).map((p) => inLanguage(p, l
         <p class="eyebrow">{t.researchGroup}{institution?.name && <> · {L(institution.name)}</>}</p>
         <h1>{name}</h1>
         {description && <p class="hero-lead">{description}</p>}
+        <SocialLinks lang={lang} class="hero-social" labels />
       </div>
     </div>
   </section>

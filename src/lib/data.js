@@ -269,6 +269,10 @@ export const group = {
   fullName: config.group?.fullName ?? '',
   description: config.group?.description ?? '',
   institution: config.group?.institution ?? null,
+  // Social networks with a URL, in a fixed order: [{ network, url }].
+  social: ['linkedin', 'instagram']
+    .map((network) => ({ network, url: String(config.group?.social?.[network] ?? '').trim() }))
+    .filter((s) => s.url),
   works: groupWorks,
   lastModified: members.map((m) => m.lastModified).filter(Boolean).sort().at(-1) ?? null,
 };
