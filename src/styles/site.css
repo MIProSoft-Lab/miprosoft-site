@@ -92,6 +92,9 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
+/* Keep in-page anchor targets clear of the sticky masthead. */
+html { scroll-padding-top: 5.5rem; }
+@media (max-width: 760px) { html { scroll-padding-top: 0; } }
 
 body {
   margin: 0;
@@ -120,8 +123,12 @@ a:hover { text-decoration: underline; }
 /* ---------- Header ---------- */
 
 /* Thin top bar: institution on the left; languages and theme on the right. */
+/* The whole header is sticky, pulled up by the topbar's height: the topbar
+   scrolls away and the masthead (brand + navigation) stays pinned. The masthead
+   alone can't be sticky, since sticky never leaves its parent (.site-header). */
+.site-header { --topbar-h: 2.25rem; position: sticky; top: calc(-1 * var(--topbar-h)); z-index: 5; }
 .topbar { background: var(--tint); font: 0.8rem/1 var(--sans); }
-.topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 2.25rem; }
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem; height: var(--topbar-h); }
 .institution { color: var(--fg); font-weight: 700; letter-spacing: 0.01em; }
 .topbar-tools { display: flex; align-items: center; gap: 1.1rem; }
 .langs { display: flex; gap: 0.9rem; margin: 0; padding: 0; list-style: none; }
@@ -143,7 +150,7 @@ a:hover { text-decoration: underline; }
 }
 
 /* Masthead: group name on the left, navigation on the right. */
-.masthead { background: var(--bg); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 5; }
+.masthead { background: var(--bg); border-bottom: 1px solid var(--rule); }
 .masthead-inner { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; min-height: 4.25rem; }
 .brand { display: flex; flex-direction: column; padding-left: 0.85rem; border-left: 4px solid var(--accent); color: var(--fg); line-height: 1.15; }
 .brand:hover { text-decoration: none; }
@@ -579,7 +586,7 @@ h2 .count, h3 .count {
 
 @media (max-width: 760px) {
   .hero-inner { padding-top: 2.75rem; padding-bottom: 2.5rem; }
-  .masthead { position: static; }
+  .site-header { position: static; }
   .masthead-inner { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding-top: 0.85rem; padding-bottom: 0.35rem; }
   .main-nav { width: 100%; margin-left: -0.6rem; }
   /* Five tabs don't fit a phone in every language: let them wrap. */
