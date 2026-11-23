@@ -22,9 +22,9 @@
     "tldr": "MiProJOC has been used to facilitate the learning of the software life cycle processes of the ISO/IEC/IEEE 12207 International Standard within a Software Quality course and an increase in the student interest toward the topics studied.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 16,
+    "citations": 17,
     "citationsByYear": {
-      "2018": 1,
+      "2018": 2,
       "2019": 2,
       "2020": 2,
       "2021": 1,
@@ -58,11 +58,11 @@
     "tldr": "The main results of this initiative have been the definition of a standardized set of processes and procedures and the development of a Process Asset Library to support project management good practices within the participant organizations.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 44,
+    "citations": 45,
     "citationsByYear": {
       "2014": 2,
       "2015": 1,
-      "2016": 8,
+      "2016": 9,
       "2017": 1,
       "2018": 4,
       "2019": 7,
@@ -129,11 +129,11 @@
     "tldr": "This paper presents an ISO 31000‐based Integrated Risk Management Process Assessment Model (PAM) for IT organizations enabling to integrate on an easy way several ISO process‐oriented standards which are often targeted by IT organizations.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 50,
+    "citations": 51,
     "citationsByYear": {
       "2020": 4,
       "2021": 8,
-      "2022": 5,
+      "2022": 6,
       "2023": 13,
       "2024": 4,
       "2025": 12,
@@ -232,11 +232,12 @@
     "metadataFetched": "2026-11-02",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 16,
+    "citations": 17,
     "citationsByYear": {
       "2012": 1,
       "2014": 7,
       "2015": 1,
+      "2016": 1,
       "2017": 1,
       "2022": 1,
       "2023": 1
@@ -319,10 +320,10 @@
       "status": "green",
       "license": null
     },
-    "citations": 13,
+    "citations": 14,
     "citationsByYear": {
       "2023": 1,
-      "2024": 3,
+      "2024": 4,
       "2025": 6,
       "2026": 3
     }
@@ -1089,13 +1090,13 @@
     "tldr": "A new Integrated Management System (IMS) is proposed which widens the scope of the ISO 9001 QMS with the specific IT service management requirements of ISO/IEC 20000-1, and presents a guide to support organizations in implementing this IMS.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 54,
+    "citations": 55,
     "citationsByYear": {
       "2014": 1,
       "2015": 3,
       "2016": 6,
       "2017": 8,
-      "2018": 4,
+      "2018": 5,
       "2019": 4,
       "2020": 9,
       "2021": 6,
@@ -1126,15 +1127,15 @@
     "tldr": "This paper analyses risk management activities throughout various selected ISO standards in order to provide the basis to improve, coordinate and interoperaterisk management activities in IT settings for various purposes related to quality management, project management, IT service management and information security management.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 142,
+    "citations": 145,
     "citationsByYear": {
       "2015": 1,
       "2017": 20,
       "2018": 11,
       "2019": 19,
-      "2020": 19,
+      "2020": 20,
       "2021": 16,
-      "2022": 11,
+      "2022": 13,
       "2023": 17,
       "2024": 12,
       "2025": 9,
@@ -1591,13 +1592,13 @@
       "status": "green",
       "license": "cc-by-nc-sa"
     },
-    "citations": 13,
+    "citations": 14,
     "citationsByYear": {
       "2015": 3,
       "2016": 3,
       "2019": 1,
       "2021": 3,
-      "2022": 1,
+      "2022": 2,
       "2023": 1,
       "2025": 1
     }
@@ -1856,13 +1857,13 @@
       "status": "gold",
       "license": "cc-by-nc-nd"
     },
-    "citations": 28,
+    "citations": 29,
     "citationsByYear": {
       "2016": 1,
       "2017": 1,
       "2018": 3,
       "2019": 3,
-      "2020": 4,
+      "2020": 5,
       "2021": 2,
       "2022": 5,
       "2023": 2,
