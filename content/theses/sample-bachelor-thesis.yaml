@@ -1,0 +1,15 @@
+en:
+  title: "Sample bachelor's thesis: placeholder title"
+  student: Sample Student
+  type: bachelor
+  status: defended
+  year: 2025
+  supervisors:
+    - toni-bennasar
+  degree: Bachelor's Degree in Computer Engineering
+  institution: Universitat de les Illes Balears
+  url: https://example.org
+ca:
+  degree: Grau en Enginyeria Informàtica
+es:
+  degree: Grado en Ingeniería Informática
