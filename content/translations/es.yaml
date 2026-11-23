@@ -71,12 +71,6 @@ tools:
   tags:
     research: Investigación
     teaching: Docencia
-  audience: Para
-  audiences:
-    companies: Empresas
-    society: Sociedad
-    education: Educación
-    administration: Administración pública
 news:
   title: Noticias y blog
   latest: Últimas noticias

@@ -232,10 +232,6 @@ const tools = folderCollection({
       options: optionsFrom(texts.tools?.tags),
     },
     orderField('Tools are listed by this number, lowest first.'),
-    {
-      name: 'audiences', label: 'For', widget: 'select', multiple: true, required: false, hint: 'Who the tool is for.',
-      options: optionsFrom(texts.tools?.audiences),
-    },
     { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences, shown on the card and at the top of the tool’s page.' },
     { name: 'image', label: 'Logo', widget: 'image', required: false, hint: 'Shown small, next to the name. Square works best.' },
     { name: 'body', label: 'Page text', widget: 'markdown', i18n: true, required: false, hint: 'The tool’s own page: what it does, pictures, guides, results… An image followed by a line in italics shows the italics as its caption.' },

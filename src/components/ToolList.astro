@@ -29,12 +29,6 @@ const tools = toolsFor(section).map((tool) => {
     {tools.map((tool) => (
       <li class="card tool" id={tool.id}>
         <div class="card-main" lang={tool.text.translated ? undefined : tool.text.lang}>
-          {tool.audiences.length > 0 && (
-            <p class="news-meta">
-              <span class="visually-hidden">{x.audience}:</span>
-              {tool.audiences.map((a) => <span class="kind kind-blog">{x.audiences[a]}</span>)}
-            </p>
-          )}
           <div class="tool-head">
             <ToolLogo tool={tool} />
             <h2 class="card-title"><a href={tool.href}>{tool.text.title}</a></h2>

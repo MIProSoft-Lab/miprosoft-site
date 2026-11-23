@@ -71,12 +71,6 @@ tools:
   tags:
     research: Research
     teaching: Teaching
-  audience: For
-  audiences:
-    companies: Companies
-    society: Society
-    education: Education
-    administration: Public administration
 news:
   title: News & blog
   latest: Latest news

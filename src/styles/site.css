@@ -566,7 +566,7 @@ h2 .count, h3 .count {
 .tool-links .button { align-self: auto; }
 .tool .card-title a { color: var(--fg); }
 .tool .card-title a:hover { color: var(--accent); text-decoration: none; }
-/* A tool's own page: its sections and audiences, logo and name, summary, links. */
+/* A tool's own page: its sections, logo and name, summary, links. */
 .tool-page-head .news-meta { gap: 0.4rem; margin: 0.6rem 0 0.9rem; }
 .tool-page-head a.kind:hover { text-decoration: none; filter: brightness(1.1); }
 .tool-page-head .lead { max-width: 46rem; }

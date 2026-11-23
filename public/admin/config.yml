@@ -393,21 +393,6 @@ collections:
         value_type: int
         required: false
         hint: Tools are listed by this number, lowest first.
-      - name: audiences
-        label: For
-        widget: select
-        multiple: true
-        required: false
-        hint: Who the tool is for.
-        options:
-          - label: Companies
-            value: companies
-          - label: Society
-            value: society
-          - label: Education
-            value: education
-          - label: Public administration
-            value: administration
       - name: summary
         label: Summary
         widget: text
@@ -869,38 +854,6 @@ collections:
                     widget: string
                   - name: teaching
                     label: Teaching
-                    i18n: true
-                    required: false
-                    widget: string
-              - name: audience
-                label: Audience
-                i18n: true
-                required: false
-                widget: string
-              - name: audiences
-                label: Audiences
-                i18n: true
-                required: false
-                widget: object
-                collapsed: true
-                fields:
-                  - name: companies
-                    label: Companies
-                    i18n: true
-                    required: false
-                    widget: string
-                  - name: society
-                    label: Society
-                    i18n: true
-                    required: false
-                    widget: string
-                  - name: education
-                    label: Education
-                    i18n: true
-                    required: false
-                    widget: string
-                  - name: administration
-                    label: Administration
                     i18n: true
                     required: false
                     widget: string

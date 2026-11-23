@@ -382,7 +382,6 @@ for (const m of members) m.theses = theses.filter((x) => x.supervisors.some((p) 
 // page of its own at /<lang>/tools/<slug>/; tools without a valid tag are left
 // out. Their links are per language (see ToolCard).
 export const toolTags = ['research', 'teaching'];
-export const toolAudiences = ['companies', 'society', 'education', 'administration'];
 export const tools = loadCollection('tools', ({ entry, id, order, base: b }) => {
   const tags = [].concat(b.tags ?? []).filter((x) => toolTags.includes(x));
   if (!tags.length) return null;
@@ -392,7 +391,6 @@ export const tools = loadCollection('tools', ({ entry, id, order, base: b }) => 
     order,
     tags,
     image: b.image || '',
-    audiences: (b.audiences ?? []).filter((a) => toolAudiences.includes(a)),
   };
 }, { bundles: true });
 export const toolsFor = (tag) => tools.filter((x) => x.tags.includes(tag));

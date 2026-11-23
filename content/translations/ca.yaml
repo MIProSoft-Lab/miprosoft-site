@@ -71,12 +71,6 @@ tools:
   tags:
     research: Recerca
     teaching: Docència
-  audience: Per a
-  audiences:
-    companies: Empreses
-    society: Societat
-    education: Educació
-    administration: Administració pública
 news:
   title: Notícies i blog
   latest: Darreres notícies

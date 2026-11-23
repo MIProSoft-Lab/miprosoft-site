@@ -53,8 +53,6 @@ const textLang = text.translated ? undefined : text.lang;
       </nav>
       <p class="news-meta">
         {tool.tags.map((tag) => <a class="kind kind-news" href={`${home}${tag}/tools/`}>{x[tag].title}</a>)}
-        {tool.audiences.length > 0 && <span class="visually-hidden">{x.audience}:</span>}
-        {tool.audiences.map((a) => <span class="kind kind-blog">{x.audiences[a]}</span>)}
       </p>
       <div class="tool-head">
         <ToolLogo tool={tool} />

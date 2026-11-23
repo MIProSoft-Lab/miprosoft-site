@@ -5,9 +5,6 @@ en:
   tags:
     - teaching
     - research
-  audiences:
-    - companies
-    - education
   summary: An interactive map of the Process Reference Model (PRM) for Machine Learning, to explore its processes and build a lifecycle model for your own project.
   body: |
     MLProcessMap is a website to explore the Process Reference Model (PRM) for Machine Learning developed in a doctoral thesis at the Universitat de les Illes Balears. Following ISO/IEC 33004 and ISO/IEC/IEEE 24774, the PRM focuses on the technical processes and specifies each one with its purpose, outcomes, activities, inputs and outputs. It keeps the names and structure of ISO/IEC/IEEE 12207, ISO/IEC/IEEE 15288 and ISO/IEC 5338, so it can be used alongside them.
