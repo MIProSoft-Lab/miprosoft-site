@@ -35,7 +35,14 @@ en:
 
     If you use the PRM, cite the thesis:
 
-    > Crespí Tobeña, A. (2027). *A Process Reference Model for Machine Learning Applications* [Doctoral thesis, Universitat de les Illes Balears].
+    ```cite
+    @phdthesis{crespi2027prm,
+      author = {Crespí Tobeña, Antonio},
+      title  = {A Process Reference Model for Machine Learning Applications},
+      school = {Universitat de les Illes Balears},
+      year   = {2027}
+    }
+    ```
 
     The content of the PRM is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), and the source code of the website under the MIT License.
   links:
@@ -81,7 +88,14 @@ ca:
 
     Si feu servir el PRM, citau la tesi:
 
-    > Crespí Tobeña, A. (2027). *A Process Reference Model for Machine Learning Applications* [Tesi doctoral, Universitat de les Illes Balears].
+    ```cite
+    @phdthesis{crespi2027prm,
+      author = {Crespí Tobeña, Antonio},
+      title  = {A Process Reference Model for Machine Learning Applications},
+      school = {Universitat de les Illes Balears},
+      year   = {2027}
+    }
+    ```
 
     El contingut del PRM té una llicència [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), i el codi font del web, la llicència MIT.
 es:
@@ -122,6 +136,13 @@ es:
 
     Si usas el PRM, cita la tesis:
 
-    > Crespí Tobeña, A. (2027). *A Process Reference Model for Machine Learning Applications* [Tesis doctoral, Universitat de les Illes Balears].
+    ```cite
+    @phdthesis{crespi2027prm,
+      author = {Crespí Tobeña, Antonio},
+      title  = {A Process Reference Model for Machine Learning Applications},
+      school = {Universitat de les Illes Balears},
+      year   = {2027}
+    }
+    ```
 
     El contenido del PRM tiene una licencia [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), y el código fuente de la web, la licencia MIT.

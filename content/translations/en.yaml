@@ -70,6 +70,12 @@ tools:
   tags:
     research: Research
     teaching: Teaching
+cite:
+  title: Cite
+  formats: Citation formats
+  copy: Copy
+  copied: Copied
+  copyFailed: Select the text to copy it
 news:
   title: News & blog
   latest: Latest news

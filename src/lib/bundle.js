@@ -14,7 +14,8 @@ export const imageOf = (dir, slug, name) =>
 
 // Markdown as HTML, with the images next to the entry resized and converted.
 // Other images (e.g. /media/… from the CMS, or full URLs) are left as they are.
-export async function renderMarkdown(md, dir, slug) {
+// `lang`: the page's language (for the texts of citation boxes).
+export async function renderMarkdown(md, dir, slug, lang) {
   let text = String(md ?? '');
   for (const [match, alt, src] of text.matchAll(/!\[([^\]]*)\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/g)) {
     const meta = imageOf(dir, slug, src);
@@ -22,5 +23,5 @@ export async function renderMarkdown(md, dir, slug) {
     const img = await getImage({ src: meta, width: Math.min(meta.width, 1400), format: 'webp' });
     text = text.replace(match, `![${alt}](${img.src})`);
   }
-  return markdown(text);
+  return markdown(text, lang);
 }

@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const name = loc(group.name, lang, defaultLang);
 const lines = researchLines.map((line) => {
   const text = localize(line.entry, lang);
-  return { ...line, text, html: markdown(text.description) };
+  return { ...line, text, html: markdown(text.description, lang) };
 });
 ---
 <Base lang={lang} nav="research" subnav="lines" path="research/lines/" title={`${r.lines} — ${name}`} lastModified={null}>

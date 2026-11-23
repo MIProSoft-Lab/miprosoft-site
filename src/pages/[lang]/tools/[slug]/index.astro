@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const home = `${base}${lang}/`;
 const text = localize(tool.entry, lang);
 const links = linksOf(text.links);
-const html = await renderMarkdown(text.body, 'tools', tool.id);
+const html = await renderMarkdown(text.body, 'tools', tool.id, lang);
 const section = tool.tags[0];
 const textLang = text.translated ? undefined : text.lang;
 ---

@@ -19,7 +19,7 @@ const t = strings(lang);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const all = await getPosts();
 const post = inLanguage(all.find((p) => p.slug === slug), lang);
-const html = await renderBody(post);
+const html = await renderBody(post, lang);
 const date = new Intl.DateTimeFormat(lang, { dateStyle: 'long' });
 const languageName = (l) => {
   try { return new Intl.DisplayNames([lang], { type: 'language' }).of(l); } catch { return l; }

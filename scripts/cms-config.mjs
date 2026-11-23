@@ -134,7 +134,7 @@ const news = {
     { name: 'image', label: 'Cover image', widget: 'image', required: false },
     { name: 'imageAlt', label: 'Cover image description', widget: 'string', i18n: true, required: false, hint: 'What the picture shows, for people who cannot see it.' },
     { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences for the cards. If empty, the start of the text is used.' },
-    { name: 'body', label: 'Text', widget: 'markdown', i18n: true, hint: 'An image followed by a line in italics shows the italics as its caption.' },
+    { name: 'body', label: 'Text', widget: 'markdown', i18n: true, hint: 'An image followed by a line in italics shows the italics as its caption. A code block with the language “cite” holding a DOI of one of the group’s publications (e.g. doi:10.1002/cae.21990), or a BibTeX entry, shows a box to cite it in IEEE, APA, Chicago, BibTeX and RIS.' },
   ],
 };
 
@@ -181,7 +181,7 @@ const researchLines = folderCollection({
     { name: 'title', label: 'Title', widget: 'string', i18n: true },
     orderField('Research lines are listed by this number, lowest first.'),
     { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences, shown under the title.' },
-    { name: 'description', label: 'Description', widget: 'markdown', i18n: true, required: false, hint: 'Topics, projects, results… Optional.' },
+    { name: 'description', label: 'Description', widget: 'markdown', i18n: true, required: false, hint: 'Topics, projects, results… Optional. A code block with the language “cite” holding a DOI of one of the group’s publications (e.g. doi:10.1002/cae.21990), or a BibTeX entry, shows a box to cite it in IEEE, APA, Chicago, BibTeX and RIS.' },
     memberSelect('members', 'Researchers', 'Group members working on this line; they link to their profiles.'),
   ],
 });
@@ -234,7 +234,7 @@ const tools = folderCollection({
     orderField('Tools are listed by this number, lowest first.'),
     { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences, shown on the card and at the top of the tool’s page.' },
     { name: 'image', label: 'Logo', widget: 'image', required: false, hint: 'Shown small, next to the name. Square works best.' },
-    { name: 'body', label: 'Page text', widget: 'markdown', i18n: true, required: false, hint: 'The tool’s own page: what it does, pictures, guides, results… An image followed by a line in italics shows the italics as its caption.' },
+    { name: 'body', label: 'Page text', widget: 'markdown', i18n: true, required: false, hint: 'The tool’s own page: what it does, pictures, guides, results… An image followed by a line in italics shows the italics as its caption. A code block with the language “cite” holding a DOI of one of the group’s publications (e.g. doi:10.1002/cae.21990), or a BibTeX entry, shows a box to cite it in IEEE, APA, Chicago, BibTeX and RIS.' },
     linksField({
       i18n: true,
       example: 'Try it',

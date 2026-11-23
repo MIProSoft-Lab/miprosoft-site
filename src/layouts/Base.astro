@@ -184,6 +184,48 @@ const links = [
       document.addEventListener('click', (e) => {
         for (const item of menus) if (!item.contains(e.target)) setOpen(item, false);
       });
+
+      // Citation boxes (```cite in Markdown, see src/lib/cite.js): without
+      // JavaScript every format is shown; this turns them into tabs (with arrow
+      // keys, Home and End) and makes the copy button copy the visible one.
+      for (const box of document.querySelectorAll('[data-cite]')) {
+        const tabs = [...box.querySelectorAll('[role="tab"]')];
+        const panels = tabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+        const copy = box.querySelector('.cite-copy');
+        const copyLabel = copy.querySelector('span');
+        const copyText = copyLabel.textContent;
+        const select = (i, focus) => {
+          tabs.forEach((tab, k) => {
+            tab.setAttribute('aria-selected', String(k === i));
+            tab.tabIndex = k === i ? 0 : -1;
+            panels[k].hidden = k !== i;
+          });
+          if (focus) tabs[i].focus();
+          copyLabel.textContent = copyText;
+        };
+        tabs.forEach((tab, i) => {
+          tab.addEventListener('click', () => select(i));
+          tab.addEventListener('keydown', (e) => {
+            const to = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+            if (to === undefined) return;
+            e.preventDefault();
+            select((to + tabs.length) % tabs.length, true);
+          });
+        });
+        copy.addEventListener('click', async () => {
+          const panel = panels[tabs.findIndex((tab) => tab.getAttribute('aria-selected') === 'true')];
+          const text = panel.querySelector('.cite-text, .cite-code').innerText.trim();
+          try {
+            await navigator.clipboard.writeText(text);
+            copyLabel.textContent = copy.dataset.copied;
+          } catch {
+            copyLabel.textContent = copy.dataset.failed;
+          }
+          setTimeout(() => { copyLabel.textContent = copyText; }, 2000);
+        });
+        box.classList.add('cite-ready');
+        select(0);
+      }
     </script>
   </body>
 </html>

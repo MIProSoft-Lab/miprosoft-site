@@ -70,6 +70,12 @@ tools:
   tags:
     research: Investigación
     teaching: Docencia
+cite:
+  title: Cita
+  formats: Formatos de cita
+  copy: Copiar
+  copied: Copiado
+  copyFailed: Selecciona el texto para copiarlo
 news:
   title: Noticias y blog
   latest: Últimas noticias

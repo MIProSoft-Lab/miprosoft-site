@@ -103,7 +103,7 @@ collections:
         label: Text
         widget: markdown
         i18n: true
-        hint: An image followed by a line in italics shows the italics as its caption.
+        hint: An image followed by a line in italics shows the italics as its caption. A code block with the language “cite” holding a DOI of one of the group’s publications (e.g. doi:10.1002/cae.21990), or a BibTeX entry, shows a box to cite it in IEEE, APA, Chicago, BibTeX and RIS.
   - name: research-lines
     label: Research lines
     label_singular: Research line
@@ -139,7 +139,7 @@ collections:
         widget: markdown
         i18n: true
         required: false
-        hint: Topics, projects, results… Optional.
+        hint: Topics, projects, results… Optional. A code block with the language “cite” holding a DOI of one of the group’s publications (e.g. doi:10.1002/cae.21990), or a BibTeX entry, shows a box to cite it in IEEE, APA, Chicago, BibTeX and RIS.
       - name: members
         label: Researchers
         widget: select
@@ -409,7 +409,7 @@ collections:
         widget: markdown
         i18n: true
         required: false
-        hint: "The tool’s own page: what it does, pictures, guides, results… An image followed by a line in italics shows the italics as its caption."
+        hint: "The tool’s own page: what it does, pictures, guides, results… An image followed by a line in italics shows the italics as its caption. A code block with the language “cite” holding a DOI of one of the group’s publications (e.g. doi:10.1002/cae.21990), or a BibTeX entry, shows a box to cite it in IEEE, APA, Chicago, BibTeX and RIS."
       - name: links
         label: Links
         widget: list
@@ -852,6 +852,38 @@ collections:
                     i18n: true
                     required: false
                     widget: string
+          - name: cite
+            label: Cite
+            i18n: true
+            required: false
+            widget: object
+            collapsed: true
+            fields:
+              - name: title
+                label: Title
+                i18n: true
+                required: false
+                widget: string
+              - name: formats
+                label: Formats
+                i18n: true
+                required: false
+                widget: string
+              - name: copy
+                label: Copy
+                i18n: true
+                required: false
+                widget: string
+              - name: copied
+                label: Copied
+                i18n: true
+                required: false
+                widget: string
+              - name: copyFailed
+                label: Copy failed
+                i18n: true
+                required: false
+                widget: string
           - name: news
             label: News
             i18n: true

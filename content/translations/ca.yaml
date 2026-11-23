@@ -70,6 +70,12 @@ tools:
   tags:
     research: Recerca
     teaching: Docència
+cite:
+  title: Citació
+  formats: Formats de cita
+  copy: Copia
+  copied: Copiat
+  copyFailed: Seleccionau el text per copiar-lo
 news:
   title: Notícies i blog
   latest: Darreres notícies

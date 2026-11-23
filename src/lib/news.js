@@ -68,4 +68,4 @@ export function inLanguage(post, lang) {
 
 // The post's Markdown as HTML. Images next to the post are resized and
 // converted like the cover image.
-export const renderBody = (post) => renderMarkdown(post.body, 'news', post.slug);
+export const renderBody = (post, lang) => renderMarkdown(post.body, 'news', post.slug, lang);
