@@ -8,5 +8,10 @@ en:
     - antonia-mas
   support:
     - jose-cañellas
+  degree: Bachelor's Degree in Computer Engineering
   institution: Universitat de les Illes Balears
   tool: record
+ca:
+  degree: Grau en Enginyeria Informàtica
+es:
+  degree: Grado en Ingeniería Informática
