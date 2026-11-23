@@ -61,6 +61,8 @@ const links = [
       } catch {}
     </script>
     <noscript><style>.section-body[hidden] { display: block !important; } .section-toggle::before { display: none !important; }</style></noscript>
+    <!-- Pre-launch: keeps search engines from indexing the site. Remove this line when it goes public. -->
+    <meta name="robots" content="noindex, nofollow" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     {languages.map((l) => <link rel="alternate" hreflang={l} href={new URL(href(l), Astro.site)} />)}

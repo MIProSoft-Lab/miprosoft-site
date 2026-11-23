@@ -8,6 +8,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 <html lang={defaultLang}>
   <head>
     <meta charset="utf-8" />
+    <!-- Pre-launch: keeps search engines from indexing the site. Remove this line when it goes public. -->
+    <meta name="robots" content="noindex, nofollow" />
     <title>{loc(group.name, defaultLang, defaultLang)}</title>
     <script is:inline define:vars={{ languages, defaultLang, base }}>
       const pref = (navigator.languages || [navigator.language])
