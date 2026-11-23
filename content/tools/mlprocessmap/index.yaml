@@ -3,7 +3,6 @@ en:
   order: 1
   image: logo.svg
   tags:
-    - teaching
     - research
   summary: An interactive map of the Process Reference Model (PRM) for Machine Learning, to explore its processes and build a lifecycle model for your own project.
   body: |
