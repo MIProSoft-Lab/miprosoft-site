@@ -251,7 +251,10 @@ a:hover { text-decoration: underline; }
 .block-head h2 { position: static; margin: 0; padding: 0; border: 0; }
 .more { font-weight: 700; font-size: 0.9rem; white-space: nowrap; }
 
-.member-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+/* Team and collaborator cards: three per row, two on tablets, one on phones. */
+.member-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+@media (max-width: 900px) { .member-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .member-grid { grid-template-columns: 1fr; } }
 .member-card {
   position: relative; display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.2rem;
   border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow);
