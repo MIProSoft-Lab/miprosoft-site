@@ -564,6 +564,8 @@ h2 .count, h3 .count {
 .tool .news-meta { gap: 0.4rem; }
 .tool-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.25rem; margin-top: 0.6rem; font-weight: 700; font-size: 0.92rem; }
 .tool-links .button { align-self: auto; }
+.tool-links a { display: inline-flex; align-items: center; gap: 0.4rem; }
+.tool-link-icon { width: 1.05em; height: 1.05em; flex: none; }
 .tool .card-title a { color: var(--fg); }
 .tool .card-title a:hover { color: var(--accent); text-decoration: none; }
 /* A tool's own page: its sections, logo and name, summary, links. */

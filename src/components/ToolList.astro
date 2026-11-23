@@ -1,11 +1,13 @@
 ---
 // The tools of one section, research or teaching (content/tools/*/index.yaml
 // with that tag), as cards, as the whole of its Tools page. Each card has the
-// tool's summary and links to its own page (src/pages/[lang]/tools/[slug]/).
+// tool's summary, its name linking to its own page (src/pages/[lang]/tools/[slug]/),
+// and the same links as that page (ToolLinks).
 //   lang, section: 'research' | 'teaching'
 import Base from '../layouts/Base.astro';
 import PageHead from './PageHead.astro';
 import ToolLogo from './ToolLogo.astro';
+import ToolLinks from './ToolLinks.astro';
 import { toolsFor, linksOf, group, defaultLang } from '../lib/data.js';
 import { strings, loc } from '../lib/i18n.js';
 import { localize } from '../lib/content.js';
@@ -19,7 +21,7 @@ const name = loc(group.name, lang, defaultLang);
 const tools = toolsFor(section).map((tool) => {
   const text = localize(tool.entry, lang);
   // Links per language (their texts are translated), or the default language's.
-  return { ...tool, text, href: `${base}${lang}/tools/${tool.id}/`, link: linksOf(text.links)[0] };
+  return { ...tool, text, href: `${base}${lang}/tools/${tool.id}/`, links: linksOf(text.links) };
 });
 ---
 <Base lang={lang} nav={section} subnav="tools" path={`${section}/tools/`} title={`${page.title} — ${name}`} description={page.lead} lastModified={null}>
@@ -34,10 +36,7 @@ const tools = toolsFor(section).map((tool) => {
             <h2 class="card-title"><a href={tool.href}>{tool.text.title}</a></h2>
           </div>
           {tool.text.summary && <p class="card-summary">{tool.text.summary}</p>}
-          <div class="tool-links">
-            <a class="button" href={tool.href}>{x.details}<span class="visually-hidden">: {tool.text.title}</span><span aria-hidden="true"> →</span></a>
-            {tool.link && <a href={tool.link.url} rel="noopener">{tool.link.label}</a>}
-          </div>
+          <ToolLinks links={tool.links} name={tool.text.title} />
         </div>
       </li>
     ))}

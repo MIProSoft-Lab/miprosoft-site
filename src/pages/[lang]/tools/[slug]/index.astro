@@ -4,6 +4,7 @@
 // Tools pages of its sections list it as a card.
 import Base from '../../../../layouts/Base.astro';
 import ToolLogo from '../../../../components/ToolLogo.astro';
+import ToolLinks from '../../../../components/ToolLinks.astro';
 import { tools, linksOf, group, languages, defaultLang } from '../../../../lib/data.js';
 import { strings, loc } from '../../../../lib/i18n.js';
 import { localize } from '../../../../lib/content.js';
@@ -59,13 +60,7 @@ const textLang = text.translated ? undefined : text.lang;
         <h1 lang={textLang}>{text.title}</h1>
       </div>
       {text.summary && <p class="lead" lang={textLang}>{text.summary}</p>}
-      {links.length > 0 && (
-        <div class="tool-links">
-          {links.map((l, i) => (
-            <a class:list={[{ button: i === 0 }]} href={l.url} rel="noopener">{l.label}{i === 0 && <span aria-hidden="true"> →</span>}</a>
-          ))}
-        </div>
-      )}
+      <ToolLinks links={links} />
     </div>
   </div>
 

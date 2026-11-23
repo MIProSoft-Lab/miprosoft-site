@@ -801,11 +801,6 @@ collections:
                 i18n: true
                 required: false
                 widget: string
-              - name: details
-                label: Details
-                i18n: true
-                required: false
-                widget: string
               - name: research
                 label: Research
                 i18n: true
