@@ -1,6 +1,6 @@
 {
   "orcid": "0000-0002-7485-4709",
-  "lastModified": "2026-11-03",
+  "lastModified": "2026-11-09",
   "person": {
     "name": "Maria Monserrat Barceló",
     "givenNames": "Maria",
@@ -217,6 +217,20 @@
       "doi": "10.1109/ms.2025.3533017",
       "arxiv": null,
       "url": "https://doi.org/10.1109/MS.2025.3533017"
+    },
+    {
+      "putCode": 232669087,
+      "type": "journal-article",
+      "title": "Lifecycle Models in Machine Learning Development",
+      "subtitle": null,
+      "venue": "Expert Systems",
+      "date": {
+        "year": 2025,
+        "month": 4
+      },
+      "doi": "10.1111/exsy.70029",
+      "arxiv": null,
+      "url": "http://dx.doi.org/10.1111/exsy.70029"
     },
     {
       "putCode": 228258112,
