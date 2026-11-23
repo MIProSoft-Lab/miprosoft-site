@@ -45,7 +45,7 @@ const groups = thesisTypes
                     <span>
                       {r.supervisors}:{' '}
                       {supervisors.map((p, j) => (
-                        <>{p.member ? <a class="member" href={profileUrl(p.id)}>{p.name}</a> : p.name}{j < supervisors.length - 1 ? ', ' : ''}</>
+                        <>{p.member ? <a class="member" href={profileUrl(p.id)}>{p.name}</a> : p.collaborator ? <a class="member" href={`${base}${lang}/team/#collaborator-${p.collaborator.id}`}>{p.name}</a> : p.name}{j < supervisors.length - 1 ? ', ' : ''}</>
                       ))}
                     </span>
                   </div>

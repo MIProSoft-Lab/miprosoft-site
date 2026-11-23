@@ -1,0 +1,115 @@
+en:
+  title: "Practical Git Course: Towards Automation in Software Development"
+  type: short
+  summary: A hands-on course on Git for software developers, from the basics of the tool and standard branching workflows to pre-commit hooks, pull requests and peer review, continuous integration and deployment (CI/CD), and integrating Git with management tools. No previous knowledge of Git is needed.
+  instructors:
+    - antonio-crespi
+    - maria-monserrat
+  schedule: 6 sessions of 3 hours
+  hours: 18
+  institution: Universitat de les Illes Balears
+  onDemand: true
+  body: |
+    ## Overview
+
+    A practical course on Git, the version control system, aimed at automating software development. It starts from the basics, so anyone can follow it, and moves on to improving code quality and automating the development process.
+
+    Participants learn to:
+
+    - keep a smooth workflow in development teams, using standard branching techniques and resolving conflicts;
+    - improve code quality with pre-commit hooks;
+    - automate building, testing and deployment with CI/CD tools;
+    - integrate management tools that make development tasks more visible and easier to track.
+
+    ## Who it is for
+
+    Software developers who want to improve their Git skills, whatever their previous knowledge of the tool.
+
+    ## Programme
+
+    1. Introduction to Git: the basics of the tool (3 hours)
+    2. Standard development workflows: branching strategies, their advantages and when to use each (3 hours)
+    3. Pre-commit hooks (2 hours)
+    4. Pull requests and peer review to improve code quality (1 hour)
+    5. Continuous integration and continuous deployment (CI/CD) (6 hours)
+    6. Integrating Git with other tools (3 hours)
+
+    ## Methodology
+
+    The course is taught as practical workshops, following a *learning by doing* approach: participants consolidate each concept, technique and tool through exercises, individually or in teams. Participants must bring their own laptop. Those who attend receive a certificate of completion.
+
+    ## For companies
+
+    This course is offered on demand, in-house for companies, and can be adapted to their needs. For more information, write to [projectmanagement@uib.es](mailto:projectmanagement@uib.es).
+ca:
+  title: "Curs Pràctic de Git: cap a l'Automatització en el Desenvolupament de Software"
+  summary: Un curs pràctic de Git per a desenvolupadors de software, des dels fonaments de l'eina i els fluxos de treball estàndard amb branques fins als pre-commit hooks, les pull requests i la revisió entre iguals, la integració i el desplegament continus (CI/CD), i la integració de Git amb eines de gestió. No cal conèixer Git prèviament.
+  schedule: 6 sessions de 3 hores
+  body: |
+    ## Presentació
+
+    Un curs pràctic de Git, el sistema de control de versions, orientat a l'automatització del desenvolupament de software. Parteix dels fonaments, perquè qualsevol persona el pugui seguir, i avança cap a la millora de la qualitat del codi i l'automatització del procés de desenvolupament.
+
+    Els participants aprenen a:
+
+    - mantenir un flux de treball àgil en equips de desenvolupament, amb tècniques estàndard de branques i resolució de conflictes;
+    - millorar la qualitat del codi amb pre-commit hooks;
+    - automatitzar la compilació, les proves i el desplegament amb eines de CI/CD;
+    - integrar eines de gestió que donen visibilitat a les tasques de desenvolupament i en faciliten el seguiment.
+
+    ## A qui s'adreça
+
+    A desenvolupadors de software que vulguin millorar el seu domini de Git, sigui quin sigui el coneixement previ que en tenguin.
+
+    ## Pla d'estudis
+
+    1. Introducció a Git: coneixements bàsics de l'eina (3 hores)
+    2. Fluxos de treball estàndard de desenvolupament: estratègies de branques, els seus avantatges i quan fer servir cada una (3 hores)
+    3. Pre-commit hooks (2 hores)
+    4. Pull requests i revisió entre iguals per millorar la qualitat del codi (1 hora)
+    5. Integració contínua i desplegament continu (CI/CD) (6 hores)
+    6. Integració de Git amb altres eines (3 hores)
+
+    ## Metodologia
+
+    El curs s'imparteix en forma de tallers pràctics, amb un enfocament d'*aprendre fent* (*learning by doing*): els participants consoliden cada concepte, tècnica i eina amb exercicis, individualment o en equip. Cal que cada participant dugui el seu ordinador. Els assistents reben un certificat d'aprofitament.
+
+    ## Per a empreses
+
+    Aquest curs s'ofereix a demanda, a la mateixa empresa, i es pot adaptar a les seves necessitats. Per a més informació, escriviu a [projectmanagement@uib.es](mailto:projectmanagement@uib.es).
+es:
+  title: "Curso Práctico de Git: hacia la Automatización en el Desarrollo de Software"
+  summary: Un curso práctico de Git para desarrolladores de software, desde los fundamentos de la herramienta y los flujos de trabajo estándar con ramas hasta los pre-commit hooks, las pull requests y la revisión entre pares, la integración y el despliegue continuos (CI/CD), y la integración de Git con herramientas de gestión. No se necesita conocer Git previamente.
+  schedule: 6 sesiones de 3 horas
+  body: |
+    ## Presentación
+
+    Un curso práctico de Git, el sistema de control de versiones, orientado a la automatización del desarrollo de software. Parte de los fundamentos, para que cualquier persona lo pueda seguir, y avanza hacia la mejora de la calidad del código y la automatización del proceso de desarrollo.
+
+    Los participantes aprenden a:
+
+    - mantener un flujo de trabajo ágil en equipos de desarrollo, con técnicas estándar de ramas y resolución de conflictos;
+    - mejorar la calidad del código con pre-commit hooks;
+    - automatizar la compilación, las pruebas y el despliegue con herramientas de CI/CD;
+    - integrar herramientas de gestión que dan visibilidad a las tareas de desarrollo y facilitan su seguimiento.
+
+    ## A quién se dirige
+
+    A desarrolladores de software que quieran mejorar su dominio de Git, sea cual sea su conocimiento previo de la herramienta.
+
+    ## Plan de estudios
+
+    1. Introducción a Git: conocimientos básicos de la herramienta (3 horas)
+    2. Flujos de trabajo estándar de desarrollo: estrategias de ramas, sus ventajas y cuándo usar cada una (3 horas)
+    3. Pre-commit hooks (2 horas)
+    4. Pull requests y revisión entre pares para mejorar la calidad del código (1 hora)
+    5. Integración continua y despliegue continuo (CI/CD) (6 horas)
+    6. Integración de Git con otras herramientas (3 horas)
+
+    ## Metodología
+
+    El curso se imparte en forma de talleres prácticos, con un enfoque de *aprender haciendo* (*learning by doing*): los participantes consolidan cada concepto, técnica y herramienta con ejercicios, individualmente o en equipo. Cada participante debe traer su ordenador. Los asistentes reciben un certificado de aprovechamiento.
+
+    ## Para empresas
+
+    Este curso se ofrece bajo demanda, en la propia empresa, y se puede adaptar a sus necesidades. Para más información, escribe a [projectmanagement@uib.es](mailto:projectmanagement@uib.es).

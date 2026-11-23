@@ -306,6 +306,11 @@ collections:
         pattern:
           - ^\d{4}(-\d{2})?$
           - A year or year-month, e.g. 2027 or 2027-06
+      - name: onDemand
+        label: On demand
+        widget: boolean
+        required: false
+        hint: For courses without dates that are taught when someone asks for them, e.g. in-house for a company. Shown as “On demand” instead of the dates.
       - name: schedule
         label: Schedule
         widget: string
@@ -758,6 +763,21 @@ collections:
                 widget: string
               - name: dates
                 label: Dates
+                i18n: true
+                required: false
+                widget: string
+              - name: onDemand
+                label: On demand
+                i18n: true
+                required: false
+                widget: string
+              - name: all
+                label: All
+                i18n: true
+                required: false
+                widget: string
+              - name: filterLabel
+                label: Filter label
                 i18n: true
                 required: false
                 widget: string

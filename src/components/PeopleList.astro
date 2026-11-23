@@ -1,6 +1,7 @@
 ---
-// People with their photo, members linking to their profiles (authors of a
-// post, instructors of a course, researchers of a research line).
+// People with their photo, members linking to their profiles and collaborators
+// to their card on the team page (authors of a post, instructors of a course,
+// researchers of a research line).
 // `people` comes from peopleOf() in src/lib/data.js. `stacked`: one per line.
 import Avatar from './Avatar.astro';
 
@@ -12,7 +13,9 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     <li>
       {p.member
         ? <a href={`${base}${lang}/team/${p.id}/`}><Avatar member={p.member} size={32} /><span>{p.name}</span></a>
-        : <span>{p.name}</span>}
+        : p.collaborator
+          ? <a href={`${base}${lang}/team/#collaborator-${p.collaborator.id}`}><Avatar member={p.collaborator} size={32} /><span>{p.name}</span></a>
+          : <span>{p.name}</span>}
     </li>
   ))}
 </ul>

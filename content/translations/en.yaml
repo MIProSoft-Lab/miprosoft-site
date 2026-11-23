@@ -58,6 +58,9 @@ courses:
     hybrid: Hybrid
   instructors: Instructors
   dates: Dates
+  onDemand: On demand
+  all: All
+  filterLabel: Filter by type
   schedule: Schedule
   format: Format
   languages: Taught in

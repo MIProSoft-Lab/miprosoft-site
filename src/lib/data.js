@@ -276,14 +276,22 @@ export const group = {
 // ---------- Content edited in the CMS ----------
 
 // Members (by id, linked to their profiles) and other people (by name), e.g.
-// a course's instructors or a thesis's supervisors.
+// a course's instructors or a thesis's supervisors. Other people whose name is
+// that of a collaborator get `collaborator`, to link to their card on the team page.
 export const peopleOf = (ids, guests) => [
   ...(ids ?? []).map((id) => {
     const member = memberById.get(id);
     return member ? { id, name: member.name, member } : { name: id };
   }),
-  ...(guests ?? []).filter(Boolean).map((name) => ({ name })),
+  ...(guests ?? []).filter(Boolean).map((name) => {
+    const collaborator = collaboratorByName().get(normalizeName(name));
+    return collaborator ? { name: collaborator.name, collaborator } : { name };
+  }),
 ];
+const normalizeName = (name) => String(name).normalize('NFC').trim().replace(/\s+/g, ' ').toLocaleLowerCase();
+// Built on first use: peopleOf() is defined before the collaborators are loaded.
+let collaboratorsByName;
+const collaboratorByName = () => (collaboratorsByName ??= new Map(collaborators.map((c) => [normalizeName(c.name), c])));
 
 // A field per language, for loc(): { en: 'Associate professor', ca: … }. For
 // entries whose name or title is not translated, so localize() does not apply.
@@ -344,6 +352,8 @@ export const courses = loadCollection('courses', ({ entry, id, order, base: b })
   ects: b.ects,
   hours: b.hours,
   url: b.url,
+  // Taught when someone asks for it (e.g. in-house for a company), with no dates of its own.
+  onDemand: Boolean(b.onDemand),
   // Courses with page text get a page of their own (/<lang>/teaching/courses/<slug>/).
   hasPage: languages.some((l) => String(entry.data[l]?.body ?? '').trim()),
   instructors: peopleOf(b.instructors, b.guestInstructors),

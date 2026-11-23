@@ -157,6 +157,7 @@ const courses = folderCollection({
     guestList('guestInstructors', 'Other instructors'),
     { name: 'start', label: 'Start', widget: 'string', required: false, pattern: ['^\\d{4}(-\\d{2})?$', 'A year or year-month, e.g. 2027 or 2027-02'] },
     { name: 'end', label: 'End', widget: 'string', required: false, pattern: ['^\\d{4}(-\\d{2})?$', 'A year or year-month, e.g. 2027 or 2027-06'] },
+    { name: 'onDemand', label: 'On demand', widget: 'boolean', required: false, hint: 'For courses without dates that are taught when someone asks for them, e.g. in-house for a company. Shown as “On demand” instead of the dates.' },
     { name: 'schedule', label: 'Schedule', widget: 'string', i18n: true, required: false, hint: 'Free text, e.g. "Tuesdays and Thursdays, 16:00–18:00".' },
     {
       name: 'format', label: 'Format', widget: 'select', required: false,

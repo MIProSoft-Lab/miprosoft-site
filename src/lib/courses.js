@@ -14,11 +14,16 @@ const languageName = (code, lang) => {
 // The course's texts in this language (or the default one where missing).
 export const courseText = (course, lang) => localize(course.entry, lang);
 
+// When the course is taught: its dates, or "On demand" for courses without them
+// that are taught when asked for.
+export const courseDates = (course, lang) =>
+  course.start || course.end ? formatRange(course.start, course.end, lang) : course.onDemand ? strings(lang).courses.onDemand : '';
+
 // [label, value] pairs, in this order; empty ones are left out.
 export function courseFacts(course, text, lang) {
   const c = strings(lang).courses;
   return [
-    [c.dates, course.start || course.end ? formatRange(course.start, course.end, lang) : ''],
+    [c.dates, courseDates(course, lang)],
     [c.schedule, text.schedule],
     [c.format, c.formats[course.format] ?? course.format],
     [c.languages, course.languages.map((l) => languageName(l, lang)).join(', ')],

@@ -9,8 +9,7 @@
 import { courseTypes } from '../lib/data.js';
 import { strings } from '../lib/i18n.js';
 import { localize } from '../lib/content.js';
-import { formatRange } from '../lib/format.js';
-import { coursePageUrl } from '../lib/courses.js';
+import { coursePageUrl, courseDates } from '../lib/courses.js';
 
 const { courses, lang, self, idPrefix = 'courses' } = Astro.props;
 const t = strings(lang);
@@ -35,7 +34,7 @@ const groups = courseTypes
         {g.items.map((x, i) => {
           const textLang = x.text.translated ? undefined : x.text.lang;
           const meta = [
-            x.start || x.end ? formatRange(x.start, x.end, lang) : '',
+            courseDates(x, lang),
             c.formats[x.format] ?? x.format,
             x.ects ? c.ects(x.ects) : x.hours ? c.hours(x.hours) : '',
           ].filter(Boolean).join(' · ');
@@ -52,7 +51,7 @@ const groups = courseTypes
                     <span>
                       {c.instructors}:{' '}
                       {x.instructors.map((p, j) => (
-                        <>{p.id === self ? <strong>{p.name}</strong> : p.member ? <a class="member" href={profileUrl(p.id)}>{p.name}</a> : p.name}{j < x.instructors.length - 1 ? ', ' : ''}</>
+                        <>{p.id === self ? <strong>{p.name}</strong> : p.member ? <a class="member" href={profileUrl(p.id)}>{p.name}</a> : p.collaborator ? <a class="member" href={`${base}${lang}/team/#collaborator-${p.collaborator.id}`}>{p.name}</a> : p.name}{j < x.instructors.length - 1 ? ', ' : ''}</>
                       ))}
                     </span>
                   </div>

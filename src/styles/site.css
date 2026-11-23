@@ -537,6 +537,32 @@ h2 .count, h3 .count {
 
 /* ---------- Cards: courses, research lines, tools ---------- */
 
+/* Courses page: filter by type, as pills like the profile chips; the chosen
+   one in UIB blue, like the course's type tag. */
+.course-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 0 0 1.75rem; }
+.course-filter-label {
+  margin-right: 0.4rem; color: var(--muted);
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.course-filter button {
+  --pill-bg: var(--accent);
+  display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.6rem 0.4rem 1rem;
+  border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); box-shadow: var(--shadow);
+  color: var(--fg); font: 0.9rem var(--sans); cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+.course-filter button:hover { border-color: var(--accent); color: var(--accent); }
+.course-filter button[aria-pressed='true'] { border-color: var(--pill-bg); background: var(--pill-bg); color: var(--on-accent); }
+.course-filter-count {
+  min-width: 1.5rem; padding: 0.05rem 0.4rem; border-radius: 999px; text-align: center;
+  background: var(--tint); color: var(--accent); font-size: 0.75rem; font-weight: 700;
+}
+.course-filter button[aria-pressed='true'] .course-filter-count { background: rgb(255 255 255 / 0.2); color: var(--on-accent); }
+:root[data-theme='dark'] .course-filter button { --pill-bg: #0a4f91; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .course-filter button { --pill-bg: #0a4f91; } }
+@media (prefers-reduced-motion: reduce) { .course-filter button { transition: none; } }
+@media (max-width: 760px) { .course-filter-label { flex-basis: 100%; } }
+
 /* A wide card: the main text, and an optional tinted side panel. */
 .card-list { display: flex; flex-direction: column; gap: 1.5rem; margin: 0; padding: 0; list-style: none; }
 .card {

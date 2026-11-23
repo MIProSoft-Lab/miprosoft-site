@@ -58,6 +58,9 @@ courses:
     hybrid: Híbrid
   instructors: Professorat
   dates: Dates
+  onDemand: A demanda
+  all: Tots
+  filterLabel: Filtra per tipus
   schedule: Horari
   format: Modalitat
   languages: Llengües

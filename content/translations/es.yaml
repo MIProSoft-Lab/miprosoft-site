@@ -58,6 +58,9 @@ courses:
     hybrid: Híbrido
   instructors: Profesorado
   dates: Fechas
+  onDemand: Bajo demanda
+  all: Todos
+  filterLabel: Filtrar por tipo
   schedule: Horario
   format: Modalidad
   languages: Idiomas
