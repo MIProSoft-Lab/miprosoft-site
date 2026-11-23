@@ -104,6 +104,227 @@ collections:
         widget: markdown
         i18n: true
         hint: An image followed by a line in italics shows the italics as its caption. A code block with the language “cite” holding a DOI of one of the group’s publications (e.g. doi:10.1002/cae.21990), or a BibTeX entry, shows a box to cite it in IEEE, APA, Chicago, BibTeX and RIS.
+      - name: publications
+        label: Related publications
+        widget: select
+        multiple: true
+        required: false
+        hint: The group’s publications the post is about. They are listed at the end of the post, and each one links back to it in the publication lists.
+        options:
+          - label: "2027 · Process standardization for machine learning systems: A reference model based on international standards (Future Generation Computer Systems)"
+            value: doi:10.1016/j.future.2026.108873
+          - label: "2026 · Decoding success: an empirical study of critical success factors in software projects (Empirical Software Engineering)"
+            value: doi:10.1007/s10664-026-10824-4
+          - label: 2026 · A critical success factor measurement framework for enhancing decision making in software projects (Journal of Engineering Research)
+            value: doi:10.1016/j.jer.2026.07.021
+          - label: 2026 · The Missing Foundation of Machine Learning Engineering (Computer)
+            value: doi:10.1109/mc.2026.3658240
+          - label: 2026 · Desafíos y limitaciones en la gestión de calidad en sistemas de aprendizaje automático en producción (Actas de las XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026))
+            value: hdl:11705/JISBD/2026/139
+          - label: "2026 · Inteligencia Artificial Generativa para la Captura de Requisitos: Una Revisión Sistemática (Actas de las XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026))"
+            value: hdl:11705/JISBD/2026/146
+          - label: 2026 · Teaching Human Critical Success Factors in a First-Year Software Engineering Module (International Journal of Engineering Education)
+            value: title:teachinghumancriticalsuccessfactorsinafirstyearsoftwareengineeringmodule
+          - label: 2026 · Machine Learning-Driven Shoreline Extraction and Beach Seagrass Wrack Detection from Beach Imaging Systems (Coastal Research Library)
+            value: doi:10.1007/978-3-032-15477-4_62
+          - label: 2026 · Improving Underwater Fish Detection and Tracking via Temporal Modeling and Deformable Convolutions (Proceedings of the 21st International Conference on Computer Vision Theory and Applications)
+            value: doi:10.5220/0014346800004084
+          - label: "2025 · Creativity Clogs: Identifying and Addressing Barriers to Innovation (IEEE Software)"
+            value: doi:10.1109/ms.2025.3533017
+          - label: 2025 · Lifecycle Models in Machine Learning Development (Expert Systems)
+            value: doi:10.1111/exsy.70029
+          - label: 2025 · Desarrollo de un Marco de Factores Críticos de Éxito en Proyectos de Software (Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025))
+            value: hdl:11705/JISBD/2025/101
+          - label: 2025 · Evaluando los Factores Humanos en Proyectos de Software (Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025))
+            value: hdl:11705/JISBD/2025/102
+          - label: "2025 · Towards a Process Reference Model for Machine Learning Applications: Challenges and Opportunities (Proceedings of the 1st ECAI Workshop on Machine Learning Operations (MLOps25@ECAI 2025) co-located with 28th European Conference on Artificial Intelligence (ECAI 2025), Bologna, Italy, October 25, 2025)"
+            value: title:towardsaprocessreferencemodelformachinelearningapplicationschallengesandopportunities
+          - label: 2025 · Técnicas y Aplicaciones de Inteligencia Artificial en el Ciclo de Vida de Desarrollo de Software (Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025))
+            value: hdl:11705/JISBD/2025/110
+          - label: "2024 · A Study of Factors That Influence the Software Project Success (Journal of Software: Evolution and Process)"
+            value: doi:10.1002/smr.2735
+          - label: "2024 · BWILD: Beach seagrass Wrack Identification Labelled Dataset"
+            value: doi:10.5281/zenodo.12698764
+          - label: "2024 · Empowering Software Project Success: Guidelines to Enhance the Impact of Human Critical Success Factors (SYSTEMS, SOFTWARE AND SERVICES PROCESS IMPROVEMENT, EUROSPI 2024, PT I)"
+            value: doi:10.1007/978-3-031-71139-8_1
+          - label: 2024 · Applying Lean to Improve Software Project Management Education (IEEE Transactions on Engineering Management)
+            value: doi:10.1109/tem.2023.3264981
+          - label: "2022 · Investigating the Use of Artificial Intelligence (AI) in Educational Settings: A Systematic Review (Systems, Software and Services Process Improvement (EuroSPI 2022))"
+            value: doi:10.1007/978-3-031-15559-8_1
+          - label: "2022 · Fake Agile: What s It and How to Avoid It? (IT PROFESSIONAL)"
+            value: doi:10.1109/mitp.2021.3139826
+          - label: 2021 · Enhancing the Student Perception on Software Project Management in Computer Science (IEEE TRANSACTIONS ON EDUCATION)
+            value: doi:10.1109/te.2020.2998429
+          - label: "2020 · Agile Transition and Adoption Frameworks, Issues and Factors: A Systematic Mapping (IEEE ACCESS)"
+            value: doi:10.1109/access.2020.2967839
+          - label: "2020 · Building an Environment for Agility: A Releasable Inventory Tool (SYSTEMS, SOFTWARE AND SERVICES PROCESS IMPROVEMENT (EUROSPI 2020))"
+            value: doi:10.1007/978-3-030-56441-4_44
+          - label: 2020 · Supporting the deployment of ISO-based project management processes with agile metrics (COMPUTER STANDARDS & INTERFACES)
+            value: doi:10.1016/j.csi.2019.103405
+          - label: "2019 · ISO 31000-based integrated risk management process assessment model for IT organizations (Journal of Software: Evolution and Process)"
+            value: doi:10.1002/smr.1984
+          - label: 2019 · Image Based Diagnosis for Agile Coaching (SYSTEMS, SOFTWARE AND SERVICES PROCESS IMPROVEMENT (EUROSPI 2019))
+            value: doi:10.1007/978-3-030-28005-5_37
+          - label: "2019 · Lean and agile software process improvement in traditional and agile environments (Journal of Software: Evolution and Process)"
+            value: doi:10.1002/smr.1986
+          - label: "2018 · Agile software process improvement: a collaborative game toolbox (IET Software)"
+            value: doi:10.1049/iet-sen.2018.5096
+          - label: 2018 · Being Agile While Coaching Teams Using Their Own Data (SYSTEMS, SOFTWARE AND SERVICES PROCESS IMPROVEMENT (EUROSPI 2018))
+            value: doi:10.1007/978-3-319-97925-0_36
+          - label: 2018 · Experiences on the use of a game for improving learning and assessing knowledge (COMPUTER APPLICATIONS IN ENGINEERING EDUCATION)
+            value: doi:10.1002/cae.21990
+          - label: 2018 · Integrated risk management process assessment model for IT organizations based on ISO 31000 in an ISO multi-standards context (Computer Standards and Interfaces)
+            value: doi:10.1016/j.csi.2018.04.010
+          - label: 2018 · Software process improvement and capability determination conference 2017 (Computer Standards and Interfaces)
+            value: doi:10.1016/j.csi.2018.05.002
+          - label: "2018 · SPI with Retrospectives: A Case Study (Communications in Computer and Information Science)"
+            value: doi:10.1007/978-3-319-97925-0_39
+          - label: 2017 · A Game Toolbox for Process Improvement in Agile Teams (SYSTEMS, SOFTWARE AND SERVICES PROCESS IMPROVEMENT (EUROSPI 2017))
+            value: doi:10.1007/978-3-319-64218-5_25
+          - label: 2017 · Developing an Integrated Risk Management Process Model for IT Settings in an ISO Multi-standards Context (SOFTWARE PROCESS IMPROVEMENT AND CAPABILITY DETERMINATION, SPICE 2017)
+            value: doi:10.1007/978-3-319-67383-7_24
+          - label: 2017 · How to Elicit Processes for an ISO-Based Integrated Risk Management Process Reference Model in IT Settings? (SYSTEMS, SOFTWARE AND SERVICES PROCESS IMPROVEMENT (EUROSPI 2017))
+            value: doi:10.1007/978-3-319-64218-5_4
+          - label: 2017 · Integrating risk management in IT settings from ISO standards and management systems perspectives (Computer Standards and Interfaces)
+            value: doi:10.1016/j.csi.2016.11.010
+          - label: 2017 · Preface (Communications in Computer and Information Science)
+            value: title:preface
+          - label: 2017 · Towards the Development of a Sequential Framework for Agile Adoption (SOFTWARE PROCESS IMPROVEMENT AND CAPABILITY DETERMINATION, SPICE 2017)
+            value: doi:10.1007/978-3-319-67383-7_3
+          - label: "2017 · Transition of organizational roles in Agile transformation process: A grounded theory approach (JOURNAL OF SYSTEMS AND SOFTWARE)"
+            value: doi:10.1016/j.jss.2017.07.008
+          - label: 2017 · Lean and agile software process improvement - An overview and outlook (Communications in Computer and Information Science)
+            value: doi:10.1007/978-3-319-64218-5_38
+          - label: 2016 · Agile retrospective games for different team development phases (Journal of Universal Computer Science)
+            value: title:agileretrospectivegamesfordifferentteamdevelopmentphases
+          - label: 2016 · An Investigation of Software Development Process Terminology (SOFTWARE PROCESS IMPROVEMENT AND CAPABILITY DETERMINATION (SPICE 2016))
+            value: doi:10.1007/978-3-319-38980-6_25
+          - label: 2016 · How to Integrate Risk Management in IT Settings Within Management Systems? Comparison and Integration Perspectives from ISO Standards (SOFTWARE PROCESS IMPROVEMENT AND CAPABILITY DETERMINATION (SPICE 2016))
+            value: doi:10.1007/978-3-319-38980-6_19
+          - label: "2016 · Lessons learned from 4-year empowering project management with TALAIA OpenPPM (Journal of Software: Evolution and Process)"
+            value: doi:10.1002/smr.1827
+          - label: "2016 · Process Improving by Playing: Implementing Best Practices through Business Games (SYSTEMS, SOFTWARE AND SERVICES PROCESS IMPROVEMENT, EUROSPI 2016)"
+            value: doi:10.1007/978-3-319-44817-6_18
+          - label: 2016 · Refactoring Software Development Process Terminology Through the Use of Ontology (Communications in Computer and Information Science)
+            value: doi:10.1007/978-3-319-44817-6_4
+          - label: "2015 · Implementing information security best practices on software lifecycle processes: The <i>ISO</i>/<i>IEC 15504</i> <i>Security Extension</i> (COMPUTERS & SECURITY)"
+            value: doi:10.1016/j.cose.2014.09.003
+          - label: 2015 · Integrating IT service management requirements into the organizational management system (COMPUTER STANDARDS & INTERFACES)
+            value: doi:10.1016/j.csi.2014.06.005
+          - label: 2015 · Process improvement with retrospective gaming in agile software development (Communications in Computer and Information Science)
+            value: doi:10.1007/978-3-319-24647-5_23
+          - label: 2015 · The agile approach in industrial and software engineering project management (Journal of Applied Engineering Science)
+            value: doi:10.5937/jaes13-9577
+          - label: "2015 · The project management SPICE (PMSPICE) process reference model: Towards a process assessment model (Communications in Computer and Information Science)"
+            value: doi:10.1007/978-3-319-24647-5_16
+          - label: 2014 · A Cynefin based approach to process model tailoring and goal alignment (2014 9TH INTERNATIONAL CONFERENCE ON THE QUALITY OF INFORMATION AND COMMUNICATIONS TECHNOLOGY (QUATIC))
+            value: doi:10.1109/quatic.2014.30
+          - label: 2014 · A project management improvement program according to ISO/IEC 29110 and PMBOK® (JOURNAL OF SOFTWARE-EVOLUTION AND PROCESS)
+            value: doi:10.1002/smr.1665
+          - label: 2014 · A successful case of software process improvement programme implementation (Agile Estimation Techniques and Innovative Approaches to Software Process Improvement)
+            value: doi:10.4018/978-1-4666-5182-1.ch014
+          - label: 2014 · An Integrated Environment to Support Project Management in VSEs (Communications in Computer and Information Science)
+            value: doi:10.1007/978-3-662-43896-1_3
+          - label: 2014 · Development of the project management SPICE (PMSPICE) framework (Communications in Computer and Information Science)
+            value: title:developmentoftheprojectmanagementspicepmspiceframework
+          - label: 2014 · Integración de Estándares de Gestión de TI mediante MIN-ITs (RISTI - Revista Ibérica de Sistemas e Tecnologias de Informação)
+            value: doi:10.4304/risti.e1.31-45
+          - label: "2014 · MIN-ITs: A Framework for Integration of IT Management Standards in Mature Environments (INTERNATIONAL JOURNAL OF SOFTWARE ENGINEERING AND KNOWLEDGE ENGINEERING)"
+            value: doi:10.1142/s0218194014400026
+          - label: 2014 · Personal environment for teaching management in higher education (Proceedings of the 2014 9th Iberian Conference on Information Systems and Technologies)
+            value: title:personalenvironmentforteachingmanagementinhighereducation
+          - label: 2014 · Personal environment for teaching management in higher education,Entorno personal de gestión docente en universidades (Iberian Conference on Information Systems and Technologies, CISTI)
+            value: doi:10.1109/cisti.2014.6876972
+          - label: 2014 · The evaluation of the IT service quality measurement framework in industry (Global Journal of Flexible Systems Management)
+            value: doi:10.1007/s40171-013-0052-7
+          - label: 2013 · Software project management in small and very small entities (Proceedings of the 2013 8th Iberian Conference on Information Systems and Technologies)
+            value: title:softwareprojectmanagementinsmallandverysmallentities
+          - label: 2013 · Software project management in small and very small entities,Gestión de proyectos de software en pequeñas y micro empresas (Iberian Conference on Information Systems and Technologies, CISTI)
+            value: title:softwareprojectmanagementinsmallandverysmallentitiesgestiondeproyectosdesoftwareenpequenasymicroempresas
+          - label: 2012 · Application of PMBOK® to the management of teaching in universities (SISTEMAS Y TECNOLOGIAS DE INFORMACION, VOLS 1 AND 2)
+            value: title:applicationofpmboktothemanagementofteachinginuniversities
+          - label: 2012 · Applying PMBOK (R) to teaching management in universities (Information Systems and Technologies)
+            value: title:applyingpmbokrtoteachingmanagementinuniversities
+          - label: 2012 · Applying PMBOK® to teaching management in universities (Iberian Conference on Information Systems and Technologies, CISTI)
+            value: title:applyingpmboktoteachingmanagementinuniversities
+          - label: "2012 · Communications in Computer and Information Science: Preface (Communications in Computer and Information Science)"
+            value: title:communicationsincomputerandinformationsciencepreface
+          - label: "2012 · IT Service Management Process Improvement based on ISO/IEC 15504: A systematic review (INFORMATION AND SOFTWARE TECHNOLOGY)"
+            value: doi:10.1016/j.infsof.2011.11.002
+          - label: 2012 · Improving the tendering process through the deployment of PMBOK® (Communications in Computer and Information Science)
+            value: doi:10.1007/978-3-642-30439-2_16
+          - label: 2012 · Application of PMBOK (R) to the management of teaching in universities (Sistemas Y Tecnologias De Informacion, Vols 1 and 2)
+            value: title:applicationofpmbokrtothemanagementofteachinginuniversities
+          - label: 2012 · Improving the Tendering Process through the Deployment of PMBOK (R) (Software Process Improvement and Capability Determination)
+            value: title:improvingthetenderingprocessthroughthedeploymentofpmbokr
+          - label: 2012 · Lessons learned from an ISO/IEC 15504 SPI programme in a company (Journal of Software-Evolution and Process)
+            value: doi:10.1002/smr.501
+          - label: 2011 · A Software Tool to Support the Integrated Management of Software Projects in Mature SMEs (Systems, Software and Services Process Improvement)
+            value: title:asoftwaretooltosupporttheintegratedmanagementofsoftwareprojectsinmaturesmes
+          - label: 2011 · An ISO/IEC 15504 security extension (Communications in Computer and Information Science)
+            value: doi:10.1007/978-3-642-21233-8-6
+          - label: 2011 · ISO/IEC 15504-5 best practices for IT service management (Communications in Computer and Information Science)
+            value: doi:10.1007/978-3-642-22206-1
+          - label: "2011 · MiProJOC: A Software tool for Teaching support and Evaluation of Knowledge (Sistemas E Tecnologias De Informacao, Vol I)"
+            value: title:miprojocasoftwaretoolforteachingsupportandevaluationofknowledge
+          - label: "2011 · MiProJOC: A software tool support for teaching and assessment of knowledge (Proceedings of the 6th Iberian Conference on Information Systems and Technologies, CISTI 2011)"
+            value: title:miprojocasoftwaretoolsupportforteachingandassessmentofknowledge
+          - label: "2010 · <i>Team</i> SPICE: A SPICE-Based Teamwork Assessment Model (SYSTEMS, SOFTWARE AND SERVICES PROCESS IMPROVEMENT)"
+            value: title:iteamispiceaspicebasedteamworkassessmentmodel
+          - label: 2010 · Application of ISO/IEC 15504 in very small enterprises (Communications in Computer and Information Science)
+            value: doi:10.1007/978-3-642-15666-3_26
+          - label: 2010 · ISO/IEC 15504 best practices to facilitate ISO/IEC 27000 implementation (ENASE 2010 - Proceedings of the 5th International Conference on Evaluation of Novel Approaches to Software Engineering)
+            value: title:isoiec15504bestpracticestofacilitateisoiec27000implementation
+          - label: "2010 · SETE: software tools for the evaluation of team work (Sistemas Y Tecnologias De Informacion)"
+            value: title:setesoftwaretoolsfortheevaluationofteamwork
+          - label: "2010 · Team SPICE: A SPICE-based teamwork assessment model (Communications in Computer and Information Science)"
+            value: doi:10.1007/978-3-642-15666-3_4
+          - label: 2007 · Software process improvement through teamwork management (Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics))
+            value: title:softwareprocessimprovementthroughteamworkmanagement
+          - label: Desaf́ios y limitaciones en la gestión de calidad en sistemas de aprendizaje automático en producción (Actas de las XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026))
+            value: hdl:11705/JISBD/2026/139
+          - label: Evaluando los Factores Humanos en Proyectos de Software (Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025))
+            value: hdl:11705/JISBD/2025/102
+          - label: "Inteligencia Artificial Generativa para la Captura de Requisitos: Una Revisión Sistemática (Actas de las XXX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2026))"
+            value: hdl:11705/JISBD/2026/146
+          - label: Técnicas y Aplicaciones de Inteligencia Artificial en el Ciclo de Vida de Desarrollo de Software (Actas de las XXIX Jornadas de Ingeniería del Software y Bases de Datos (JISBD 2025))
+            value: hdl:11705/JISBD/2025/110
+      - name: tools
+        label: Related tools
+        widget: relation
+        collection: tools
+        multiple: true
+        required: false
+        search_fields:
+          - title
+        value_field: "{{slug}}"
+        display_fields:
+          - "{{title}}"
+        hint: Tools the post is about. Their pages show the post under “In the news”.
+      - name: theses
+        label: Related theses
+        widget: relation
+        collection: theses
+        multiple: true
+        required: false
+        search_fields:
+          - title
+        value_field: "{{slug}}"
+        display_fields:
+          - "{{year}} · {{student}} · {{title}}"
+        hint: Theses the post is about. They link back to the post on the Theses page and on profiles.
+      - name: courses
+        label: Related courses
+        widget: relation
+        collection: courses
+        multiple: true
+        required: false
+        search_fields:
+          - title
+        value_field: "{{slug}}"
+        display_fields:
+          - "{{title}}"
+        hint: Courses the post is about. Their pages show the post under “In the news”.
   - name: research-lines
     label: Research lines
     label_singular: Research line
@@ -1055,6 +1276,43 @@ collections:
                 widget: string
               - name: back
                 label: Back
+                i18n: true
+                required: false
+                widget: string
+              - name: related
+                label: Related
+                i18n: true
+                required: false
+                widget: string
+              - name: relatedKinds
+                label: Related kinds
+                i18n: true
+                required: false
+                widget: object
+                collapsed: true
+                fields:
+                  - name: publication
+                    label: Publication
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: tool
+                    label: Tool
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: thesis
+                    label: Thesis
+                    i18n: true
+                    required: false
+                    widget: string
+                  - name: course
+                    label: Course
+                    i18n: true
+                    required: false
+                    widget: string
+              - name: inTheNews
+                label: In the news
                 i18n: true
                 required: false
                 widget: string

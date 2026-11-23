@@ -107,6 +107,13 @@ news:
   empty: Nothing posted yet.
   notTranslated: This post is not available in English; it is shown in {language}.
   back: All news
+  related: Related
+  relatedKinds:
+    publication: Publication
+    tool: Tool
+    thesis: Thesis
+    course: Course
+  inTheNews: In the news
 skipToContent: Skip to content
 researchGroup: Research group
 followUs: Follow us on

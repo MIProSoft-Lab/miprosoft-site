@@ -511,6 +511,24 @@ h2 .count, h3 .count {
 .post { max-width: 46rem; }
 .post-image { display: block; width: 100%; height: auto; margin: 0 0 2rem; border-radius: var(--radius); }
 .post-more { margin-top: 4rem; }
+/* What a post is about: links to its publications, tools, theses and courses. */
+.post-related { max-width: 46rem; margin-top: 2.75rem; }
+.post-related h2 { font-size: 1.3rem; }
+.post-related .card-list { gap: 1rem; margin-top: 1.25rem; }
+.post-related .card-main { gap: 0.45rem; padding: 1.25rem 1.5rem; }
+.post-related .card-title { font-size: 1.2rem; }
+.post-related .card-title a { color: var(--fg); }
+.post-related .card-title a:hover { color: var(--accent); }
+.related-kind { color: var(--accent); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.related-meta { margin: 0; color: var(--muted); font-size: 0.9rem; }
+/* A publication in a card: no timeline (its year is in the card's label). */
+.related-card .pub { grid-template-columns: 1fr; }
+.related-card .pub-year { display: none; }
+.related-card .pub-body { padding: 0; }
+.related-card .pub-title { font-size: 1.2rem; line-height: 1.3; }
+/* A publication or thesis reached from a post's link: briefly highlighted. */
+.pub:target .pub-body { animation: target-flash 2.5s ease-out; }
+@keyframes target-flash { from { background: var(--tint); box-shadow: -0.6rem 0 0 var(--tint), 0.6rem 0 0 var(--tint); } }
 .notice {
   margin: 0 0 1.75rem; padding: 0.75rem 1rem; border-left: 4px solid var(--accent); border-radius: 0 6px 6px 0;
   background: var(--tint); font-size: 0.92rem;

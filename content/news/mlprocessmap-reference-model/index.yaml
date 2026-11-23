@@ -1,0 +1,75 @@
+en:
+  title: A process reference model for Machine Learning, now in Future Generation Computer Systems and explorable online
+  date: 2026-11-23
+  kind: news
+  authors:
+    - antonio-crespi
+  image: process-map.png
+  imageAlt: The process map of the process reference model for Machine Learning, with each process coloured by its origin
+  summary: Our paper proposing a process reference model for Machine Learning systems, based on international standards, has been published in Future Generation Computer Systems. The model can be explored with MLProcessMap, our free web tool.
+  publications:
+    - doi:10.1016/j.future.2026.108873
+  tools:
+    - mlprocessmap
+  body: |
+    Our paper *Process standardization for machine learning systems: A reference model based on international standards* has been published in **Future Generation Computer Systems**.
+
+    Process standards have long guided software engineering, but there is little equivalent guidance for Machine Learning projects. Standards such as ISO/IEC 5338 describe the lifecycle of AI systems at a high level, without the detail engineering teams need in practice.
+
+    The paper proposes a **process reference model** that fills this gap. It focuses on the technical processes of the lifecycle of Machine Learning and AI systems, and specifies each one with its purpose, outcomes, inputs, outputs and base practices, in a consistent format. It was developed following ISO/IEC 33004 and ISO/IEC 24774, and the principles of Design Science Research.
+
+    The model gives a standard-aligned basis to define, compare and assess Machine Learning development processes.
+
+    ## Explore it with MLProcessMap
+
+    The model can be explored online with [MLProcessMap](../../tools/mlprocessmap/), a free web tool in English, Catalan and Spanish. It shows the process map and each process, follows the work products from one process to another, and helps build a lifecycle model tailored to a project.
+
+    ## How to cite
+
+    ```cite
+    doi:10.1016/j.future.2026.108873
+    ```
+ca:
+  title: Un model de referència de processos per a l'Aprenentatge Automàtic, ara a Future Generation Computer Systems i explorable en línia
+  imageAlt: El mapa de processos del model de referència de processos per a l'Aprenentatge Automàtic, amb cada procés del color del seu origen
+  summary: L'article en què proposam un model de referència de processos per a sistemes d'Aprenentatge Automàtic, basat en normes internacionals, s'ha publicat a Future Generation Computer Systems. El model es pot explorar amb MLProcessMap, la nostra eina web gratuïta.
+  body: |
+    El nostre article *Process standardization for machine learning systems: A reference model based on international standards* s'ha publicat a **Future Generation Computer Systems**.
+
+    Fa temps que les normes de processos guien l'enginyeria del software, però per als projectes d'Aprenentatge Automàtic hi ha poques guies equivalents. Normes com la ISO/IEC 5338 descriuen el cicle de vida dels sistemes d'IA a un nivell alt, sense el detall que els equips d'enginyeria necessiten a la pràctica.
+
+    L'article proposa un **model de referència de processos** que cobreix aquest buit. Se centra en els processos tècnics del cicle de vida dels sistemes d'Aprenentatge Automàtic i d'IA, i especifica cadascun amb el seu propòsit, resultats, entrades, sortides i pràctiques base, en un format coherent. S'ha desenvolupat seguint les normes ISO/IEC 33004 i ISO/IEC 24774, i els principis de la Design Science Research.
+
+    El model ofereix una base alineada amb les normes per definir, comparar i avaluar processos de desenvolupament d'Aprenentatge Automàtic.
+
+    ## Exploreu-lo amb MLProcessMap
+
+    El model es pot explorar en línia amb [MLProcessMap](../../tools/mlprocessmap/), una eina web gratuïta en anglès, català i castellà. Mostra el mapa de processos i cada procés, segueix els productes de treball d'un procés a l'altre i ajuda a construir un model de cicle de vida adaptat a un projecte.
+
+    ## Com citar-lo
+
+    ```cite
+    doi:10.1016/j.future.2026.108873
+    ```
+es:
+  title: Un modelo de referencia de procesos para el Aprendizaje Automático, ahora en Future Generation Computer Systems y explorable en línea
+  imageAlt: El mapa de procesos del modelo de referencia de procesos para el Aprendizaje Automático, con cada proceso del color de su origen
+  summary: El artículo en el que proponemos un modelo de referencia de procesos para sistemas de Aprendizaje Automático, basado en normas internacionales, se ha publicado en Future Generation Computer Systems. El modelo se puede explorar con MLProcessMap, nuestra herramienta web gratuita.
+  body: |
+    Nuestro artículo *Process standardization for machine learning systems: A reference model based on international standards* se ha publicado en **Future Generation Computer Systems**.
+
+    Las normas de procesos guían desde hace tiempo la ingeniería del software, pero para los proyectos de Aprendizaje Automático hay pocas guías equivalentes. Normas como la ISO/IEC 5338 describen el ciclo de vida de los sistemas de IA a un nivel alto, sin el detalle que los equipos de ingeniería necesitan en la práctica.
+
+    El artículo propone un **modelo de referencia de procesos** que cubre este vacío. Se centra en los procesos técnicos del ciclo de vida de los sistemas de Aprendizaje Automático y de IA, y especifica cada uno con su propósito, resultados, entradas, salidas y prácticas base, en un formato coherente. Se ha desarrollado siguiendo las normas ISO/IEC 33004 e ISO/IEC 24774, y los principios de la Design Science Research.
+
+    El modelo ofrece una base alineada con las normas para definir, comparar y evaluar procesos de desarrollo de Aprendizaje Automático.
+
+    ## Explóralo con MLProcessMap
+
+    El modelo se puede explorar en línea con [MLProcessMap](../../tools/mlprocessmap/), una herramienta web gratuita en inglés, catalán y castellano. Muestra el mapa de procesos y cada proceso, sigue los productos de trabajo de un proceso a otro y ayuda a construir un modelo de ciclo de vida adaptado a un proyecto.
+
+    ## Cómo citarlo
+
+    ```cite
+    doi:10.1016/j.future.2026.108873
+    ```

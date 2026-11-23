@@ -10,6 +10,7 @@
 
 import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { parse, stringify } from 'yaml';
+import { group, workKey } from '../src/lib/data.js';
 
 const root = new URL('..', import.meta.url);
 const read = (path) => readFile(new URL(path, root), 'utf8');
@@ -106,6 +107,18 @@ const folderCollection = ({ name, label, label_singular, description, ...rest })
   ...rest,
 });
 
+// The group's publications, as options for the publications a post is about:
+// "2026 · Title (Venue)" -> its key (DOI, handle or title; see workKey).
+const publicationOptions = group.works.map((w) => ({
+  label: [w.date?.year, w.title].filter(Boolean).join(' · ') + (w.venue ? ` (${w.venue})` : ''),
+  value: workKey(w),
+}));
+// Several entries of another collection, by slug.
+const relatedField = (collection, label, field, hint, display = [`{{${field}}}`]) => ({
+  name: collection, label, widget: 'relation', collection, multiple: true, required: false,
+  search_fields: [field], value_field: '{{slug}}', display_fields: display, hint,
+});
+
 const news = {
   name: 'news',
   label: 'News & blog',
@@ -135,6 +148,16 @@ const news = {
     { name: 'imageAlt', label: 'Cover image description', widget: 'string', i18n: true, required: false, hint: 'What the picture shows, for people who cannot see it.' },
     { name: 'summary', label: 'Summary', widget: 'text', i18n: true, required: false, hint: 'One or two sentences for the cards. If empty, the start of the text is used.' },
     { name: 'body', label: 'Text', widget: 'markdown', i18n: true, hint: 'An image followed by a line in italics shows the italics as its caption. A code block with the language “cite” holding a DOI of one of the group’s publications (e.g. doi:10.1002/cae.21990), or a BibTeX entry, shows a box to cite it in IEEE, APA, Chicago, BibTeX and RIS.' },
+    // What the post is about: listed under "Related" at its end, and each of
+    // them links back to the post.
+    {
+      name: 'publications', label: 'Related publications', widget: 'select', multiple: true, required: false,
+      hint: 'The group’s publications the post is about. They are listed at the end of the post, and each one links back to it in the publication lists.',
+      options: publicationOptions,
+    },
+    relatedField('tools', 'Related tools', 'title', 'Tools the post is about. Their pages show the post under “In the news”.'),
+    relatedField('theses', 'Related theses', 'title', 'Theses the post is about. They link back to the post on the Theses page and on profiles.', ['{{year}} · {{student}} · {{title}}']),
+    relatedField('courses', 'Related courses', 'title', 'Courses the post is about. Their pages show the post under “In the news”.'),
   ],
 };
 

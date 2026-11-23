@@ -3,6 +3,7 @@
 // text (programme, teaching staff, prices…). Its facts and instructors are in a
 // side panel, with a button to its official page; the Courses page and the
 // instructors' profiles link here instead of to that page.
+import RelatedNews from '../../../../../components/RelatedNews.astro';
 import Base from '../../../../../layouts/Base.astro';
 import PeopleList from '../../../../../components/PeopleList.astro';
 import { courses, group, languages, defaultLang } from '../../../../../lib/data.js';
@@ -76,4 +77,5 @@ const html = await renderMarkdown(body, 'courses', course.id, lang);
       {course.url && <a class="button" href={course.url} rel="noopener">{c.officialSite} <span aria-hidden="true">→</span></a>}
     </aside>
   </div>
+  <RelatedNews kind="courses" id={course.id} lang={lang} />
 </Base>

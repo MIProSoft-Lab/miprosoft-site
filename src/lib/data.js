@@ -262,6 +262,13 @@ export const team = [...members].sort((a, b) => b.pi - a.pi);
 
 // The group's publications: every member's works, once each, with the ids of
 // the members who list them in `members`. Per-member choices (selected) are dropped.
+// A publication's stable key, used by news posts to point at it: its DOI or
+// Sistedes handle ("doi:10.…", "hdl:11705/…"), or else its title ("title:…").
+export const workKey = (w) => articleKey(w) ?? `title:${normTitle(w.title)}`;
+// The id of a publication's entry in the lists (pub-doi-10-1016-…), so other
+// pages can link to it.
+export const workAnchor = (w) => `pub-${workKey(w).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+
 const groupWorks = dedupeWorks(members.flatMap((m) => m.works.map(({ selected, ...w }) => w))).sort(byDateDesc);
 
 export const group = {

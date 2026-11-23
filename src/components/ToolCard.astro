@@ -1,0 +1,31 @@
+---
+// A tool as a card: logo, name linking to its own page (src/pages/[lang]/tools/[slug]/),
+// summary, and the same links as that page (ToolLinks). Used on the Tools pages
+// and in the "Related" section of news posts. Renders an <li>, for a .card-list.
+//   tool: an entry of `tools` (lib/data.js)
+//   label: optional small label above the name (e.g. "Tool", in a post's Related)
+//   level: heading level of the name, 2 (default) or 3
+import ToolLogo from './ToolLogo.astro';
+import ToolLinks from './ToolLinks.astro';
+import { linksOf } from '../lib/data.js';
+import { localize } from '../lib/content.js';
+
+const { tool, lang, label, level = 2 } = Astro.props;
+const Heading = level === 3 ? 'h3' : 'h2';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const text = localize(tool.entry, lang);
+const href = `${base}${lang}/tools/${tool.id}/`;
+// Links per language (their texts are translated), or the default language's.
+const links = linksOf(text.links);
+---
+<li class="card tool" id={tool.id}>
+  <div class="card-main" lang={text.translated ? undefined : text.lang}>
+    {label && <span class="related-kind">{label}</span>}
+    <div class="tool-head">
+      <ToolLogo tool={tool} />
+      <Heading class="card-title"><a href={href}>{text.title}</a></Heading>
+    </div>
+    {text.summary && <p class="card-summary">{text.summary}</p>}
+    <ToolLinks links={links} name={text.title} />
+  </div>
+</li>

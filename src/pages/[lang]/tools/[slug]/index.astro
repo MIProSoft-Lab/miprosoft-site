@@ -2,6 +2,7 @@
 // One tool's own page: /<lang>/tools/<slug>/, with its full text (pictures,
 // guides…) and links. It belongs to the menu of its first section (tag); the
 // Tools pages of its sections list it as a card.
+import RelatedNews from '../../../../components/RelatedNews.astro';
 import Base from '../../../../layouts/Base.astro';
 import ToolLogo from '../../../../components/ToolLogo.astro';
 import ToolLinks from '../../../../components/ToolLinks.astro';
@@ -65,4 +66,5 @@ const textLang = text.translated ? undefined : text.lang;
   </div>
 
   {html && <article class="post prose" lang={textLang} set:html={html} />}
+  <RelatedNews kind="tools" id={tool.id} lang={lang} />
 </Base>

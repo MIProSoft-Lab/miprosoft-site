@@ -8,6 +8,7 @@
 import { thesisTypes, tools, defaultLang } from '../lib/data.js';
 import { localize } from '../lib/content.js';
 import { strings, loc } from '../lib/i18n.js';
+import { postsAbout, inLanguage } from '../lib/news.js';
 
 const { theses, lang, self, idPrefix = 'theses' } = Astro.props;
 const t = strings(lang);
@@ -21,6 +22,9 @@ const toolOf = (slug) => {
   const tool = slug && tools.find((x) => x.id === slug);
   return tool ? { name: localize(tool.entry, lang).title, href: `${base}${lang}/tools/${tool.id}/` } : null;
 };
+
+// News posts about each thesis (their `theses`), linked from its links row.
+const newsOf = new Map(await Promise.all(theses.map(async (x) => [x.id, (await postsAbout('theses', x.id)).map((p) => inLanguage(p, lang))])));
 
 const groups = thesisTypes
   .map((type) => ({ type, items: theses.filter((x) => x.type === type) }))
@@ -65,10 +69,11 @@ const groups = thesisTypes
                     ))}
                   </div>
                 )}
-                {(x.url || tool) && (
+                {(x.url || tool || newsOf.get(x.id).length > 0) && (
                   <div class="pub-links">
                     {x.url && <a href={x.url}>{r.document}</a>}
                     {tool && <a href={tool.href}>{r.tool}: {tool.name}</a>}
+                    {newsOf.get(x.id).map((p) => <a class="news-link" href={`${base}${lang}/news/${p.slug}/`} title={p.title}>{t.news.kinds[p.kind]}</a>)}
                   </div>
                 )}
               </div>

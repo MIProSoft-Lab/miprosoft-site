@@ -107,6 +107,13 @@ news:
   empty: Todavía no hay ninguna entrada.
   notTranslated: Esta entrada no está disponible en español; se muestra en {language}.
   back: Todas las noticias
+  related: Relacionado
+  relatedKinds:
+    publication: Publicación
+    tool: Herramienta
+    thesis: Tesis
+    course: Curso
+  inTheNews: En las noticias
 skipToContent: Ir al contenido
 researchGroup: Grupo de investigación
 followUs: Síguenos en

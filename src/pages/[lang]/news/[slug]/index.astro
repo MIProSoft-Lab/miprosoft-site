@@ -5,8 +5,10 @@ import { Image } from 'astro:assets';
 import Base from '../../../../layouts/Base.astro';
 import PeopleList from '../../../../components/PeopleList.astro';
 import NewsCard from '../../../../components/NewsCard.astro';
-import { group, languages, defaultLang } from '../../../../lib/data.js';
-import { getPosts, inLanguage, renderBody } from '../../../../lib/news.js';
+import Publications from '../../../../components/Publications.astro';
+import ToolCard from '../../../../components/ToolCard.astro';
+import { group, members, config, tools, workKey, languages, defaultLang } from '../../../../lib/data.js';
+import { getPosts, inLanguage, renderBody, relatedItems } from '../../../../lib/news.js';
 import { strings, loc } from '../../../../lib/i18n.js';
 
 export async function getStaticPaths() {
@@ -24,6 +26,13 @@ const date = new Intl.DateTimeFormat(lang, { dateStyle: 'long' });
 const languageName = (l) => {
   try { return new Intl.DisplayNames([lang], { type: 'language' }).of(l); } catch { return l; }
 };
+// What the post is about: its publications as in the publication lists, its
+// tools as on the Tools pages, and its theses and courses as short cards.
+const features = config.features ?? {};
+const relatedWorks = post.related.publications.map((key) => group.works.find((w) => workKey(w) === key));
+const relatedTools = post.related.tools.map((id) => tools.find((x) => x.id === id));
+const relatedOthers = relatedItems(post, lang).filter((x) => x.kind === 'thesis' || x.kind === 'course');
+const hasRelated = relatedWorks.length + relatedTools.length + relatedOthers.length > 0;
 // The next posts after this one, to keep reading.
 const more = all.filter((p) => p.slug !== slug).slice(0, 3).map((p) => inLanguage(p, lang));
 ---
@@ -70,6 +79,42 @@ const more = all.filter((p) => p.slug !== slug).slice(0, 3).map((p) => inLanguag
     )}
     <div class="prose" lang={post.translated ? undefined : post.lang} set:html={html} />
   </article>
+
+  {hasRelated && (
+    <section class="post-related" aria-labelledby="related-heading">
+      <h2 id="related-heading">{t.news.related}</h2>
+      <ul class="card-list">
+        {relatedWorks.map((w) => (
+          <li class="card related-card">
+            <div class="card-main">
+              <span class="related-kind">{[t.news.relatedKinds.publication, w.date?.year].filter(Boolean).join(' · ')}</span>
+              <Publications
+                works={[w]}
+                lang={lang}
+                members={members}
+                post={post.slug}
+                flat
+                showCitations={features.citations !== false}
+                showAbstracts={features.abstracts !== false}
+                showImpactFactor={features.impactFactor !== false}
+              />
+            </div>
+          </li>
+        ))}
+        {relatedTools.map((tool) => <ToolCard tool={tool} lang={lang} label={t.news.relatedKinds.tool} level={3} />)}
+        {relatedOthers.map((x) => (
+          <li class="card related-card">
+            <div class="card-main" lang={x.lang}>
+              <span class="related-kind">{[t.news.relatedKinds[x.kind], x.year].filter(Boolean).join(' · ')}</span>
+              <h3 class="card-title"><a href={x.href}>{x.title}</a></h3>
+              {x.meta && <p class="related-meta">{x.meta}</p>}
+              {x.summary && <p class="card-summary">{x.summary}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   {more.length > 0 && (
     <section class="block post-more" aria-labelledby="more-heading">

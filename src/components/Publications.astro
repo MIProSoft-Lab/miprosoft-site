@@ -1,12 +1,14 @@
 ---
 import { strings } from '../lib/i18n.js';
-import { workGroupOrder } from '../lib/data.js';
+import { workGroupOrder, workKey, workAnchor } from '../lib/data.js';
+import { getPosts, inLanguage } from '../lib/news.js';
 import { authorMatcher } from '../lib/authors.js';
 
 // In author lists, `self` (the id of the member whose profile this is) is shown in
 // bold, and the other `members` link to their profiles.
 //   flat:   one list, without the per-type groups (e.g. latest publications)
-const { works, lang, members = [], self, flat = false, showCitations, showAbstracts = true, showImpactFactor = true } = Astro.props;
+//   post:   the slug of the news post the list is shown in, whose own link is left out
+const { works, lang, members = [], self, post: inPost, flat = false, showCitations, showAbstracts = true, showImpactFactor = true } = Astro.props;
 const t = strings(lang);
 const memberOf = authorMatcher(members);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
@@ -24,6 +26,14 @@ const jcrText = (j) => {
     ? [`JIF ${j.year}: ${Number.isInteger(j.value) ? j.value.toFixed(1) : j.value}`, position].filter(Boolean).join(' · ')
     : `JCR ${j.year}: ${position}`;
 };
+
+// News posts about each work (their `publications`), linked from its links row.
+const posts = await getPosts();
+const newsByWork = new Map(works.map((w) => {
+  const key = workKey(w);
+  return [w, posts.filter((p) => p.slug !== inPost && p.related.publications.includes(key)).map((p) => inLanguage(p, lang))];
+}));
+const newsUrl = (p) => `${base}${lang}/news/${p.slug}/`;
 
 const hasAbstract = (w) => showAbstracts && Boolean(w.abstract || w.tldr);
 
@@ -52,7 +62,7 @@ const groups = flat
       )}
       <ol class="pubs" id={`pubs-${g.id}`}>
         {g.items.map((w, i) => (
-          <li class:list={['pub', { selected: w.selected }]}>
+          <li class:list={['pub', { selected: w.selected }]} id={workAnchor(w)}>
             {/* Timeline: the year is shown once per run of works from the same year. */}
             <span class:list={['pub-year', { repeat: i > 0 && g.items[i - 1].date?.year === w.date?.year }]}><span class="year-label">{w.date?.year ?? ''}</span></span>
             <div class="pub-body">
@@ -96,11 +106,12 @@ const groups = flat
                   {showCitations && w.citations > 0 && <span class="citations">{t.citations(w.citations)}</span>}
                 </div>
               )}
-              {(w.doi || w.arxiv || w.openAccessUrl || hasAbstract(w)) && (
+              {(w.doi || w.arxiv || w.openAccessUrl || hasAbstract(w) || newsByWork.get(w).length > 0) && (
                 <div class="pub-links">
                   {w.doi && <a href={`https://doi.org/${w.doi}`}>DOI</a>}
                   {w.arxiv && <a href={`https://arxiv.org/abs/${w.arxiv}`}>arXiv</a>}
                   {w.openAccessUrl && <a href={w.openAccessUrl}>PDF</a>}
+                  {newsByWork.get(w).map((p) => <a class="news-link" href={newsUrl(p)} title={p.title}>{t.news.kinds[p.kind]}</a>)}
                   {hasAbstract(w) && (
                     <button type="button" class="abstract-toggle disclosure" aria-expanded="false" aria-controls={`abstract-${g.id}-${i}`}>{t.abstract}</button>
                   )}

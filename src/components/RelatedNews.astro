@@ -1,0 +1,20 @@
+---
+// "In the news": the posts about a tool, course… (see postsAbout in
+// lib/news.js), as cards. Nothing is rendered when there are none.
+//   kind, id: what the posts are about, e.g. kind="tools" id="record"
+import NewsCard from './NewsCard.astro';
+import { postsAbout, inLanguage } from '../lib/news.js';
+import { strings } from '../lib/i18n.js';
+
+const { kind, id, lang } = Astro.props;
+const t = strings(lang);
+const posts = (await postsAbout(kind, id)).map((p) => inLanguage(p, lang));
+---
+{posts.length > 0 && (
+  <section class="block post-more" aria-labelledby="in-the-news">
+    <div class="block-head">
+      <h2 id="in-the-news">{t.news.inTheNews}</h2>
+    </div>
+    <div class="news-grid">{posts.map((p) => <NewsCard post={p} lang={lang} />)}</div>
+  </section>
+)}
