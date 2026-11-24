@@ -31,7 +31,6 @@ const name = L(group.name);
   {collaborators.length > 0 && (
     <section class="block" aria-labelledby="collaborators-heading">
       <div class="block-head"><h2 id="collaborators-heading">{t.team.collaborators}</h2></div>
-      {t.team.collaboratorsLead && <p class="block-lead">{t.team.collaboratorsLead}</p>}
       <ul class="member-grid">
         {collaborators.map((c) => <CollaboratorCard person={c} lang={lang} />)}
       </ul>

@@ -845,11 +845,6 @@ collections:
                 i18n: true
                 required: false
                 widget: string
-              - name: collaboratorsLead
-                label: Collaborators lead
-                i18n: true
-                required: false
-                widget: string
           - name: research
             label: Research
             i18n: true
