@@ -1,12 +1,13 @@
 ---
 // One news or blog post: /<lang>/news/<slug>/. Every post is built in every
 // language; a missing translation shows another language with a notice.
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from '../../../../layouts/Base.astro';
 import PeopleList from '../../../../components/PeopleList.astro';
 import NewsCard from '../../../../components/NewsCard.astro';
 import Publications from '../../../../components/Publications.astro';
 import ToolCard from '../../../../components/ToolCard.astro';
+import PostSocial from '../../../../components/PostSocial.astro';
 import { group, members, config, tools, workKey, languages, defaultLang } from '../../../../lib/data.js';
 import { getPosts, inLanguage, renderBody, relatedItems } from '../../../../lib/news.js';
 import { strings, loc } from '../../../../lib/i18n.js';
@@ -33,6 +34,14 @@ const relatedWorks = post.related.publications.map((key) => group.works.find((w)
 const relatedTools = post.related.tools.map((id) => tools.find((x) => x.id === id));
 const relatedOthers = relatedItems(post, lang).filter((x) => x.kind === 'thesis' || x.kind === 'course');
 const hasRelated = relatedWorks.length + relatedTools.length + relatedOthers.length > 0;
+// The preview when the post is shared: its cover, at most 1200 px wide, as PNG
+// or JPEG (what LinkedIn and others accept; PNG keeps transparency).
+const shareImage = post.image && await getImage({
+  src: post.image,
+  width: Math.min(post.image.width, 1200),
+  format: ['jpg', 'jpeg'].includes(post.image.format) ? 'jpg' : 'png',
+});
+const url = new URL(`${base}${lang}/news/${slug}/`, Astro.site).href;
 // The next posts after this one, to keep reading.
 const more = all.filter((p) => p.slug !== slug).slice(0, 3).map((p) => inLanguage(p, lang));
 ---
@@ -43,6 +52,12 @@ const more = all.filter((p) => p.slug !== slug).slice(0, 3).map((p) => inLanguag
   title={`${post.title} — ${loc(group.name, lang, defaultLang)}`}
   description={post.summary}
   lastModified={null}
+  share={{
+    title: post.title,
+    image: shareImage && { src: shareImage.src, width: shareImage.attributes.width, height: shareImage.attributes.height, alt: post.imageAlt },
+    published: post.date,
+    authors: post.authors.map((a) => a.name),
+  }}
   jsonLd={{
     '@context': 'https://schema.org',
     '@type': post.kind === 'blog' ? 'BlogPosting' : 'NewsArticle',
@@ -78,6 +93,7 @@ const more = all.filter((p) => p.slug !== slug).slice(0, 3).map((p) => inLanguag
       <Image class="post-image" src={post.image} alt={post.imageAlt} widths={[800, 1400]} sizes="(max-width: 760px) 100vw, 46rem" />
     )}
     <div class="prose" lang={post.translated ? undefined : post.lang} set:html={html} />
+    <PostSocial post={post} url={url} lang={lang} />
   </article>
 
   {hasRelated && (

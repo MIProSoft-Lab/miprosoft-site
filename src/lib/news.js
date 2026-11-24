@@ -4,6 +4,7 @@ import { peopleOf, group, tools, theses, courses, workKey, workAnchor as workAnc
 import { readEntries, localize, toDate } from './content.js';
 import { loc } from './i18n.js';
 import { imageOf as bundleImage, renderMarkdown } from './bundle.js';
+import { postNetworks, socialIcons } from './social.js';
 
 const imageOf = (slug, name) => bundleImage('news', slug, name);
 
@@ -48,6 +49,21 @@ function relatedOf(base, path) {
   return related;
 }
 
+// The post's own publications on social networks (`linkedin`, `instagram`):
+// [{ network, url }]. A URL that isn't on that network stops the build.
+function socialOf(base, path) {
+  return Object.entries(postNetworks).flatMap(([network, hosts]) => {
+    const url = String(base[network] ?? '').trim();
+    if (!url) return [];
+    let host;
+    try { host = new URL(url).hostname.replace(/^www\./, ''); } catch {}
+    if (!host || !hosts.some((h) => host === h || host.endsWith(`.${h}`))) {
+      throw new Error(`${path}: ${network} must be a link to a post on ${socialIcons[network].name}, not "${url}"`);
+    }
+    return [{ network, url }];
+  });
+}
+
 let cache;
 
 // All posts, newest first. Cached for the build; in dev, read every time so
@@ -68,6 +84,7 @@ export async function getPosts() {
         image: imageOf(slug, base.image),
         authors: peopleOf(base.authors, base.guestAuthors),
         related: relatedOf(base, path),
+        social: socialOf(base, path),
       };
     })
     .sort((a, b) => b.date - a.date || a.slug.localeCompare(b.slug));

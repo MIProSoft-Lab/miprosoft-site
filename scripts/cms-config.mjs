@@ -158,6 +158,9 @@ const news = {
     relatedField('tools', 'Related tools', 'title', 'Tools the post is about. Their pages show the post under “In the news”.'),
     relatedField('theses', 'Related theses', 'title', 'Theses the post is about. They link back to the post on the Theses page and on profiles.', ['{{year}} · {{student}} · {{title}}']),
     relatedField('courses', 'Related courses', 'title', 'Courses the post is about. Their pages show the post under “In the news”.'),
+    // The post's own publications on the group's social networks.
+    { name: 'linkedin', label: 'LinkedIn post', widget: 'string', type: 'url', required: false, hint: 'Link to the LinkedIn post about this news (“Copy link to post” on LinkedIn). The post shows a button to see it and comment there.' },
+    { name: 'instagram', label: 'Instagram post', widget: 'string', type: 'url', required: false, hint: 'Link to the Instagram post about this news (“Copy link” on Instagram). The post shows a button to see it there.' },
   ],
 };
 

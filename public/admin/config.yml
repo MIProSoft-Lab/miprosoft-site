@@ -325,6 +325,18 @@ collections:
         display_fields:
           - "{{title}}"
         hint: Courses the post is about. Their pages show the post under “In the news”.
+      - name: linkedin
+        label: LinkedIn post
+        widget: string
+        type: url
+        required: false
+        hint: Link to the LinkedIn post about this news (“Copy link to post” on LinkedIn). The post shows a button to see it and comment there.
+      - name: instagram
+        label: Instagram post
+        widget: string
+        type: url
+        required: false
+        hint: Link to the Instagram post about this news (“Copy link” on Instagram). The post shows a button to see it there.
   - name: research-lines
     label: Research lines
     label_singular: Research line
@@ -1313,6 +1325,41 @@ collections:
                     widget: string
               - name: inTheNews
                 label: In the news
+                i18n: true
+                required: false
+                widget: string
+              - name: social
+                label: Social
+                i18n: true
+                required: false
+                widget: string
+              - name: viewOn
+                label: View on
+                i18n: true
+                required: false
+                widget: string
+              - name: share
+                label: Share
+                i18n: true
+                required: false
+                widget: string
+              - name: shareOn
+                label: Share on
+                i18n: true
+                required: false
+                widget: string
+              - name: shareNative
+                label: Share native
+                i18n: true
+                required: false
+                widget: string
+              - name: copyLink
+                label: Copy link
+                i18n: true
+                required: false
+                widget: string
+              - name: linkCopied
+                label: Link copied
                 i18n: true
                 required: false
                 widget: string

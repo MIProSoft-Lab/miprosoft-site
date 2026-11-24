@@ -511,6 +511,19 @@ h2 .count, h3 .count {
 .post { max-width: 46rem; }
 .post-image { display: block; width: 100%; height: auto; margin: 0 0 2rem; border-radius: var(--radius); }
 .post-more { margin-top: 4rem; }
+/* End of a post: its publications on social networks, and share buttons. */
+.post-social { display: grid; gap: 1rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.post-social-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
+.post-social-label { margin: 0; min-width: 10rem; color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+.post-social ul { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+.social-button {
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.5rem; padding: 0.45rem 0.95rem;
+  border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--fg);
+  font: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+}
+.social-button:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.social-button[hidden] { display: none; }
+.social-button svg { width: 1rem; height: 1rem; flex: none; }
 /* What a post is about: links to its publications, tools, theses and courses. */
 .post-related { max-width: 46rem; margin-top: 2.75rem; }
 .post-related h2 { font-size: 1.3rem; }

@@ -1,0 +1,70 @@
+---
+// The end of a post: links to its own publications on the group's social
+// networks (post.social: `linkedin` and `instagram` in its YAML), and buttons to
+// share it. LinkedIn shares the link (its preview comes from the page's Open
+// Graph tags, see Base.astro). Instagram has no way to share a link from the
+// web, so the other button opens the device's share menu (phones, some
+// browsers); where there is none, it copies the link instead.
+//   post: the post, in the page's language
+//   url:  the post's full URL
+import { strings } from '../lib/i18n.js';
+import { socialIcons } from '../lib/social.js';
+
+const { post, url, lang } = Astro.props;
+const t = strings(lang);
+const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+const icon = (network) => socialIcons[network].path;
+---
+<section class="post-social" aria-label={post.social.length ? t.news.social : t.news.share}>
+  {post.social.length > 0 && (
+    <div class="post-social-row">
+      <h2 class="post-social-label">{t.news.social}</h2>
+      <ul>
+        {post.social.map((s) => (
+          <li><a class="social-button" href={s.url} target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={icon(s.network)} /></svg>
+            {t.news.viewOn} {socialIcons[s.network].name}
+          </a></li>
+        ))}
+      </ul>
+    </div>
+  )}
+  <div class="post-social-row">
+    <h2 class="post-social-label">{t.news.share}</h2>
+    <ul>
+      <li><a class="social-button" href={linkedinShare} target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={icon('linkedin')} /></svg>
+        {t.news.shareOn} LinkedIn
+      </a></li>
+      <li><button type="button" class="social-button post-share" data-url={url} data-title={post.title}
+        data-share={t.news.shareNative} data-copy={t.news.copyLink} data-copied={t.news.linkCopied} hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path class="icon-share" d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13" />
+        </svg>
+        <span>{t.news.copyLink}</span>
+      </button></li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  // Without JavaScript the button stays hidden (it can do nothing).
+  for (const button of document.querySelectorAll<HTMLButtonElement>('.post-share')) {
+    const { url, title, share, copy, copied } = button.dataset;
+    const label = button.querySelector('span')!;
+    const native = typeof navigator.share === 'function';
+    label.textContent = native ? share! : copy!;
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      if (native) {
+        try { await navigator.share({ title, url }); } catch {}
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(url!);
+        label.textContent = copied!;
+        setTimeout(() => { label.textContent = copy!; }, 2000);
+      } catch {}
+    });
+  }
+</script>
