@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const features = config.features ?? {};
 const name = loc(group.name, lang, defaultLang);
 ---
-<Base lang={lang} nav="research" subnav="publications" path="research/publications/" title={`${t.research.publications} — ${name}`} lastModified={group.lastModified}>
+<Base lang={lang} nav="research" subnav="publications" path="research/publications/" description={t.descriptions.publications} title={`${t.research.publications} — ${name}`} lastModified={group.lastModified}>
   <PageHead slot="hero" title={t.research.publications} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }, { label: t.nav.research }]} />
   <Publications
     works={group.works}

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import { resolve, sep } from 'node:path';
+import sitemap from './src/integrations/sitemap.mjs';
 
 // Reload the dev server when the config, data/ or content/ (edited by the CMS)
 // changes. The loaders in src/lib/ read those files when first imported, so
@@ -53,5 +54,6 @@ export default defineConfig({
   site: process.env.SITE_URL || 'http://localhost:4321',
   base: process.env.BASE_PATH || '/',
   trailingSlash: 'always',
+  integrations: [sitemap()],
   vite: { plugins: [reloadOnDataChange()] },
 });

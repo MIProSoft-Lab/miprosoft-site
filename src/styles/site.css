@@ -791,3 +791,7 @@ h2 .count, h3 .count {
   .pairs dd { margin-bottom: 0.4rem; }
   .block-head { flex-direction: column; gap: 0.25rem; }
 }
+
+/* Page not found: a link to the home page in each language. */
+.not-found { display: grid; gap: 0.6rem; margin: 0; padding: 0; list-style: none; font-size: 1.05rem; }
+.not-found-lang { color: var(--muted); font-size: 0.9rem; }

@@ -64,8 +64,21 @@ const more = all.filter((p) => p.slug !== slug).slice(0, 3).map((p) => inLanguag
     headline: post.title,
     datePublished: post.date.toISOString().slice(0, 10),
     inLanguage: post.lang,
-    author: post.authors.map((a) => ({ '@type': 'Person', name: a.name })),
-    publisher: { '@type': 'ResearchOrganization', name: loc(group.name, lang, defaultLang) },
+    description: post.summary || undefined,
+    url,
+    mainEntityOfPage: url,
+    image: shareImage ? [new URL(shareImage.src, Astro.site).href] : undefined,
+    author: post.authors.map((a) => ({
+      '@type': 'Person',
+      name: a.name,
+      url: a.id ? new URL(`${base}${lang}/team/${a.id}/`, Astro.site).href : undefined,
+    })),
+    publisher: {
+      '@type': 'ResearchOrganization',
+      '@id': `${new URL(base, Astro.site).href}#group`,
+      name: loc(group.name, lang, defaultLang),
+      logo: { '@type': 'ImageObject', url: new URL(`${base}logo.png`, Astro.site).href },
+    },
   }}
 >
   <div slot="hero" class="page-head post-head">

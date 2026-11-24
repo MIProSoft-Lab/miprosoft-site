@@ -189,3 +189,13 @@ tldr: In short
 via: via
 metrics:
   source: Citation data from
+descriptions:
+  news: "News and blog posts from the research group: new publications, tools, projects, events and teaching."
+  team: The members of the research group, and the researchers from other groups and institutions who work with us.
+  lines: The research lines of the group, the topics we work on, with the researchers in each one.
+  publications: Journal articles, conference papers and other publications by the members of the research group.
+  theses: PhD, master's and bachelor's theses supervised by members of the research group, finished and in progress.
+notFound:
+  title: Page not found
+  text: The page you are looking for does not exist or has moved.
+  home: Go to the home page

@@ -18,7 +18,7 @@ const L = (x) => loc(x, lang, defaultLang);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const name = L(group.name);
 ---
-<Base lang={lang} nav="team" path="team/" title={`${t.nav.team} — ${name}`} lastModified={group.lastModified}>
+<Base lang={lang} nav="team" path="team/" description={t.descriptions.team} title={`${t.nav.team} — ${name}`} lastModified={group.lastModified}>
   <PageHead slot="hero" title={t.nav.team} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }]} />
   <section class="block" aria-labelledby="members-heading">
     {collaborators.length > 0

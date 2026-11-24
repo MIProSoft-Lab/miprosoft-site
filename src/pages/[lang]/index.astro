@@ -22,22 +22,43 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const features = config.features ?? {};
 const name = L(group.name);
 const description = L(group.description);
+const fullName = L(group.fullName);
 const institution = group.institution;
+const home = new URL(`${base}${lang}/`, Astro.site).href;
+// The group, the same in every language (see also news posts and profiles).
+const groupId = `${new URL(base, Astro.site).href}#group`;
 const news = (await getPosts()).slice(0, LATEST_NEWS).map((p) => inLanguage(p, lang));
 ---
 <Base
   lang={lang}
   nav="home"
   title={name ? `${name} — ${t.researchGroup}` : t.researchGroup}
-  description={description || [name, t.researchGroup, institution?.name && L(institution.name)].filter(Boolean).join(' · ')}
+  description={description || [fullName ? `${name} (${fullName})` : name, t.researchGroup, institution?.name && L(institution.name)].filter(Boolean).join(' · ')}
   lastModified={group.lastModified}
   jsonLd={{
     '@context': 'https://schema.org',
-    '@type': 'ResearchOrganization',
-    name: name || undefined,
-    description: description || undefined,
-    parentOrganization: institution?.name ? { '@type': 'CollegeOrUniversity', name: L(institution.name), url: institution.url } : undefined,
-    member: members.map((m) => ({ '@type': 'Person', name: m.name, url: new URL(`${base}${lang}/team/${m.id}/`, Astro.site).href })),
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${home}#website`,
+        url: home,
+        name: name || undefined,
+        inLanguage: lang,
+        publisher: { '@id': groupId },
+      },
+      {
+        '@type': 'ResearchOrganization',
+        '@id': groupId,
+        url: home,
+        name: name || undefined,
+        alternateName: fullName || undefined,
+        description: description || undefined,
+        logo: new URL(`${base}logo.png`, Astro.site).href,
+        sameAs: group.social.length ? group.social.map((s) => s.url) : undefined,
+        parentOrganization: institution?.name ? { '@type': 'CollegeOrUniversity', name: L(institution.name), url: institution.url } : undefined,
+        member: members.map((m) => ({ '@type': 'Person', name: m.name, url: new URL(`${base}${lang}/team/${m.id}/`, Astro.site).href })),
+      },
+    ],
   }}
 >
   <section slot="hero" class="hero">

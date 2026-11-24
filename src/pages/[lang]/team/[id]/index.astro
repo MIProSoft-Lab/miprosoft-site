@@ -51,7 +51,10 @@ const affiliationEntry = (it) => ({
     '@type': 'Person',
     name: cv.profile.name,
     jobTitle: role || (cv.pi ? t.team.piTitle : undefined),
-    memberOf: groupName ? { '@type': 'ResearchOrganization', name: groupName } : undefined,
+    url: new URL(`${base}${lang}/team/${id}/`, Astro.site).href,
+    image: cv.profile.photo ? new URL(`${base}${cv.profile.photo.replace(/^\//, '')}`, Astro.site).href : undefined,
+    memberOf: groupName ? { '@type': 'ResearchOrganization', '@id': `${new URL(base, Astro.site).href}#group`, name: groupName } : undefined,
+    affiliation: cv.affiliation?.organization?.name ? { '@type': 'Organization', name: cv.affiliation.organization.name } : undefined,
     sameAs: [`https://orcid.org/${cv.orcidId}`, ...cv.profile.links.map((l) => l.url)],
   }}
 >

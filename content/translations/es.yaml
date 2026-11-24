@@ -189,3 +189,13 @@ tldr: En breve
 via: vía
 metrics:
   source: Datos de citas de
+descriptions:
+  news: "Noticias y entradas del blog del grupo de investigación: nuevas publicaciones, herramientas, proyectos, eventos y docencia."
+  team: Los miembros del grupo de investigación, y los investigadores de otros grupos e instituciones que colaboran con nosotros.
+  lines: Las líneas de investigación del grupo, los temas en los que trabajamos, con los investigadores de cada una.
+  publications: Artículos de revista, comunicaciones en congresos y otras publicaciones de los miembros del grupo de investigación.
+  theses: Tesis doctorales, trabajos de fin de máster y de grado dirigidos por miembros del grupo de investigación, terminados y en curso.
+notFound:
+  title: Página no encontrada
+  text: La página que buscas no existe o ha cambiado de dirección.
+  home: Ir a la página de inicio

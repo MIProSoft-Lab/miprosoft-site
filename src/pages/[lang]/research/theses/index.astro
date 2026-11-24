@@ -17,7 +17,7 @@ const r = t.research;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const name = loc(group.name, lang, defaultLang);
 ---
-<Base lang={lang} nav="research" subnav="theses" path="research/theses/" title={`${r.theses} — ${name}`} lastModified={null}>
+<Base lang={lang} nav="research" subnav="theses" path="research/theses/" description={t.descriptions.theses} title={`${r.theses} — ${name}`} lastModified={null}>
   <PageHead slot="hero" title={t.research.theses} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }, { label: t.nav.research }]} />
 
   {theses.length

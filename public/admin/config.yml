@@ -3,7 +3,8 @@
 # content/translations/: edit those (or the script) instead of this file.
 app_title: MIProSoft · Content editor
 logo:
-  src: /admin/logo.png
+  src: /miprosoft-site/admin/logo.png
+site_url: https://miprosoft-lab.github.io/miprosoft-site/
 backend:
   name: github
   repo: MIProSoft-Lab/miprosoft-site
@@ -1688,6 +1689,60 @@ collections:
             fields:
               - name: source
                 label: Source
+                i18n: true
+                required: false
+                widget: string
+          - name: descriptions
+            label: Descriptions
+            i18n: true
+            required: false
+            widget: object
+            collapsed: true
+            fields:
+              - name: news
+                label: News
+                i18n: true
+                required: false
+                widget: text
+              - name: team
+                label: Team
+                i18n: true
+                required: false
+                widget: text
+              - name: lines
+                label: Lines
+                i18n: true
+                required: false
+                widget: text
+              - name: publications
+                label: Publications
+                i18n: true
+                required: false
+                widget: text
+              - name: theses
+                label: Theses
+                i18n: true
+                required: false
+                widget: text
+          - name: notFound
+            label: Not found
+            i18n: true
+            required: false
+            widget: object
+            collapsed: true
+            fields:
+              - name: title
+                label: Title
+                i18n: true
+                required: false
+                widget: string
+              - name: text
+                label: Text
+                i18n: true
+                required: false
+                widget: string
+              - name: home
+                label: Home
                 i18n: true
                 required: false
                 widget: string

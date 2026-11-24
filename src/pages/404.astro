@@ -1,0 +1,21 @@
+---
+// Page not found: GitHub Pages serves dist/404.html for any address that
+// doesn't exist. Not indexed. It is in the default language, with a link to
+// the home page in every language.
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { languages, defaultLang, group } from '../lib/data.js';
+import { strings, ui, loc } from '../lib/i18n.js';
+
+const lang = defaultLang;
+const t = strings(lang);
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Base lang={lang} title={`${t.notFound.title} — ${loc(group.name, lang, defaultLang)}`} noindex lastModified={null}>
+  <PageHead slot="hero" title={t.notFound.title} lead={t.notFound.text} />
+  <ul class="not-found">
+    {languages.map((l) => (
+      <li lang={l}><a href={`${base}${l}/`} hreflang={l}>{strings(l).notFound.home}</a> <span class="not-found-lang">({ui[l]?.langName ?? l})</span></li>
+    ))}
+  </ul>
+</Base>

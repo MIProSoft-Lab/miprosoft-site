@@ -189,3 +189,13 @@ tldr: En breu
 via: via
 metrics:
   source: Dades de citacions de
+descriptions:
+  news: "Notícies i entrades del blog del grup de recerca: noves publicacions, eines, projectes, esdeveniments i docència."
+  team: Els membres del grup de recerca, i els investigadors d'altres grups i institucions que hi col·laboren.
+  lines: Les línies de recerca del grup, els temes en què treballam, amb els investigadors de cadascuna.
+  publications: Articles de revista, comunicacions a congressos i altres publicacions dels membres del grup de recerca.
+  theses: Tesis doctorals, treballs de fi de màster i de grau dirigits per membres del grup de recerca, acabats i en curs.
+notFound:
+  title: No s'ha trobat la pàgina
+  text: La pàgina que cerques no existeix o ha canviat d'adreça.
+  home: Vés a la pàgina d'inici

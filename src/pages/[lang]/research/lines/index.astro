@@ -22,7 +22,7 @@ const lines = researchLines.map((line) => {
   return { ...line, text, html: markdown(text.description, lang) };
 });
 ---
-<Base lang={lang} nav="research" subnav="lines" path="research/lines/" title={`${r.lines} — ${name}`} lastModified={null}>
+<Base lang={lang} nav="research" subnav="lines" path="research/lines/" description={t.descriptions.lines} title={`${r.lines} — ${name}`} lastModified={null}>
   <PageHead slot="hero" title={t.research.lines} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }, { label: t.nav.research }]} />
 
   {lines.length

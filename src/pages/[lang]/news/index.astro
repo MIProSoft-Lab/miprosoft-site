@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const posts = (await getPosts()).map((p) => inLanguage(p, lang));
 const kinds = ['news', 'blog'].filter((k) => posts.some((p) => p.kind === k));
 ---
-<Base lang={lang} nav="news" path="news/" title={`${t.news.title} — ${loc(group.name, lang, defaultLang)}`} lastModified={group.lastModified}>
+<Base lang={lang} nav="news" path="news/" description={t.descriptions.news} title={`${t.news.title} — ${loc(group.name, lang, defaultLang)}`} lastModified={group.lastModified}>
   <PageHead slot="hero" title={t.news.title} crumbs={[{ label: t.nav.home, href: `${base}${lang}/` }]} />
 
   {kinds.length > 1 && (
