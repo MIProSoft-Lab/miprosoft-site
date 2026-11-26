@@ -109,3 +109,9 @@ features:
   citations: true   # citation counts from OpenAlex
   abstracts: true   # collapsible abstracts
   impactFactor: true # Journal Impact Factor (data/jcr.yaml, or data/jcr.json from the Clarivate API)
+
+# Visit statistics with GoatCounter (goatcounter.com): no cookies and no
+# personal data. Its counting address, e.g. https://<code>.goatcounter.com/count.
+# Only added to the published site (not `npm run dev`); leave empty to turn it off.
+analytics:
+  goatcounter: https://miprosoft.goatcounter.com/count

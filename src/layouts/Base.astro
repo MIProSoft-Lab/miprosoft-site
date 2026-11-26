@@ -16,7 +16,7 @@
 //                 it then has no canonical address or language versions.
 // Slots: "hero" (full-width band above the content) and the default slot.
 import '../styles/site.css';
-import { languages, group, defaultLang, courses, toolsFor } from '../lib/data.js';
+import { languages, group, defaultLang, courses, toolsFor, goatcounter } from '../lib/data.js';
 import { strings, ui, loc } from '../lib/i18n.js';
 import SocialLinks from '../components/SocialLinks.astro';
 
@@ -100,6 +100,7 @@ const links = [
     <meta name="twitter:card" content={share.image ? 'summary_large_image' : 'summary'} />
     {!noindex && languages.map((l) => <link rel="alternate" hreflang={l} href={new URL(href(l), Astro.site)} />)}
     {!noindex && <link rel="alternate" hreflang="x-default" href={new URL(base, Astro.site)} />}
+    {goatcounter && import.meta.env.PROD && <script is:inline data-goatcounter={goatcounter} async src="https://gc.zgo.at/count.js"></script>}
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />}
   </head>
   <body>
@@ -171,6 +172,7 @@ const links = [
             <slot name="footer">{t.sourceOrcid} <a href="https://orcid.org">ORCID</a></slot>
             {' '}· {t.metrics.source} <a href="https://openalex.org">OpenAlex</a>
           </p>
+          {goatcounter && <p>{t.analyticsNote} <a href="https://www.goatcounter.com">GoatCounter</a></p>}
           {lastModified && <p>{t.lastUpdated}: {new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(new Date(lastModified))}</p>}
         </div>
       </div>

@@ -3,8 +3,7 @@
 # content/translations/: edit those (or the script) instead of this file.
 app_title: MIProSoft · Content editor
 logo:
-  src: /miprosoft-site/admin/logo.png
-site_url: https://miprosoft-lab.github.io/miprosoft-site/
+  src: /admin/logo.png
 backend:
   name: github
   repo: MIProSoft-Lab/miprosoft-site
@@ -1578,6 +1577,11 @@ collections:
             widget: string
           - name: sourceOrcid
             label: Source orcid
+            i18n: true
+            required: false
+            widget: string
+          - name: analyticsNote
+            label: Analytics note
             i18n: true
             required: false
             widget: string

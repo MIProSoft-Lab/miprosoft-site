@@ -13,6 +13,8 @@ const readJson = (path, fallback) => (existsSync(file(path)) ? JSON.parse(read(p
 export const config = readYaml('site.config.yaml');
 export const languages = config.languages?.length ? config.languages : ['en'];
 export const defaultLang = languages[0];
+// GoatCounter counting address (analytics.goatcounter in site.config.yaml), or null.
+export const goatcounter = config.analytics?.goatcounter || null;
 
 const WORK_GROUPS = {
   journal: ['journal-article', 'review', 'journal-issue', 'magazine-article', 'newspaper-article', 'letter'],
