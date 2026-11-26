@@ -22,7 +22,7 @@
     "tldr": "MiProJOC has been used to facilitate the learning of the software life cycle processes of the ISO/IEC/IEEE 12207 International Standard within a Software Quality course and an increase in the student interest toward the topics studied.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 17,
+    "citations": 16,
     "citationsByYear": {
       "2018": 2,
       "2019": 2,
@@ -31,8 +31,7 @@
       "2022": 3,
       "2023": 1,
       "2024": 4,
-      "2025": 1,
-      "2026": 1
+      "2025": 1
     }
   },
   "doi:10.1002/smr.1665": {
@@ -58,7 +57,7 @@
     "tldr": "The main results of this initiative have been the definition of a standardized set of processes and procedures and the development of a Process Asset Library to support project management good practices within the participant organizations.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 45,
+    "citations": 46,
     "citationsByYear": {
       "2014": 2,
       "2015": 1,
@@ -69,7 +68,7 @@
       "2020": 4,
       "2021": 6,
       "2022": 1,
-      "2023": 1,
+      "2023": 2,
       "2024": 3,
       "2025": 4,
       "2026": 2
@@ -129,15 +128,16 @@
     "tldr": "This paper presents an ISO 31000‐based Integrated Risk Management Process Assessment Model (PAM) for IT organizations enabling to integrate on an easy way several ISO process‐oriented standards which are often targeted by IT organizations.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 51,
+    "citations": 53,
     "citationsByYear": {
+      "2019": 1,
       "2020": 4,
       "2021": 8,
       "2022": 6,
       "2023": 13,
       "2024": 4,
       "2025": 12,
-      "2026": 4
+      "2026": 5
     }
   },
   "doi:10.1002/smr.1986": {
@@ -232,10 +232,9 @@
     "metadataFetched": "2026-11-02",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 17,
+    "citations": 15,
     "citationsByYear": {
-      "2012": 1,
-      "2014": 7,
+      "2014": 8,
       "2015": 1,
       "2016": 1,
       "2017": 1,
@@ -406,9 +405,9 @@
     "tldr": "The requirements ofISO 21500 were transformed to develop the PMSPICE Process Reference Model (PRM), which is compliant with the requirements of ISO/IEC 33004 and will provide a process assessment and improvement model in the project management domain.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 6,
+    "citations": 5,
     "citationsByYear": {
-      "2016": 3,
+      "2016": 2,
       "2018": 1,
       "2020": 1,
       "2024": 1
@@ -435,9 +434,9 @@
     "tldr": "Different games for improving agile software development processes are presented and they can be applied during the retrospective meetings and they are grouped in five sections: data gathering, ongoing activities, timeline, and team cohesion and risk management.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 20,
+    "citations": 19,
     "citationsByYear": {
-      "2016": 3,
+      "2016": 2,
       "2017": 3,
       "2018": 3,
       "2019": 3,
@@ -514,12 +513,12 @@
       "status": "green",
       "license": "cc-by-nc-sa"
     },
-    "citations": 43,
+    "citations": 44,
     "citationsByYear": {
       "2016": 1,
       "2017": 4,
       "2018": 6,
-      "2019": 2,
+      "2019": 3,
       "2020": 4,
       "2021": 4,
       "2022": 12,
@@ -549,7 +548,7 @@
     "tldr": "Concrete application of one business game to the activities suggested by ISO 21500 is presented in the paper, thus showing the project management process improvement possibilities with business games.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 12,
+    "citations": 11,
     "citationsByYear": {
       "2016": 1,
       "2017": 2,
@@ -557,7 +556,7 @@
       "2019": 1,
       "2020": 2,
       "2022": 1,
-      "2023": 2
+      "2023": 1
     }
   },
   "doi:10.1007/978-3-319-44817-6_4": {
@@ -721,10 +720,9 @@
     "tldr": "The Integrated Risk Management Process Model for IT settings in an ISO multi-standards context is developed with a Design Science research method to be the foundations for new process models.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 4,
+    "citations": 3,
     "citationsByYear": {
-      "2018": 3,
-      "2025": 1
+      "2018": 3
     }
   },
   "doi:10.1007/978-3-319-67383-7_3": {
@@ -749,13 +747,13 @@
     "tldr": "This research demonstrates the first steps towards the creation of a generic sequential Agile adoption framework from which the first phase is ready to be used by practitioners, and second and third phases are useful for academic society and they can be developed and validated further in the future.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 16,
+    "citations": 17,
     "citationsByYear": {
       "2018": 3,
       "2019": 3,
       "2020": 2,
       "2021": 1,
-      "2022": 2,
+      "2022": 3,
       "2023": 2,
       "2024": 1,
       "2025": 2
@@ -811,11 +809,10 @@
     "metadataFetched": "2026-11-02",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 7,
+    "citations": 6,
     "citationsByYear": {
       "2020": 1,
       "2021": 3,
-      "2023": 1,
       "2024": 1,
       "2026": 1
     },
@@ -842,11 +839,10 @@
     "tldr": "This paper presents the experience of application of the ISO/IEC 15504 standard in eight software companies and the implementation of the project activities and its results are summarized.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 11,
+    "citations": 12,
     "citationsByYear": {
       "2012": 1,
-      "2014": 5,
-      "2018": 1,
+      "2014": 7,
       "2019": 1
     }
   },
@@ -871,9 +867,8 @@
     "tldr": "An SPICE-based Teamwork Assessment Model for software teams, composed of a Teamwork Reference Model (TRM) and a Measurement Framework, both introduced in previous works are presented.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 4,
+    "citations": 3,
     "citationsByYear": {
-      "2012": 1,
       "2015": 1,
       "2018": 1
     }
@@ -897,14 +892,14 @@
     "metadataFetched": "2026-11-02",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 22,
+    "citations": 16,
     "citationsByYear": {
-      "2015": 4,
-      "2017": 4,
+      "2015": 1,
+      "2017": 2,
       "2018": 3,
       "2019": 1,
       "2022": 3,
-      "2023": 2,
+      "2023": 1,
       "2024": 3,
       "2025": 1,
       "2026": 1
@@ -1054,7 +1049,7 @@
     "tldr": "The ISO/IEC 15504 Security Extension details the changes that software companies should make in the software lifecycle processes for the successful implementation of the related security controls.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 47,
+    "citations": 46,
     "citationsByYear": {
       "2015": 1,
       "2016": 4,
@@ -1067,7 +1062,7 @@
       "2023": 4,
       "2024": 4,
       "2025": 4,
-      "2026": 2
+      "2026": 1
     }
   },
   "doi:10.1016/j.csi.2014.06.005": {
@@ -1090,13 +1085,13 @@
     "tldr": "A new Integrated Management System (IMS) is proposed which widens the scope of the ISO 9001 QMS with the specific IT service management requirements of ISO/IEC 20000-1, and presents a guide to support organizations in implementing this IMS.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 55,
+    "citations": 56,
     "citationsByYear": {
       "2014": 1,
       "2015": 3,
       "2016": 6,
       "2017": 8,
-      "2018": 5,
+      "2018": 6,
       "2019": 4,
       "2020": 9,
       "2021": 6,
@@ -1127,19 +1122,20 @@
     "tldr": "This paper analyses risk management activities throughout various selected ISO standards in order to provide the basis to improve, coordinate and interoperaterisk management activities in IT settings for various purposes related to quality management, project management, IT service management and information security management.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 145,
+    "citations": 150,
     "citationsByYear": {
+      "2013": 1,
       "2015": 1,
       "2017": 20,
-      "2018": 11,
+      "2018": 12,
       "2019": 19,
-      "2020": 20,
-      "2021": 16,
+      "2020": 21,
+      "2021": 17,
       "2022": 13,
       "2023": 17,
       "2024": 12,
       "2025": 9,
-      "2026": 7
+      "2026": 8
     }
   },
   "doi:10.1016/j.csi.2018.04.010": {
@@ -1165,16 +1161,16 @@
     "tldr": "The Integrated Risk Management Process Assessment Model for IT Organizations in an ISO multi-standards context is developed with a Design Science research method.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 46,
+    "citations": 43,
     "citationsByYear": {
       "2018": 3,
       "2019": 2,
       "2020": 4,
-      "2021": 5,
+      "2021": 3,
       "2022": 6,
       "2023": 4,
       "2024": 7,
-      "2025": 9,
+      "2025": 8,
       "2026": 6
     }
   },
@@ -1197,11 +1193,11 @@
     "metadataFetched": "2026-11-02",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 6,
+    "citations": 3,
     "citationsByYear": {
       "2019": 1,
       "2020": 1,
-      "2021": 4
+      "2021": 1
     }
   },
   "doi:10.1016/j.csi.2019.103405": {
@@ -1289,18 +1285,18 @@
     "tldr": "It is still necessary to define a method with the necessary guidelines to implement both software development processes and ITSM processes reducing the amount of effort, especially because some processes of both categories are overlapped.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 156,
+    "citations": 135,
     "citationsByYear": {
       "2012": 7,
-      "2013": 10,
+      "2013": 7,
       "2014": 21,
-      "2015": 19,
-      "2016": 15,
-      "2017": 12,
-      "2018": 16,
-      "2019": 11,
-      "2020": 6,
-      "2021": 7,
+      "2015": 12,
+      "2016": 12,
+      "2017": 10,
+      "2018": 13,
+      "2019": 10,
+      "2020": 5,
+      "2021": 6,
       "2022": 7,
       "2023": 10,
       "2024": 6,
@@ -1359,13 +1355,13 @@
     "tldr": "Recommendations and guidelines for organizational roles transition during the Agile method adoption are proposed based on the results of a grounded theory study with 5 software teams in a large software development company in Spain.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 121,
+    "citations": 125,
     "citationsByYear": {
       "2017": 1,
-      "2018": 4,
+      "2018": 6,
       "2019": 22,
       "2020": 15,
-      "2021": 15,
+      "2021": 17,
       "2022": 18,
       "2023": 17,
       "2024": 13,
@@ -1397,9 +1393,9 @@
     "tldr": "A ready-to-use collaborative game toolbox that is oriented for practical use in project team meetings and designed for agile teams, regardless of the maturity level, to innovate and improve communication and cohesion, and to bring business value out of agile ceremonies is proposed.",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 9,
+    "citations": 10,
     "citationsByYear": {
-      "2019": 1,
+      "2019": 2,
       "2020": 1,
       "2021": 3,
       "2022": 1,
@@ -1433,14 +1429,14 @@
       "status": "gold",
       "license": "cc-by"
     },
-    "citations": 53,
+    "citations": 56,
     "citationsByYear": {
-      "2020": 6,
-      "2021": 4,
+      "2020": 7,
+      "2021": 5,
       "2022": 6,
       "2023": 10,
       "2024": 10,
-      "2025": 11,
+      "2025": 12,
       "2026": 6
     }
   },
@@ -1525,12 +1521,13 @@
     "abstractSource": "Semantic Scholar",
     "openAccessUrl": null,
     "openAccess": null,
-    "citations": 8,
+    "citations": 9,
     "citationsByYear": {
       "2022": 1,
       "2023": 3,
       "2024": 2,
-      "2025": 2
+      "2025": 2,
+      "2026": 1
     }
   },
   "doi:10.1109/ms.2025.3533017": {
@@ -1693,9 +1690,9 @@
       "status": "hybrid",
       "license": "cc-by-nc-nd"
     },
-    "citations": 7,
+    "citations": 8,
     "citationsByYear": {
-      "2025": 1,
+      "2025": 2,
       "2026": 6
     },
     "date": {
